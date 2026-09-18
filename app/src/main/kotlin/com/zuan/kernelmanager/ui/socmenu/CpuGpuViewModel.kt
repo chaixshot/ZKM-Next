@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.zuan.kernelmanager.ui.settings.SettingsPreference
+import com.zuan.kernelmanager.utils.Utils
+import com.zuan.kernelmanager.utils.AdrenoUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -19,6 +21,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONArray
+import org.json.JSONObject
 
 class CpuGpuViewModel(application: Application) : AndroidViewModel(application) {
     private val settingsPreference = SettingsPreference.getInstance(application)
@@ -40,6 +44,46 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
         companion object { val EMPTY = GPUState(CpuGpuUtils.GpuType.UNKNOWN, "N/A", "0") } 
     }
 
+    data class CpuClusterSetting(
+        val policyPath: String,
+        val minFreq: String,
+        val maxFreq: String,
+        val governor: String,
+        val tunables: Map<String, String>? = null
+    )
+
+    data class GpuSetting(
+        val type: String,
+        val currentFreq: String,
+        val minFreq: String? = null,
+        val maxFreq: String? = null,
+        val governor: String? = null,
+        val throttling: String? = null,
+        val adrenoBoost: String? = null,
+        // Advanced Adreno Settings
+        val idlerActive: String? = null,
+        val idlerIdleWait: String? = null,
+        val idlerDownDiff: String? = null,
+        val idlerWorkload: String? = null,
+        val simpleGpuActive: String? = null,
+        val simpleLaziness: String? = null,
+        val simpleRampThreshold: String? = null,
+        val forceNoNap: String? = null,
+        val forceClkOn: String? = null,
+        val forceBusOn: String? = null,
+        val busSplit: String? = null,
+        val defaultPwrlevel: String? = null,
+        val maxPwrlevel: String? = null,
+        val thermalPwrlevel: String? = null
+    )
+
+    data class CpuGpuProfile(
+        val name: String,
+        val cpuSettings: List<CpuClusterSetting>,
+        val gpuSetting: GpuSetting? = null,
+        val cpusets: Map<String, String>? = null
+    )
+
     // Flows
     private val _socName = MutableStateFlow("Processor")
     val socName: StateFlow<String> = _socName
@@ -57,11 +101,153 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
     private val _cpusetList = MutableStateFlow<List<CpusetData>>(emptyList())
     val cpusetList: StateFlow<List<CpusetData>> = _cpusetList
 
+    private val _profiles = MutableStateFlow<List<CpuGpuProfile>>(emptyList())
+    val profiles: StateFlow<List<CpuGpuProfile>> = _profiles
+
     private var job: Job? = null
 
     init {
         loadStaticInfo()
+        loadProfiles()
         startJob()
+    }
+
+    private fun loadProfiles() {
+        viewModelScope.launch {
+            val json = settingsPreference.cpuGpuProfilesJson.value
+        }
+    }
+
+    private fun saveProfilesToPrefs() {
+        val json = profilesToJson(_profiles.value)
+        settingsPreference.setCpuGpuProfilesJson(json)
+    }
+
+    private fun parseProfilesJson(json: String): List<CpuGpuProfile> {
+        val list = mutableListOf<CpuGpuProfile>()
+        try {
+            val array = JSONArray(json)
+            for (i in 0 until array.length()) {
+                val obj = array.getJSONObject(i)
+                val name = obj.getString("name")
+                
+                // CPU
+                val cpuArray = obj.getJSONArray("cpuSettings")
+                val cpuSettings = mutableListOf<CpuClusterSetting>()
+                for (j in 0 until cpuArray.length()) {
+                    val cpuObj = cpuArray.getJSONObject(j)
+                    val tunables = if (cpuObj.has("tunables")) jsonToMap(cpuObj.getJSONObject("tunables")) else null
+                    cpuSettings.add(CpuClusterSetting(
+                        cpuObj.getString("policyPath"),
+                        cpuObj.getString("minFreq"),
+                        cpuObj.getString("maxFreq"),
+                        cpuObj.getString("governor"),
+                        tunables
+                    ))
+                }
+                
+                // GPU
+                val gpuSetting = if (obj.has("gpuSetting") && !obj.isNull("gpuSetting")) {
+                    val gpuObj = obj.getJSONObject("gpuSetting")
+                    GpuSetting(
+                        type = gpuObj.getString("type"),
+                        currentFreq = gpuObj.getString("currentFreq"),
+                        minFreq = if (gpuObj.has("minFreq")) gpuObj.getString("minFreq") else null,
+                        maxFreq = if (gpuObj.has("maxFreq")) gpuObj.getString("maxFreq") else null,
+                        governor = if (gpuObj.has("governor")) gpuObj.getString("governor") else null,
+                        throttling = if (gpuObj.has("throttling")) gpuObj.getString("throttling") else null,
+                        adrenoBoost = if (gpuObj.has("adrenoBoost")) gpuObj.getString("adrenoBoost") else null,
+                        idlerActive = if (gpuObj.has("idlerActive")) gpuObj.getString("idlerActive") else null,
+                        idlerIdleWait = if (gpuObj.has("idlerIdleWait")) gpuObj.getString("idlerIdleWait") else null,
+                        idlerDownDiff = if (gpuObj.has("idlerDownDiff")) gpuObj.getString("idlerDownDiff") else null,
+                        idlerWorkload = if (gpuObj.has("idlerWorkload")) gpuObj.getString("idlerWorkload") else null,
+                        simpleGpuActive = if (gpuObj.has("simpleGpuActive")) gpuObj.getString("simpleGpuActive") else null,
+                        simpleLaziness = if (gpuObj.has("simpleLaziness")) gpuObj.getString("simpleLaziness") else null,
+                        simpleRampThreshold = if (gpuObj.has("simpleRampThreshold")) gpuObj.getString("simpleRampThreshold") else null,
+                        forceNoNap = if (gpuObj.has("forceNoNap")) gpuObj.getString("forceNoNap") else null,
+                        forceClkOn = if (gpuObj.has("forceClkOn")) gpuObj.getString("forceClkOn") else null,
+                        forceBusOn = if (gpuObj.has("forceBusOn")) gpuObj.getString("forceBusOn") else null,
+                        busSplit = if (gpuObj.has("busSplit")) gpuObj.getString("busSplit") else null,
+                        defaultPwrlevel = if (gpuObj.has("defaultPwrlevel")) gpuObj.getString("defaultPwrlevel") else null,
+                        maxPwrlevel = if (gpuObj.has("maxPwrlevel")) gpuObj.getString("maxPwrlevel") else null,
+                        thermalPwrlevel = if (gpuObj.has("thermalPwrlevel")) gpuObj.getString("thermalPwrlevel") else null
+                    )
+                } else null
+
+                list.add(CpuGpuProfile(name, cpuSettings, gpuSetting, if (obj.has("cpusets")) jsonToMap(obj.optJSONObject("cpusets")) else null))
+            }
+        } catch (e: Exception) { e.printStackTrace() }
+        return list
+    }
+
+    private fun profilesToJson(profiles: List<CpuGpuProfile>): String {
+        val array = JSONArray()
+        profiles.forEach { profile ->
+            val obj = JSONObject()
+            obj.put("name", profile.name)
+            
+            // CPU
+            val cpuArray = JSONArray()
+            profile.cpuSettings.forEach { cpu ->
+                val cpuObj = JSONObject()
+                cpuObj.put("policyPath", cpu.policyPath)
+                cpuObj.put("minFreq", cpu.minFreq)
+                cpuObj.put("maxFreq", cpu.maxFreq)
+                cpuObj.put("governor", cpu.governor)
+                cpu.tunables?.let { cpuObj.put("tunables", mapToJson(it)) }
+                cpuArray.put(cpuObj)
+            }
+            obj.put("cpuSettings", cpuArray)
+            
+            // GPU
+            profile.gpuSetting?.let { gpu ->
+                val gpuObj = JSONObject()
+                gpuObj.put("type", gpu.type)
+                gpuObj.put("currentFreq", gpu.currentFreq)
+                gpu.minFreq?.let { gpuObj.put("minFreq", it) }
+                gpu.maxFreq?.let { gpuObj.put("maxFreq", it) }
+                gpu.governor?.let { gpuObj.put("governor", it) }
+                gpu.throttling?.let { gpuObj.put("throttling", it) }
+                gpu.adrenoBoost?.let { gpuObj.put("adrenoBoost", it) }
+                gpu.idlerActive?.let { gpuObj.put("idlerActive", it) }
+                gpu.idlerIdleWait?.let { gpuObj.put("idlerIdleWait", it) }
+                gpu.idlerDownDiff?.let { gpuObj.put("idlerDownDiff", it) }
+                gpu.idlerWorkload?.let { gpuObj.put("idlerWorkload", it) }
+                gpu.simpleGpuActive?.let { gpuObj.put("simpleGpuActive", it) }
+                gpu.simpleLaziness?.let { gpuObj.put("simpleLaziness", it) }
+                gpu.simpleRampThreshold?.let { gpuObj.put("simpleRampThreshold", it) }
+                gpu.forceNoNap?.let { gpuObj.put("forceNoNap", it) }
+                gpu.forceClkOn?.let { gpuObj.put("forceClkOn", it) }
+                gpu.forceBusOn?.let { gpuObj.put("forceBusOn", it) }
+                gpu.busSplit?.let { gpuObj.put("busSplit", it) }
+                gpu.defaultPwrlevel?.let { gpuObj.put("defaultPwrlevel", it) }
+                gpu.maxPwrlevel?.let { gpuObj.put("maxPwrlevel", it) }
+                gpu.thermalPwrlevel?.let { gpuObj.put("thermalPwrlevel", it) }
+                obj.put("gpuSetting", gpuObj)
+            }
+            
+            profile.cpusets?.let { obj.put("cpusets", mapToJson(it)) }
+
+            array.put(obj)
+        }
+        return array.toString()
+    }
+
+    private fun mapToJson(map: Map<String, String>): JSONObject {
+        val obj = JSONObject()
+        map.forEach { (k, v) -> obj.put(k, v) }
+        return obj
+    }
+
+    private fun jsonToMap(obj: JSONObject?): Map<String, String> {
+        if (obj == null) return emptyMap()
+        val map = mutableMapOf<String, String>()
+        val keys = obj.keys()
+        while (keys.hasNext()) {
+            val key = keys.next()
+            map[key] = obj.getString(key)
+        }
+        return map
     }
 
     private fun loadStaticInfo() {
@@ -214,6 +400,187 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
             }
             CpuGpuUtils.applyCpuset(cpusetPath, selectedCores)
             loadCpusetData()
+        }
+    }
+
+    // --- Profile Actions ---
+
+    fun saveCurrentToProfile(name: String) {
+        // Pre-insert an entry with the name immediately on the UI thread for instant UX feedback
+        val initialList = _profiles.value.toMutableList()
+        val preIndex = initialList.indexOfFirst { it.name == name }
+        if (preIndex == -1) {
+            initialList.add(CpuGpuProfile(name, emptyList(), null))
+            _profiles.value = initialList
+        }
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val currentCpu = _clusterStates.value.map { cluster ->
+                val tunables = CpuGpuUtils.getGovernorTunables(cluster.policyPath, cluster.gov)
+                    .associate { it.name to it.value }
+                CpuClusterSetting(cluster.policyPath, cluster.minFreq, cluster.maxFreq, cluster.gov, tunables)
+            }
+            val currentGpu = if (_gpuState.value.type != CpuGpuUtils.GpuType.UNKNOWN) {
+                val type = _gpuState.value.type
+                if (type == CpuGpuUtils.GpuType.ADRENO) {
+                    GpuSetting(
+                        type = type.name,
+                        currentFreq = _gpuState.value.currentFreq,
+                        minFreq = CpuGpuUtils.readFreqGPU("/sys/class/kgsl/kgsl-3d0/min_clock_mhz"),
+                        maxFreq = CpuGpuUtils.readFreqGPU("/sys/class/kgsl/kgsl-3d0/max_clock_mhz"),
+                        governor = Utils.readFile("/sys/class/kgsl/kgsl-3d0/devfreq/governor"),
+                        throttling = Utils.readFile("/sys/class/kgsl/kgsl-3d0/throttling"),
+                        adrenoBoost = Utils.readFile("/sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost"),
+                        idlerActive = Utils.readFile(AdrenoUtils.IDLER_ACTIVE),
+                        idlerIdleWait = Utils.readFile(AdrenoUtils.IDLER_IDLEWAIT),
+                        idlerDownDiff = Utils.readFile(AdrenoUtils.IDLER_DOWNDIFF),
+                        idlerWorkload = Utils.readFile(AdrenoUtils.IDLER_WORKLOAD),
+                        simpleGpuActive = Utils.readFile(AdrenoUtils.SIMPLE_GPU_ACTIVATE),
+                        simpleLaziness = Utils.readFile(AdrenoUtils.SIMPLE_GPU_LAZINESS),
+                        simpleRampThreshold = Utils.readFile(AdrenoUtils.SIMPLE_RAMP_THRESHOLD),
+                        forceNoNap = Utils.readFile("${AdrenoUtils.KGSL_3D0_DIR}/force_no_nap"),
+                        forceClkOn = Utils.readFile("${AdrenoUtils.KGSL_3D0_DIR}/force_clk_on"),
+                        forceBusOn = Utils.readFile("${AdrenoUtils.KGSL_3D0_DIR}/force_bus_on"),
+                        busSplit = Utils.readFile("${AdrenoUtils.KGSL_3D0_DIR}/bus_split"),
+                        defaultPwrlevel = Utils.readFile("${AdrenoUtils.KGSL_3D0_DIR}/default_pwrlevel"),
+                        maxPwrlevel = Utils.readFile("${AdrenoUtils.KGSL_3D0_DIR}/max_pwrlevel"),
+                        thermalPwrlevel = Utils.readFile("${AdrenoUtils.KGSL_3D0_DIR}/thermal_pwrlevel")
+                    )
+                } else if (type == CpuGpuUtils.GpuType.GENERIC_DEVFREQ) {
+                    val path = GenericGpuUtils.getGpuPath()
+                    GpuSetting(
+                        type = type.name,
+                        currentFreq = _gpuState.value.currentFreq,
+                        minFreq = path?.let { GenericGpuUtils.getMinFreq(it) },
+                        maxFreq = path?.let { GenericGpuUtils.getMaxFreq(it) },
+                        governor = path?.let { GenericGpuUtils.getGov(it) }
+                    )
+                } else {
+                    GpuSetting(type.name, _gpuState.value.currentFreq)
+                }
+            } else null
+            
+            val cpusets = _cpusetList.value.associate { it.key to it.value }
+            
+            val newProfile = CpuGpuProfile(name, currentCpu, currentGpu, cpusets)
+            val newList = _profiles.value.toMutableList()
+            // Check if exists, replace or add
+            val index = newList.indexOfFirst { it.name == name }
+            if (index != -1) newList[index] = newProfile else newList.add(newProfile)
+            
+            _profiles.value = newList
+            saveProfilesToPrefs()
+            
+            withContext(Dispatchers.Main) {
+                Toast.makeText(getApplication(), "Profile '$name' saved.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    fun applyProfile(profile: CpuGpuProfile, isAutoApply: Boolean = false) {
+        viewModelScope.launch(Dispatchers.IO) {
+            // CPU
+            profile.cpuSettings.forEach { cpu ->
+                CpuGpuUtils.writeFreq(cpu.policyPath, "scaling_min_freq", cpu.minFreq)
+                CpuGpuUtils.writeFreq(cpu.policyPath, "scaling_max_freq", cpu.maxFreq)
+                CpuGpuUtils.writeGov(cpu.policyPath, cpu.governor)
+                cpu.tunables?.forEach { (name, value) ->
+                    val path = "${cpu.policyPath}/${cpu.governor}/$name"
+                    CpuGpuUtils.writeTunable(path, value)
+                }
+            }
+            
+            // GPU
+            profile.gpuSetting?.let { gpu ->
+                if (gpu.type == CpuGpuUtils.GpuType.ADRENO.name) {
+                    if (!gpu.minFreq.isNullOrEmpty()) {
+                        val freqMHzLong = gpu.minFreq.toLongOrNull()
+                        if (freqMHzLong != null) Shell.cmd("echo ${freqMHzLong * 1000000} > /sys/class/kgsl/kgsl-3d0/min_clock_mhz").exec()
+                    }
+                    if (!gpu.maxFreq.isNullOrEmpty()) {
+                        val freqMHzLong = gpu.maxFreq.toLongOrNull()
+                        if (freqMHzLong != null) Shell.cmd("echo ${freqMHzLong * 1000000} > /sys/class/kgsl/kgsl-3d0/max_clock_mhz").exec()
+                    }
+                    if (!gpu.governor.isNullOrEmpty()) {
+                        Shell.cmd("echo ${gpu.governor} > /sys/class/kgsl/kgsl-3d0/devfreq/governor").exec()
+                    }
+                    if (!gpu.throttling.isNullOrEmpty()) {
+                        Shell.cmd("echo ${gpu.throttling} > /sys/class/kgsl/kgsl-3d0/throttling").exec()
+                    }
+                    if (!gpu.adrenoBoost.isNullOrEmpty()) {
+                        Shell.cmd("echo ${gpu.adrenoBoost} > /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost").exec()
+                    }
+                    
+                    // Advanced Adreno Settings
+                    if (!gpu.idlerActive.isNullOrEmpty()) Shell.cmd("echo ${gpu.idlerActive} > ${AdrenoUtils.IDLER_ACTIVE}").exec()
+                    if (!gpu.idlerIdleWait.isNullOrEmpty()) Shell.cmd("echo ${gpu.idlerIdleWait} > ${AdrenoUtils.IDLER_IDLEWAIT}").exec()
+                    if (!gpu.idlerDownDiff.isNullOrEmpty()) Shell.cmd("echo ${gpu.idlerDownDiff} > ${AdrenoUtils.IDLER_DOWNDIFF}").exec()
+                    if (!gpu.idlerWorkload.isNullOrEmpty()) Shell.cmd("echo ${gpu.idlerWorkload} > ${AdrenoUtils.IDLER_WORKLOAD}").exec()
+                    
+                    if (!gpu.simpleGpuActive.isNullOrEmpty()) Shell.cmd("echo ${gpu.simpleGpuActive} > ${AdrenoUtils.SIMPLE_GPU_ACTIVATE}").exec()
+                    if (!gpu.simpleLaziness.isNullOrEmpty()) Shell.cmd("echo ${gpu.simpleLaziness} > ${AdrenoUtils.SIMPLE_GPU_LAZINESS}").exec()
+                    if (!gpu.simpleRampThreshold.isNullOrEmpty()) Shell.cmd("echo ${gpu.simpleRampThreshold} > ${AdrenoUtils.SIMPLE_RAMP_THRESHOLD}").exec()
+                    
+                    if (!gpu.forceNoNap.isNullOrEmpty()) Shell.cmd("echo ${gpu.forceNoNap} > /sys/class/kgsl/kgsl-3d0/force_no_nap").exec()
+                    if (!gpu.forceClkOn.isNullOrEmpty()) Shell.cmd("echo ${gpu.forceClkOn} > /sys/class/kgsl/kgsl-3d0/force_clk_on").exec()
+                    if (!gpu.forceBusOn.isNullOrEmpty()) Shell.cmd("echo ${gpu.forceBusOn} > /sys/class/kgsl/kgsl-3d0/force_bus_on").exec()
+                    if (!gpu.busSplit.isNullOrEmpty()) Shell.cmd("echo ${gpu.busSplit} > /sys/class/kgsl/kgsl-3d0/bus_split").exec()
+                    
+                    if (!gpu.defaultPwrlevel.isNullOrEmpty()) Shell.cmd("echo ${gpu.defaultPwrlevel} > /sys/class/kgsl/kgsl-3d0/default_pwrlevel").exec()
+                    if (!gpu.maxPwrlevel.isNullOrEmpty()) Shell.cmd("echo ${gpu.maxPwrlevel} > /sys/class/kgsl/kgsl-3d0/max_clock_mhz").exec() // Note: max_pwrlevel might be different node but max_clock_mhz is often used
+                    // Correction: use specific pwrlevel nodes if they exist
+                    if (!gpu.maxPwrlevel.isNullOrEmpty()) Shell.cmd("echo ${gpu.maxPwrlevel} > /sys/class/kgsl/kgsl-3d0/max_pwrlevel").exec()
+                    if (!gpu.thermalPwrlevel.isNullOrEmpty()) Shell.cmd("echo ${gpu.thermalPwrlevel} > /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel").exec()
+
+                    Shell.cmd("echo ${gpu.currentFreq} > /sys/class/kgsl/kgsl-3d0/gpuclk").exec()
+                } else if (gpu.type == CpuGpuUtils.GpuType.GENERIC_DEVFREQ.name) {
+                    GenericGpuUtils.getGpuPath()?.let { path ->
+                        if (!gpu.minFreq.isNullOrEmpty()) GenericGpuUtils.setFreq(path, "min", gpu.minFreq)
+                        if (!gpu.maxFreq.isNullOrEmpty()) GenericGpuUtils.setFreq(path, "max", gpu.maxFreq)
+                        if (!gpu.governor.isNullOrEmpty()) GenericGpuUtils.setGov(path, gpu.governor)
+                    }
+                }
+            }
+            
+            profile.cpusets?.forEach { (key, value) ->
+                val path = "/dev/cpuset/$key/cpus"
+                if (Utils.testFile(path)) Shell.cmd("echo \"$value\" > $path").exec()
+            }
+            
+            loadDynamicCPUData()
+            loadGPUData()
+            loadCpusetData()
+            
+            settingsPreference.setSelectedCpuProfileName(profile.name)
+            
+            withContext(Dispatchers.Main) {
+                val message = if (isAutoApply) "Auto-applied profile '${profile.name}'" else "Profile '${profile.name}' applied."
+                Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    fun deleteProfile(profile: CpuGpuProfile) {
+        val newList = _profiles.value.filter { it.name != profile.name }
+        _profiles.value = newList
+        saveProfilesToPrefs()
+        
+        // Clear selected profile if it was deleted
+        if (settingsPreference.selectedCpuProfileName.value == profile.name) {
+            settingsPreference.setSelectedCpuProfileName(null)
+        }
+    }
+
+    fun renameProfile(profile: CpuGpuProfile, newName: String) {
+        val newList = _profiles.value.map { 
+            if (it.name == profile.name) it.copy(name = newName) else it 
+        }
+        _profiles.value = newList
+        saveProfilesToPrefs()
+        
+        // Update selected profile name if it was renamed
+        if (settingsPreference.selectedCpuProfileName.value == profile.name) {
+            settingsPreference.setSelectedCpuProfileName(newName)
         }
     }
 }

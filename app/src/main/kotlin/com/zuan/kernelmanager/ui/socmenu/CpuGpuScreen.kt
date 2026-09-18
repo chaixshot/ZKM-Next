@@ -5,18 +5,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  */
-@file:OptIn(ExperimentalHazeMaterialsApi::class, ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalHazeMaterialsApi::class, ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 
 package com.zuan.kernelmanager.ui.socmenu
 
 import android.widget.Toast
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -104,6 +109,8 @@ fun CpuGpuScreen(
     val clusters by viewModel.clusterStates.collectAsStateWithLifecycle()
     val gpuState by viewModel.gpuState.collectAsStateWithLifecycle()
     val cpusets by viewModel.cpusetList.collectAsStateWithLifecycle()
+    val profiles by viewModel.profiles.collectAsStateWithLifecycle()
+    val selectedProfileName by settingsViewModel.selectedCpuProfileName.collectAsState()
     
     val themeMode by settingsViewModel.themeMode.collectAsState()
     val isCustomBg by settingsViewModel.isCustomBackground.collectAsState()
@@ -152,6 +159,10 @@ fun CpuGpuScreen(
     
     val iconTint = MaterialTheme.colorScheme.onSecondaryContainer
 
+    var showNewProfileDialog by remember { mutableStateOf(false) }
+    var showRenameDialog by remember { mutableStateOf<CpuGpuViewModel.CpuGpuProfile?>(null) }
+    var profileNameInput by remember { mutableStateOf("") }
+
     var selectedCluster by remember { mutableStateOf<CpuGpuViewModel.CPUState?>(null) }
     val context = LocalContext.current
 
@@ -169,6 +180,23 @@ fun CpuGpuScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         contentPadding = PaddingValues(bottom = 100.dp)
     ) {
+        item {
+            ProfileSection(
+                profiles = profiles,
+                selectedProfileName = selectedProfileName,
+                onProfileClick = { viewModel.applyProfile(it) },
+                onNewClick = { showNewProfileDialog = true },
+                onSaveCurrent = { viewModel.saveCurrentToProfile(it.name) },
+                onRename = { showRenameDialog = it },
+                onDelete = { viewModel.deleteProfile(it) },
+                profileName = { it.name },
+                effectivePrimary = effectivePrimary,
+                solidCardColor = solidCardColor,
+                isGlassActive = isGlassActive,
+                subContentColor = subContentColor
+            )
+        }
+
         item { CpuSectionTitle(socName, subContentColor) }
         
         items(clusters) { cluster ->
@@ -248,6 +276,66 @@ fun CpuGpuScreen(
                 onDismiss = { selectedCluster = null }
             )
         }
+    }
+
+    if (showNewProfileDialog) {
+        AlertDialog(
+            onDismissRequest = { showNewProfileDialog = false },
+            title = { Text("New Profile") },
+            text = {
+                OutlinedTextField(
+                    value = profileNameInput,
+                    onValueChange = { profileNameInput = it },
+                    label = { Text("Profile Name") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        if (profileNameInput.isNotBlank()) {
+                            viewModel.saveCurrentToProfile(profileNameInput)
+                            profileNameInput = ""
+                            showNewProfileDialog = false
+                        }
+                    }
+                ) { Text("Save") }
+            },
+            dismissButton = {
+                TextButton(onClick = { showNewProfileDialog = false }) { Text("Cancel") }
+            }
+        )
+    }
+
+    if (showRenameDialog != null) {
+        var renameInput by remember(showRenameDialog) { mutableStateOf(showRenameDialog?.name ?: "") }
+        AlertDialog(
+            onDismissRequest = { showRenameDialog = null },
+            title = { Text("Rename Profile") },
+            text = {
+                OutlinedTextField(
+                    value = renameInput,
+                    onValueChange = { renameInput = it },
+                    label = { Text("New Name") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        if (renameInput.isNotBlank()) {
+                            viewModel.renameProfile(showRenameDialog!!, renameInput)
+                            showRenameDialog = null
+                        }
+                    }
+                ) { Text("Rename") }
+            },
+            dismissButton = {
+                TextButton(onClick = { showRenameDialog = null }) { Text("Cancel") }
+            }
+        )
     }
 }
 

@@ -191,6 +191,30 @@ class SettingsPreference(context: Context) {
     private val _acceptedRisk = MutableStateFlow(getAcceptedRisk())
     val acceptedRisk: StateFlow<Boolean> = _acceptedRisk.asStateFlow()
 
+    private val _cpuGpuProfilesJson = MutableStateFlow(getCpuGpuProfilesJson())
+    val cpuGpuProfilesJson: StateFlow<String> = _cpuGpuProfilesJson.asStateFlow()
+
+    private val _selectedCpuProfileName = MutableStateFlow(getSelectedCpuProfileName())
+    val selectedCpuProfileName: StateFlow<String?> = _selectedCpuProfileName.asStateFlow()
+
+    private val _schedProfilesJson = MutableStateFlow(getSchedProfilesJson())
+    val schedProfilesJson: StateFlow<String> = _schedProfilesJson.asStateFlow()
+
+    private val _selectedSchedProfileName = MutableStateFlow(getSelectedSchedProfileName())
+    val selectedSchedProfileName: StateFlow<String?> = _selectedSchedProfileName.asStateFlow()
+
+    private val _memProfilesJson = MutableStateFlow(getMemProfilesJson())
+    val memProfilesJson: StateFlow<String> = _memProfilesJson.asStateFlow()
+
+    private val _selectedMemProfileName = MutableStateFlow(getSelectedMemProfileName())
+    val selectedMemProfileName: StateFlow<String?> = _selectedMemProfileName.asStateFlow()
+
+    private val _netProfilesJson = MutableStateFlow(getNetProfilesJson())
+    val netProfilesJson: StateFlow<String> = _netProfilesJson.asStateFlow()
+
+    private val _selectedNetProfileName = MutableStateFlow(getSelectedNetProfileName())
+    val selectedNetProfileName: StateFlow<String?> = _selectedNetProfileName.asStateFlow()
+
     companion object {
         private const val THEME_KEY = "theme_mode"
         private const val THEME_COLOR_KEY = "theme_color_name"
@@ -235,6 +259,15 @@ class SettingsPreference(context: Context) {
         private const val HAS_COMPLETED_INTRO_KEY = "has_completed_intro"
         private const val ACCEPTED_TERMS_KEY = "accepted_terms"
         private const val ACCEPTED_RISK_KEY = "accepted_risk"
+        
+        private const val CPU_GPU_PROFILES_KEY = "cpu_gpu_profiles_json"
+        private const val SELECTED_CPU_PROFILE_NAME_KEY = "selected_cpu_profile_name"
+        private const val SCHED_PROFILES_KEY = "sched_profiles_json"
+        private const val SELECTED_SCHED_PROFILE_NAME_KEY = "selected_sched_profile_name"
+        private const val MEM_PROFILES_KEY = "mem_profiles_json"
+        private const val SELECTED_MEM_PROFILE_NAME_KEY = "selected_mem_profile_name"
+        private const val NET_PROFILES_KEY = "net_profiles_json"
+        private const val SELECTED_NET_PROFILE_NAME_KEY = "selected_net_profile_name"
 
         private const val DEFAULT_POLLING_INTERVAL = 3000L
         private const val DEFAULT_DPI = 0
@@ -376,6 +409,54 @@ class SettingsPreference(context: Context) {
         _acceptedRisk.value = accepted 
     }
     private fun getAcceptedRisk(): Boolean = prefs.getBoolean(ACCEPTED_RISK_KEY, false)
+
+    fun setCpuGpuProfilesJson(json: String) {
+        prefs.edit { putString(CPU_GPU_PROFILES_KEY, json) }
+        _cpuGpuProfilesJson.value = json
+    }
+    private fun getCpuGpuProfilesJson(): String = prefs.getString(CPU_GPU_PROFILES_KEY, "[]") ?: "[]"
+
+    fun setSelectedCpuProfileName(name: String?) {
+        prefs.edit { putString(SELECTED_CPU_PROFILE_NAME_KEY, name) }
+        _selectedCpuProfileName.value = name
+    }
+    private fun getSelectedCpuProfileName(): String? = prefs.getString(SELECTED_CPU_PROFILE_NAME_KEY, null)
+
+    fun setSchedProfilesJson(json: String) {
+        prefs.edit { putString(SCHED_PROFILES_KEY, json) }
+        _schedProfilesJson.value = json
+    }
+    private fun getSchedProfilesJson(): String = prefs.getString(SCHED_PROFILES_KEY, "[]") ?: "[]"
+
+    fun setSelectedSchedProfileName(name: String?) {
+        prefs.edit { putString(SELECTED_SCHED_PROFILE_NAME_KEY, name) }
+        _selectedSchedProfileName.value = name
+    }
+    private fun getSelectedSchedProfileName(): String? = prefs.getString(SELECTED_SCHED_PROFILE_NAME_KEY, null)
+
+    fun setMemProfilesJson(json: String) {
+        prefs.edit { putString(MEM_PROFILES_KEY, json) }
+        _memProfilesJson.value = json
+    }
+    private fun getMemProfilesJson(): String = prefs.getString(MEM_PROFILES_KEY, "[]") ?: "[]"
+
+    fun setSelectedMemProfileName(name: String?) {
+        prefs.edit { putString(SELECTED_MEM_PROFILE_NAME_KEY, name) }
+        _selectedMemProfileName.value = name
+    }
+    private fun getSelectedMemProfileName(): String? = prefs.getString(SELECTED_MEM_PROFILE_NAME_KEY, null)
+
+    fun setNetProfilesJson(json: String) {
+        prefs.edit { putString(NET_PROFILES_KEY, json) }
+        _netProfilesJson.value = json
+    }
+    private fun getNetProfilesJson(): String = prefs.getString(NET_PROFILES_KEY, "[]") ?: "[]"
+
+    fun setSelectedNetProfileName(name: String?) {
+        prefs.edit { putString(SELECTED_NET_PROFILE_NAME_KEY, name) }
+        _selectedNetProfileName.value = name
+    }
+    private fun getSelectedNetProfileName(): String? = prefs.getString(SELECTED_NET_PROFILE_NAME_KEY, null)
 }
 
 private fun SharedPreferences.toFloat(key: String, defValue: Float): Float = try { this.getFloat(key, defValue) } catch (e: Exception) { defValue }

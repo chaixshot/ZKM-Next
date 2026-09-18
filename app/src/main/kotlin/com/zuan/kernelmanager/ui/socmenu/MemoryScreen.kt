@@ -54,16 +54,39 @@ fun MemoryScreen(
     val mem by viewModel.mem.collectAsStateWithLifecycle()
     val zramState by viewModel.zram.collectAsStateWithLifecycle()
     val ioDevices by viewModel.ioDevices.collectAsStateWithLifecycle()
+    val profiles by viewModel.profiles.collectAsStateWithLifecycle()
+    val selectedProfileName by settingsViewModel.selectedMemProfileName.collectAsState()
 
     val isCustomBg by settingsViewModel.isCustomBackground.collectAsStateWithLifecycle()
     val isHazeEnabled by settingsViewModel.isHazeEnabled.collectAsStateWithLifecycle()
     val cardDarkness by settingsViewModel.cardDarkness.collectAsStateWithLifecycle()
     val isGlassActive = isCustomBg && isHazeEnabled
 
+    var showNewProfileDialog by remember { mutableStateOf(false) }
+    var profileNameInput by remember { mutableStateOf("") }
+    var showRenameDialog by remember { mutableStateOf<MemoryViewModel.MemoryProfile?>(null) }
+
     LazyColumn(
         modifier = Modifier.fillMaxSize(), 
         contentPadding = PaddingValues(bottom = 130.dp)
     ) {
+        item {
+            ProfileSection(
+                profiles = profiles,
+                selectedProfileName = selectedProfileName,
+                onProfileClick = { viewModel.applyProfile(it) },
+                onNewClick = { showNewProfileDialog = true },
+                onSaveCurrent = { viewModel.saveCurrentToProfile(it.name) },
+                onRename = { showRenameDialog = it },
+                onDelete = { viewModel.deleteProfile(it) },
+                profileName = { it.name },
+                effectivePrimary = activeColor,
+                solidCardColor = cardBg,
+                isGlassActive = isGlassActive,
+                subContentColor = subContentColor
+            )
+        }
+
         item {
             SectionTitle(stringResource(R.string.zram_manager), subContentColor)
             ZramCard(
@@ -128,6 +151,66 @@ fun MemoryScreen(
                 SmartSlider(stringResource(R.string.dirty_bg_ratio), mem.dirtyBackgroundRatio, MemoryUtils.DIRTY_BACKGROUND_RATIO, viewModel, activeColor, cardBg, contentColor, subContentColor, isGlassActive, hazeState, cardDarkness)
             }
         }
+    }
+
+    if (showNewProfileDialog) {
+        AlertDialog(
+            onDismissRequest = { showNewProfileDialog = false },
+            title = { Text("New Profile") },
+            text = {
+                OutlinedTextField(
+                    value = profileNameInput,
+                    onValueChange = { profileNameInput = it },
+                    label = { Text("Profile Name") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        if (profileNameInput.isNotBlank()) {
+                            viewModel.saveCurrentToProfile(profileNameInput)
+                            profileNameInput = ""
+                            showNewProfileDialog = false
+                        }
+                    }
+                ) { Text("Save") }
+            },
+            dismissButton = {
+                TextButton(onClick = { showNewProfileDialog = false }) { Text("Cancel") }
+            }
+        )
+    }
+
+    if (showRenameDialog != null) {
+        var renameInput by remember(showRenameDialog) { mutableStateOf(showRenameDialog?.name ?: "") }
+        AlertDialog(
+            onDismissRequest = { showRenameDialog = null },
+            title = { Text("Rename Profile") },
+            text = {
+                OutlinedTextField(
+                    value = renameInput,
+                    onValueChange = { renameInput = it },
+                    label = { Text("New Name") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        if (renameInput.isNotBlank()) {
+                            viewModel.renameProfile(showRenameDialog!!, renameInput)
+                            showRenameDialog = null
+                        }
+                    }
+                ) { Text("Rename") }
+            },
+            dismissButton = {
+                TextButton(onClick = { showRenameDialog = null }) { Text("Cancel") }
+            }
+        )
     }
 }
 

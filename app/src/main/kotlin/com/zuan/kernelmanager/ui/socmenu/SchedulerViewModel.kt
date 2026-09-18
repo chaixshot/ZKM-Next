@@ -8,15 +8,22 @@
  */
 package com.zuan.kernelmanager.ui.socmenu
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import com.zuan.kernelmanager.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import android.app.Application
+import android.widget.Toast
+import org.json.JSONArray
+import org.json.JSONObject
 
-class SchedulerViewModel : ViewModel() {
+class SchedulerViewModel(application: Application) : AndroidViewModel(application) {
+    private val settingsPreference = SettingsPreference.getInstance(application)
 
     // --- State Classes ---
     data class SchedState(
@@ -41,6 +48,14 @@ class SchedulerViewModel : ViewModel() {
         val value: String
     )
 
+    data class SchedulerProfile(
+        val name: String,
+        val toggles: Map<String, String>,
+        val bore: Int?,
+        val uclamp: Map<String, String>,
+        val genericTunables: Map<String, String>
+    )
+
     // --- State Flows ---
     private val _sched = MutableStateFlow(SchedState())
     val sched: StateFlow<SchedState> = _sched
@@ -54,8 +69,73 @@ class SchedulerViewModel : ViewModel() {
     private val _genericTunables = MutableStateFlow<List<TunableItem>>(emptyList())
     val genericTunables: StateFlow<List<TunableItem>> = _genericTunables
 
+    private val _profiles = MutableStateFlow<List<SchedulerProfile>>(emptyList())
+    val profiles: StateFlow<List<SchedulerProfile>> = _profiles
+
     init {
         refreshData()
+        loadProfiles()
+    }
+
+    private fun loadProfiles() {
+        viewModelScope.launch {
+            val json = settingsPreference.schedProfilesJson.value
+            _profiles.value = parseProfilesJson(json)
+        }
+    }
+
+    private fun saveProfilesToPrefs() {
+        val json = profilesToJson(_profiles.value)
+        settingsPreference.setSchedProfilesJson(json)
+    }
+
+    private fun parseProfilesJson(json: String): List<SchedulerProfile> {
+        val list = mutableListOf<SchedulerProfile>()
+        try {
+            val array = JSONArray(json)
+            for (i in 0 until array.length()) {
+                val obj = array.getJSONObject(i)
+                list.add(SchedulerProfile(
+                    name = obj.getString("name"),
+                    toggles = jsonToMap(obj.optJSONObject("toggles")),
+                    bore = if (obj.has("bore") && !obj.isNull("bore")) obj.getInt("bore") else null,
+                    uclamp = jsonToMap(obj.optJSONObject("uclamp")),
+                    genericTunables = jsonToMap(obj.optJSONObject("genericTunables"))
+                ))
+            }
+        } catch (e: Exception) { e.printStackTrace() }
+        return list
+    }
+
+    private fun profilesToJson(profiles: List<SchedulerProfile>): String {
+        val array = JSONArray()
+        profiles.forEach { profile ->
+            val obj = JSONObject()
+            obj.put("name", profile.name)
+            obj.put("toggles", mapToJson(profile.toggles))
+            profile.bore?.let { obj.put("bore", it) }
+            obj.put("uclamp", mapToJson(profile.uclamp))
+            obj.put("genericTunables", mapToJson(profile.genericTunables))
+            array.put(obj)
+        }
+        return array.toString()
+    }
+
+    private fun mapToJson(map: Map<String, String>): JSONObject {
+        val obj = JSONObject()
+        map.forEach { (k, v) -> obj.put(k, v) }
+        return obj
+    }
+
+    private fun jsonToMap(obj: JSONObject?): Map<String, String> {
+        if (obj == null) return emptyMap()
+        val map = mutableMapOf<String, String>()
+        val keys = obj.keys()
+        while (keys.hasNext()) {
+            val key = keys.next()
+            map[key] = obj.getString(key)
+        }
+        return map
     }
 
     fun refreshData() {
@@ -104,6 +184,90 @@ class SchedulerViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             Utils.writeFile(path, value)
             refreshData()
+        }
+    }
+
+    // --- Profile Actions ---
+
+    fun saveCurrentToProfile(name: String) {
+        val initialList = _profiles.value.toMutableList()
+        val preIndex = initialList.indexOfFirst { it.name == name }
+        if (preIndex == -1) {
+            initialList.add(SchedulerProfile(name, emptyMap(), null, emptyMap(), emptyMap()))
+            _profiles.value = initialList
+        }
+        viewModelScope.launch(Dispatchers.IO) {
+            val toggles = mutableMapOf<String, String>()
+            listOf(
+                SchedulerUtils.SCHED_AUTO_GROUP,
+                SchedulerUtils.SCHED_CHILD_RUNS_FIRST,
+                SchedulerUtils.SCHED_CSTATE_AWARE,
+                SchedulerUtils.SCHED_SCHEDSTATS,
+                SchedulerUtils.SCHED_TUNABLE_SCALING
+            ).forEach { path ->
+                if (Utils.testFile(path)) toggles[path] = Utils.readFile(path)
+            }
+
+            val bore = if (Utils.testFile(SchedulerUtils.BORE)) Utils.readFile(SchedulerUtils.BORE).toIntOrNull() else null
+
+            val uclamp = mutableMapOf<String, String>()
+            listOf(SchedulerUtils.SCHED_UTIL_CLAMP_MAX, SchedulerUtils.SCHED_UTIL_CLAMP_MIN).forEach { path ->
+                if (Utils.testFile(path)) uclamp[path] = Utils.readFile(path)
+            }
+
+            val genericTunables = mutableMapOf<String, String>()
+            SchedulerUtils.GENERIC_SCHED_TUNABLES.values.forEach { path ->
+                if (Utils.testFile(path)) genericTunables[path] = Utils.readFile(path)
+            }
+
+            val newProfile = SchedulerProfile(name, toggles, bore, uclamp, genericTunables)
+            val newList = _profiles.value.toMutableList()
+            val index = newList.indexOfFirst { it.name == name }
+            if (index != -1) newList[index] = newProfile else newList.add(newProfile)
+            
+            _profiles.value = newList
+            saveProfilesToPrefs()
+            
+            withContext(Dispatchers.Main) {
+                Toast.makeText(getApplication(), "Profile '$name' saved.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    fun applyProfile(profile: SchedulerProfile, isAutoApply: Boolean = false) {
+        viewModelScope.launch(Dispatchers.IO) {
+            profile.toggles.forEach { (path, value) -> Utils.writeFile(path, value) }
+            profile.bore?.let { Utils.writeFile(SchedulerUtils.BORE, it.toString()) }
+            profile.uclamp.forEach { (path, value) -> Utils.writeFile(path, value) }
+            profile.genericTunables.forEach { (path, value) -> Utils.writeFile(path, value) }
+            
+            refreshData()
+            settingsPreference.setSelectedSchedProfileName(profile.name)
+            
+            withContext(Dispatchers.Main) {
+                val message = if (isAutoApply) "Auto-applied profile '${profile.name}'" else "Profile '${profile.name}' applied."
+                Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    fun deleteProfile(profile: SchedulerProfile) {
+        val newList = _profiles.value.filter { it.name != profile.name }
+        _profiles.value = newList
+        saveProfilesToPrefs()
+        if (settingsPreference.selectedSchedProfileName.value == profile.name) {
+            settingsPreference.setSelectedSchedProfileName(null)
+        }
+    }
+
+    fun renameProfile(profile: SchedulerProfile, newName: String) {
+        val newList = _profiles.value.map { 
+            if (it.name == profile.name) it.copy(name = newName) else it 
+        }
+        _profiles.value = newList
+        saveProfilesToPrefs()
+        if (settingsPreference.selectedSchedProfileName.value == profile.name) {
+            settingsPreference.setSelectedSchedProfileName(newName)
         }
     }
 }

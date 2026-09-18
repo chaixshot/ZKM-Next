@@ -74,6 +74,11 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     val customSecondaryColor = settingsPreference.customSecondaryColor
     val customTertiaryColor = settingsPreference.customTertiaryColor
 
+    val selectedCpuProfileName = settingsPreference.selectedCpuProfileName
+    val selectedSchedProfileName = settingsPreference.selectedSchedProfileName
+    val selectedMemProfileName = settingsPreference.selectedMemProfileName
+    val selectedNetProfileName = settingsPreference.selectedNetProfileName
+
     // --- UI CONFIG COMBINED ---
     private val visualConfigFlow = combine(
         bgType, solidColor, expressiveThemeId, backgroundImageUri, isVideoWallpaper

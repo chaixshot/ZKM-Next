@@ -5,7 +5,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  */
-@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class, ExperimentalFoundationApi::class)
 
 package com.zuan.kernelmanager.ui.socmenu
 
@@ -13,19 +13,23 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -283,5 +287,124 @@ fun BentoWideDetailCard(
                 Spacer(modifier = Modifier.height(1.dp).fillMaxWidth().background(subContentColor.copy(alpha = 0.08f)))
             }
         }
+    }
+}
+
+@Composable
+fun <T> ProfileSection(
+    profiles: List<T>,
+    selectedProfileName: String?,
+    onProfileClick: (T) -> Unit,
+    onNewClick: () -> Unit,
+    onSaveCurrent: (T) -> Unit,
+    onRename: (T) -> Unit,
+    onDelete: (T) -> Unit,
+    profileName: (T) -> String,
+    effectivePrimary: Color,
+    solidCardColor: Color,
+    isGlassActive: Boolean,
+    subContentColor: Color
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        SectionTitle("Profiles", subContentColor)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .horizontalScroll(rememberScrollState())
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // New Profile Button
+            FilledTonalButton(
+                onClick = onNewClick,
+                shape = RoundedCornerShape(12.dp),
+                contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
+                modifier = Modifier.height(40.dp)
+            ) {
+                Icon(Icons.Rounded.Add, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.width(4.dp))
+                Text("New", style = MaterialTheme.typography.labelLarge)
+            }
+            
+            // Existing Profiles
+            profiles.forEach { profile ->
+                var showMenu by remember { mutableStateOf(false) }
+                val isSelected = profileName(profile) == selectedProfileName
+                val interactionSource = remember { MutableInteractionSource() }
+                
+                Box {
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = when {
+                            isSelected -> effectivePrimary
+                            isGlassActive -> solidCardColor
+                            else -> MaterialTheme.colorScheme.secondaryContainer
+                        },
+                        contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                        modifier = Modifier
+                            .height(40.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                            .combinedClickable(
+                                interactionSource = interactionSource,
+                                indication = ripple(),
+                                onClick = { onProfileClick(profile) },
+                                onLongClick = { showMenu = true }
+                            )
+                            .then(
+                                if (isSelected) Modifier.border(1.dp, effectivePrimary.copy(alpha = 0.5f), RoundedCornerShape(12.dp))
+                                else Modifier
+                            )
+                    ) {
+                        Box(
+                            modifier = Modifier.padding(horizontal = 16.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(profileName(profile), style = MaterialTheme.typography.labelLarge)
+                        }
+                    }
+                    
+                    DropdownMenu(
+                        expanded = showMenu,
+                        onDismissRequest = { showMenu = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("Save Current") },
+                            leadingIcon = { Icon(Icons.Rounded.Save, null) },
+                            onClick = {
+                                onSaveCurrent(profile)
+                                showMenu = false
+                            }
+                        )
+                        DropdownMenuItem(
+                            text = { Text("Rename") },
+                            leadingIcon = { Icon(Icons.Rounded.Edit, null) },
+                            onClick = {
+                                onRename(profile)
+                                showMenu = false
+                            }
+                        )
+                        DropdownMenuItem(
+                            text = { Text("Delete") },
+                            leadingIcon = { Icon(Icons.Rounded.Delete, null, tint = MaterialTheme.colorScheme.error) },
+                            onClick = {
+                                onDelete(profile)
+                                showMenu = false
+                            },
+                            colors = MenuDefaults.itemColors(
+                                textColor = MaterialTheme.colorScheme.error,
+                                leadingIconColor = MaterialTheme.colorScheme.error
+                            )
+                        )
+                    }
+                }
+            }
+        }
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
