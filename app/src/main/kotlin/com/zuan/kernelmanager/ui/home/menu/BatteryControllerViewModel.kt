@@ -14,6 +14,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.zuan.kernelmanager.service.BatteryMonitorService
 import com.zuan.kernelmanager.service.SmartCutoffService
+import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,6 +22,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONArray
+import org.json.JSONObject
+import android.widget.Toast
 
 // --- DATA CLASS BARU UNTUK GRAFIK REAL-TIME ---
 data class ChartPoint(
@@ -30,6 +34,7 @@ data class ChartPoint(
 )
 
 class BatteryControllerViewModel(application: Application) : AndroidViewModel(application) {
+    private val settingsPreference = SettingsPreference.getInstance(application)
 
     // --- DATA UTAMA ---
     private val _batteryInfo = MutableStateFlow<BatteryInfo?>(null)
@@ -63,8 +68,15 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
     private val _chargingSpeed = MutableStateFlow(2000)
     private val _isChargingEnabled = MutableStateFlow(true)
     private val _thermalSconfig = MutableStateFlow("0")
+    
+    private var lastPhysicallyPlugged = true
+    private var unpluggedTimestamp: Long = 0
     private val _hasThermalSconfig = MutableStateFlow(false)
     private val _isSmartChargeSupported = MutableStateFlow(false)
+    private val _isChargingLimitSupported = MutableStateFlow(false)
+
+    private val _profiles = MutableStateFlow<List<BatteryProfile>>(emptyList())
+    val profiles: StateFlow<List<BatteryProfile>> = _profiles
 
     // Exposed Flows
     val batteryInfo: StateFlow<BatteryInfo?> = _batteryInfo
@@ -86,14 +98,11 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
     val thermalSconfig: StateFlow<String> = _thermalSconfig
     val hasThermalSconfig: StateFlow<Boolean> = _hasThermalSconfig
     val isSmartChargeSupported: StateFlow<Boolean> = _isSmartChargeSupported
+    val isChargingLimitSupported: StateFlow<Boolean> = _isChargingLimitSupported
 
     val chargingSpeedOptions = listOf(500, 1000, 1500, 2000, 2500, 3000, 5000)
     val chargingLimitOptions = listOf(50, 60, 70, 80, 85, 90, 95, 100)
     
-    private val PREFS_NAME = "battery_prefs"
-    private val KEY_CUTOFF_LIMIT = "cutoff_limit"
-    private val KEY_MONITOR_ENABLED = "monitor_enabled"
-
     init {
         startAutoRefresh()
     }
@@ -104,7 +113,6 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
                 if (_isAutoRefresh.value) {
                     refreshData()
                 }
-                delay(2000) // Update tiap 2 detik ideal agar grafik terbaca
             }
         }
     }
@@ -114,24 +122,52 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
         viewModelScope.launch(Dispatchers.IO) {
             val info = BatteryControllerUtils.getBatteryInfo(context)
             val stats = BatteryControllerUtils.getChargingStats()
+            val isChargingEnabledVal = BatteryControllerUtils.getChargingEnabledStatus()
             
-            // --- UPDATE PEAK & TRACKING ---
+            // --- PEAK & TRACKING ---
             if (info.temperature > _peakTemp.value) _peakTemp.value = info.temperature
-            
             if (info.isCharging) {
                 if (info.currentNow > _peakChargeCurrent.value) _peakChargeCurrent.value = info.currentNow
             } else {
                 if (info.currentNow > _peakDischargeCurrent.value) _peakDischargeCurrent.value = info.currentNow
             }
 
-            // Update Grafik Array (Maksimal 20 bar agar gemuk dan modern di layar)
             val historyList = _currentHistory.value.toMutableList()
             historyList.add(ChartPoint(System.currentTimeMillis(), info.currentNow, info.isCharging))
-            if (historyList.size > 18) historyList.removeAt(0) // 18 bar pas untuk layar HP
-            
+            if (historyList.size > 18) historyList.removeAt(0)
+
+            // --- AUTO-ENABLE CHARGING LOGIC ---
+            val isCurrentlyPlugged = info.chargingType != "None"
+            val currentTime = System.currentTimeMillis()
+
+            if (!isCurrentlyPlugged) {
+                if (lastPhysicallyPlugged) unpluggedTimestamp = currentTime
+                
+                // Jika sudah dicabut lebih dari 10 detik, pastikan toggle charging ON
+                // Kita izinkan ini jika level di bawah target - 5%, karena itu pasti REAL unplug
+                // (tidak mungkin fake unplug terjadi saat level jauh di bawah target)
+                val targetLimit = _smartCutoffLimit.value
+                val isSafelyBelowTarget = info.level < (targetLimit - 5)
+                
+                if ((!_smartCutoffEnabled.value || isSafelyBelowTarget) && currentTime - unpluggedTimestamp > 10000 && !isChargingEnabledVal) {
+                    BatteryControllerUtils.setChargingEnabled(true)
+                }
+            } else {
+                // Jika baru dicolok (Transition from Unplugged to Plugged)
+                if (!lastPhysicallyPlugged) {
+                    // Pastikan charging aktif saat dicolok kabel
+                    if (!isChargingEnabledVal && !_smartCutoffEnabled.value) {
+                        BatteryControllerUtils.setChargingEnabled(true)
+                    }
+                }
+                unpluggedTimestamp = 0
+            }
+            lastPhysicallyPlugged = isCurrentlyPlugged
+
             withContext(Dispatchers.Main) {
                 _batteryInfo.value = info
                 _chargingStats.value = stats
+                _isChargingEnabled.value = BatteryControllerUtils.getChargingEnabledStatus()
                 _currentHistory.value = historyList
             }
         }
@@ -154,12 +190,14 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
             val bypassStatus = BatteryControllerUtils.getBypassStatus()
             val batterySaver = BatteryControllerUtils.isBatterySaverEnabled()
             val smartChargeSup = BatteryControllerUtils.isSmartChargeSupported()
+            val chargingLimitSup = BatteryControllerUtils.isChargingLimitSupported()
+            val currentLimit = if (chargingLimitSup) BatteryControllerUtils.getChargingLimit() else 100
+            val isChargingEnabledVal = BatteryControllerUtils.getChargingEnabledStatus()
             val hasThermal = BatteryControllerUtils.hasThermalSconfig()
             val thermalVal = if (hasThermal) BatteryControllerUtils.getThermalSconfig() else "0"
             
-            val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-            val savedCutoff = prefs.getFloat(KEY_CUTOFF_LIMIT, 80f)
-            val savedMonitor = prefs.getBoolean(KEY_MONITOR_ENABLED, false)
+            val savedCutoff = settingsPreference.smartCutoffLimit.value
+            val savedMonitor = settingsPreference.batteryMonitorEnabled.value
             
             val isCutoffRunning = isServiceRunning(context, SmartCutoffService::class.java)
             val isMonitorRunning = isServiceRunning(context, BatteryMonitorService::class.java)
@@ -179,6 +217,9 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
                 _isBypassEnabled.value = bypassStatus
                 _isBatterySaverEnabled.value = batterySaver
                 _isSmartChargeSupported.value = smartChargeSup
+                _isChargingLimitSupported.value = chargingLimitSup
+                _chargingLimit.value = currentLimit
+                _isChargingEnabled.value = isChargingEnabledVal
                 _hasThermalSconfig.value = hasThermal
                 _thermalSconfig.value = thermalVal
                 
@@ -192,12 +233,26 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
     }
 
     fun onTabSelected(index: Int) { _selectedTab.value = index }
-    fun setChargingSpeed(mA: Int) { viewModelScope.launch(Dispatchers.IO) { if (BatteryControllerUtils.setChargingSpeed(mA)) _chargingSpeed.value = mA } }
-    fun setChargingLimit(percentage: Int) { viewModelScope.launch(Dispatchers.IO) { if (BatteryControllerUtils.setChargingLimit(percentage)) _chargingLimit.value = percentage } }
+    fun setChargingSpeed(mA: Int) { 
+        viewModelScope.launch(Dispatchers.IO) { 
+            if (BatteryControllerUtils.setChargingSpeed(mA)) {
+                _chargingSpeed.value = mA 
+                settingsPreference.setChargingSpeed(mA)
+            }
+        } 
+    }
+    fun setChargingLimit(percentage: Int) { 
+        viewModelScope.launch(Dispatchers.IO) { 
+            if (BatteryControllerUtils.setChargingLimit(percentage)) {
+                _chargingLimit.value = percentage 
+                settingsPreference.setChargingLimit(percentage)
+            }
+        } 
+    }
     
     fun setSmartCutoffLimit(context: Context, limit: Float) {
         _smartCutoffLimit.value = limit
-        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit().putFloat(KEY_CUTOFF_LIMIT, limit).apply()
+        settingsPreference.setSmartCutoffLimit(limit)
         if (_smartCutoffEnabled.value) {
             val intent = Intent(context, SmartCutoffService::class.java).apply {
                 action = SmartCutoffService.ACTION_UPDATE_LIMIT
@@ -209,6 +264,7 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
 
     fun toggleSmartCutoff(context: Context, enable: Boolean) {
         _smartCutoffEnabled.value = enable
+        settingsPreference.setSmartCutoffEnabled(enable)
         val intent = Intent(context, SmartCutoffService::class.java)
         if (enable) {
             intent.putExtra(SmartCutoffService.EXTRA_LIMIT, _smartCutoffLimit.value.toInt())
@@ -221,7 +277,7 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
     
     fun toggleMonitor(context: Context, enable: Boolean) {
         _monitorEnabled.value = enable
-        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit().putBoolean(KEY_MONITOR_ENABLED, enable).apply()
+        settingsPreference.setBatteryMonitorEnabled(enable)
         if (enable) {
             viewModelScope.launch(Dispatchers.IO) {
                 delay(500) 
@@ -237,11 +293,46 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
         }
     }
 
-    fun toggleFastCharge(enabled: Boolean) { viewModelScope.launch(Dispatchers.IO) { if (BatteryControllerUtils.setFastCharge(enabled)) _isFastChargeEnabled.value = enabled } }
-    fun toggleBypass(enabled: Boolean) { viewModelScope.launch(Dispatchers.IO) { if (BatteryControllerUtils.setBypassCharging(enabled)) _isBypassEnabled.value = enabled } }
-    fun toggleBatterySaver(enabled: Boolean) { viewModelScope.launch(Dispatchers.IO) { if (BatteryControllerUtils.setBatterySaver(enabled)) _isBatterySaverEnabled.value = enabled } }
-    fun toggleCharging(enabled: Boolean) { viewModelScope.launch(Dispatchers.IO) { if (BatteryControllerUtils.setChargingEnabled(enabled)) _isChargingEnabled.value = enabled } }
-    fun updateThermalSconfig(value: String) { viewModelScope.launch(Dispatchers.IO) { if (BatteryControllerUtils.setThermalSconfig(value)) _thermalSconfig.value = value } }
+    fun toggleFastCharge(enabled: Boolean) { 
+        viewModelScope.launch(Dispatchers.IO) { 
+            if (BatteryControllerUtils.setFastCharge(enabled)) {
+                _isFastChargeEnabled.value = enabled 
+                settingsPreference.setFastChargeEnabled(enabled)
+            }
+        } 
+    }
+    fun toggleBypass(enabled: Boolean) { 
+        viewModelScope.launch(Dispatchers.IO) { 
+            if (BatteryControllerUtils.setBypassCharging(enabled)) {
+                _isBypassEnabled.value = enabled 
+                settingsPreference.setBypassChargingEnabled(enabled)
+            }
+        } 
+    }
+    fun toggleBatterySaver(enabled: Boolean) { 
+        viewModelScope.launch(Dispatchers.IO) { 
+            if (BatteryControllerUtils.setBatterySaver(enabled)) {
+                _isBatterySaverEnabled.value = enabled 
+                settingsPreference.setBatterySaverEnabled(enabled)
+            }
+        } 
+    }
+    fun toggleCharging(enabled: Boolean) { 
+        viewModelScope.launch(Dispatchers.IO) { 
+            if (BatteryControllerUtils.setChargingEnabled(enabled)) {
+                _isChargingEnabled.value = enabled 
+                // Kita tidak simpan status ini karena bahaya jika mati permanen setelah reboot
+            }
+        } 
+    }
+    fun updateThermalSconfig(value: String) { 
+        viewModelScope.launch(Dispatchers.IO) { 
+            if (BatteryControllerUtils.setThermalSconfig(value)) {
+                _thermalSconfig.value = value 
+                settingsPreference.setThermalSconfig(value)
+            }
+        } 
+    }
     
     private fun isServiceRunning(context: Context, serviceClass: Class<*>): Boolean {
         val manager = context.getSystemService(Context.ACTIVITY_SERVICE) as android.app.ActivityManager

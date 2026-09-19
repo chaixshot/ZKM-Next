@@ -64,9 +64,12 @@ object BatteryUtils {
     private const val SCRIPT_DISABLE_CHARGING = """
         echo "1" > /sys/class/power_supply/battery/batt_slate_mode
         echo "1" > /sys/class/power_supply/battery/battery_input_suspend
+        echo "1" > /sys/class/power_supply/battery/input_suspend
+        echo "1" > /sys/class/power_supply/main/input_suspend
         echo "1" > /sys/class/power_supply/battery/bd_trickle_cnt
         echo "0" > /sys/class/power_supply/battery/device/Charging_Enable
         echo "0" > /sys/class/power_supply/battery/charging_enabled
+        echo "0" > /sys/class/power_supply/main/charging_enabled
         echo "1" > /sys/class/power_supply/battery/op_disable_charge
         echo "1" > /sys/class/power_supply/battery/store_mode
         echo "1" > /sys/class/power_supply/battery/test_mode
@@ -88,14 +91,18 @@ object BatteryUtils {
         echo "1" > /sys/kernel/debug/google_charger/input_suspend
         echo "on" > /sys/kernel/nubia_charge/charger_bypass
         echo "0 1" > /proc/mtk_battery_cmd/current_cmd
+        echo "0" > /sys/class/power_supply/battery/constant_charge_current_max
     """
 
     private const val SCRIPT_ENABLE_CHARGING = """
         echo "0" > /sys/class/power_supply/battery/batt_slate_mode
         echo "0" > /sys/class/power_supply/battery/battery_input_suspend
+        echo "0" > /sys/class/power_supply/battery/input_suspend
+        echo "0" > /sys/class/power_supply/main/input_suspend
         echo "0" > /sys/class/power_supply/battery/bd_trickle_cnt
         echo "1" > /sys/class/power_supply/battery/device/Charging_Enable
         echo "1" > /sys/class/power_supply/battery/charging_enabled
+        echo "1" > /sys/class/power_supply/main/charging_enabled
         echo "0" > /sys/class/power_supply/battery/op_disable_charge
         echo "0" > /sys/class/power_supply/battery/store_mode
         echo "2" > /sys/class/power_supply/battery/test_mode
@@ -117,13 +124,12 @@ object BatteryUtils {
         echo "0" > /sys/kernel/debug/google_charger/input_suspend
         echo "off" > /sys/kernel/nubia_charge/charger_bypass
         echo "0 0" > /proc/mtk_battery_cmd/current_cmd
+        echo "5000000" > /sys/class/power_supply/battery/constant_charge_current_max
     """
 
     fun setChargingEnabled(enable: Boolean) {
         val script = if (enable) SCRIPT_ENABLE_CHARGING else SCRIPT_DISABLE_CHARGING
-        Thread {
-            Shell.cmd(script).exec()
-        }.start()
+        Shell.cmd(script).submit()
     }
 
     private fun Context.getBatteryIntent(): Intent? = registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
@@ -341,16 +347,18 @@ object BatteryUtils {
             "/sys/class/power_supply/battery/battery_charging_enabled",
             "/sys/class/power_supply/battery/input_suspend",
             "/sys/class/power_supply/battery/battery_input_suspend",
+            "/sys/class/power_supply/main/charging_enabled",
+            "/sys/class/power_supply/main/input_suspend",
             "/sys/class/qcom-battery/input_suspend",
             "/sys/kernel/debug/google_charger/input_suspend",
             "/sys/class/power_supply/battery/batt_slate_mode",
+            "/sys/devices/platform/charger/bypass_charger",
+            "/sys/class/power_supply/battery/device/Charging_Enable",
             "/sys/class/hw_power/charger/charge_data/enable_charger"
         )
         
         return testPaths.any { path ->
-            runCatching {
-                Shell.cmd("test -f $path && test -w $path").exec().isSuccess
-            }.getOrDefault(false)
+            Shell.cmd("test -e $path").exec().isSuccess
         }
     }
 }

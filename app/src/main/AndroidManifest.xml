@@ -5,7 +5,8 @@
     <!-- NETWORK & UPDATE -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <!-- INSTALL APK (Auto-update) -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     
@@ -131,6 +132,18 @@
                 android:name="android.app.property.FOREGROUND_SERVICE_TYPE"
                 android:value="specialUse" />
         </service>
-            
+
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>

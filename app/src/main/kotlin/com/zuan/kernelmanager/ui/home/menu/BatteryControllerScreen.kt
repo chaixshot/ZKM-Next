@@ -213,7 +213,6 @@ fun BatteryControllerScreen(
                 HorizontalDivider(color = if (isCustomBg) Color.White.copy(0.2f) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.2f))
                 when (selectedTab) {
                     0 -> BatteryDashboardTab(viewModel, isGlassActive, hazeState, finalCardColor, textColor, subTextColor, effectivePrimary)
-                    1 -> BatteryControlsTab(viewModel, isGlassActive, hazeState, finalCardColor, textColor, subTextColor, effectivePrimary)
                     2 -> BatterySettingsTab(viewModel, isGlassActive, hazeState, finalCardColor, textColor, subTextColor, effectivePrimary)
                 }
             }
@@ -559,12 +558,19 @@ fun BatteryControlsTab(
     val hasThermalSconfig by viewModel.hasThermalSconfig.collectAsStateWithLifecycle()
 
     LazyColumn(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        item { Spacer(modifier = Modifier.height(8.dp)) }
         item { ModernControlCardGlass(stringResource(R.string.battery_monitor_service), stringResource(R.string.battery_monitor_service_desc), Icons.Rounded.Visibility, monitorEnabled, isGlassActive, textColor, subTextColor, primaryColor) { viewModel.toggleMonitor(context, it) } }
         item { ModernControlCardGlass(stringResource(R.string.battery_enable_charging), stringResource(R.string.battery_enable_charging_desc), Icons.Rounded.Power, isChargingEnabled, isGlassActive, textColor, subTextColor, primaryColor) { viewModel.toggleCharging(it) } }
         
-        if (isSmartChargeSupported) {
-            item { SmartCutoffCardGlass(smartCutoffEnabled, smartCutoffLimit, { viewModel.toggleSmartCutoff(context, it) }, { viewModel.setSmartCutoffLimit(context, it) }, isGlassActive, hazeState, cardColor, textColor, subTextColor, primaryColor) }
+        item { 
+            SmartCutoffCardGlass(smartCutoffEnabled, smartCutoffLimit, { viewModel.toggleSmartCutoff(context, it) }, { viewModel.setSmartCutoffLimit(context, it) }, isGlassActive, hazeState, cardColor, textColor, subTextColor, primaryColor) 
+            if (!isSmartChargeSupported) {
+                Text(
+                    text = "Note: Charging control interface not detected. Smart Cutoff may not function correctly.",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.error.copy(alpha = 0.7f),
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
+                )
+            }
         }
         
         if (hasThermalSconfig) {
@@ -696,17 +702,34 @@ fun BatterySettingsTab(
     primaryColor: Color
 ) {
     val chargingLimit by viewModel.chargingLimit.collectAsStateWithLifecycle()
+    val isChargingLimitSupported by viewModel.isChargingLimitSupported.collectAsStateWithLifecycle()
+
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         item { BatterySectionTitleGlass(stringResource(R.string.battery_system_charging_limit), textColor) }
         item { 
             Text(stringResource(R.string.battery_system_charging_limit_desc), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.padding(16.dp), color = subTextColor)
             FlowRow(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 viewModel.chargingLimitOptions.forEach { limit ->
-                    FilterChip(selected = limit == chargingLimit, onClick = { viewModel.setChargingLimit(limit) }, label = { Text("$limit%", color = textColor) })
+                    FilterChip(
+                        selected = limit == chargingLimit, 
+                        onClick = { viewModel.setChargingLimit(limit) }, 
+                        label = { Text("$limit%", color = textColor) },
+                        enabled = true // Always enabled to let user try
+                    )
                 }
             }
+            if (!isChargingLimitSupported) {
+                Text(
+                    text = "Note: Kernel interface not detected. This might not work on your device.",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.error.copy(alpha = 0.7f),
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
+                )
+            }
         }
-        item { Spacer(modifier = Modifier.height(16.dp)); BatterySectionTitleGlass(stringResource(R.string.battery_health_tips), textColor) }
+        item { Spacer(modifier = Modifier.height(16.dp)) }
+        
+        item { BatterySectionTitleGlass(stringResource(R.string.battery_health_tips), textColor) }
         item { BatteryTipCardGlass(Icons.Rounded.AcUnit, stringResource(R.string.battery_tip_temp_title), stringResource(R.string.battery_tip_temp_desc), isGlassActive, textColor, subTextColor) }
         item { BatteryTipCardGlass(Icons.Rounded.BatteryChargingFull, stringResource(R.string.battery_tip_discharge_title), stringResource(R.string.battery_tip_discharge_desc), isGlassActive, textColor, subTextColor) }
         item { Spacer(modifier = Modifier.height(100.dp)) }

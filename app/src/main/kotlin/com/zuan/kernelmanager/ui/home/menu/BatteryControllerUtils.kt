@@ -51,19 +51,67 @@ object BatteryControllerUtils {
     private const val SCRIPT_DISABLE_CHARGING = """
         echo "1" > /sys/class/power_supply/battery/batt_slate_mode
         echo "1" > /sys/class/power_supply/battery/battery_input_suspend
+        echo "1" > /sys/class/power_supply/battery/input_suspend
+        echo "1" > /sys/class/power_supply/main/input_suspend
+        echo "1" > /sys/class/power_supply/battery/bd_trickle_cnt
         echo "0" > /sys/class/power_supply/battery/device/Charging_Enable
         echo "0" > /sys/class/power_supply/battery/charging_enabled
+        echo "0" > /sys/class/power_supply/main/charging_enabled
+        echo "1" > /sys/class/power_supply/battery/op_disable_charge
+        echo "1" > /sys/class/power_supply/battery/store_mode
+        echo "1" > /sys/class/power_supply/battery/test_mode
+        echo "1" > /sys/class/power_supply/battery/battery_ext/smart_charging_interruption
+        echo "0" > /sys/class/power_supply/battery/siop_level
+        echo "0" > /sys/class/power_supply/battery/battery_charging_enabled
+        echo "0" > /sys/class/power_supply/battery/mmi_charging_enable
+        echo "1" > /sys/class/power_supply/battery/stop_charging_enable
+        echo "0" > /sys/class/hw_power/charger/charge_data/enable_charger
         echo "1" > /sys/class/qcom-battery/input_suspend
+        echo "1" > /sys/devices/platform/charger/tran_aichg_disable_charger
         echo "1" > /sys/devices/platform/charger/bypass_charger
+        echo "0" > /sys/devices/platform/huawei_charger/enable_charger
+        echo "1" > /sys/devices/platform/lge-unified-nodes/charging_completed
+        echo "0" > /sys/devices/platform/lge-unified-nodes/charging_enable
+        echo "1" > /sys/devices/platform/mt-battery/disable_charger
+        echo "1" > /sys/devices/platform/soc/soc:google,charger/charge_disable
+        echo "1" > /sys/kernel/debug/google_charger/chg_suspend
+        echo "1" > /sys/kernel/debug/google_charger/input_suspend
+        echo "on" > /sys/kernel/nubia_charge/charger_bypass
+        echo "0 1" > /proc/mtk_battery_cmd/current_cmd
+        echo "0" > /sys/class/power_supply/battery/constant_charge_current_max
     """
 
     private const val SCRIPT_ENABLE_CHARGING = """
         echo "0" > /sys/class/power_supply/battery/batt_slate_mode
         echo "0" > /sys/class/power_supply/battery/battery_input_suspend
+        echo "0" > /sys/class/power_supply/battery/input_suspend
+        echo "0" > /sys/class/power_supply/main/input_suspend
+        echo "0" > /sys/class/power_supply/battery/bd_trickle_cnt
         echo "1" > /sys/class/power_supply/battery/device/Charging_Enable
         echo "1" > /sys/class/power_supply/battery/charging_enabled
+        echo "1" > /sys/class/power_supply/main/charging_enabled
+        echo "0" > /sys/class/power_supply/battery/op_disable_charge
+        echo "0" > /sys/class/power_supply/battery/store_mode
+        echo "2" > /sys/class/power_supply/battery/test_mode
+        echo "0" > /sys/class/power_supply/battery/battery_ext/smart_charging_interruption
+        echo "100" > /sys/class/power_supply/battery/siop_level
+        echo "1" > /sys/class/power_supply/battery/battery_charging_enabled
+        echo "1" > /sys/class/power_supply/battery/mmi_charging_enable
+        echo "0" > /sys/class/power_supply/battery/stop_charging_enable
+        echo "1" > /sys/class/hw_power/charger/charge_data/enable_charger
         echo "0" > /sys/class/qcom-battery/input_suspend
+        echo "0" > /sys/devices/platform/charger/tran_aichg_disable_charger
         echo "0" > /sys/devices/platform/charger/bypass_charger
+        echo "1" > /sys/devices/platform/huawei_charger/enable_charger
+        echo "0" > /sys/devices/platform/lge-unified-nodes/charging_completed
+        echo "1" > /sys/devices/platform/lge-unified-nodes/charging_enable
+        echo "0" > /sys/devices/platform/mt-battery/disable_charger
+        echo "0" > /sys/devices/platform/soc/soc:google,charger/charge_disable
+        echo "0" > /sys/kernel/debug/google_charger/chg_suspend
+        echo "0" > /sys/kernel/debug/google_charger/input_suspend
+        echo "off" > /sys/kernel/nubia_charge/charger_bypass
+        echo "0 0" > /proc/mtk_battery_cmd/current_cmd
+        echo "5000000" > /sys/class/power_supply/battery/constant_charge_current_max
     """
 
     fun getBatteryInfo(context: Context): BatteryInfo {
@@ -199,13 +247,108 @@ object BatteryControllerUtils {
 
     fun setChargingEnabled(enabled: Boolean): Boolean {
         val script = if (enabled) SCRIPT_ENABLE_CHARGING else SCRIPT_DISABLE_CHARGING
-        val result = Shell.cmd(script).exec()
-        return result.isSuccess
+        Shell.cmd(script).exec()
+        return true 
+    }
+
+    fun getChargingEnabledStatus(): Boolean {
+        val chargingEnabledNodes = listOf(
+            "/sys/class/power_supply/battery/charging_enabled",
+            "/sys/class/power_supply/main/charging_enabled",
+            "/sys/class/power_supply/battery/device/Charging_Enable"
+        )
+        for (node in chargingEnabledNodes) {
+            val v = readSysFile(node)
+            if (v == "0") return false
+            if (v == "1") return true
+        }
+
+        val inputSuspendNodes = listOf(
+            "/sys/class/power_supply/battery/input_suspend",
+            "/sys/class/power_supply/battery/battery_input_suspend",
+            "/sys/class/power_supply/main/input_suspend",
+            "/sys/class/qcom-battery/input_suspend"
+        )
+        for (node in inputSuspendNodes) {
+            val v = readSysFile(node)
+            if (v == "1") return false
+            if (v == "0") return true
+        }
+        
+        return true
+    }
+
+    fun isUsbPowerConnected(): Boolean {
+        // We check for "present" or "online" in any power supply that isn't the battery.
+        // On many devices, "present" stays 1 even if charging is suspended, as long as the cable is there.
+        val psPath = "/sys/class/power_supply"
+        val nodes = runCatching { Shell.cmd("ls $psPath").exec().out }.getOrElse { emptyList() }
+        
+        for (node in nodes) {
+            if (node == "battery" || node == "bms" || node == "main") {
+                // Main is often a virtual node that follows battery/usb, so we check it carefully or skip
+                continue 
+            }
+            
+            val present = readSysFile("$psPath/$node/present")
+            val online = readSysFile("$psPath/$node/online")
+            
+            if (present == "1" || online == "1") return true
+        }
+
+        // Fallback for some Xiaomi devices: check the "main" or "usb" node specifically if not found above
+        if (readSysFile("$psPath/usb/present") == "1") return true
+        if (readSysFile("$psPath/ac/present") == "1") return true
+        
+        return false
     }
 
     fun setChargingLimit(percentage: Int): Boolean {
-        val result = Shell.cmd("echo $percentage > $BATTERY_PATH/charge_control_limit").exec()
-        return result.isSuccess
+        val paths = listOf(
+            "$BATTERY_PATH/charge_control_limit",
+            "$BATTERY_PATH/charge_stop_threshold",
+            "$BATTERY_PATH/charge_limit",
+            "/sys/devices/platform/charger/charging_limit",
+            "/sys/devices/platform/soc/soc:google,charger/charge_stop_threshold",
+            "/sys/class/hw_power/charger/charge_data/charge_limit"
+        )
+        for (path in paths) {
+            if (Shell.cmd("test -e $path").exec().isSuccess) {
+                val result = Shell.cmd("echo $percentage > $path").exec()
+                if (result.isSuccess) return true
+            }
+        }
+        return false
+    }
+
+    fun getChargingLimit(): Int {
+        val paths = listOf(
+            "$BATTERY_PATH/charge_control_limit",
+            "$BATTERY_PATH/charge_stop_threshold",
+            "$BATTERY_PATH/charge_limit",
+            "/sys/devices/platform/charger/charging_limit",
+            "/sys/devices/platform/soc/soc:google,charger/charge_stop_threshold",
+            "/sys/class/hw_power/charger/charge_data/charge_limit"
+        )
+        for (path in paths) {
+            val value = readSysFile(path)
+            if (value != null && value.toIntOrNull() != null) {
+                return value.toInt()
+            }
+        }
+        return 100
+    }
+
+    fun isChargingLimitSupported(): Boolean {
+        val paths = listOf(
+            "$BATTERY_PATH/charge_control_limit",
+            "$BATTERY_PATH/charge_stop_threshold",
+            "$BATTERY_PATH/charge_limit",
+            "/sys/devices/platform/charger/charging_limit",
+            "/sys/devices/platform/soc/soc:google,charger/charge_stop_threshold",
+            "/sys/class/hw_power/charger/charge_data/charge_limit"
+        )
+        return paths.any { Shell.cmd("test -e $it").exec().isSuccess }
     }
 
     fun setFastCharge(enabled: Boolean): Boolean {
@@ -287,12 +430,19 @@ object BatteryControllerUtils {
     fun isSmartChargeSupported(): Boolean {
         val testPaths = listOf(
             "/sys/class/power_supply/battery/charging_enabled",
+            "/sys/class/power_supply/battery/battery_charging_enabled",
             "/sys/class/power_supply/battery/input_suspend",
+            "/sys/class/power_supply/battery/battery_input_suspend",
+            "/sys/class/power_supply/main/charging_enabled",
+            "/sys/class/power_supply/main/input_suspend",
             "/sys/class/qcom-battery/input_suspend",
-            "/sys/class/power_supply/battery/batt_slate_mode"
+            "/sys/class/power_supply/battery/batt_slate_mode",
+            "/sys/devices/platform/charger/bypass_charger",
+            "/sys/class/power_supply/battery/device/Charging_Enable",
+            "/sys/class/hw_power/charger/charge_data/enable_charger"
         )
         return testPaths.any { path ->
-            try { File(path).exists() } catch(e:Exception) { false }
+            Shell.cmd("test -e $path").exec().isSuccess
         }
     }
 

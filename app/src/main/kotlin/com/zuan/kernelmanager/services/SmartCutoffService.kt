@@ -16,35 +16,35 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.IBinder
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zuan.kernelmanager.R
-import com.zuan.kernelmanager.ui.socmenu.BatteryUtils
+import com.zuan.kernelmanager.ui.home.menu.BatteryControllerUtils
+import kotlinx.coroutines.*
 
 class SmartCutoffService : Service() {
 
     companion object {
         const val CHANNEL_ID = "SmartCutoffChannel"
         const val ACTION_STOP_SERVICE = "STOP_SERVICE"
-        const val ACTION_UPDATE_LIMIT = "UPDATE_LIMIT" // Action Baru
+        const val ACTION_UPDATE_LIMIT = "UPDATE_LIMIT" 
         const val EXTRA_LIMIT = "limit_threshold"
-        
-        const val HYSTERESIS_GAP = 3 
     }
 
     private var limitThreshold: Int = 80
     private var isCutOffActive = false 
-    private var isChargerPlugged = false
+    private val serviceScope = CoroutineScope(Dispatchers.Main + Job())
 
     private val batteryReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            intent?.let {
-                val level = it.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
-                val status = it.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
-                val plugged = it.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0)
-                
-                isChargerPlugged = plugged != 0
-                handleBatteryLogic(level, status)
-            }
+            if (intent == null) return
+            
+            // Re-check state on battery change or power connection change
+            val intentFilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+            val batteryStatus = context?.registerReceiver(null, intentFilter)
+            val level = batteryStatus?.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) ?: -1
+            
+            handleBatteryLogic(level)
         }
     }
 
@@ -57,18 +57,11 @@ class SmartCutoffService : Service() {
                 return START_NOT_STICKY
             }
             ACTION_UPDATE_LIMIT -> {
-                // Update limit secara realtime
-                val oldLimit = limitThreshold
                 limitThreshold = intent.getIntExtra(EXTRA_LIMIT, 80)
-                if (oldLimit != limitThreshold) {
-                    updateNotification("Limit updated to $limitThreshold%")
-                    // Paksa cek ulang kondisi baterai sekarang juga
-                    checkBatteryStateNow()
-                }
-                // Jangan return, biarkan lanjut agar service tetap foreground
+                updateNotification("Limit updated to $limitThreshold%")
+                checkBatteryStateNow()
             }
             else -> {
-                // Start awal
                 limitThreshold = intent.getIntExtra(EXTRA_LIMIT, 80)
             }
         }
@@ -76,7 +69,7 @@ class SmartCutoffService : Service() {
         createNotificationChannel()
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("Smart Cut-off Active")
-            .setContentText("Monitoring battery limit at $limitThreshold%")
+            .setContentText("Target: $limitThreshold%")
             .setSmallIcon(R.drawable.ic_battery_android_frame_shield)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
@@ -84,12 +77,16 @@ class SmartCutoffService : Service() {
 
         startForeground(1, notification)
         
-        // Register receiver hanya jika belum terdaftar (cek null safety jika perlu, 
-        // tapi di onStartCommand aman dipanggil berkali-kali asalkan di-handle)
         try {
-            unregisterReceiver(batteryReceiver) // Unregister dulu biar gak double
-        } catch (e: Exception) { /* Igonore if not registered */ }
-        registerReceiver(batteryReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+            unregisterReceiver(batteryReceiver)
+        } catch (e: Exception) { }
+        
+        val filter = IntentFilter().apply {
+            addAction(Intent.ACTION_BATTERY_CHANGED)
+            addAction(Intent.ACTION_POWER_CONNECTED)
+            addAction(Intent.ACTION_POWER_DISCONNECTED)
+        }
+        registerReceiver(batteryReceiver, filter)
 
         return START_REDELIVER_INTENT
     }
@@ -98,39 +95,37 @@ class SmartCutoffService : Service() {
         val intent = registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
         intent?.let {
             val level = it.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
-            val status = it.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
-            handleBatteryLogic(level, status)
+            handleBatteryLogic(level)
         }
     }
 
-    private fun handleBatteryLogic(level: Int, status: Int) {
-        if (!isChargerPlugged) {
+    private fun handleBatteryLogic(level: Int) {
+        // Check physical connection via low-level nodes
+        val isPhysicallyConnected = BatteryControllerUtils.isUsbPowerConnected()
+
+        if (!isPhysicallyConnected) {
+            // IF NO CABLE: Re-enable charging immediately and reset cutoff state
             if (isCutOffActive) {
-                BatteryUtils.setChargingEnabled(true)
+                BatteryControllerUtils.setChargingEnabled(true)
                 isCutOffActive = false
+                updateNotification("Charger unplugged. Ready for next session.")
+                Log.d("SmartCutoff", "Physical unplug detected. State reset.")
             }
             return
         }
 
-        // Logic Cut-off
+        // IF CABLE IS CONNECTED:
+        
+        // 1. Cut-off: Stop charging indefinitely once target is hit
         if (level >= limitThreshold && !isCutOffActive) {
-            BatteryUtils.setChargingEnabled(false) 
+            BatteryControllerUtils.setChargingEnabled(false) 
             isCutOffActive = true
-            updateNotification("Charging stopped at $level%")
-        } 
-        // Logic Resume (Hysteresis)
-        else if (level <= (limitThreshold - HYSTERESIS_GAP) && isCutOffActive) {
-            BatteryUtils.setChargingEnabled(true)
-            isCutOffActive = false
-            updateNotification("Charging resumed at $level%")
+            updateNotification("Target reached ($level%). Charging disabled until unplug.")
+            Log.d("SmartCutoff", "Target reached. Charging killed.")
         }
-        // Logic tambahan: Jika limit diturunkan (misal dari 80 ke 70, padahal batre 75)
-        // Service harus langsung cut jika belum cut
-        else if (level >= limitThreshold && !isCutOffActive) {
-             BatteryUtils.setChargingEnabled(false)
-             isCutOffActive = true
-             updateNotification("Charging stopped at $level%")
-        }
+        
+        // Note: No "Resume" or periodic checks here. 
+        // This prevents the sound spam as setChargingEnabled(true) is never called while plugged.
     }
     
     private fun updateNotification(text: String) {
@@ -147,12 +142,11 @@ class SmartCutoffService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        serviceScope.cancel()
         try {
             unregisterReceiver(batteryReceiver)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        BatteryUtils.setChargingEnabled(true)
+        } catch (e: Exception) { }
+        BatteryControllerUtils.setChargingEnabled(true)
     }
 
     override fun onBind(intent: Intent?): IBinder? = null

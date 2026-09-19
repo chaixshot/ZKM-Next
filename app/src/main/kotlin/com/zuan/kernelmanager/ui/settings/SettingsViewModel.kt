@@ -78,6 +78,7 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     val selectedSchedProfileName = settingsPreference.selectedSchedProfileName
     val selectedMemProfileName = settingsPreference.selectedMemProfileName
     val selectedNetProfileName = settingsPreference.selectedNetProfileName
+    val selectedBatteryProfileName = settingsPreference.selectedBatteryProfileName
 
     // --- UI CONFIG COMBINED ---
     private val visualConfigFlow = combine(

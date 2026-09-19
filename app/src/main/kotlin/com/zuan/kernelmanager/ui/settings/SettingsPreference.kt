@@ -215,6 +215,42 @@ class SettingsPreference(context: Context) {
     private val _selectedNetProfileName = MutableStateFlow(getSelectedNetProfileName())
     val selectedNetProfileName: StateFlow<String?> = _selectedNetProfileName.asStateFlow()
 
+    private val _batteryProfilesJson = MutableStateFlow(getBatteryProfilesJson())
+    val batteryProfilesJson: StateFlow<String> = _batteryProfilesJson.asStateFlow()
+
+    private val _selectedBatteryProfileName = MutableStateFlow(getSelectedBatteryProfileName())
+    val selectedBatteryProfileName: StateFlow<String?> = _selectedBatteryProfileName.asStateFlow()
+
+    private val _batteryMonitorEnabled = MutableStateFlow(getBatteryMonitorEnabled())
+    val batteryMonitorEnabled: StateFlow<Boolean> = _batteryMonitorEnabled.asStateFlow()
+
+    private val _smartCutoffEnabled = MutableStateFlow(getSmartCutoffEnabled())
+    val smartCutoffEnabled: StateFlow<Boolean> = _smartCutoffEnabled.asStateFlow()
+
+    private val _smartCutoffLimit = MutableStateFlow(getSmartCutoffLimit())
+    val smartCutoffLimit: StateFlow<Float> = _smartCutoffLimit.asStateFlow()
+
+    private val _chargingLimit = MutableStateFlow(getChargingLimit())
+    val chargingLimit: StateFlow<Int> = _chargingLimit.asStateFlow()
+
+    private val _fastChargeEnabled = MutableStateFlow(getFastChargeEnabled())
+    val fastChargeEnabled: StateFlow<Boolean> = _fastChargeEnabled.asStateFlow()
+
+    private val _bypassChargingEnabled = MutableStateFlow(getBypassChargingEnabled())
+    val bypassChargingEnabled: StateFlow<Boolean> = _bypassChargingEnabled.asStateFlow()
+
+    private val _chargingSpeed = MutableStateFlow(getChargingSpeed())
+    val chargingSpeed: StateFlow<Int> = _chargingSpeed.asStateFlow()
+
+    private val _batterySaverEnabled = MutableStateFlow(getBatterySaverEnabled())
+    val batterySaverEnabled: StateFlow<Boolean> = _batterySaverEnabled.asStateFlow()
+
+    private val _thermalSconfig = MutableStateFlow(getThermalSconfig())
+    val thermalSconfig: StateFlow<String> = _thermalSconfig.asStateFlow()
+
+    private val _applyOnBoot = MutableStateFlow(getApplyOnBoot())
+    val applyOnBoot: StateFlow<Boolean> = _applyOnBoot.asStateFlow()
+
     companion object {
         private const val THEME_KEY = "theme_mode"
         private const val THEME_COLOR_KEY = "theme_color_name"
@@ -268,6 +304,20 @@ class SettingsPreference(context: Context) {
         private const val SELECTED_MEM_PROFILE_NAME_KEY = "selected_mem_profile_name"
         private const val NET_PROFILES_KEY = "net_profiles_json"
         private const val SELECTED_NET_PROFILE_NAME_KEY = "selected_net_profile_name"
+        
+        private const val BATTERY_PROFILES_KEY = "battery_profiles_json"
+        private const val SELECTED_BATTERY_PROFILE_NAME_KEY = "selected_battery_profile_name"
+
+        private const val BATTERY_MONITOR_KEY = "battery_monitor_enabled"
+        private const val SMART_CUTOFF_KEY = "smart_cutoff_enabled"
+        private const val SMART_CUTOFF_LIMIT_KEY = "smart_cutoff_limit_val"
+        private const val CHARGING_LIMIT_KEY = "battery_charging_limit_val"
+        private const val FAST_CHARGE_KEY = "fast_charge_enabled_state"
+        private const val BYPASS_CHARGING_KEY = "bypass_charging_enabled_state"
+        private const val CHARGING_SPEED_KEY = "charging_speed_val"
+        private const val BATTERY_SAVER_KEY = "battery_saver_enabled_state"
+        private const val THERMAL_SCONFIG_KEY = "thermal_sconfig_val"
+        private const val APPLY_ON_BOOT_KEY = "apply_on_boot_master"
 
         private const val DEFAULT_POLLING_INTERVAL = 3000L
         private const val DEFAULT_DPI = 0
@@ -457,6 +507,48 @@ class SettingsPreference(context: Context) {
         _selectedNetProfileName.value = name
     }
     private fun getSelectedNetProfileName(): String? = prefs.getString(SELECTED_NET_PROFILE_NAME_KEY, null)
+
+    fun setBatteryProfilesJson(json: String) {
+        prefs.edit { putString(BATTERY_PROFILES_KEY, json) }
+        _batteryProfilesJson.value = json
+    }
+    private fun getBatteryProfilesJson(): String = prefs.getString(BATTERY_PROFILES_KEY, "[]") ?: "[]"
+
+    fun setSelectedBatteryProfileName(name: String?) {
+        prefs.edit { putString(SELECTED_BATTERY_PROFILE_NAME_KEY, name) }
+        _selectedBatteryProfileName.value = name
+    }
+    private fun getSelectedBatteryProfileName(): String? = prefs.getString(SELECTED_BATTERY_PROFILE_NAME_KEY, null)
+
+    fun setBatteryMonitorEnabled(enabled: Boolean) { prefs.edit { putBoolean(BATTERY_MONITOR_KEY, enabled) }; _batteryMonitorEnabled.value = enabled }
+    private fun getBatteryMonitorEnabled(): Boolean = prefs.getBoolean(BATTERY_MONITOR_KEY, false)
+
+    fun setSmartCutoffEnabled(enabled: Boolean) { prefs.edit { putBoolean(SMART_CUTOFF_KEY, enabled) }; _smartCutoffEnabled.value = enabled }
+    private fun getSmartCutoffEnabled(): Boolean = prefs.getBoolean(SMART_CUTOFF_KEY, false)
+
+    fun setSmartCutoffLimit(limit: Float) { prefs.edit { putFloat(SMART_CUTOFF_LIMIT_KEY, limit) }; _smartCutoffLimit.value = limit }
+    private fun getSmartCutoffLimit(): Float = prefs.toFloat(SMART_CUTOFF_LIMIT_KEY, 80f)
+
+    fun setChargingLimit(limit: Int) { prefs.edit { putInt(CHARGING_LIMIT_KEY, limit) }; _chargingLimit.value = limit }
+    private fun getChargingLimit(): Int = prefs.getInt(CHARGING_LIMIT_KEY, 100)
+
+    fun setFastChargeEnabled(enabled: Boolean) { prefs.edit { putBoolean(FAST_CHARGE_KEY, enabled) }; _fastChargeEnabled.value = enabled }
+    private fun getFastChargeEnabled(): Boolean = prefs.getBoolean(FAST_CHARGE_KEY, false)
+
+    fun setBypassChargingEnabled(enabled: Boolean) { prefs.edit { putBoolean(BYPASS_CHARGING_KEY, enabled) }; _bypassChargingEnabled.value = enabled }
+    private fun getBypassChargingEnabled(): Boolean = prefs.getBoolean(BYPASS_CHARGING_KEY, false)
+
+    fun setChargingSpeed(speed: Int) { prefs.edit { putInt(CHARGING_SPEED_KEY, speed) }; _chargingSpeed.value = speed }
+    private fun getChargingSpeed(): Int = prefs.getInt(CHARGING_SPEED_KEY, 2000)
+
+    fun setBatterySaverEnabled(enabled: Boolean) { prefs.edit { putBoolean(BATTERY_SAVER_KEY, enabled) }; _batterySaverEnabled.value = enabled }
+    private fun getBatterySaverEnabled(): Boolean = prefs.getBoolean(BATTERY_SAVER_KEY, false)
+
+    fun setThermalSconfig(value: String) { prefs.edit { putString(THERMAL_SCONFIG_KEY, value) }; _thermalSconfig.value = value }
+    private fun getThermalSconfig(): String = prefs.getString(THERMAL_SCONFIG_KEY, "0") ?: "0"
+
+    fun setApplyOnBoot(enabled: Boolean) { prefs.edit { putBoolean(APPLY_ON_BOOT_KEY, enabled) }; _applyOnBoot.value = enabled }
+    private fun getApplyOnBoot(): Boolean = prefs.getBoolean(APPLY_ON_BOOT_KEY, false)
 }
 
 private fun SharedPreferences.toFloat(key: String, defValue: Float): Float = try { this.getFloat(key, defValue) } catch (e: Exception) { defValue }
