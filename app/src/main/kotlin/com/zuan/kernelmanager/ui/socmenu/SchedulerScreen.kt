@@ -26,7 +26,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import com.zuan.kernelmanager.R
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -275,12 +277,12 @@ fun SchedulerScreen(
     if (showNewProfileDialog) {
         AlertDialog(
             onDismissRequest = { showNewProfileDialog = false },
-            title = { Text("New Profile") },
+            title = { Text(stringResource(R.string.profile_dialog_new_title)) },
             text = {
                 OutlinedTextField(
                     value = profileNameInput,
                     onValueChange = { profileNameInput = it },
-                    label = { Text("Profile Name") },
+                    label = { Text(stringResource(R.string.profile_dialog_name_label)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -294,10 +296,10 @@ fun SchedulerScreen(
                             showNewProfileDialog = false
                         }
                     }
-                ) { Text("Save") }
+                ) { Text(stringResource(R.string.profile_save)) }
             },
             dismissButton = {
-                TextButton(onClick = { showNewProfileDialog = false }) { Text("Cancel") }
+                TextButton(onClick = { showNewProfileDialog = false }) { Text(stringResource(R.string.profile_cancel)) }
             }
         )
     }
@@ -306,12 +308,12 @@ fun SchedulerScreen(
         var renameInput by remember(showRenameDialog) { mutableStateOf(showRenameDialog?.name ?: "") }
         AlertDialog(
             onDismissRequest = { showRenameDialog = null },
-            title = { Text("Rename Profile") },
+            title = { Text(stringResource(R.string.profile_dialog_rename_title)) },
             text = {
                 OutlinedTextField(
                     value = renameInput,
                     onValueChange = { renameInput = it },
-                    label = { Text("New Name") },
+                    label = { Text(stringResource(R.string.profile_dialog_new_name_label)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -324,10 +326,10 @@ fun SchedulerScreen(
                             showRenameDialog = null
                         }
                     }
-                ) { Text("Rename") }
+                ) { Text(stringResource(R.string.profile_rename)) }
             },
             dismissButton = {
-                TextButton(onClick = { showRenameDialog = null }) { Text("Cancel") }
+                TextButton(onClick = { showRenameDialog = null }) { Text(stringResource(R.string.profile_cancel)) }
             }
         )
     }

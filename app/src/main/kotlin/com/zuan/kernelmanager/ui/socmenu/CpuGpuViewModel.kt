@@ -9,6 +9,7 @@ package com.zuan.kernelmanager.ui.socmenu
 
 import android.app.Application
 import android.widget.Toast
+import com.zuan.kernelmanager.R
 import androidx.lifecycle.AndroidViewModel
 import com.topjohnwu.superuser.Shell
 import androidx.lifecycle.viewModelScope
@@ -488,7 +489,7 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
             saveProfilesToPrefs()
             
             withContext(Dispatchers.Main) {
-                Toast.makeText(getApplication(), "Profile '$name' saved.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(getApplication(), getApplication<Application>().getString(R.string.profile_save_success, name), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -581,8 +582,8 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
             settingsPreference.setSelectedCpuProfileName(profile.name)
             
             withContext(Dispatchers.Main) {
-                val message = if (isAutoApply) "Auto-applied profile '${profile.name}'" else "Profile '${profile.name}' applied."
-                Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show()
+                val format = if (isAutoApply) R.string.profile_auto_apply_success else R.string.profile_apply_success
+                Toast.makeText(getApplication(), getApplication<Application>().getString(format, profile.name), Toast.LENGTH_SHORT).show()
             }
         }
     }

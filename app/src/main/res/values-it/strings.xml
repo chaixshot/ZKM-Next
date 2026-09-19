@@ -847,6 +847,7 @@
     <string name="lang_polish">Polacco</string>
     <string name="lang_turkish">Turco</string>
     <string name="lang_dutch">Olandese</string>
+    <string name="lang_thai">Tailandese</string>
 
     <string name="graphics_unit">Unità Grafica</string>
     <string name="graphics_processor">Processore Grafico</string>
@@ -1117,5 +1118,27 @@
     <string name="action_yes_do_it">Sì, fallo</string>
     <string name="confirm_action_title">Conferma %1$s</string>
 
+
+    <!-- Profiles -->
+    <string name="profiles_title">Profili</string>
+    <string name="profile_new">Nuovo</string>
+    <string name="profile_save_current">Salva corrente</string>
+    <string name="profile_rename">Rinomina</string>
+    <string name="profile_delete">Elimina</string>
+    <string name="profile_dialog_new_title">Nuovo profilo</string>
+    <string name="profile_dialog_rename_title">Rinomina profilo</string>
+    <string name="profile_dialog_name_label">Nome profilo</string>
+    <string name="profile_dialog_new_name_label">Nuovo nome</string>
+    <string name="profile_save_success">Profilo \'%s\' salvato.</string>
+    <string name="profile_apply_success">Profilo \'%s\' applicato.</string>
+    <string name="profile_auto_apply_success">Profilo \'%s\' applicato automaticamente</string>
+    <string name="profile_save">Salva</string>
+    <string name="profile_cancel">Annulla</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">Applica all\'avvio</string>
+    <string name="pref_apply_on_boot_desc">Riapplica tutte le impostazioni SoC e batteria dopo il riavvio</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">Riapplicazione delle impostazioni di prestazioni e batteria...</string>
 
 </resources>

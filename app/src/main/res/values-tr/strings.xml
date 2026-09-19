@@ -847,6 +847,7 @@
     <string name="lang_polish">Lehçe</string>
     <string name="lang_turkish">Türkçe</string>
     <string name="lang_dutch">Felemenkçe</string>
+    <string name="lang_thai">Tayca</string>
     <string name="graphics_unit">Grafik Birimi</string>
     <string name="graphics_processor">Grafik İşlemci</string>
     <string name="processor_sets">İşlemci Setleri (Cpuset)</string>
@@ -1116,5 +1117,27 @@
     <string name="action_yes_do_it">Evet, Yap</string>
     <string name="confirm_action_title">%1$s Onayla</string>
 
+
+    <!-- Profiles -->
+    <string name="profiles_title">Profiller</string>
+    <string name="profile_new">Yeni</string>
+    <string name="profile_save_current">Mevcutu Kaydet</string>
+    <string name="profile_rename">Yeniden Adlandır</string>
+    <string name="profile_delete">Sil</string>
+    <string name="profile_dialog_new_title">Yeni Profil</string>
+    <string name="profile_dialog_rename_title">Profili Yeniden Adlandır</string>
+    <string name="profile_dialog_name_label">Profil Adı</string>
+    <string name="profile_dialog_new_name_label">Yeni Ad</string>
+    <string name="profile_save_success">\'%s\' profili kaydedildi.</string>
+    <string name="profile_apply_success">\'%s\' profili uygulandı.</string>
+    <string name="profile_auto_apply_success">\'%s\' profili otomatik olarak uygulandı</string>
+    <string name="profile_save">Kaydet</string>
+    <string name="profile_cancel">İptal</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">Açılışta Uygula</string>
+    <string name="pref_apply_on_boot_desc">Yeniden başlatmanın ardından tüm SoC ve Pil ayarlarını yeniden uygula</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">Performans ve pil ayarlarınız yeniden uygulanıyor...</string>
 
 </resources>

@@ -31,13 +31,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import com.zuan.kernelmanager.R
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.ui.settings.SettingsViewModel
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.HazeStyle
@@ -156,12 +156,12 @@ fun MemoryScreen(
     if (showNewProfileDialog) {
         AlertDialog(
             onDismissRequest = { showNewProfileDialog = false },
-            title = { Text("New Profile") },
+            title = { Text(stringResource(R.string.profile_dialog_new_title)) },
             text = {
                 OutlinedTextField(
                     value = profileNameInput,
                     onValueChange = { profileNameInput = it },
-                    label = { Text("Profile Name") },
+                    label = { Text(stringResource(R.string.profile_dialog_name_label)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -175,10 +175,10 @@ fun MemoryScreen(
                             showNewProfileDialog = false
                         }
                     }
-                ) { Text("Save") }
+                ) { Text(stringResource(R.string.profile_save)) }
             },
             dismissButton = {
-                TextButton(onClick = { showNewProfileDialog = false }) { Text("Cancel") }
+                TextButton(onClick = { showNewProfileDialog = false }) { Text(stringResource(R.string.profile_cancel)) }
             }
         )
     }
@@ -187,12 +187,12 @@ fun MemoryScreen(
         var renameInput by remember(showRenameDialog) { mutableStateOf(showRenameDialog?.name ?: "") }
         AlertDialog(
             onDismissRequest = { showRenameDialog = null },
-            title = { Text("Rename Profile") },
+            title = { Text(stringResource(R.string.profile_dialog_rename_title)) },
             text = {
                 OutlinedTextField(
                     value = renameInput,
                     onValueChange = { renameInput = it },
-                    label = { Text("New Name") },
+                    label = { Text(stringResource(R.string.profile_dialog_new_name_label)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -205,10 +205,10 @@ fun MemoryScreen(
                             showRenameDialog = null
                         }
                     }
-                ) { Text("Rename") }
+                ) { Text(stringResource(R.string.profile_rename)) }
             },
             dismissButton = {
-                TextButton(onClick = { showRenameDialog = null }) { Text("Cancel") }
+                TextButton(onClick = { showRenameDialog = null }) { Text(stringResource(R.string.profile_cancel)) }
             }
         )
     }

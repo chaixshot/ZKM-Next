@@ -846,6 +846,7 @@
     <string name="lang_polish">Polish</string>
     <string name="lang_turkish">Turkish</string>
     <string name="lang_dutch">Dutch</string>
+    <string name="lang_thai">Тайська</string>
 
     <string name="graphics_unit">Графічний блок</string>
     <string name="graphics_processor">Графічний процесор</string>
@@ -1116,5 +1117,27 @@
     <string name="action_yes_do_it">Так, зробити</string>
     <string name="confirm_action_title">Підтвердити %1$s</string>
 
+
+    <!-- Profiles -->
+    <string name="profiles_title">Профілі</string>
+    <string name="profile_new">Новий</string>
+    <string name="profile_save_current">Зберегти поточний</string>
+    <string name="profile_rename">Перейменувати</string>
+    <string name="profile_delete">Видалити</string>
+    <string name="profile_dialog_new_title">Новий профіль</string>
+    <string name="profile_dialog_rename_title">Перейменувати профіль</string>
+    <string name="profile_dialog_name_label">Назва профілю</string>
+    <string name="profile_dialog_new_name_label">Нова назва</string>
+    <string name="profile_save_success">Профіль \'%s\' збережено.</string>
+    <string name="profile_apply_success">Профіль \'%s\' застосовано.</string>
+    <string name="profile_auto_apply_success">Автоматично застосовано профіль \'%s\'</string>
+    <string name="profile_save">Зберегти</string>
+    <string name="profile_cancel">Скасувати</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">Застосовувати при завантаженні</string>
+    <string name="pref_apply_on_boot_desc">Повторно застосувати всі налаштування SoC та акумулятора після перезавантаження</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">Повторне застосування ваших налаштувань продуктивності та акумулятора...</string>
 
 </resources>

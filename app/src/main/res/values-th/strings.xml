@@ -1,0 +1,1160 @@
+<resources>
+    <string name="app_name">Zuan Kernel Manager</string>
+
+    <string name="nav_home">หน้าหลัก</string>
+    <string name="nav_soc">SoC</string>
+    <string name="nav_pref">การตั้งค่า</string>
+    <string name="nav_feature">ฟีเจอร์</string>
+    <string name="nav_overview">ภาพรวม</string>
+    <string name="nav_adjust">ปรับแต่ง</string>
+    <string name="nav_support">สนับสนุน</string>
+    <string name="sect_general">ทั่วไป</string>
+    <string name="sect_appearance">รูปลักษณ์</string>
+    <string name="nav_fastshell">ฟาสต์เชลล์</string>
+    <string name="nav_setedit">SetEdit</string>
+    <string name="nav_fps">จัดการ FPS</string>
+    <string name="nav_process">จัดการกระบวนการ</string>
+    <string name="nav_flasher">แฟลชเคอร์เนล</string>
+    <string name="nav_launcher">เรียกกิจกรรม</string>
+    <string name="nav_ksuweb">KSU WebUI</string>
+    <string name="nav_gpu">GPU</string>
+
+    <string name="pref_language">ภาษาของแอป</string>
+    <string name="lang_system">ตามระบบ</string>
+    <string name="lang_indonesia">อินโดนีเซีย</string>
+    <string name="lang_english">อังกฤษ</string>
+    <string name="lang_region_us">สหรัฐอเมริกา</string>
+    <string name="lang_sect_recommended">แนะนำ</string>
+    <string name="lang_sect_all">ภาษาทั้งหมด</string>
+    <string name="lang_search_hint">ค้นหาภาษา…</string>
+
+    <string name="wallpaper_style_title">วอลเปเปอร์และสไตล์</string>
+    <string name="tab_colors">สี</string>
+    <string name="tab_background">พื้นหลัง</string>
+    <string name="tab_effects">เอฟเฟกต์</string>
+    <string name="style_theme_header">สไตล์และธีม</string>
+    <string name="dark_theme">ธีมมืด</string>
+    <string name="dark_theme_on">เปิด</string>
+    <string name="dark_theme_off">ปิด</string>
+    <string name="color_palette">จานสี</string>
+    <string name="dynamic_color">สีไดนามิก</string>
+    <string name="dynamic_color_desc">ตามวอลเปเปอร์ของคุณ</string>
+    <string name="custom_color">สีที่กำหนดเอง</string>
+    <string name="custom_color_desc">สร้างธีมของคุณเอง</string>
+    <string name="custom_color_editor">แก้ไขสีที่กำหนดเอง</string>
+    <string name="color_primary">สีหลัก</string>
+    <string name="color_secondary">สีรอง</string>
+    <string name="color_tertiary">สีที่สาม</string>
+    <string name="background_type">ประเภทพื้นหลัง</string>
+    <string name="bg_type_gallery">คลังภาพ</string>
+    <string name="bg_type_system">ระบบ</string>
+    <string name="bg_adjustments">การปรับแต่งพื้นหลัง</string>
+    <string name="saturation">ความอิ่มตัวของสี</string>
+    <string name="bg_blur">เบลอพื้นหลัง</string>
+    <string name="bg_blur_desc">ปรับความเบลอของวอลเปเปอร์</string>
+    <string name="blur_strength">ความเข้มข้นของการเบลอ</string>
+    <string name="blur_strength_dp">%1$.0fdp</string>
+    <string name="dark_overlay">เลเยอร์มืด</string>
+    <string name="dark_overlay_desc">เพิ่มโทนสีมืดให้กับพื้นหลัง</string>
+    <string name="glass_effects">เอฟเฟกต์กระจก</string>
+    <string name="card_blur">การเบลอการ์ด</string>
+    <string name="card_blur_desc">สไตล์กระจกฝ้า (Glassmorphism)</string>
+    <string name="card_opacity">ความทึบของการ์ด</string>
+    <string name="weather_effects">เอฟเฟกต์สภาพอากาศ</string>
+    <string name="effect_intensity">ความเข้มของเอฟเฟกต์</string>
+    <string name="intensity_low">ต่ำ</string>
+    <string name="intensity_high">สูง</string>
+    <string name="effect_none">ไม่มี</string>
+    <string name="effect_fog">หมอก</string>
+    <string name="effect_rain">ฝน</string>
+    <string name="effect_snow">หิมะ</string>
+    <string name="effect_sun_rays">แสงแดด</string>
+    <string name="effect_desc_none">ไม่มีเอฟเฟกต์สภาพอากาศ</string>
+    <string name="effect_desc_fog">หมอกจางๆ เพิ่มบรรยากาศที่ลึกลับ</string>
+    <string name="effect_desc_rain">เม็ดฝนที่ตกลงมาบนหน้าจอ</string>
+    <string name="effect_desc_snow">หิมะโปรยปรายอย่างอ่อนโยน</string>
+    <string name="effect_desc_sun">แสงแดดอุ่นๆ จากมุมห้อง</string>
+    <string name="preview_title">ตัวอย่าง</string>
+    <string name="preview_live">มุมมองสด</string>
+
+    <string name="settings_title">การตั้งค่า</string>
+    <string name="pref_wallpaper_style">วอลเปเปอร์และสไตล์</string>
+    <string name="pref_wallpaper_style_desc">สี, ธีม, ไอคอนแอป</string>
+    <string name="sect_custom">การปรับแต่ง</string>
+    <string name="label_applied_dpi">DPI ที่ใช้</string>
+    <string name="pref_applied_dpi_desc">ปัจจุบัน: %1$d dpi</string>
+    <string name="pref_alt_icon">ไอคอนสำรอง</string>
+    <string name="pref_alt_icon_desc">ใช้ไอคอนแอปแบบสำรอง</string>
+    <string name="pref_polling">ช่วงเวลาการดึงข้อมูล</string>
+    <string name="pref_polling_desc">%1$dms</string>
+
+    <string name="dialog_title_dpi">DPI ที่ใช้</string>
+    <string name="dialog_msg_dpi">DPI ของอุปกรณ์ปัจจุบันคือ %1$d ปรับแถบเลื่อนเพื่อเปลี่ยนความหนาแน่นของแอปพลิเคชัน\n\nเลือกแล้ว: %2$d dpi</string>
+    <string name="dialog_title_polling">ช่วงเวลาการดึงข้อมูล</string>
+    <string name="dialog_msg_polling">ตั้งค่าช่วงเวลาการรีเฟรชสำหรับการตรวจสอบระบบ (1–30 วินาที)</string>
+    <string name="label_interval_sec">ช่วงเวลา (วินาที)</string>
+    <string name="btn_confirm">ยืนยัน</string>
+    <string name="btn_cancel">ยกเลิก</string>
+    <string name="btn_apply">นำไปใช้</string>
+
+    <string name="fps_manager_title">จัดการ FPS</string>
+    <string name="fps_display_header">การแสดงผล</string>
+    <string name="fps_tab_home">หน้าหลัก</string>
+    <string name="fps_tab_stats">สถิติ</string>
+    <string name="fps_tab_games">เกม</string>
+    <string name="fps_tab_overlay">โอเวอร์เลย์</string>
+
+    <string name="fps_system_access">การเข้าถึงระบบ</string>
+    <string name="fps_reader_mode">โหมดอ่าน FPS</string>
+    <string name="fps_mode_universal_android">Android ทั่วไป</string>
+    <string name="fps_mode_android_desc">สูงสุด Android 13/14</string>
+    <string name="fps_mode_universal_gpu">GPU ทั่วไป</string>
+    <string name="fps_mode_gpu_desc">รองรับเกือบทุก GPU (Adreno/อื่นๆ)</string>
+    <string name="fps_mode_universal_devices">อุปกรณ์ทั่วไป</string>
+    <string name="fps_mode_devices_desc">อุปกรณ์ใดก็ได้ (ใช้ dumpsys timestats)</string>
+    <string name="fps_beta_label">เบต้า</string>
+    <string name="fps_device_env">สภาพแวดล้อมอุปกรณ์</string>
+    <string name="fps_manufacturer">ผู้ผลิต</string>
+    <string name="fps_model">รุ่น</string>
+    <string name="fps_android_ver">เวอร์ชัน Android</string>
+    <string name="fps_overlay_service">บริการโอเวอร์เลย์</string>
+    <string name="fps_service_active">เปิดใช้งานและกำลังตรวจสอบ</string>
+    <string name="fps_service_stopped">บริการหยุดการทำงาน</string>
+    <string name="fps_checking_root">กำลังตรวจสอบ Root…</string>
+    <string name="fps_root_needed">ต้องการการเข้าถึง Root</string>
+    <string name="fps_start_service">เริ่มบริการ</string>
+    <string name="fps_stop_service">หยุดบริการ</string>
+    <string name="fps_root_granted">ได้รับสิทธิ์ Root แล้ว</string>
+    <string name="fps_root_not_found">ไม่พบ Root</string>
+    <string name="fps_root_available_desc">ตรวจพบ KernelSU / Magisk ฟีเจอร์ทั้งหมดพร้อมใช้งาน</string>
+    <string name="fps_root_missing_desc">โปรดรูทอุปกรณ์ของคุณเพื่อใช้งานโปรแกรมจัดการ FPS</string>
+
+    <string name="fps_game_launcher">เรียกเกม</string>
+    <string name="fps_game_launcher_desc">เปิดเกมเพื่อเริ่มการตรวจสอบ</string>
+
+    <string name="fps_overlay_active">โอเวอร์เลย์เปิดอยู่</string>
+    <string name="fps_overlay_showing">แสดงสถิติแบบเรียลไทม์</string>
+    <string name="fps_overlay_tap_enable">แตะสวิตช์เพื่อเปิดใช้งาน</string>
+    <string name="fps_overlay_style">สไตล์โอเวอร์เลย์</string>
+    <string name="fps_style_android">Android</string>
+    <string name="fps_style_pc">โหมด PC</string>
+    <string name="fps_style_mini">มินิ</string>
+    <string name="fps_pc_options">ตัวเลือกโหมด PC</string>
+    <string name="fps_show_render">แสดงชื่อตัวเรนเดอร์ (Vulkan/OGL)</string>
+    <string name="fps_orientation">การจัดวาง</string>
+    <string name="fps_vertical">แนวตั้ง</string>
+    <string name="fps_horizontal">แนวนอน</string>
+    <string name="fps_metrics">ตัวชี้วัด</string>
+    <string name="fps_metric_fps">FPS</string>
+    <string name="fps_metric_cpu">CPU</string>
+    <string name="fps_metric_ram">RAM</string>
+    <string name="fps_metric_watts">วัตต์</string>
+    <string name="fps_metric_temp">อุณหภูมิ</string>
+    <string name="fps_adjustments">การปรับแต่ง</string>
+    <string name="fps_text_size">ขนาดตัวอักษร</string>
+    <string name="fps_width_scale">ขนาดความกว้าง</string>
+    <string name="fps_opacity">ความทึบ</string>
+    <string name="fps_color_theme">ธีมสี</string>
+    <string name="fps_color_android_only">สีที่กำหนดเองใช้ได้ในโหมด Android เท่านั้น</string>
+    <string name="fps_custom_color">สีที่กำหนดเอง</string>
+    <string name="fps_color_red">R</string>
+    <string name="fps_color_green">G</string>
+    <string name="fps_color_blue">B</string>
+
+    <string name="fps_session_history">ประวัติเซสชัน</string>
+    <string name="fps_records_count">%1$d รายการ</string>
+    <string name="fps_stat_max">FPS สูงสุด</string>
+    <string name="fps_stat_min">FPS ต่ำสุด</string>
+    <string name="fps_stat_avg">FPS เฉลี่ย</string>
+    <string name="fps_stat_var">ความผันผวน</string>
+    <string name="fps_stat_stable">ความเสถียร %%</string>
+    <string name="fps_stat_max_temp">อุณหภูมิสูงสุด</string>
+    <string name="fps_stat_avg_pwr">พลังงานเฉลี่ย</string>
+    <string name="fps_stat_ram">RAM</string>
+    <string name="fps_chart_fps_temp">FPS และอุณหภูมิ</string>
+    <string name="fps_chart_cpu">ภาระงาน CPU (%%)</string>
+    <string name="fps_export_csv">ส่งออก CSV</string>
+    <string name="fps_delete">ลบ</string>
+
+    <string name="setedit_title">SetEdit</string>
+    <string name="setedit_subtitle">แก้ไขฐานข้อมูล</string>
+    <string name="setedit_search_hint">ค้นหาคุณสมบัติ…</string>
+    <string name="setedit_view_grid">ตาราง</string>
+    <string name="setedit_view_list">รายการ</string>
+    <string name="setedit_empty">ไม่พบคุณสมบัติ</string>
+    <string name="setedit_copy_value">คัดลอกค่า</string>
+
+    <string name="setedit_tab_all">ทั้งหมด</string>
+    <string name="setedit_tab_global">Global</string>
+    <string name="setedit_tab_secure">Secure</string>
+    <string name="setedit_tab_system">System</string>
+    <string name="setedit_tab_android">Android</string>
+
+    <string name="setedit_msg_saved">บันทึกแล้ว:</string>
+    <string name="setedit_msg_failed">การบันทึกล้มเหลว</string>
+    <string name="setedit_msg_deleted">ลบแล้ว:</string>
+    <string name="setedit_msg_error_delete">ไม่สามารถลบคุณสมบัติของ Android ได้</string>
+
+    <string name="setedit_sheet_title">แก้ไขคุณสมบัติ</string>
+    <string name="setedit_label_key">คีย์</string>
+    <string name="setedit_label_original">ค่าเดิม</string>
+    <string name="setedit_label_edit">ค่าใหม่</string>
+    <string name="setedit_btn_remove">ลบออก</string>
+    <string name="setedit_btn_save">บันทึก</string>
+
+    <string name="home_update_new">มีอะไรใหม่:</string>
+    <string name="home_update_avail">มีการอัปเดต:</string>
+
+    <string name="about_maintainer_title">ผู้ดูแลโปรเจกต์ ZKM</string>
+    <string name="about_opensource_thanks">ขอบคุณโปรเจกต์โอเพนซอร์ส</string>
+    <string name="about_section_categories">หมวดหมู่</string>
+    <string name="about_section_links">ลิงก์</string>
+    <string name="about_link_channel">ช่องทางการติดตาม</string>
+    <string name="about_link_discussion">การพูดคุย</string>
+    <string name="about_link_translate">แปลภาษา</string>
+    <string name="about_link_website">เว็บไซต์</string>
+    <string name="about_version_format">v%1$s (%2$d)</string>
+
+    <string name="soc_tab_processor">โปรเซสเซอร์</string>
+    <string name="soc_tab_scheduler">ตัวจัดตารางเวลา</string>
+    <string name="soc_tab_memory">หน่วยความจำ</string>
+    <string name="soc_tab_network">เครือข่าย</string>
+    <string name="soc_system_monitor">ตรวจสอบระบบ</string>
+
+    <string name="home_features">ฟีเจอร์</string>
+    <string name="home_dashboard">แดชบอร์ด</string>
+    <string name="home_device_content_desc">อุปกรณ์</string>
+
+    <string name="cat_all">ทั้งหมด</string>
+    <string name="cat_system">ระบบ</string>
+    <string name="cat_monitor">ตรวจสอบ</string>
+    <string name="cat_root">รูท</string>
+
+    <string name="ext_terminal">เทอร์มินัล</string>
+    <string name="ext_setedit">SetEdit</string>
+    <string name="ext_flasher">Flasher</string>
+    <string name="ext_launcher">เรียกกิจกรรม</string>
+    <string name="ext_dod">DoD</string>
+    <string name="ext_compiler">ตัวแปลภาษาแอป</string>
+    <string name="ext_thermal">อุณหภูมิ</string>
+    <string name="ext_display">การแสดงผล</string>
+    <string name="ext_battery">แบตเตอรี่</string>
+    <string name="ext_dozemode">โหมด Doze</string>
+    <string name="ext_logs">บันทึก</string>
+    <string name="ext_fps">FPS</string>
+    <string name="ext_process">กระบวนการ</string>
+    <string name="ext_ksuweb">KsuWeb</string>
+
+    <string name="desc_terminal">พิมพ์คำสั่ง</string>
+    <string name="desc_setedit">แก้ไขฐานข้อมูล</string>
+    <string name="desc_flasher">แฟลชไฟล์รูปภาพ</string>
+    <string name="desc_launcher">กิจกรรมของแอป</string>
+    <string name="desc_dod">ปิดใช้งาน/แช่แข็งแอป</string>
+    <string name="desc_compiler">ตัวเพิ่มประสิทธิภาพ Dex2oat</string>
+    <string name="desc_thermal">ตรวจสอบและควบคุม</string>
+    <string name="desc_display">การปรับแต่งและอื่นๆ</string>
+    <string name="desc_battery">ตัวควบคุมสถิติการชาร์จ</string>
+    <string name="desc_dozemode">ตั้งค่าโหมด Doze ให้เหมาะสม</string>
+    <string name="desc_logs">อ่านบันทึก</string>
+    <string name="desc_fps">อัตราเฟรม</string>
+    <string name="desc_process">จัดการงาน</string>
+    <string name="desc_ksuweb">ตัวจัดการเว็บ</string>
+
+    <string name="overall_title">ภาพรวม</string>
+    <string name="overall_subtitle">Zuan Kernel Manager</string>
+    <string name="overall_dashboard">แดชบอร์ด</string>
+    <string name="overall_processor">โปรเซสเซอร์</string>
+    <string name="overall_graphics">กราฟิก</string>
+    <string name="overall_memory">หน่วยความจำ</string>
+    <string name="overall_vm_params">พารามิเตอร์ VM</string>
+    <string name="overall_display">หน้าจอ</string>
+
+    <string name="core_detail_title">คอร์ %1$d</string>
+    <string name="core_detail_governor">ตัวควบคุม:</string>
+    <string name="core_detail_params">พารามิเตอร์ตัวควบคุม</string>
+    <string name="core_detail_no_params">ไม่มีพารามิเตอร์</string>
+    <string name="core_detail_cancel">ยกเลิก</string>
+    <string name="core_detail_settings">การตั้งค่า</string>
+
+    <string name="cpu_total_load">ภาระงานรวม</string>
+    <string name="cpu_core_usage">การใช้งานคอร์</string>
+    <string name="cpu_loading">กำลังโหลดคอร์…</string>
+    <string name="cpu_top_processes">กระบวนการที่ใช้ทรัพยากรสูงสุด</string>
+    <string name="cpu_view_all">ดูทั้งหมด</string>
+
+    <string name="gpu_load">ภาระงาน GPU</string>
+    <string name="gpu_renderer_info">ข้อมูลตัวเรนเดอร์</string>
+
+    <string name="ram_physical">RAM จริง</string>
+    <string name="ram_swap_zram">Swap / ZRAM</string>
+    <string name="ram_used">ใช้แล้ว</string>
+    <string name="ram_free">ว่าง</string>
+    <string name="ram_total">รวม</string>
+
+    <string name="vm_swappiness">ความพร้อมในการใช้ Swap</string>
+    <string name="vm_extra_free">หน่วยความจำว่างเพิ่มเติม</string>
+    <string name="vm_watermark">สเกล Watermark</string>
+    <string name="vm_vfs_cache">แรงกดดันแคช VFS</string>
+    <string name="vm_dirty_ratio">อัตราข้อมูลค้าง</string>
+    <string name="vm_dirty_bg">อัตราข้อมูลค้างพื้นหลัง</string>
+
+    <string name="display_density">ความหนาแน่น</string>
+    <string name="display_hdr">การรองรับ HDR</string>
+
+    <string name="temp_freezing">เย็นจัด</string>
+    <string name="temp_cool">เย็น</string>
+    <string name="temp_warm">อุ่น</string>
+    <string name="temp_hot">ร้อน</string>
+    <string name="temp_overheat">ร้อนเกินไป</string>
+    <string name="temp_temperature">อุณหภูมิ</string>
+
+    <string name="battery_details">รายละเอียด</string>
+    <string name="battery_uptime">เวลาทำงาน</string>
+    <string name="battery_deep_sleep">หลับลึก</string>
+    <string name="battery_electric_current">กระแสไฟฟ้า</string>
+    <string name="battery_health">สุขภาพ</string>
+    <string name="battery_cycles">รอบการชาร์จ</string>
+
+    <string name="update_available">มีการอัปเดต: %1$s</string>
+    <string name="update_tap_install">แตะเพื่อดูบันทึกการเปลี่ยนแปลงและติดตั้ง</string>
+
+    <string name="device_android_version">เวอร์ชัน Android</string>
+    <string name="device_kernel_info">ข้อมูลเคอร์เนล</string>
+    <string name="status_loading">กำลังโหลด…</string>
+
+    <string name="terminal_title">zuan@kernel</string>
+    <string name="terminal_overlay_title">zuan@overlay</string>
+    <string name="terminal_overlay_title_locked">zuan@overlay [ล็อคอยู่]</string>
+    <string name="terminal_preferences_title">การตั้งค่า</string>
+    <string name="terminal_overlay_active">โอเวอร์เลย์เทอร์มินัลทำงานอยู่</string>
+    <string name="terminal_custom_bg_desc">พื้นหลังที่กำหนดเอง</string>
+
+    <string name="action_close">ปิด</string>
+    <string name="action_lock">ล็อค</string>
+    <string name="action_resize">ปรับขนาด</string>
+    <string name="action_settings">การตั้งค่า</string>
+    <string name="action_input_keyboard">ป้อนข้อมูลด้วยคีย์บอร์ด</string>
+
+    <string name="terminal_glass_mode">โหมดกระจก A12+</string>
+    <string name="terminal_theme_dark_glass">ธีม: กระจกมืด</string>
+    <string name="terminal_theme_light_glass">ธีม: กระจกสว่าง</string>
+    <string name="terminal_glass_intensity">ความเข้มข้นของกระจก: %1$d dp</string>
+    <string name="terminal_background_section">พื้นหลัง</string>
+    <string name="terminal_live_video_wall">พื้นหลังวิดีโอสด (4K)</string>
+    <string name="terminal_change_video">เปลี่ยนวิดีโอ</string>
+    <string name="terminal_video_dim">ความมืดของวิดีโอ: %1$d%%</string>
+    <string name="terminal_custom_image">รูปภาพที่กำหนดเอง</string>
+    <string name="terminal_select_image">เลือกรูปภาพใหม่</string>
+    <string name="terminal_image_blur">ความเบลอของรูปภาพ: %1$d dp</string>
+    <string name="terminal_image_dim">ความมืดของรูปภาพ: %1$d%%</string>
+    <string name="terminal_bubble_gradient">การไล่ระดับสีแบบฟอง</string>
+    <string name="terminal_bg_dark_mode">พื้นหลัง: โหมดมืด</string>
+    <string name="terminal_bg_light_mode">พื้นหลัง: โหมดสว่าง</string>
+    <string name="terminal_live_gradient">แอนิเมชันการไล่ระดับสีสด</string>
+    <string name="terminal_fullscreen">เต็มจอ (UI)</string>
+    <string name="terminal_floating_mode">โหมดหน้าต่างลอย (โอเวอร์เลย์)</string>
+
+    <string name="kernel_flasher_title">แฟลชเคอร์เนล</string>
+    <string name="flasher_mode_horizon">Horizon</string>
+    <string name="flasher_mode_capntrips">Capntrips</string>
+    <string name="flasher_init">กำลังเริ่มต้น…</string>
+    <string name="flasher_checking_tools">กำลังตรวจสอบเครื่องมือ…</string>
+    <string name="flasher_ready">พร้อม</string>
+    <string name="flasher_error">ข้อผิดพลาด: %1$s</string>
+    <string name="flasher_connecting_root">กำลังเชื่อมต่อ Root…</string>
+    <string name="flasher_scanning_partitions">กำลังสแกนพาร์ติชัน…</string>
+    <string name="please_wait">โปรดรอสักครู่…</string>
+    <string name="error_occurred">เกิดข้อผิดพลาด</string>
+    <string name="unknown_error">ข้อผิดพลาดที่ไม่รู้จัก</string>
+    <string name="go_back">กลับไป</string>
+    <string name="slot_a_not_found">ไม่พบสล็อต A</string>
+    <string name="slot_b_not_available">สล็อต B ไม่พร้อมใช้งาน</string>
+    <string name="slot_vm_not_found">ไม่พบสล็อต VM</string>
+    <string name="confirm_reboot_system">ยืนยันการรีบูตระบบ</string>
+    <string name="scanning">กำลังสแกน…</string>
+
+    <string name="horizon_engine_legacy">เอนจิน Horizon (รุ่นเก่า)</string>
+    <string name="device_model">รุ่นอุปกรณ์</string>
+    <string name="kernel_version">เวอร์ชันเคอร์เนล</string>
+    <string name="active_slot">สล็อตที่ทำงานอยู่</string>
+    <string name="slot_current">สล็อต %1$s</string>
+    <string name="boot_partitions">พาร์ติชันบูต</string>
+    <string name="slot_a">สล็อต A</string>
+    <string name="slot_b">สล็อต B</string>
+    <string name="flasher_console">คอนโซลแฟลชเชอร์</string>
+    <string name="terminal_output">ผลลัพธ์จากเทอร์มินัล</string>
+    <string name="horizon_ready">> เอนจิน Horizon พร้อมแล้ว…</string>
+    <string name="flashing_kernel_progress">กำลังแฟลชเคอร์เนล…</string>
+    <string name="flash_horizon_method">แฟลช (วิธี Horizon)</string>
+    <string name="flashing_complete">แฟลชเสร็จสมบูรณ์</string>
+    <string name="flasher_reboot_message">แฟลชเคอร์เนลเรียบร้อยแล้ว แนะนำให้รีบูตเพื่อใช้การเปลี่ยนแปลง</string>
+    <string name="reboot_system">รีบูตระบบ</string>
+    <string name="later">ภายหลัง</string>
+    <string name="active_label">เปิดใช้งาน</string>
+    <string name="format_label">รูปแบบ: %1$s</string>
+
+    <string name="flasher_init_process">กำลังเริ่มต้นกระบวนการแฟลช…</string>
+    <string name="flasher_success">[สำเร็จ] แฟลชเสร็จสมบูรณ์</string>
+    <string name="flasher_failed">[ล้มเหลว] เกิดข้อผิดพลาด</string>
+    <string name="flasher_toast_failed">แฟลชล้มเหลว!</string>
+    <string name="loading">กำลังโหลด…</string>
+
+    <string name="activity_launcher_title">เรียกกิจกรรม</string>
+    <string name="search_hint">ค้นหาแอป…</string>
+    <string name="loading_apps">กำลังโหลดแอป…</string>
+    <string name="apps_installed_count">แอปที่ติดตั้ง (%1$d)</string>
+    <string name="user_apps">แอปผู้ใช้</string>
+    <string name="system_apps">แอปจากระบบ</string>
+    <string name="active_apps">แอปที่เปิดอยู่</string>
+    <string name="recycle_bin">ถังขยะ</string>
+    <string name="app_detail_title">รายละเอียดแอป</string>
+    <string name="version_info">เวอร์ชัน: %1$s (%2$s)</string>
+    <string name="total_activities">กิจกรรมทั้งหมด: %1$d</string>
+    <string name="activity_list">รายการกิจกรรม</string>
+    <string name="launch_activity_title">เรียกกิจกรรมหรือไม่?</string>
+    <string name="activity_name">ชื่อกิจกรรม</string>
+    <string name="class_label">คลาส</string>
+    <string name="package_label">แพ็กเกจ</string>
+    <string name="launch">เรียกใช้</string>
+    <string name="copy_info">คัดลอกข้อมูล</string>
+    <string name="display_settings">การตั้งค่าการแสดงผล</string>
+    <string name="name_asc">ชื่อ ก-ฮ</string>
+    <string name="name_desc">ชื่อ ฮ-ก</string>
+    <string name="filter_all">ทั้งหมด</string>
+    <string name="filter_system">ระบบ</string>
+    <string name="filter_user">ผู้ใช้</string>
+    <string name="no_apps_found">ไม่พบแอป</string>
+    <string name="copied">คัดลอกแล้ว</string>
+    <string name="permission_denied">ถูกปฏิเสธสิทธิ์</string>
+    <string name="error_message">ข้อผิดพลาด: %1$s</string>
+    <string name="btn_back">กลับ</string>
+    <string name="permission_required">ต้องการสิทธิ์การเข้าถึง</string>
+    <string name="inspector_started">เริ่มต้นการตรวจสอบแล้ว</string>
+    <string name="toggle_inspector">เปิด/ปิดการตรวจสอบ</string>
+    <string name="scanning_activities">กำลังสแกนกิจกรรม…</string>
+    <string name="activities">กิจกรรม</string>
+
+    <string name="battery_statistics_title">สถิติแบตเตอรี่</string>
+    <string name="battery_tab_dashboard">แดชบอร์ด</string>
+    <string name="battery_tab_controls">การควบคุม</string>
+    <string name="battery_tab_settings">การตั้งค่า</string>
+
+    <string name="battery_status">สถานะ</string>
+    <string name="battery_charging">กำลังชาร์จ</string>
+    <string name="battery_discharging">ไม่ได้ชาร์จ</string>
+    <string name="battery_temp">อุณหภูมิ</string>
+    <string name="battery_voltage">แรงดันไฟฟ้า</string>
+
+    <string name="battery_peak_records">บันทึกสูงสุด</string>
+    <string name="battery_temp_max">อุณหภูมิสูงสุด</string>
+    <string name="battery_discharge">การคายประจุ</string>
+    <string name="battery_charge_max">การชาร์จสูงสุด</string>
+    <string name="battery_current_live_chart">กราฟกระแสไฟสด</string>
+    <string name="battery_bms_data">ข้อมูล BMS / Uevent</string>
+    <string name="battery_discharge_charge_speed">ความเร็วการคายประจุ/ชาร์จ</string>
+    <string name="battery_charging_type">ประเภทการชาร์จ</string>
+    <string name="battery_level">ระดับแบตเตอรี่</string>
+    <string name="battery_current_voltage">แรงดันไฟฟ้าปัจจุบัน</string>
+    <string name="battery_max_voltage">แรงดันไฟฟ้าสูงสุด</string>
+    <string name="battery_power_watt">พลังงาน/วัตต์</string>
+    <string name="battery_temp_label">อุณหภูมิแบตเตอรี่</string>
+    <string name="battery_tech">เทคโนโลยีแบตเตอรี่</string>
+    <string name="battery_cycle_count">รอบการชาร์จ</string>
+    <string name="battery_real_capacity">ความจุจริง</string>
+
+    <string name="battery_monitor_service">บริการตรวจสอบแบตเตอรี่</string>
+    <string name="battery_monitor_service_desc">บันทึกสถิติแบตเตอรี่ในพื้นหลัง</string>
+    <string name="battery_enable_charging">เปิดใช้งานการชาร์จ</string>
+    <string name="battery_enable_charging_desc">สวิตช์หลักสำหรับเปิด/ปิดการชาร์จ</string>
+    <string name="battery_smart_cutoff">ระบบตัดไฟอัจฉริยะ</string>
+    <string name="battery_smart_cutoff_desc">หยุดบริการชาร์จเมื่อถึงขีดจำกัดที่ตั้งไว้</string>
+    <string name="battery_limit_label">ขีดจำกัด: %1$d%%</string>
+    <string name="battery_thermal_profile">โปรไฟล์อุณหภูมิ</string>
+    <string name="battery_select_thermal_profile">เลือกโปรไฟล์อุณหภูมิ</string>
+    <string name="battery_thermal_default">เริ่มต้น (0)</string>
+    <string name="battery_thermal_gaming">การเล่นเกม (13)</string>
+    <string name="battery_thermal_benchmark">การทดสอบประสิทธิภาพ (10)</string>
+    <string name="battery_fast_charging">การชาร์จเร็ว</string>
+    <string name="battery_fast_charging_desc">บังคับเปิด/ปิดการชาร์จเร็ว</string>
+    <string name="battery_bypass_charging">การชาร์จแบบข้ามแบตเตอรี่</string>
+    <string name="battery_bypass_charging_desc">จ่ายไฟให้อุปกรณ์โดยตรงจากแหล่งจ่ายไฟ</string>
+    <string name="battery_charging_speed_limit">จำกัดความเร็วการชาร์จ</string>
+    <string name="battery_saver_mode">โหมดประหยัดแบตเตอรี่</string>
+    <string name="battery_saver_mode_desc">ลดการใช้พลังงาน</string>
+
+    <string name="battery_system_charging_limit">จำกัดการชาร์จโดยระบบ</string>
+    <string name="battery_system_charging_limit_desc">จำกัดการชาร์จโดยใช้อินเทอร์เฟซเคอร์เนลทั่วไปเพื่อรักษาสุขภาพแบตเตอรี่</string>
+    <string name="battery_health_tips">เคล็ดลับสุขภาพแบตเตอรี่</string>
+    <string name="battery_tip_temp_title">หลีกเลี่ยงอุณหภูมิที่รุนแรง</string>
+    <string name="battery_tip_temp_desc">รักษาแบตเตอรี่ให้อยู่ระหว่าง 20°C - 30°C เพื่อสุขภาพที่ดีที่สุด</string>
+    <string name="battery_tip_discharge_title">หลีกเลี่ยงการคายประจุจนหมด</string>
+    <string name="battery_tip_discharge_desc">อย่าปล่อยให้แบตเตอรี่ลดลงต่ำกว่า 20%% บ่อยๆ</string>
+
+    <string name="dod_title">จัดการ DoD</string>
+    <string name="dod_back">กลับ</string>
+    <string name="dod_search_hint">ค้นหาแพ็กเกจหรือชื่อแอป…</string>
+    <string name="dod_user_apps">แอปผู้ใช้</string>
+    <string name="dod_system_apps">ระบบ</string>
+    <string name="dod_frozen_apps">ที่แช่แข็งไว้</string>
+    <string name="dod_tab_all">ทั้งหมด</string>
+    <string name="dod_tab_user">ผู้ใช้</string>
+    <string name="dod_tab_system">ระบบ</string>
+    <string name="dod_tab_frozen">แช่แข็ง</string>
+    <string name="dod_status_frozen">แช่แข็งอยู่</string>
+    <string name="dod_app_info">ข้อมูลแอป</string>
+    <string name="dod_version">เวอร์ชัน</string>
+    <string name="dod_version_code">โค้ด</string>
+    <string name="dod_package">แพ็กเกจ</string>
+    <string name="dod_target_sdk">SDK เป้าหมาย</string>
+    <string name="dod_freeze_app">แช่แข็งแอป</string>
+    <string name="dod_unfreeze_app">ยกเลิกการแช่แข็งแอป</string>
+    <string name="dod_debloat_uninstall">ถอนการติดตั้งแอปส่วนเกิน</string>
+    <string name="dod_action_freeze">แช่แข็ง</string>
+    <string name="dod_action_uninstall">ถอนการติดตั้ง</string>
+    <string name="dod_system_warning_title">คำเตือนแอปจากระบบ</string>
+    <string name="dod_system_warning_desc">คุณกำลังจะทำการ %1$s แอปพลิเคชันระบบ:</string>
+    <string name="dod_system_warning_notice">การลบหรือปิดใช้งานแอปพลิเคชันระบบอาจทำให้เกิดปัญหาบูตไม่ขึ้น เครื่องค้าง หรือไม่เสถียร ดำเนินการต่อเมื่อคุณรู้ว่ากำลังทำอะไรอยู่เท่านั้น</string>
+    <string name="dod_accept_risk">ฉันยอมรับความเสี่ยงและความรับผิดชอบ</string>
+    <string name="dod_confirm_freeze">ยืนยันการแช่แข็ง</string>
+    <string name="dod_confirm_debloat">ยืนยันการถอนการติดตั้ง</string>
+
+    <string name="dex2oat_title">ตัวแปลภาษาแอป</string>
+    <string name="dex2oat_back">กลับ</string>
+    <string name="dex2oat_options">ตัวเลือก</string>
+    <string name="dex2oat_compile_all">แปลภาษาสิ่งต่างๆ ทั้งหมด</string>
+    <string name="dex2oat_art_title">เกี่ยวกับ Android Runtime (ART)</string>
+    <string name="dex2oat_art_desc">เรียนรู้วิธีการทำงานของการแปลภาษาแบบ JIT/AOT และผลกระทบต่อประสิทธิภาพการทำงาน</string>
+    <string name="dex2oat_view_source">ดูเอกสารต้นฉบับ</string>
+    <string name="dex2oat_search_hint">ค้นหาแอป…</string>
+    <string name="dex2oat_compilation_mode">โหมดการแปลภาษา (บังคับ)</string>
+    <string name="dex2oat_compile_system_only">แปลภาษาแอปพลิเคชันระบบเท่านั้น</string>
+    <string name="dex2oat_compile_user_only">แปลภาษาแอปพลิเคชันผู้ใช้เท่านั้น</string>
+    <string name="dex2oat_reset_all">รีเซ็ตการแปลภาษาทั้งหมด</string>
+    <string name="dex2oat_system_app">แอปจากระบบ</string>
+
+    <string name="display_title">ตัวจัดการหน้าจอ</string>
+    <string name="display_back">กลับ</string>
+    <string name="display_tab_info">ข้อมูล</string>
+    <string name="display_tab_res_dpi">ความละเอียด/DPI</string>
+    <string name="display_tab_color">สี</string>
+    <string name="display_tab_extra">เพิ่มเติม</string>
+    <string name="display_device_info">ข้อมูลหน้าจออุปกรณ์</string>
+    <string name="display_resolution">ความละเอียด</string>
+    <string name="display_density_dpi">ความหนาแน่น (DPI)</string>
+    <string name="display_exact_dpi">DPI X/Y ที่แน่นอน</string>
+    <string name="display_technology">เทคโนโลยี</string>
+    <string name="display_diagonal_size">ขนาดแนวทแยง</string>
+    <string name="display_physical_size">ขนาดทางกายภาพ</string>
+    <string name="display_refresh_rate">อัตราการรีเฟรช</string>
+    <string name="display_orientation">การจัดวาง</string>
+    <string name="display_graphics_hdr">กราฟิกและ HDR</string>
+    <string name="display_gpu_renderer">ตัวเรนเดอร์ GPU</string>
+    <string name="display_opengl_version">เวอร์ชัน OpenGL</string>
+    <string name="display_hdr_support">การรองรับ HDR</string>
+    <string name="display_wide_color_gamut">ขอบเขตสีที่กว้าง</string>
+    <string name="display_supported">รองรับ</string>
+    <string name="display_not_supported">ไม่รองรับ</string>
+    <string name="display_resolution_section">ความละเอียด</string>
+    <string name="display_current_resolution">ปัจจุบัน: %1$s</string>
+    <string name="display_tap_presets">แตะเพื่อดูพรีเซ็ต</string>
+    <string name="display_manual_input">ป้อนข้อมูลด้วยตนเอง</string>
+    <string name="display_reset">รีเซ็ต</string>
+    <string name="display_presets">พรีเซ็ต</string>
+    <string name="display_density_section">ความหนาแน่น (DPI)</string>
+    <string name="display_current_dpi">ปัจจุบัน: %1$d dpi</string>
+    <string name="display_density_desc">น้อยลง = UI เล็กลง, มากขึ้น = UI ใหญ่ขึ้น</string>
+    <string name="display_saturation_title">ความอิ่มตัวของสี</string>
+    <string name="display_saturation_level">ระดับความอิ่มตัว</string>
+    <string name="display_bw">ขาวดำ (0.0)</string>
+    <string name="display_default">เริ่มต้น (1.0)</string>
+    <string name="display_vivid">สดใส (2.0)</string>
+    <string name="display_screen_timeout">เวลาพักหน้าจอ</string>
+    <string name="display_font_scale">ขนาดตัวอักษรของระบบ</string>
+    <string name="display_current_scale">ขนาดปัจจุบัน: %1$d%%</string>
+    <string name="display_animation_speed">ความเร็วแอนิเมชัน</string>
+    <string name="display_off">ปิด</string>
+    <string name="display_night_light">แสงกลางคืน</string>
+    <string name="display_night_mode">โหมดกลางคืน</string>
+    <string name="display_custom_resolution">ความละเอียดที่กำหนดเอง</string>
+    <string name="display_custom_dpi">DPI ที่กำหนดเอง</string>
+    <string name="display_width_px">ความกว้าง (px)</string>
+    <string name="display_height_px">ความสูง (px)</string>
+    <string name="display_density_dpi_label">ความหนาแน่น (DPI)</string>
+
+    <string name="doze_title">โหมด Doze</string>
+    <string name="doze_back">กลับ</string>
+    <string name="doze_system_state">สถานะระบบ</string>
+    <string name="doze_idle_count">จำนวนการ Idle</string>
+    <string name="doze_tab_apps">แอป</string>
+    <string name="doze_tab_whitelist">รายการที่ยกเว้น</string>
+    <string name="doze_tab_controls">การควบคุม</string>
+    <string name="doze_tab_settings">การตั้งค่า</string>
+    <string name="doze_search_whitelist">ค้นหาในรายการที่ยกเว้น…</string>
+    <string name="doze_search_all">ค้นหาแอปทั้งหมด…</string>
+    <string name="doze_no_whitelisted">ไม่มีแอปที่ยกเว้น</string>
+    <string name="doze_no_apps_found">ไม่พบแอป</string>
+    <string name="doze_system_app">ระบบ</string>
+    <string name="doze_gms_title">Google Play Services (GMS)</string>
+    <string name="doze_force_gms">บังคับ GMS Doze</string>
+    <string name="doze_gms_subtitle">ควบคุมแอปที่กินแบตเตอรี่</string>
+    <string name="doze_mode_default">เริ่มต้น</string>
+    <string name="doze_mode_standard">มาตรฐาน</string>
+    <string name="doze_mode_aggressive">ขั้นสูง</string>
+    <string name="doze_aggressive_desc">ประหยัดสูงสุด: บล็อค Wakelocks, การแจ้งเตือน และงานเบื้องหลัง การแจ้งเตือนแบบพุชอาจล่าช้า</string>
+    <string name="doze_standard_desc">สมดุล: บล็อคเฉพาะงานเบื้องหลัง ปลอดภัยสำหรับการแจ้งเตือน</string>
+    <string name="doze_default_desc">เริ่มต้น: GMS ทำงานปกติกระบวนการของระบบ</string>
+    <string name="doze_manual_controls">การควบคุมด้วยตนเอง</string>
+    <string name="doze_force_idle">บังคับ Idle</string>
+    <string name="doze_wake_up">ปลุก</string>
+    <string name="doze_step_state">สถานะขั้นตอน</string>
+    <string name="doze_reset_stats">รีเซ็ตสถิติ</string>
+    <string name="doze_auto_refresh">รีเฟรชอัตโนมัติ</string>
+    <string name="doze_auto_refresh_title">รีเฟรชสถานะอัตโนมัติ</string>
+    <string name="doze_auto_refresh_desc">รีเฟรชสถานะ Doze โดยอัตโนมัติ</string>
+    <string name="doze_states_info">ข้อมูลสถานะ Doze</string>
+    <string name="doze_state_active">ทำงานอยู่ (ACTIVE)</string>
+    <string name="doze_state_active_desc">อุปกรณ์กำลังใช้งานปกติ โหมด Doze ไม่ทำงาน</string>
+    <string name="doze_state_idle_pending">รอ Idle (IDLE_PENDING)</string>
+    <string name="doze_state_idle_pending_desc">อุปกรณ์กำลังจะเข้าสู่โหมด Doze</string>
+    <string name="doze_state_sensing">กำลังตรวจจับ (SENSING)</string>
+    <string name="doze_state_sensing_desc">อุปกรณ์กำลังตรวจจับความเคลื่อนไหวก่อนเข้าสู่ Doze</string>
+    <string name="doze_state_idle">Idle (IDLE)</string>
+    <string name="doze_state_idle_desc">อุปกรณ์อยู่ในโหมด Doze กิจกรรมเบื้องหลังถูกจำกัด</string>
+    <string name="doze_state_maintenance">กำลังบำรุงรักษา (IDLE_MAINTENANCE)</string>
+    <string name="doze_state_maintenance_desc">ช่วงเวลาสั้นๆ ให้แอปจัดการงานที่ค้างไว้ให้เสร็จ</string>
+    <string name="doze_global_settings">การตั้งค่าส่วนกลางของโหมด Doze</string>
+    <string name="doze_enable">เปิดใช้งานโหมด Doze</string>
+    <string name="doze_enable_desc">อนุญาตให้อุปกรณ์เข้าสู่โหมดสลีป</string>
+    <string name="doze_aggressive_mode">Aggressive Doze</string>
+    <string name="doze_aggressive_mode_desc">เข้าสู่โหมด Doze เร็วขึ้น</string>
+    <string name="doze_battery_tips">เคล็ดลับการประหยัดแบตเตอรี่</string>
+    <string name="doze_tip_gms_title">ใช้ GMS Doze</string>
+    <string name="doze_tip_gms_desc">บังคับ Google Play Services ให้สลีปเพื่อประหยัดแบตเตอรี่สูงสุด</string>
+    <string name="doze_tip_whitelist_title">จำกัดแอปที่ยกเว้น</string>
+    <string name="doze_tip_whitelist_desc">ยกเว้นเฉพาะแอปที่ต้องการการเข้าถึงเบื้องหลังจริงๆ (เช่น WhatsApp/Telegram)</string>
+
+    <string name="thermal_title">ตัวจัดการอุณหภูมิ</string>
+    <string name="thermal_max_temp">อุณหภูมิสูงสุด</string>
+    <string name="thermal_avg_temp">อุณหภูมิเฉลี่ย</string>
+    <string name="thermal_active_zones">โซนที่ทำงานอยู่</string>
+    <string name="thermal_policy">นโยบาย</string>
+    <string name="thermal_live">สด</string>
+    <string name="thermal_tab_zones">โซน</string>
+    <string name="thermal_tab_cooling">การระบายความร้อน</string>
+    <string name="thermal_tab_disabled">ปิดใช้งานแล้ว</string>
+    <string name="thermal_no_disabled">ไม่มีโซนที่ปิดใช้งาน</string>
+    <string name="thermal_disable">ปิดใช้งาน</string>
+    <string name="thermal_enable">เปิดใช้งาน</string>
+    <string name="thermal_trip_points">จุดตัด</string>
+    <string name="thermal_hide_trips">ซ่อนจุดตัด</string>
+    <string name="thermal_trip_config">ตั้งค่าจุดตัด</string>
+    <string name="thermal_current_state">สถานะปัจจุบัน</string>
+    <string name="thermal_policy_dialog_title">นโยบายอุณหภูมิเคอร์เนล</string>
+    <string name="thermal_back">กลับ</string>
+
+    <string name="logs_empty">ไม่พบคุณสมบัติ</string>
+    <string name="logs_reading">กำลังอ่านบันทึกระบบ…</string>
+    <string name="logs_search_hint">ค้นหาบันทึก</string>
+    <string name="logs_count">%1$s บันทึก</string>
+    <string name="logs_status_paused">หยุดชั่วคราว</string>
+    <string name="logs_status_live">สด</string>
+    <string name="logs_clear_search">ล้างข้อมูล</string>
+    <string name="logs_resume">ทำต่อ</string>
+    <string name="logs_pause">หยุดชั่วคราว</string>
+    <string name="logs_menu">เมนู</string>
+    <string name="logs_settings">การตั้งค่า</string>
+    <string name="logs_display_options">ตัวเลือกการแสดงผล</string>
+    <string name="logs_save">บันทึกข้อมูล</string>
+    <string name="logs_clear">ล้างบันทึก</string>
+    <string name="logs_restart">รีสตาร์ท Logcat</string>
+    <string name="logs_copied">คัดลอกไปยังคลิปบอร์ดแล้ว</string>
+    <string name="logs_scroll_bottom">เลื่อนไปด้านล่างสุด</string>
+
+    <string name="logs_settings_title">การตั้งค่า Logcat</string>
+    <string name="logs_settings_desc">ตั้งค่าพฤติกรรมการบันทึก</string>
+    <string name="logs_poll_interval">ช่วงเวลาการดึงข้อมูล</string>
+    <string name="logs_ms">%1$d ms</string>
+    <string name="logs_poll_desc">ยิ่งน้อย = อัปเดตยิ่งไว แต่กินทรัพยากร CPU สูง</string>
+    <string name="logs_buffers">บัฟเฟอร์</string>
+    <string name="logs_max_logs">จำนวนบันทึกสูงสุดในหน่วยความจำ</string>
+    <string name="logs_save_location">ตำแหน่งจัดเก็บข้อมูล</string>
+    <string name="logs_internal_storage">ที่เก็บข้อมูลภายใน</string>
+    <string name="logs_external_docs">เอกสารภายนอก</string>
+
+    <string name="logs_display_options_title">ตัวเลือกการแสดงผล</string>
+    <string name="logs_display_options_desc">ปรับแต่งมุมมองบันทึก</string>
+    <string name="logs_metadata">เมตาข้อมูล</string>
+    <string name="logs_advanced">ขั้นสูง</string>
+    <string name="logs_show_tag">แสดงแท็ก</string>
+    <string name="logs_show_time">แสดงเวลา</string>
+    <string name="logs_show_date">แสดงวันที่</string>
+    <string name="logs_show_pid">แสดง ID กระบวนการ (PID)</string>
+    <string name="logs_show_tid">แสดง ID เธรด (TID)</string>
+    <string name="logs_compact_mode">โหมดกะทัดรัด</string>
+    <string name="logs_compact_desc">ลดระยะห่างและขนาดตัวอักษร</string>
+
+    <string name="logs_copy">คัดลอก</string>
+    <string name="logs_raw_log">ข้อมูลดิบ</string>
+    <string name="logs_time">เวลา</string>
+    <string name="logs_date">วันที่</string>
+    <string name="logs_pid">ID กระบวนการ</string>
+    <string name="logs_tid">ID เธรด</string>
+    <string name="logs_tag">แท็ก</string>
+    <string name="btn_done">เสร็จสมบูรณ์</string>
+
+    <string name="fps_notification_title">การตรวจสอบ ZKM กำลังทำงาน</string>
+    <string name="fps_notification_text">แตะเพื่อเปิดแอป</string>
+    <string name="fps_monitor_title">ตรวจสอบ</string>
+    <string name="fps_cpu">CPU</string>
+    <string name="fps_ram">RAM</string>
+    <string name="fps_error">ข้อผิดพลาด…</string>
+    <string name="fps_resize">ปรับขนาด</string>
+
+    <string name="process_manager">จัดการกระบวนการ</string>
+    <string name="system">ระบบ</string>
+    <string name="processes">กระบวนการ</string>
+    <string name="floating_mode">โหมดหน้าต่างลอย</string>
+    <string name="system_health">สุขภาพระบบ</string>
+    <string name="monitoring_threads">กำลังตรวจสอบ %1$d เธรดที่ทำงานอยู่</string>
+    <string name="top_load">ภาระงานสูงสุด: %1$s (%2$s)</string>
+    <string name="running_processes">กระบวนการที่กำลังทำงาน</string>
+    <string name="cpu_usage">การใช้งาน CPU</string>
+    <string name="top_cpu_usage">การใช้งาน CPU สูงสุด</string>
+    <string name="top_ram_usage">การใช้งาน RAM สูงสุด</string>
+    <string name="memory">หน่วยความจำ</string>
+    <string name="limit_format">ขีดจำกัด: %1$d</string>
+    <string name="total">รวม</string>
+    <string name="user">ผู้ใช้</string>
+    <string name="sys">ระบบ</string>
+
+    <string name="overlay_permission_desc">เพื่อแสดงผลการตรวจสอบแบบหน้าต่างลอย โปรดอนุญาตสิทธิ์ \'แสดงทับแอปอื่น\'</string>
+    <string name="open_settings">เปิดการตั้งค่า</string>
+    <string name="app_details">รายละเอียดแอป</string>
+    <string name="version">เวอร์ชัน</string>
+    <string name="build">บิลด์</string>
+    <string name="package_name">แพ็กเกจ</string>
+
+    <string name="unknown">ไม่ทราบแน่ชัด</string>
+    <string name="not_found">ไม่พบ</string>
+    <string name="btn_close">ปิด</string>
+    <string name="cpu">CPU</string>
+    <string name="ram">RAM</string>
+    <string name="pid">PID</string>
+    <string name="manage">จัดการ</string>
+    <string name="kill">ปิดกระบวนการ</string>
+    <string name="force_stop">บังคับหยุด (SIGSTOP)</string>
+    <string name="ksuweb_title">KernelSU WebUI</string>
+    <string name="ksuweb_no_modules">ไม่พบโมดูล WebUI</string>
+    <string name="ksuweb_card_style">สไตล์การ์ด</string>
+    <string name="ksuweb_sorting">การเรียงลำดับ</string>
+    <string name="ksuweb_sort_action">สคริปต์การกระทำก่อน</string>
+    <string name="ksuweb_sort_enabled">เปิดใช้งานก่อน</string>
+    <string name="card_style_immersive">สมจริง (Immersive)</string>
+    <string name="card_style_minimalist">เรียบง่าย (Minimalist)</string>
+    <string name="card_style_media">สื่อ (Media)</string>
+    <string name="card_style_outlined">มีเส้นขอบ (Outlined)</string>
+    <string name="ksuweb_status_active">ทำงานอยู่</string>
+    <string name="ksuweb_by_author">โดย %1$s</string>
+    <string name="ksuweb_version_prefix">v%1$s</string>
+    <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
+    <string name="ksuweb_badge_action">กระทำ</string>
+    <string name="ksuweb_badge_disabled">ปิดใช้งาน</string>
+    <string name="ksuweb_badge_webui">WEBUI</string>
+    <string name="btn_refresh">รีเฟรช</string>
+    <string name="btn_options">ตัวเลือก</string>
+
+    <string name="nav_about">เกี่ยวกับ</string>
+    <string name="tab_feature">ฟีเจอร์</string>
+    <string name="tab_overview">ภาพรวม</string>
+    <string name="tab_adjust">ปรับแต่ง</string>
+    <string name="tab_support">สนับสนุน</string>
+    <string name="tools">เครื่องมือ</string>
+    <string name="power">พลังงาน</string>
+    <string name="settings">การตั้งค่า</string>
+
+    <string name="quick_tools">เครื่องมือด่วน</string>
+    <string name="terminal_shell">เทอร์มินัล</string>
+    <string name="terminal_shell_desc">หน้าต่างเทอร์มินัลที่สามารถพิมพ์ได้ทุกที่</string>
+    <string name="fps_monitor">ตรวจสอบ FPS</string>
+    <string name="fps_monitor_desc">แสดงอัตราเฟรมแบบเรียลไทม์</string>
+    <string name="process_monitor">ตรวจสอบกระบวนการ</string>
+    <string name="process_monitor_desc">แสดงข้อมูลกระบวนการที่ตรวจสอบอยู่</string>
+    <string name="activity_inspector">ตรวจสอบกิจกรรม</string>
+    <string name="activity_inspector_desc">ตรวจสอบข้อมูลแพ็กเกจและคลาสของกิจกรรมที่ทำงานอยู่</string>
+
+    <string name="overlay_permission_required">ต้องการสิทธิ์แสดงทับ!</string>
+
+    <string name="power_menu">เมนูพลังงาน</string>
+    <string name="power_reboot">รีบูตระบบ</string>
+    <string name="power_shutdown">ปิดเครื่อง</string>
+    <string name="power_recovery">เข้าสู่โหมดกู้คืน (Recovery)</string>
+    <string name="power_fastboot">เข้าสู่โหมด Fastboot</string>
+    <string name="power_restart_ui">รีสตาร์ท SystemUI</string>
+    <string name="power_reboot_warning">คุณแน่ใจหรือไม่ว่าต้องการรีบูตอุปกรณ์?</string>
+    <string name="power_shutdown_warning">อุปกรณ์จะปิดตัวลงโดยสมบูรณ์</string>
+    <string name="power_recovery_warning">อุปกรณ์จะรีบูตเข้าสู่โหมดกู้คืน (TWRP/OrangeFox)</string>
+    <string name="power_fastboot_warning">อุปกรณ์จะรีบูตเข้าสู่โหมด Fastboot/Bootloader</string>
+    <string name="power_restart_ui_warning">ส่วนติดต่อผู้ใช้จะเริ่มใหม่ อาจใช้เวลาครู่หนึ่ง</string>
+    <string name="confirm_action">ยืนยัน %1$s</string>
+    <string name="btn_confirm_yes">ใช่ ตกลง</string>
+
+    <string name="about_section_developer">เกี่ยวกับนักพัฒนา</string>
+    <string name="about_section_app_info">เกี่ยวกับข้อมูลแอป</string>
+    <string name="about_section_community">เกี่ยวกับชุมชน</string>
+    <string name="about_section_collaborator">เกี่ยวกับผู้ร่วมพัฒนา</string>
+    <string name="about_changelog">บันทึกการเปลี่ยนแปลง</string>
+    <string name="about_opensource">โอเพนซอร์ส</string>
+
+    <string name="intro_app_label">ZuanKernel</string>
+    <string name="intro_p1_title">Zuan Kernel Manager</string>
+    <string name="intro_p1_desc">ควบคุมประสิทธิภาพอุปกรณ์ของคุณได้อย่างเต็มที่ รวมการโอเวอร์คล็อก การจัดการแบตเตอรี่ และการเพิ่มประสิทธิภาพระบบไว้ในแอปเดียว</string>
+    <string name="intro_p2_title">คำเตือนความเสี่ยง</string>
+    <string name="intro_p2_desc">แอปนี้ต้องการการเข้าถึง ROOT การตั้งค่าที่ไม่เหมาะสมอาจทำให้เกิดปัญหาบูตไม่ขึ้น (Bootloop) การตัดสินใจดำเนินการถือเป็นความเสี่ยงของคุณเอง (DWYOR)</string>
+    <string name="intro_p3_title">ความเป็นส่วนตัวและข้อตกลง</string>
+    <string name="intro_p3_desc">ข้อมูลได้รับการประมวลผลภายในเครื่องเท่านั้น เราไม่ส่งข้อมูลส่วนตัวของคุณไปยังเซิร์ฟเวอร์คลาวด์ใดๆ</string>
+    <string name="intro_btn_next">ถัดไป</string>
+    <string name="intro_btn_agree">ยอมรับและเข้าสู่แอป</string>
+    <string name="intro_btn_decline">ปฏิเสธและออก</string>
+    <string name="intro_footer_legal">โดยการกด \'ยอมรับ\' คุณยอมรับความเสี่ยงและนโยบายความเป็นส่วนตัว</string>
+
+    <string name="update_title">อัปเดตเป็นเวอร์ชัน %1$s</string>
+    <string name="update_changelog_title">มีอะไรใหม่</string>
+    <string name="btn_update">อัปเดต</string>
+    <string name="downloading_update">กำลังดาวน์โหลดอัปเดต…</string>
+    <string name="auto_download">ดาวน์โหลด APK อัตโนมัติ</string>
+    <string name="auto_download_desc">ดาวน์โหลดและติดตั้งโดยอัตโนมัติ</string>
+    <string name="btn_manual_download">เปิดเบราว์เซอร์</string>
+
+    <!-- Language Names -->
+    <string name="lang_russian">รัสเซีย</string>
+    <string name="lang_ukrainian">ยูเครน</string>
+    <string name="lang_belarusian">เบลารุส</string>
+    <string name="lang_kazakh">คาซัค</string>
+    <string name="lang_moldovan">มอลโดวา</string>
+    <string name="lang_chinese_cn">จีน (จีน)</string>
+    <string name="lang_chinese_sg">จีน (สิงคโปร์)</string>
+    <string name="lang_chinese_tw">จีน (ไต้หวัน)</string>
+    <string name="lang_chinese_hk">จีน (ฮ่องกง)</string>
+    <string name="lang_chinese_mo">จีน (มาเก๊า)</string>
+    <string name="lang_japanese">ญี่ปุ่น</string>
+    <string name="lang_korean">เกาหลี</string>
+    <string name="lang_vietnamese">เวียดนาม</string>
+    <string name="lang_german">เยอรมัน</string>
+    <string name="lang_french">ฝรั่งเศส</string>
+    <string name="lang_spanish">สเปน</string>
+    <string name="lang_portuguese">โปรตุเกส</string>
+    <string name="lang_italian">อิตาลี</string>
+    <string name="lang_polish">โปแลนด์</string>
+    <string name="lang_turkish">ตุรกี</string>
+    <string name="lang_dutch">ดัตช์</string>
+    <string name="lang_thai">ไทย</string>
+
+    <!-- ========================================== -->
+    <!-- CPU/GPU SCREEN STRINGS                     -->
+    <!-- ========================================== -->
+    <string name="graphics_unit">หน่วยประมวลผลกราฟิก</string>
+    <string name="graphics_processor">กราฟิกโปรเซสเซอร์</string>
+    <string name="processor_sets">ชุดโปรเซสเซอร์ (Cpuset)</string>
+    <string name="core_control">การควบคุมคอร์</string>
+    <string name="cpu_governor">ตัวควบคุม CPU</string>
+    <string name="select_governor">เลือกตัวควบคุม</string>
+    <string name="min_freq">ความถี่ต่ำสุด</string>
+    <string name="max_freq">ความถี่สูงสุด</string>
+    <string name="min_frequency">ความถี่ขั้นต่ำ</string>
+    <string name="max_frequency">ความถี่สูงสุด</string>
+    <string name="tab_performance">ประสิทธิภาพ</string>
+    <string name="tab_tuning">การปรับแต่ง</string>
+    <string name="disable_cpu_title">ปิดใช้งาน CPU %1$d หรือไม่?</string>
+    <string name="disable_cpu_warning">การปิดใช้งานคอร์นี้อาจลดประสิทธิภาพการทำงาน โปรดตรวจสอบว่าคอร์อื่นๆ ยังทำงานเพื่อรองรับงานของระบบ</string>
+    <string name="btn_disable">ปิดใช้งาน</string>
+    <string name="select_active_cores">เลือกคอร์ที่ทำงานอยู่:</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s MHz</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
+    <string name="gpu_load_format">%1$s • ภาระงาน %2$s%%</string>
+    <string name="cores_count">คอร์: %1$s</string>
+    <string name="gpu_not_supported">ไม่รองรับอินเทอร์เฟซ GPU</string>
+    <string name="not_available">N/A</string>
+    <string name="no_options">ไม่มีตัวเลือก</string>
+    <string name="label_value">ค่า</string>
+
+    <!-- ========================================== -->
+    <!-- MEMORY SCREEN STRINGS                      -->
+    <!-- ========================================== -->
+    <string name="zram_manager">จัดการ ZRAM</string>
+    <string name="zram_status">สถานะ ZRAM</string>
+    <string name="disk_size_mb">ขนาดดิสก์: %1$d MB</string>
+    <string name="zram_info_format">%1$d MB • %2$s</string>
+    <string name="compression_algorithm">อัลกอริทึมการบีบอัด</string>
+    <string name="io_scheduler">ตัวจัดตารางเวลา I/O</string>
+    <string name="select_scheduler">เลือกตัวจัดตารางเวลา</string>
+    <string name="tunables">การปรับแต่ง</string>
+    <string name="virtual_memory">หน่วยความจำเสมือน</string>
+    <string name="swappiness">ความพร้อมการใช้ Swap</string>
+    <string name="vfs_cache_pressure">แรงกดดันแคช VFS</string>
+    <string name="dirty_ratio">อัตราข้อมูลค้าง</string>
+    <string name="dirty_bg_ratio">อัตราข้อมูลค้างพื้นหลัง</string>
+    <string name="no_storage_devices">ไม่พบอุปกรณ์จัดเก็บข้อมูลที่รองรับ</string>
+    <string name="scheduler_format">ตัวจัดตารางเวลา: %1$s</string>
+    <string name="btn_set">ตั้งค่า</string>
+
+    <!-- ========================================== -->
+    <!-- NETWORK SCREEN STRINGS                     -->
+    <!-- ========================================== -->
+    <string name="tcp_congestion">การจัดการความหนาแน่น TCP</string>
+    <string name="tcp_parameters">พารามิเตอร์ TCP</string>
+    <string name="syn_cookies">SYN Cookies</string>
+    <string name="enabled">เปิดใช้งาน</string>
+    <string name="disabled">ปิดใช้งาน</string>
+    <string name="tcp_reuse">TCP Reuse</string>
+    <string name="on">เปิด</string>
+    <string name="off">ปิด</string>
+    <string name="fast_open">Fast Open</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">บันทึกเคอร์เนล</string>
+    <string name="printk">Printk</string>
+
+    <!-- ========================================== -->
+    <!-- SCHEDULER SCREEN STRINGS                   -->
+    <!-- ========================================== -->
+    <string name="feature_toggles">สวิตช์ฟีเจอร์</string>
+    <string name="bore_scheduler">ตัวจัดตารางเวลา BORE</string>
+    <string name="auto_group">จัดกลุ่มอัตโนมัติ</string>
+    <string name="child_runs_first">เรียกงานลูกก่อน</string>
+    <string name="sched_stats">สถิติการจัดตาราง</string>
+    <string name="tunable_scaling">การสเกลที่ปรับแต่งได้</string>
+    <string name="cstate_aware">รับรู้สถานะ C-State</string>
+    <string name="uclamp_configuration">การตั้งค่า UClamp</string>
+    <string name="uclamp_max">UClamp สูงสุด</string>
+    <string name="uclamp_min">UClamp ต่ำสุด</string>
+    <string name="advanced_parameters">พารามิเตอร์ขั้นสูง</string>
+    <string name="current_value_format">ค่าปัจจุบัน: %1$s</string>
+    <string name="new_value">ค่าใหม่</string>
+    <string name="edit">แก้ไข</string>
+
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">MediaTek GPU</string>
+    <string name="mtk_gpu_subtitle">การปรับแต่ง Dimensity/Mali</string>
+    <string name="mtk_tab_freq">ความถี่</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">เร่งพลัง</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">อุณหภูมิ</string>
+
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">เปิดใช้งาน DVFS แล้ว</string>
+    <string name="mtk_dvfs_enabled_desc">ความถี่ GPU แบบไดนามิก ปิดการใช้งาน DVFS หรือล็อคความถี่เพื่อควบคุมด้วยตนเอง</string>
+    <string name="mtk_gpu_dvfs">GPU DVFS</string>
+    <string name="mtk_dynamic_scaling_on">เปิดการสเกลแบบไดนามิก</string>
+    <string name="mtk_static_frequency">ความถี่คงที่</string>
+    <string name="mtk_dynamic">ไดนามิก</string>
+    <string name="mtk_freq_locked">ล็อคความถี่แล้ว</string>
+    <string name="mtk_current_frequency">ความถี่ปัจจุบัน</string>
+    <string name="mtk_lock_frequency">ล็อคความถี่</string>
+    <string name="mtk_select_opp_index">เลือกดัชนี OPP เพื่อล็อค</string>
+    <string name="mtk_unlock_frequency">ปลดล็อคความถี่</string>
+    <string name="mtk_dvfs_limits">ขีดจำกัด DVFS</string>
+    <string name="mtk_minimum_boost">ขั้นต่ำ (เร่ง)</string>
+    <string name="mtk_maximum_limit">สูงสุด (จำกัด)</string>
+
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">ไม่สามารถควบคุม DRAM ได้</string>
+    <string name="mtk_dram_type">ประเภท</string>
+    <string name="mtk_dram_controller">ตัวควบคุม DRAM</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq ทั่วไป</string>
+    <string name="mtk_dram_fliper">Fliper Legacy</string>
+    <string name="mtk_dram_unknown">ไม่ทราบแน่ชัด</string>
+    <string name="mtk_dram_current_step">ปัจจุบัน</string>
+    <string name="mtk_dram_force_frequency">บังคับความถี่ DRAM</string>
+    <string name="mtk_dram_lock_opp">ล็อคกับ OPP เฉพาะ (ไม่มี DVFS)</string>
+    <string name="mtk_dram_reset_dvfs">รีเซ็ตเป็น DVFS</string>
+
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">การเล่นเกมและประสิทธิภาพ</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">เร่งเฟรมเพื่อการเล่นเกมที่ลื่นไหล</string>
+    <string name="mtk_ged_game_mode_title">โหมดเกม GED</string>
+    <string name="mtk_ged_game_mode_subtitle">การเพิ่มประสิทธิภาพการเล่นเกมโดยตัวควบคุม GPU</string>
+    <string name="mtk_touch_boost_title">เร่งพลังการสัมผัส</string>
+    <string name="mtk_touch_boost_subtitle">เร่งพลัง CPU เมื่อมีการสัมผัส</string>
+    <string name="mtk_sched_boost_title">เร่งพลังการจัดตารางเวลา</string>
+    <string name="mtk_sched_boost_subtitle">เพิ่มลำดับความสำคัญให้แอปพลิเคชันที่ใช้งานอยู่</string>
+    <string name="mtk_gaming_mode_preset">พรีเซ็ตโหมดการเล่นเกม</string>
+    <string name="mtk_gaming_mode_desc">เปิดใช้งานการเร่งพลังทั้งหมดทันที</string>
+    <string name="mtk_activate_gaming_mode">เปิดใช้งานโหมดการเล่นเกม</string>
+
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM ไม่พร้อมใช้งาน</string>
+    <string name="mtk_ppm_not_found">ไม่พบ /proc/ppm</string>
+    <string name="mtk_ppm_controller">ตัวควบคุม PPM</string>
+    <string name="mtk_ppm_active">เปิดทำงาน</string>
+    <string name="mtk_ppm_disabled">ปิดการทำงาน</string>
+    <string name="mtk_active_policies">นโยบายที่ทำงานอยู่</string>
+    <string name="mtk_policy_hash">นโยบาย #</string>
+    <string name="mtk_ppm_no_policies">เปิดใช้งาน PPM แล้วแต่ตรวจไม่พบนโยบาย อาจเป็นข้อจำกัดของเคอร์เนล</string>
+    <string name="mtk_about_ppm">เกี่ยวกับ PPM</string>
+    <string name="mtk_ppm_description">Performance Power Management ควบคุมการจัดสรรพลังงาน CPU/GPU การปิดนโยบาย \'Thermal\' อาจทำให้เครื่องร้อนเกินไป แต่จะเพิ่มประสิทธิภาพได้</string>
+
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">ไม่มีข้อมูล CPU อื่นๆ</string>
+    <string name="mtk_cci_interconnect">การเชื่อมต่อ CCI</string>
+    <string name="mtk_cache_coherent">Cache Coherent Interconnect</string>
+    <string name="mtk_big_little_desc">ควบคุมการทำงานร่วมกันของคอร์แบบ big.LITTLE</string>
+    <string name="mtk_normal">ปกติ</string>
+    <string name="mtk_performance">เน้นประสิทธิภาพ</string>
+    <string name="mtk_low_power">พลังงานต่ำ</string>
+    <string name="mtk_balance">สมดุล</string>
+    <string name="mtk_cpu_power_mode">โหมดพลังงาน CPU</string>
+    <string name="mtk_current_mode">ปัจจุบัน</string>
+    <string name="mtk_voltage_offset">ชดเชยแรงดันไฟฟ้า (EEM)</string>
+    <string name="mtk_eem_unit">6.25mV ต่อหน่วย</string>
+    <string name="mtk_offset_value">ค่าชดเชย</string>
+
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">การจำกัดประสิทธิภาพเนื่องจากความร้อน</string>
+    <string name="mtk_temp_limit_exceeded">อุณหภูมิเกินขีดจำกัด</string>
+    <string name="mtk_normal_temp">อุณหภูมิปกติ</string>
+    <string name="mtk_eara_thermal">อุณหภูมิ EARA</string>
+    <string name="mtk_early_adaptation">Early Adaptation Resource Allocation</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">รายงานอุณหภูมิปลอมให้เคอร์เนล</string>
+    <string name="mtk_throttling_desc">อุปกรณ์กำลังจำกัดประสิทธิภาพเพื่อป้องกันความร้อนสูงเกินไป ประสิทธิภาพจะลดลง</string>
+    <string name="mtk_thermal_daemon_info">การจัดการความร้อนของ MTK จัดการโดยเคอร์เนลเทอร์มอลดีมอน อ่านค่าจากเซ็นเซอร์บนได (tsens)</string>
+
+    <!-- Common Actions -->
+    <string name="action_back">กลับ</string>
+    <string name="action_refresh">รีเฟรช</string>
+
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">Adreno GPU</string>
+    <string name="adreno_gpu_subtitle">ประสิทธิภาพและการปรับแต่ง</string>
+    <string name="adreno_tab_freq">ความถี่</string>
+    <string name="adreno_tab_power">พลังงาน</string>
+    <string name="adreno_tab_bus">บัส</string>
+    <string name="adreno_tab_thermal">อุณหภูมิ</string>
+    <string name="adreno_tab_advanced">ขั้นสูง</string>
+
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">ความถี่ปัจจุบัน</string>
+    <string name="adreno_freq_limits">ขีดจำกัดความถี่</string>
+    <string name="adreno_minimum">ต่ำสุด</string>
+    <string name="adreno_maximum">สูงสุด</string>
+    <string name="adreno_governor">ตัวควบคุม</string>
+    <string name="adreno_current">ปัจจุบัน</string>
+    <string name="adreno_change">เปลี่ยน</string>
+    <string name="adreno_frequency">ความถี่</string>
+    <string name="adreno_cancel">ยกเลิก</string>
+
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">การจำกัดประสิทธิภาพ GPU</string>
+    <string name="adreno_performance_limited">ประสิทธิภาพถูกจำกัด</string>
+    <string name="adreno_full_performance">ประสิทธิภาพสูงสุด</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">ระดับ</string>
+    <string name="adreno_off">ปิด</string>
+    <string name="adreno_low">ต่ำ</string>
+    <string name="adreno_med">กลาง</string>
+    <string name="adreno_high">สูง</string>
+    <string name="adreno_boost_desc">ระดับการเร่งพลังที่สูงขึ้นจะเพิ่มประสิทธิภาพ แต่จะกินแบตเตอรี่และเกิดความร้อนมากขึ้น</string>
+
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">ส่วนประกอบบัส</string>
+    <string name="adreno_no_bus_controls">ไม่สามารถควบคุมบัสได้</string>
+    <string name="adreno_no_bus_desc">อุปกรณ์นี้ไม่มีส่วนประกอบบัสที่สามารถตั้งค่าได้</string>
+    <string name="adreno_min_freq">ความถี่ขั้นต่ำ</string>
+    <string name="adreno_max_freq">ความถี่สูงสุด</string>
+    <string name="adreno_min">ต่ำสุด</string>
+    <string name="adreno_max">สูงสุด</string>
+    <string name="adreno_edit">แก้ไข</string>
+
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">การจำกัดประสิทธิภาพเนื่องจากความร้อน</string>
+    <string name="adreno_gpu_temp">อุณหภูมิ GPU</string>
+    <string name="adreno_thermal_zones">โซนอุณหภูมิ</string>
+    <string name="adreno_cooling_devices">อุปกรณ์ระบายความร้อน</string>
+
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL ขั้นสูง</string>
+    <string name="adreno_force_no_nap">บังคับไม่ให้หยุดพัก (No NAP)</string>
+    <string name="adreno_no_nap_desc">ป้องกันไม่ให้ GPU เข้าสู่โหมดพัก</string>
+    <string name="adreno_force_clk_on">บังคับเปิดคล็อก</string>
+    <string name="adreno_clk_on_desc">รักษาคล็อกให้ทำงานตลอดเวลา</string>
+    <string name="adreno_force_bus_on">บังคับเปิดบัส</string>
+    <string name="adreno_bus_on_desc">รักษาบัสให้ทำงานตลอดเวลา</string>
+    <string name="adreno_bus_split">การแยกบัส</string>
+    <string name="adreno_bus_split_desc">เปิดใช้งานการแยกบัส</string>
+    <string name="adreno_throttling">การจำกัดประสิทธิภาพ</string>
+    <string name="adreno_throttling_desc">เปิดใช้งานการจำกัดประสิทธิภาพเมื่อร้อน</string>
+    <string name="adreno_power_levels">ระดับพลังงาน</string>
+    <string name="adreno_default">เริ่มต้น</string>
+    <string name="adreno_thermal">อุณหภูมิ</string>
+    <string name="adreno_save">บันทึก</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">เปิดใช้งาน Idler</string>
+    <string name="adreno_idler_desc">ลดการใช้พลังงานขณะเครื่องว่าง</string>
+    <string name="adreno_idle_wait">เวลารอเมื่อว่าง</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">ขีดจำกัดภาระงาน</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">เปิดใช้งาน Simple GPU</string>
+    <string name="adreno_simple_gpu_desc">อัลกอริทึมตัวควบคุม GPU ทางเลือก</string>
+    <string name="adreno_laziness">ความล่าช้าการทำงาน</string>
+    <string name="adreno_ramp_threshold">ขีดจำกัดการเร่งพลัง</string>
+
+    <!-- Profiles -->
+    <string name="profiles_title">โปรไฟล์</string>
+    <string name="profile_new">ใหม่</string>
+    <string name="profile_save_current">บันทึกปัจจุบัน</string>
+    <string name="profile_rename">เปลี่ยนชื่อ</string>
+    <string name="profile_delete">ลบ</string>
+    <string name="profile_dialog_new_title">โปรไฟล์ใหม่</string>
+    <string name="profile_dialog_rename_title">เปลี่ยนชื่อโปรไฟล์</string>
+    <string name="profile_dialog_name_label">ชื่อโปรไฟล์</string>
+    <string name="profile_dialog_new_name_label">ชื่อใหม่</string>
+    <string name="profile_save_success">บันทึกโปรไฟล์ \'%s\' แล้ว</string>
+    <string name="profile_apply_success">ใช้โปรไฟล์ \'%s\' แล้ว</string>
+    <string name="profile_auto_apply_success">ใช้โปรไฟล์ \'%s\' อัตโนมัติแล้ว</string>
+    <string name="profile_save">บันทึก</string>
+    <string name="profile_cancel">ยกเลิก</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">ใช้ค่าเมื่อเปิดเครื่อง</string>
+    <string name="pref_apply_on_boot_desc">ใช้การตั้งค่า SoC และแบตเตอรี่ทั้งหมดซ้ำอีกครั้งหลังจากรีบูต</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">กำลังใช้การตั้งค่าประสิทธิภาพและแบตเตอรี่ของคุณอีกครั้ง…</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">ฟีเจอร์</string>
+    <string name="nav_tab_overview">ภาพรวม</string>
+    <string name="nav_tab_adjust">ปรับแต่ง</string>
+    <string name="nav_tab_support">สนับสนุน</string>
+    <string name="nav_tools_desc">เครื่องมือ</string>
+    <string name="nav_power_desc">พลังงาน</string>
+    <string name="nav_settings_desc">การตั้งค่า</string>
+
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">เครื่องมือด่วน</string>
+    <string name="dialog_power_title">เมนูพลังงาน</string>
+
+    <!-- Tools -->
+    <string name="tool_terminal_title">เทอร์มินัล</string>
+    <string name="tool_terminal_subtitle">หน้าต่างเทอร์มินัลที่คุณสามารถพิมพ์ได้ทุกที่</string>
+    <string name="tool_fps_title">ตรวจสอบ FPS</string>
+    <string name="tool_fps_subtitle">การแสดงอัตราเฟรมแบบเรียลไทม์</string>
+    <string name="tool_process_title">จัดการกระบวนการ</string>
+    <string name="tool_process_subtitle">แสดงกระบวนการที่ตรวจสอบอยู่</string>
+    <string name="tool_activity_title">ตรวจสอบกิจกรรม</string>
+    <string name="tool_activity_subtitle">ตรวจสอบข้อมูลแพ็กเกจและคลาสของกิจกรรมที่ทำงานอยู่</string>
+
+
+    <!-- Common Actions -->
+    <string name="action_done">เสร็จสิ้น</string>
+    <string name="action_cancel">ยกเลิก</string>
+    <string name="action_yes_do_it">ใช่ ตกลง</string>
+    <string name="confirm_action_title">ยืนยัน %1$s</string>
+
+
+</resources>

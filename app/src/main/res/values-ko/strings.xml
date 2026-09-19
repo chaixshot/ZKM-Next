@@ -847,6 +847,7 @@
     <string name="lang_polish">폴란드어</string>
     <string name="lang_turkish">터키어</string>
     <string name="lang_dutch">네덜란드어</string>
+    <string name="lang_thai">태국어</string>
     <string name="graphics_unit">그래픽 유닛</string>
     <string name="graphics_processor">그래픽 프로세서</string>
     <string name="processor_sets">프로세서 세트 (Cpuset)</string>
@@ -1116,5 +1117,27 @@
     <string name="action_yes_do_it">예, 실행</string>
     <string name="confirm_action_title">%s 확인</string>
 
+
+    <!-- Profiles -->
+    <string name="profiles_title">프로필</string>
+    <string name="profile_new">새로 만들기</string>
+    <string name="profile_save_current">현재 프로필 저장</string>
+    <string name="profile_rename">이름 바꾸기</string>
+    <string name="profile_delete">삭제</string>
+    <string name="profile_dialog_new_title">새 프로필</string>
+    <string name="profile_dialog_rename_title">프로필 이름 바꾸기</string>
+    <string name="profile_dialog_name_label">프로필 이름</string>
+    <string name="profile_dialog_new_name_label">새 이름</string>
+    <string name="profile_save_success">\'%s\' 프로필이 저장되었습니다.</string>
+    <string name="profile_apply_success">\'%s\' 프로필이 적용되었습니다.</string>
+    <string name="profile_auto_apply_success">\'%s\' 프로필이 자동 적용됨</string>
+    <string name="profile_save">저장</string>
+    <string name="profile_cancel">취소</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">부팅 시 적용</string>
+    <string name="pref_apply_on_boot_desc">재부팅 후 모든 SoC 및 배터리 설정 다시 적용</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">성능 및 배터리 설정을 다시 적용하는 중...</string>
 
 </resources>

@@ -87,7 +87,8 @@ fun LanguageScreen(
         LanguageOption("it", stringResource(R.string.lang_italian), "Italiano"),
         LanguageOption("pl", stringResource(R.string.lang_polish), "Polski"),
         LanguageOption("tr", stringResource(R.string.lang_turkish), "Türkçe"),
-        LanguageOption("nl", stringResource(R.string.lang_dutch), "Nederlands")
+        LanguageOption("nl", stringResource(R.string.lang_dutch), "Nederlands"),
+        LanguageOption("th", stringResource(R.string.lang_thai), "ไทย")
     )
 
     val filteredRecommended = recommendedList.filter {

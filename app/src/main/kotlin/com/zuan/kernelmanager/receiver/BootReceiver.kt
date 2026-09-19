@@ -127,13 +127,13 @@ class BootReceiver : BroadcastReceiver() {
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(channelId, "Apply on Boot", NotificationManager.IMPORTANCE_LOW)
+            val channel = NotificationChannel(channelId, context.getString(R.string.pref_apply_on_boot), NotificationManager.IMPORTANCE_LOW)
             manager.createNotificationChannel(channel)
         }
         
         val notification = NotificationCompat.Builder(context, channelId)
-            .setContentTitle("Zuan Kernel Manager")
-            .setContentText("Re-applying your performance and battery settings...")
+            .setContentTitle(context.getString(R.string.boot_notification_title))
+            .setContentText(context.getString(R.string.boot_notification_content))
             .setSmallIcon(R.drawable.ic_check)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setAutoCancel(true)

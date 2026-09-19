@@ -847,6 +847,7 @@ F
     <string name="lang_polish">Polish</string>
     <string name="lang_turkish">Turkish</string>
     <string name="lang_dutch">Dutch</string>
+    <string name="lang_thai">Thai</string>
 
     <!-- ========================================== -->
     <!-- CPU/GPU SCREEN STRINGS                     -->
@@ -1102,6 +1103,28 @@ F
     <string name="adreno_simple_gpu_desc">Alternative GPU governor algorithm</string>
     <string name="adreno_laziness">Laziness</string>
     <string name="adreno_ramp_threshold">Ramp Threshold</string>
+
+    <!-- Profiles -->
+    <string name="profiles_title">Profiles</string>
+    <string name="profile_new">New</string>
+    <string name="profile_save_current">Save Current</string>
+    <string name="profile_rename">Rename</string>
+    <string name="profile_delete">Delete</string>
+    <string name="profile_dialog_new_title">New Profile</string>
+    <string name="profile_dialog_rename_title">Rename Profile</string>
+    <string name="profile_dialog_name_label">Profile Name</string>
+    <string name="profile_dialog_new_name_label">New Name</string>
+    <string name="profile_save_success">Profile \'%s\' saved.</string>
+    <string name="profile_apply_success">Profile \'%s\' applied.</string>
+    <string name="profile_auto_apply_success">Auto-applied profile \'%s\'</string>
+    <string name="profile_save">Save</string>
+    <string name="profile_cancel">Cancel</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">Apply on Boot</string>
+    <string name="pref_apply_on_boot_desc">Re-apply all Soc and Battery settings after reboot</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">Re-applying your performance and battery settings...</string>
 
     <!-- Navigation Tabs -->
     <string name="nav_tab_feature">Feature</string>

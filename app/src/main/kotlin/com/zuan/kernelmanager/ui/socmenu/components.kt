@@ -36,9 +36,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zuan.kernelmanager.R
 
 // --- CONSTANTS UNTUK M3 EXPRESSIVE ---
 // Token radius sudut baru untuk tampilan yang lebih modern
@@ -311,7 +313,7 @@ fun <T> ProfileSection(
             .padding(top = 16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        SectionTitle("Profiles", subContentColor)
+        SectionTitle(stringResource(R.string.profiles_title), subContentColor)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -329,7 +331,7 @@ fun <T> ProfileSection(
             ) {
                 Icon(Icons.Rounded.Add, contentDescription = null, modifier = Modifier.size(18.dp))
                 Spacer(Modifier.width(4.dp))
-                Text("New", style = MaterialTheme.typography.labelLarge)
+                Text(stringResource(R.string.profile_new), style = MaterialTheme.typography.labelLarge)
             }
             
             // Existing Profiles
@@ -338,69 +340,71 @@ fun <T> ProfileSection(
                 val isSelected = profileName(profile) == selectedProfileName
                 val interactionSource = remember { MutableInteractionSource() }
                 
-                Box {
-                    Surface(
-                        shape = RoundedCornerShape(12.dp),
-                        color = when {
-                            isSelected -> effectivePrimary
-                            isGlassActive -> solidCardColor
-                            else -> MaterialTheme.colorScheme.secondaryContainer
-                        },
-                        contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                        modifier = Modifier
-                            .height(40.dp)
-                            .clip(RoundedCornerShape(12.dp))
-                            .combinedClickable(
-                                interactionSource = interactionSource,
-                                indication = ripple(),
-                                onClick = { onProfileClick(profile) },
-                                onLongClick = { showMenu = true }
-                            )
-                            .then(
-                                if (isSelected) Modifier.border(1.dp, effectivePrimary.copy(alpha = 0.5f), RoundedCornerShape(12.dp))
-                                else Modifier
-                            )
-                    ) {
-                        Box(
-                            modifier = Modifier.padding(horizontal = 16.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(profileName(profile), style = MaterialTheme.typography.labelLarge)
-                        }
-                    }
-                    
-                    DropdownMenu(
-                        expanded = showMenu,
-                        onDismissRequest = { showMenu = false }
-                    ) {
-                        DropdownMenuItem(
-                            text = { Text("Save Current") },
-                            leadingIcon = { Icon(Icons.Rounded.Save, null) },
-                            onClick = {
-                                onSaveCurrent(profile)
-                                showMenu = false
-                            }
-                        )
-                        DropdownMenuItem(
-                            text = { Text("Rename") },
-                            leadingIcon = { Icon(Icons.Rounded.Edit, null) },
-                            onClick = {
-                                onRename(profile)
-                                showMenu = false
-                            }
-                        )
-                        DropdownMenuItem(
-                            text = { Text("Delete") },
-                            leadingIcon = { Icon(Icons.Rounded.Delete, null, tint = MaterialTheme.colorScheme.error) },
-                            onClick = {
-                                onDelete(profile)
-                                showMenu = false
+                key(profileName(profile)) {
+                    Box {
+                        Surface(
+                            shape = RoundedCornerShape(12.dp),
+                            color = when {
+                                isSelected -> effectivePrimary
+                                isGlassActive -> solidCardColor
+                                else -> MaterialTheme.colorScheme.secondaryContainer
                             },
-                            colors = MenuDefaults.itemColors(
-                                textColor = MaterialTheme.colorScheme.error,
-                                leadingIconColor = MaterialTheme.colorScheme.error
+                            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                            modifier = Modifier
+                                .height(40.dp)
+                                .clip(RoundedCornerShape(12.dp))
+                                .combinedClickable(
+                                    interactionSource = interactionSource,
+                                    indication = ripple(),
+                                    onClick = { onProfileClick(profile) },
+                                    onLongClick = { showMenu = true }
+                                )
+                                .then(
+                                    if (isSelected) Modifier.border(1.dp, effectivePrimary.copy(alpha = 0.5f), RoundedCornerShape(12.dp))
+                                    else Modifier
+                                )
+                        ) {
+                            Box(
+                                modifier = Modifier.padding(horizontal = 16.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(profileName(profile), style = MaterialTheme.typography.labelLarge)
+                            }
+                        }
+                        
+                        DropdownMenu(
+                            expanded = showMenu,
+                            onDismissRequest = { showMenu = false }
+                        ) {
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.profile_save_current)) },
+                                leadingIcon = { Icon(Icons.Rounded.Save, null) },
+                                onClick = {
+                                    onSaveCurrent(profile)
+                                    showMenu = false
+                                }
                             )
-                        )
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.profile_rename)) },
+                                leadingIcon = { Icon(Icons.Rounded.Edit, null) },
+                                onClick = {
+                                    onRename(profile)
+                                    showMenu = false
+                                }
+                            )
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.profile_delete)) },
+                                leadingIcon = { Icon(Icons.Rounded.Delete, null, tint = MaterialTheme.colorScheme.error) },
+                                onClick = {
+                                    onDelete(profile)
+                                    showMenu = false
+                                },
+                                colors = MenuDefaults.itemColors(
+                                    textColor = MaterialTheme.colorScheme.error,
+                                    leadingIconColor = MaterialTheme.colorScheme.error
+                                )
+                            )
+                        }
                     }
                 }
             }

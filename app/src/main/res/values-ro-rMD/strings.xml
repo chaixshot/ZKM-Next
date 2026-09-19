@@ -845,6 +845,7 @@
     <string name="lang_polish">Poloneză</string>
     <string name="lang_turkish">Turcă</string>
     <string name="lang_dutch">Olandeză</string>
+    <string name="lang_thai">Thailandeză</string>
 
     <string name="graphics_unit">Unitate Grafică</string>
     <string name="graphics_processor">Procesor Grafic</string>
@@ -1115,5 +1116,27 @@
     <string name="action_yes_do_it">Da, fă-o</string>
     <string name="confirm_action_title">Confirmă %%s</string>
 
+
+    <!-- Profiles -->
+    <string name="profiles_title">Profiluri</string>
+    <string name="profile_new">Nou</string>
+    <string name="profile_save_current">Salvează actualul</string>
+    <string name="profile_rename">Redenumește</string>
+    <string name="profile_delete">Șterge</string>
+    <string name="profile_dialog_new_title">Profil nou</string>
+    <string name="profile_dialog_rename_title">Redenumește profilul</string>
+    <string name="profile_dialog_name_label">Nume profil</string>
+    <string name="profile_dialog_new_name_label">Nume nou</string>
+    <string name="profile_save_success">Profilul \'%s\' a fost salvat.</string>
+    <string name="profile_apply_success">Profilul \'%s\' a fost aplicat.</string>
+    <string name="profile_auto_apply_success">S-a aplicat automat profilul \'%s\'</string>
+    <string name="profile_save">Salvează</string>
+    <string name="profile_cancel">Anulează</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">Aplică la pornire</string>
+    <string name="pref_apply_on_boot_desc">Reaplică toate setările SoC și baterie după repornire</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">Se reaplică setările de performanță și baterie...</string>
 
 </resources>

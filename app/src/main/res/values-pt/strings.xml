@@ -847,6 +847,7 @@
     <string name="lang_polish">Polonês</string>
     <string name="lang_turkish">Turco</string>
     <string name="lang_dutch">Holandês</string>
+    <string name="lang_thai">Tailandês</string>
     <string name="graphics_unit">Unidade Gráfica</string>
     <string name="graphics_processor">Processador Gráfico</string>
     <string name="processor_sets">Conjuntos de Processador (Cpuset)</string>
@@ -1116,5 +1117,27 @@
     <string name="action_yes_do_it">Sim, fazer</string>
     <string name="confirm_action_title">Confirmar %%s</string>
 
+
+    <!-- Profiles -->
+    <string name="profiles_title">Perfis</string>
+    <string name="profile_new">Novo</string>
+    <string name="profile_save_current">Salvar atual</string>
+    <string name="profile_rename">Renomear</string>
+    <string name="profile_delete">Excluir</string>
+    <string name="profile_dialog_new_title">Novo Perfil</string>
+    <string name="profile_dialog_rename_title">Renomear Perfil</string>
+    <string name="profile_dialog_name_label">Nome do Perfil</string>
+    <string name="profile_dialog_new_name_label">Novo Nome</string>
+    <string name="profile_save_success">Perfil \'%s\' salvo.</string>
+    <string name="profile_apply_success">Perfil \'%s\' aplicado.</string>
+    <string name="profile_auto_apply_success">Perfil \'%s\' aplicado automaticamente</string>
+    <string name="profile_save">Salvar</string>
+    <string name="profile_cancel">Cancelar</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">Aplicar na inicialização</string>
+    <string name="pref_apply_on_boot_desc">Reaplicar todas as configurações de SoC e bateria após a reinicialização</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">Reaplicando suas configurações de desempenho e bateria...</string>
 
 </resources>

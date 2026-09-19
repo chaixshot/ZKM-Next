@@ -847,6 +847,7 @@
     <string name="lang_polish">波蘭文</string>
     <string name="lang_turkish">土耳其文</string>
     <string name="lang_dutch">荷蘭文</string>
+    <string name="lang_thai">泰語</string>
 
     <!-- MTK Screen Main -->
     <string name="mtk_gpu_title">聯發科 GPU</string>
@@ -1048,5 +1049,27 @@
     <string name="action_yes_do_it">是的，執行</string>
     <string name="confirm_action_title">確認%s</string>
 
+
+    <!-- Profiles -->
+    <string name="profiles_title">設定檔</string>
+    <string name="profile_new">新建</string>
+    <string name="profile_save_current">儲存目前</string>
+    <string name="profile_rename">重新命名</string>
+    <string name="profile_delete">刪除</string>
+    <string name="profile_dialog_new_title">新設定檔</string>
+    <string name="profile_dialog_rename_title">重新命名設定檔</string>
+    <string name="profile_dialog_name_label">設定檔名稱</string>
+    <string name="profile_dialog_new_name_label">新名稱</string>
+    <string name="profile_save_success">設定檔 \'%s\' 已儲存。</string>
+    <string name="profile_apply_success">設定檔 \'%s\' 已套用。</string>
+    <string name="profile_auto_apply_success">自動套用設定檔 \'%s\'</string>
+    <string name="profile_save">儲存</string>
+    <string name="profile_cancel">取消</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">開機時套用</string>
+    <string name="pref_apply_on_boot_desc">重啟後重新套用所有 Soc 和電池設定</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">正在重新套用您的效能和電池設定...</string>
 
 </resources>

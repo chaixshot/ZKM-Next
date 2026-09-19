@@ -9,6 +9,7 @@
 package com.zuan.kernelmanager.ui.socmenu
 
 import androidx.lifecycle.AndroidViewModel
+import com.zuan.kernelmanager.R
 import androidx.lifecycle.viewModelScope
 import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import com.zuan.kernelmanager.utils.Utils
@@ -314,7 +315,7 @@ class MemoryViewModel(application: Application) : AndroidViewModel(application) 
             saveProfilesToPrefs()
             
             withContext(Dispatchers.Main) {
-                Toast.makeText(getApplication(), "Profile '$name' saved.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(getApplication(), getApplication<Application>().getString(R.string.profile_save_success, name), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -345,8 +346,8 @@ class MemoryViewModel(application: Application) : AndroidViewModel(application) 
             settingsPreference.setSelectedMemProfileName(profile.name)
             
             withContext(Dispatchers.Main) {
-                val message = if (isAutoApply) "Auto-applied profile '${profile.name}'" else "Profile '${profile.name}' applied."
-                Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show()
+                val format = if (isAutoApply) R.string.profile_auto_apply_success else R.string.profile_apply_success
+                Toast.makeText(getApplication(), getApplication<Application>().getString(format, profile.name), Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -290,8 +290,8 @@ fun MainSettingsContent(
                             HorizontalDivider(modifier = Modifier.fillMaxWidth(), color = dividerColor, thickness = 0.8.dp)
                             SettingsSwitchItem(
                                 icon = Icons.Outlined.CheckCircle,
-                                title = "Apply on Boot",
-                                subtitle = "Re-apply all Soc and Battery settings after reboot",
+                                title = stringResource(R.string.pref_apply_on_boot),
+                                subtitle = stringResource(R.string.pref_apply_on_boot_desc),
                                 checked = applyOnBoot,
                                 onCheckedChange = { viewModel.setApplyOnBoot(it) },
                                 iconTint = finalPrimary,

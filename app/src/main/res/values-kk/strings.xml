@@ -847,6 +847,7 @@
     <string name="lang_polish">Polish</string>
     <string name="lang_turkish">Turkish</string>
     <string name="lang_dutch">Dutch</string>
+    <string name="lang_thai">Тай</string>
 
     <string name="graphics_unit">Графикалық блок</string>
     <string name="graphics_processor">Графикалық процессор</string>
@@ -1117,5 +1118,27 @@
     <string name="action_yes_do_it">Иә, жасау</string>
     <string name="confirm_action_title">%s растау</string>
 
+
+    <!-- Profiles -->
+    <string name="profiles_title">Профильдер</string>
+    <string name="profile_new">Жаңа</string>
+    <string name="profile_save_current">Ағымдағыны сақтау</string>
+    <string name="profile_rename">Атын өзгерту</string>
+    <string name="profile_delete">Жою</string>
+    <string name="profile_dialog_new_title">Жаңа профиль</string>
+    <string name="profile_dialog_rename_title">Профиль атын өзгерту</string>
+    <string name="profile_dialog_name_label">Профиль атауы</string>
+    <string name="profile_dialog_new_name_label">Жаңа атау</string>
+    <string name="profile_save_success">\'%s\' профилі сақталды.</string>
+    <string name="profile_apply_success">\'%s\' профилі қолданылды.</string>
+    <string name="profile_auto_apply_success">\'%s\' профилі автоматты түрде қолданылды</string>
+    <string name="profile_save">Сақтау</string>
+    <string name="profile_cancel">Бас тарту</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">Жүктеу кезінде қолдану</string>
+    <string name="pref_apply_on_boot_desc">Қайта жүктегеннен кейін барлық SoC және Батарея параметрлерін қайта қолдану</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">Өнімділік пен батарея параметрлері қайта қолданылуда...</string>
 
 </resources>

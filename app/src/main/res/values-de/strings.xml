@@ -847,6 +847,7 @@
     <string name="lang_polish">Polnisch</string>
     <string name="lang_turkish">Türkisch</string>
     <string name="lang_dutch">Niederländisch</string>
+    <string name="lang_thai">Thailändisch</string>
     <string name="graphics_unit">Grafikeinheit</string>
     <string name="graphics_processor">Grafikprozessor</string>
     <string name="processor_sets">Prozessorsätze (Cpuset)</string>
@@ -1116,5 +1117,27 @@
     <string name="action_yes_do_it">Ja, ausführen</string>
     <string name="confirm_action_title">%s bestätigen</string>
 
+
+    <!-- Profiles -->
+    <string name="profiles_title">Profile</string>
+    <string name="profile_new">Neu</string>
+    <string name="profile_save_current">Aktuelles speichern</string>
+    <string name="profile_rename">Umbenennen</string>
+    <string name="profile_delete">Löschen</string>
+    <string name="profile_dialog_new_title">Neues Profil</string>
+    <string name="profile_dialog_rename_title">Profil umbenennen</string>
+    <string name="profile_dialog_name_label">Profilname</string>
+    <string name="profile_dialog_new_name_label">Neuer Name</string>
+    <string name="profile_save_success">Profil \'%s\' gespeichert.</string>
+    <string name="profile_apply_success">Profil \'%s\' angewendet.</string>
+    <string name="profile_auto_apply_success">Profil \'%s\' automatisch angewendet</string>
+    <string name="profile_save">Speichern</string>
+    <string name="profile_cancel">Abbrechen</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">Beim Booten anwenden</string>
+    <string name="pref_apply_on_boot_desc">Alle SoC- und Akkueinstellungen nach dem Neustart erneut anwenden</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">Ihre Leistungs- und Akkueinstellungen werden erneut angewendet...</string>
 
 </resources>

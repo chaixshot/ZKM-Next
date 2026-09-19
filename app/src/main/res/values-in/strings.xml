@@ -834,6 +834,7 @@
     <string name="lang_polish">Polish</string>
     <string name="lang_turkish">Turkish</string>
     <string name="lang_dutch">Dutch</string>
+    <string name="lang_thai">Thailand</string>
 
     <!-- CPU/GPU SCREEN STRINGS -->
     <string name="graphics_unit">Unit Grafis</string>
@@ -1081,6 +1082,28 @@
     <string name="adreno_simple_gpu_desc">Algoritma governor GPU alternatif</string>
     <string name="adreno_laziness">Kemalasan</string>
     <string name="adreno_ramp_threshold">Ambang Ramp</string>
+
+    <!-- Profiles -->
+    <string name="profiles_title">Profil</string>
+    <string name="profile_new">Baru</string>
+    <string name="profile_save_current">Simpan Saat Ini</string>
+    <string name="profile_rename">Ubah Nama</string>
+    <string name="profile_delete">Hapus</string>
+    <string name="profile_dialog_new_title">Profil Baru</string>
+    <string name="profile_dialog_rename_title">Ubah Nama Profil</string>
+    <string name="profile_dialog_name_label">Nama Profil</string>
+    <string name="profile_dialog_new_name_label">Nama Baru</string>
+    <string name="profile_save_success">Profil \'%s\' disimpan.</string>
+    <string name="profile_apply_success">Profil \'%s\' diterapkan.</string>
+    <string name="profile_auto_apply_success">Profil \'%s\' diterapkan secara otomatis</string>
+    <string name="profile_save">Simpan</string>
+    <string name="profile_cancel">Batal</string>
+
+    <!-- Boot Settings -->
+    <string name="pref_apply_on_boot">Terapkan saat Boot</string>
+    <string name="pref_apply_on_boot_desc">Terapkan kembali semua pengaturan Soc dan Baterai setelah reboot</string>
+    <string name="boot_notification_title">Zuan Kernel Manager</string>
+    <string name="boot_notification_content">Menerapkan kembali pengaturan performa dan baterai Anda...</string>
 
     <!-- Navigation Tabs -->
     <string name="nav_tab_feature">Fitur</string>
