@@ -47,7 +47,7 @@
     <string name="check_for_updates">Перевірте наявність оновлень</string>
     <string name="download">Завантажити</string>
     <string name="reboot">Перезапустіть</string>
-    <string name="reboot_userspace">М'яке перезавантаження</string>
+        <string name="reboot_userspace">М\'яке перезавантаження</string>
     <string name="reboot_recovery">Перезапустіть для відновлення</string>
     <string name="reboot_bootloader">Перезавантажте завантажувач</string>
     <string name="reboot_download">Mulai Ulang ke Download</string>

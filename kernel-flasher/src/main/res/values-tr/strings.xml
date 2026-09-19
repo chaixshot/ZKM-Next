@@ -20,9 +20,9 @@
     <string name="unmounted">Sökülmüş</string>
     <string name="view">Bakmak</string>
     <string name="backups">Rezerv</string>
-    <string name="save_ramoops">Ramoop'ları kaydet</string>
-    <string name="save_dmesg">Dmesg'i kaydet</string>
-    <string name="save_logcat">Logcat'i kaydet</string>
+        <string name="save_ramoops">Ramoop\'ları kaydet</string>
+        <string name="save_dmesg">Dmesg\'i kaydet</string>
+        <string name="save_logcat">Logcat\'i kaydet</string>
     <string name="back">Geri dönmek</string>
     <string name="backup">Yedekle</string>
     <string name="updates">Güncelleme</string>
@@ -49,14 +49,14 @@
     <string name="reboot">Tekrar başlat</string>
     <string name="reboot_userspace">Yumuşak Yeniden Başlatma</string>
     <string name="reboot_recovery">Kurtarmayı Yeniden Başlatın</string>
-    <string name="reboot_bootloader">Bootloader'ı yeniden başlatın</string>
+        <string name="reboot_bootloader">Bootloader\'ı yeniden başlatın</string>
     <string name="reboot_download">Mulai Ulang ke Download</string>
     <string name="reboot_edl">Mulai Ulang ke EDL</string>
     <string name="save_ak3_log">AK3 Günlüklerini Kaydet</string>
     <string name="save_flash_log">Flash Günlüklerini Kaydet</string>
     <string name="save_backup_log">Yedekleme Günlüğü Tutun</string>
     <string tools:keep="@string/save_restore_log" name="save_restore_log">Kurtarma Günlüğünü Kaydet</string>
-    <string name="save_ak3_zip_as_backup">AK3 Zip'i Yedek Olarak Tutun</string>
+        <string name="save_ak3_zip_as_backup">AK3 Zip\'i Yedek Olarak Tutun</string>
     <string name="backup_type">Yedekleme Türü</string>
     <string name="hashes">Doğramak</string>
     <string name="partition_selection_unavailable">Eski yedeklemeler için bölüm seçimi mevcut değildir</string>

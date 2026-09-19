@@ -4,3 +4,4 @@ app/build/
 terminal-emulator/build/
 terminal-view/build/
 .acside/
+/.idea

@@ -167,12 +167,12 @@
     <string name="fps_stat_min">MIN FPS</string>
     <string name="fps_stat_avg">MED FPS</string>
     <string name="fps_stat_var">VAR</string>
-    <string name="fps_stat_stable">STABIL %</string>
+    <string name="fps_stat_stable">STABIL %%</string>
     <string name="fps_stat_max_temp">MAX TEMP</string>
     <string name="fps_stat_avg_pwr">MED PWR</string>
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS și Temperatură</string>
-    <string name="fps_chart_cpu">Încărcare CPU (%)</string>
+    <string name="fps_chart_cpu">Încărcare CPU (%%)</string>
     <string name="fps_export_csv">EXPORTĂ CSV</string>
     <string name="fps_delete">ȘTERGE</string>
 
@@ -754,7 +754,7 @@
     <string name="card_style_media">Media</string>
     <string name="card_style_outlined">Conturat</string>
     <string name="ksuweb_status_active">Activ</string>
-    <string name="ksuweb_by_author">De %s</string>
+    <string name="ksuweb_by_author">De %%s</string>
     <string name="ksuweb_version_prefix">v%s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">ACȚIUNE</string>
@@ -795,7 +795,7 @@
     <string name="power_recovery_warning">Dispozitivul va reporni în Mod Recovery (TWRP/OrangeFox).</string>
     <string name="power_fastboot_warning">Dispozitivul va reporni în mod Fastboot/Bootloader.</string>
     <string name="power_restart_ui_warning">Interfața utilizator va reporni. Poate dura câteva secunde.</string>
-    <string name="confirm_action">Confirmă %s</string>
+    <string name="confirm_action">Confirmă %%s</string>
     <string name="btn_confirm_yes">Da, Fă-o</string>
 
     <string name="about_section_developer">Despre Dezvoltator</string>
@@ -817,303 +817,303 @@
     <string name="intro_btn_decline">Refuz și Ieși</string>
     <string name="intro_footer_legal">Apăsând \'Sunt de acord\', accepți Riscurile și Politica de Confidențialitate.</string>
 
-    <string name="update_title">Actualizare la Ver %s</string>
+    <string name="update_title">Actualizare la Ver %%s</string>
     <string name="update_changelog_title">Ce este nou</string>
     <string name="btn_update">Actualizează</string>
     <string name="downloading_update">Se descarcă actualizarea…</string>
     <string name="auto_download">Descărcare Auto APK</string>
     <string name="auto_download_desc">Descarcă și instalează automat</string>
     <string name="btn_manual_download">Deschide Browser</string>
-<string name="lang_russian">Rusă</string>
-<string name="lang_ukrainian">Ucraineană</string>
-<string name="lang_belarusian">Belarusă</string>
-<string name="lang_kazakh">Kazahă</string>
-<string name="lang_moldovan">Moldovenească</string>
-<string name="lang_chinese_cn">Chineză (China)</string>
-<string name="lang_chinese_sg">Chineză (Singapore)</string>
-<string name="lang_chinese_tw">Chineză (Taiwan)</string>
-<string name="lang_chinese_hk">Chineză (Hong Kong)</string>
-<string name="lang_chinese_mo">Chineză (Macau)</string>
-<string name="lang_japanese">Japoneză</string>
-<string name="lang_korean">Coreeană</string>
-<string name="lang_vietnamese">Vietnameză</string>
-<string name="lang_german">Germană</string>
-<string name="lang_french">Franceză</string>
-<string name="lang_spanish">Spaniolă</string>
-<string name="lang_portuguese">Portugheză</string>
-<string name="lang_italian">Italiană</string>
-<string name="lang_polish">Poloneză</string>
-<string name="lang_turkish">Turcă</string>
-<string name="lang_dutch">Olandeză</string>
+    <string name="lang_russian">Rusă</string>
+    <string name="lang_ukrainian">Ucraineană</string>
+    <string name="lang_belarusian">Belarusă</string>
+    <string name="lang_kazakh">Kazahă</string>
+    <string name="lang_moldovan">Moldovenească</string>
+    <string name="lang_chinese_cn">Chineză (China)</string>
+    <string name="lang_chinese_sg">Chineză (Singapore)</string>
+    <string name="lang_chinese_tw">Chineză (Taiwan)</string>
+    <string name="lang_chinese_hk">Chineză (Hong Kong)</string>
+    <string name="lang_chinese_mo">Chineză (Macau)</string>
+    <string name="lang_japanese">Japoneză</string>
+    <string name="lang_korean">Coreeană</string>
+    <string name="lang_vietnamese">Vietnameză</string>
+    <string name="lang_german">Germană</string>
+    <string name="lang_french">Franceză</string>
+    <string name="lang_spanish">Spaniolă</string>
+    <string name="lang_portuguese">Portugheză</string>
+    <string name="lang_italian">Italiană</string>
+    <string name="lang_polish">Poloneză</string>
+    <string name="lang_turkish">Turcă</string>
+    <string name="lang_dutch">Olandeză</string>
 
-<string name="graphics_unit">Unitate Grafică</string>
-<string name="graphics_processor">Procesor Grafic</string>
-<string name="processor_sets">Seturi Procesor (Cpuset)</string>
-<string name="core_control">Control Nuclee</string>
-<string name="cpu_governor">Guvernator CPU</string>
-<string name="select_governor">Selectează Guvernator</string>
-<string name="min_freq">Frecv. Min</string>
-<string name="max_freq">Frecv. Max</string>
-<string name="min_frequency">Frecvență Minimă</string>
-<string name="max_frequency">Frecvență Maximă</string>
-<string name="tab_performance">Performanță</string>
-<string name="tab_tuning">Reglare</string>
-<string name="disable_cpu_title">Dezactivezi CPU %1$d?</string>
-<string name="disable_cpu_warning">Dezactivarea acestui nucleu poate reduce performanța. Asigură-te că alte nuclee sunt active pentru a gestiona sarcinile sistemului.</string>
-<string name="btn_disable">Dezactivează</string>
-<string name="select_active_cores">Selectează nuclee active:</string>
-<string name="cpu_core_id">CPU %1$d</string>
-<string name="freq_mhz_format">%1$s MHz</string>
-<string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
-<string name="gpu_load_format">%1$s • Încărcare %2$s%%</string>
-<string name="cores_count">Nuclee: %1$s</string>
-<string name="gpu_not_supported">Interfața GPU nu este suportată</string>
-<string name="not_available">N/A</string>
-<string name="no_options">Fără opțiuni</string>
-<string name="label_value">Valoare</string>
-<string name="zram_manager">Manager ZRAM</string>
-<string name="zram_status">Status ZRAM</string>
-<string name="disk_size_mb">Dimensiune Disc: %1$d MB</string>
-<string name="zram_info_format">%1$d MB • %2$s</string>
-<string name="compression_algorithm">Algoritm Compresie</string>
-<string name="io_scheduler">Planificator I/O</string>
-<string name="select_scheduler">Selectează Planificator</string>
-<string name="tunables">Parametri</string>
-<string name="virtual_memory">Memorie Virtuală</string>
-<string name="swappiness">Swappiness</string>
-<string name="vfs_cache_pressure">Presiune Cache VFS</string>
-<string name="dirty_ratio">Dirty Ratio</string>
-<string name="dirty_bg_ratio">Dirty BG Ratio</string>
-<string name="no_storage_devices">Nu s-au găsit dispozitive de stocare suportate.</string>
-<string name="scheduler_format">Planificator: %1$s</string>
-<string name="btn_set">Setează</string>
-<string name="tcp_congestion">Congestie TCP</string>
-<string name="tcp_parameters">Parametri TCP</string>
-<string name="syn_cookies">Cookie-uri SYN</string>
-<string name="enabled">Activat</string>
-<string name="disabled">Dezactivat</string>
-<string name="tcp_reuse">Reutilizare TCP</string>
-<string name="on">Pornit</string>
-<string name="off">Oprit</string>
-<string name="fast_open">Deschidere Rapidă</string>
-<string name="tcp_sack">TCP SACK</string>
-<string name="ecn">ECN</string>
-<string name="kernel_log">Log Kernel</string>
-<string name="printk">Printk</string>
-<string name="feature_toggles">Comutatoare Funcții</string>
-<string name="bore_scheduler">Planificator BORE</string>
-<string name="auto_group">Grup Auto</string>
-<string name="child_runs_first">Copilul Rulează Primul</string>
-<string name="sched_stats">Statistici Planificator</string>
-<string name="tunable_scaling">Scalare Parametri</string>
-<string name="cstate_aware">Conștient de C-State</string>
-<string name="uclamp_configuration">Configurație UClamp</string>
-<string name="uclamp_max">UClamp Max</string>
-<string name="uclamp_min">UClamp Min</string>
-<string name="advanced_parameters">Parametri Avansați</string>
-<string name="current_value_format">Valoare curentă: %1$s</string>
-<string name="new_value">Valoare Nouă</string>
-<string name="edit">Editează</string>
+    <string name="graphics_unit">Unitate Grafică</string>
+    <string name="graphics_processor">Procesor Grafic</string>
+    <string name="processor_sets">Seturi Procesor (Cpuset)</string>
+    <string name="core_control">Control Nuclee</string>
+    <string name="cpu_governor">Guvernator CPU</string>
+    <string name="select_governor">Selectează Guvernator</string>
+    <string name="min_freq">Frecv. Min</string>
+    <string name="max_freq">Frecv. Max</string>
+    <string name="min_frequency">Frecvență Minimă</string>
+    <string name="max_frequency">Frecvență Maximă</string>
+    <string name="tab_performance">Performanță</string>
+    <string name="tab_tuning">Reglare</string>
+    <string name="disable_cpu_title">Dezactivezi CPU %1$d?</string>
+    <string name="disable_cpu_warning">Dezactivarea acestui nucleu poate reduce performanța. Asigură-te că alte nuclee sunt active pentru a gestiona sarcinile sistemului.</string>
+    <string name="btn_disable">Dezactivează</string>
+    <string name="select_active_cores">Selectează nuclee active:</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s MHz</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
+    <string name="gpu_load_format">%1$s • Încărcare %2$s%%</string>
+    <string name="cores_count">Nuclee: %1$s</string>
+    <string name="gpu_not_supported">Interfața GPU nu este suportată</string>
+    <string name="not_available">N/A</string>
+    <string name="no_options">Fără opțiuni</string>
+    <string name="label_value">Valoare</string>
+    <string name="zram_manager">Manager ZRAM</string>
+    <string name="zram_status">Status ZRAM</string>
+    <string name="disk_size_mb">Dimensiune Disc: %1$d MB</string>
+    <string name="zram_info_format">%1$d MB • %2$s</string>
+    <string name="compression_algorithm">Algoritm Compresie</string>
+    <string name="io_scheduler">Planificator I/O</string>
+    <string name="select_scheduler">Selectează Planificator</string>
+    <string name="tunables">Parametri</string>
+    <string name="virtual_memory">Memorie Virtuală</string>
+    <string name="swappiness">Swappiness</string>
+    <string name="vfs_cache_pressure">Presiune Cache VFS</string>
+    <string name="dirty_ratio">Dirty Ratio</string>
+    <string name="dirty_bg_ratio">Dirty BG Ratio</string>
+    <string name="no_storage_devices">Nu s-au găsit dispozitive de stocare suportate.</string>
+    <string name="scheduler_format">Planificator: %1$s</string>
+    <string name="btn_set">Setează</string>
+    <string name="tcp_congestion">Congestie TCP</string>
+    <string name="tcp_parameters">Parametri TCP</string>
+    <string name="syn_cookies">Cookie-uri SYN</string>
+    <string name="enabled">Activat</string>
+    <string name="disabled">Dezactivat</string>
+    <string name="tcp_reuse">Reutilizare TCP</string>
+    <string name="on">Pornit</string>
+    <string name="off">Oprit</string>
+    <string name="fast_open">Deschidere Rapidă</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">Log Kernel</string>
+    <string name="printk">Printk</string>
+    <string name="feature_toggles">Comutatoare Funcții</string>
+    <string name="bore_scheduler">Planificator BORE</string>
+    <string name="auto_group">Grup Auto</string>
+    <string name="child_runs_first">Copilul Rulează Primul</string>
+    <string name="sched_stats">Statistici Planificator</string>
+    <string name="tunable_scaling">Scalare Parametri</string>
+    <string name="cstate_aware">Conștient de C-State</string>
+    <string name="uclamp_configuration">Configurație UClamp</string>
+    <string name="uclamp_max">UClamp Max</string>
+    <string name="uclamp_min">UClamp Min</string>
+    <string name="advanced_parameters">Parametri Avansați</string>
+    <string name="current_value_format">Valoare curentă: %1$s</string>
+    <string name="new_value">Valoare Nouă</string>
+    <string name="edit">Editează</string>
 
-<!-- MTK Screen Main -->
-<string name="mtk_gpu_title">GPU MediaTek</string>
-<string name="mtk_gpu_subtitle">Reglare Dimensity/Mali</string>
-<string name="mtk_tab_freq">Frecv</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">Boost</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">Termic</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">GPU MediaTek</string>
+    <string name="mtk_gpu_subtitle">Reglare Dimensity/Mali</string>
+    <string name="mtk_tab_freq">Frecv</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">Boost</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">Termic</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS activat</string>
-<string name="mtk_dvfs_enabled_desc">Frecvența GPU este dinamică. Dezactivați DVFS sau blocați frecvența pentru control static.</string>
-<string name="mtk_gpu_dvfs">DVFS GPU</string>
-<string name="mtk_dynamic_scaling_on">Scalare dinamică ACTIVAT</string>
-<string name="mtk_static_frequency">Frecvență statică</string>
-<string name="mtk_dynamic">Dinamic</string>
-<string name="mtk_freq_locked">Frecvență blocată</string>
-<string name="mtk_current_frequency">Frecvență curentă</string>
-<string name="mtk_lock_frequency">Blochează frecvența</string>
-<string name="mtk_select_opp_index">Selectați index OPP pentru blocare</string>
-<string name="mtk_unlock_frequency">Deblochează frecvența</string>
-<string name="mtk_dvfs_limits">Limite DVFS</string>
-<string name="mtk_minimum_boost">Minim (Boost)</string>
-<string name="mtk_maximum_limit">Maxim (Limită)</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS activat</string>
+    <string name="mtk_dvfs_enabled_desc">Frecvența GPU este dinamică. Dezactivați DVFS sau blocați frecvența pentru control static.</string>
+    <string name="mtk_gpu_dvfs">DVFS GPU</string>
+    <string name="mtk_dynamic_scaling_on">Scalare dinamică ACTIVAT</string>
+    <string name="mtk_static_frequency">Frecvență statică</string>
+    <string name="mtk_dynamic">Dinamic</string>
+    <string name="mtk_freq_locked">Frecvență blocată</string>
+    <string name="mtk_current_frequency">Frecvență curentă</string>
+    <string name="mtk_lock_frequency">Blochează frecvența</string>
+    <string name="mtk_select_opp_index">Selectați index OPP pentru blocare</string>
+    <string name="mtk_unlock_frequency">Deblochează frecvența</string>
+    <string name="mtk_dvfs_limits">Limite DVFS</string>
+    <string name="mtk_minimum_boost">Minim (Boost)</string>
+    <string name="mtk_maximum_limit">Maxim (Limită)</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">Control DRAM indisponibil</string>
-<string name="mtk_dram_type">Tip</string>
-<string name="mtk_dram_controller">Controler DRAM</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq Generic</string>
-<string name="mtk_dram_fliper">Fliper Legacy</string>
-<string name="mtk_dram_unknown">Necunoscut</string>
-<string name="mtk_dram_current_step">Curent</string>
-<string name="mtk_dram_force_frequency">Forțează frecvență DRAM</string>
-<string name="mtk_dram_lock_opp">Blochează la OPP specific (fără DVFS)</string>
-<string name="mtk_dram_reset_dvfs">Resetare la DVFS</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">Control DRAM indisponibil</string>
+    <string name="mtk_dram_type">Tip</string>
+    <string name="mtk_dram_controller">Controler DRAM</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq Generic</string>
+    <string name="mtk_dram_fliper">Fliper Legacy</string>
+    <string name="mtk_dram_unknown">Necunoscut</string>
+    <string name="mtk_dram_current_step">Curent</string>
+    <string name="mtk_dram_force_frequency">Forțează frecvență DRAM</string>
+    <string name="mtk_dram_lock_opp">Blochează la OPP specific (fără DVFS)</string>
+    <string name="mtk_dram_reset_dvfs">Resetare la DVFS</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">Gaming și performanță</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">Boost cadre pentru gameplay fluent</string>
-<string name="mtk_ged_game_mode_title">Mod GED Game</string>
-<string name="mtk_ged_game_mode_subtitle">Optimizare governor GPU pentru gaming</string>
-<string name="mtk_touch_boost_title">Touch Boost</string>
-<string name="mtk_touch_boost_subtitle">Boost CPU la atingere</string>
-<string name="mtk_sched_boost_title">Scheduler Boost</string>
-<string name="mtk_sched_boost_subtitle">Prioritate boost pentru aplicații foreground</string>
-<string name="mtk_gaming_mode_preset">Preset mod gaming</string>
-<string name="mtk_gaming_mode_desc">Activează toate boost-urile instant</string>
-<string name="mtk_activate_gaming_mode">Activează mod gaming</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">Gaming și performanță</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">Boost cadre pentru gameplay fluent</string>
+    <string name="mtk_ged_game_mode_title">Mod GED Game</string>
+    <string name="mtk_ged_game_mode_subtitle">Optimizare governor GPU pentru gaming</string>
+    <string name="mtk_touch_boost_title">Touch Boost</string>
+    <string name="mtk_touch_boost_subtitle">Boost CPU la atingere</string>
+    <string name="mtk_sched_boost_title">Scheduler Boost</string>
+    <string name="mtk_sched_boost_subtitle">Prioritate boost pentru aplicații foreground</string>
+    <string name="mtk_gaming_mode_preset">Preset mod gaming</string>
+    <string name="mtk_gaming_mode_desc">Activează toate boost-urile instant</string>
+    <string name="mtk_activate_gaming_mode">Activează mod gaming</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM indisponibil</string>
-<string name="mtk_ppm_not_found">/proc/ppm negăsit</string>
-<string name="mtk_ppm_controller">Controler PPM</string>
-<string name="mtk_ppm_active">Activ</string>
-<string name="mtk_ppm_disabled">Dezactivat</string>
-<string name="mtk_active_policies">Politici active</string>
-<string name="mtk_policy_hash">Politica #</string>
-<string name="mtk_ppm_no_policies">PPM activat dar nicio politică detectată. Posibil restricție kernel.</string>
-<string name="mtk_about_ppm">Despre PPM</string>
-<string name="mtk_ppm_description">Performance Power Management controlează alocarea energiei CPU/GPU. Dezactivarea politicii \'Thermal\' poate cauza supraîncălzire dar îmbunătățește performanța.</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM indisponibil</string>
+    <string name="mtk_ppm_not_found">/proc/ppm negăsit</string>
+    <string name="mtk_ppm_controller">Controler PPM</string>
+    <string name="mtk_ppm_active">Activ</string>
+    <string name="mtk_ppm_disabled">Dezactivat</string>
+    <string name="mtk_active_policies">Politici active</string>
+    <string name="mtk_policy_hash">Politica #</string>
+    <string name="mtk_ppm_no_policies">PPM activat dar nicio politică detectată. Posibil restricție kernel.</string>
+    <string name="mtk_about_ppm">Despre PPM</string>
+    <string name="mtk_ppm_description">Performance Power Management controlează alocarea energiei CPU/GPU. Dezactivarea politicii \'Thermal\' poate cauza supraîncălzire dar îmbunătățește performanța.</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc indisponibil</string>
-<string name="mtk_cci_interconnect">Interconectare CCI</string>
-<string name="mtk_cache_coherent">Interconectare cache coerentă</string>
-<string name="mtk_big_little_desc">Controlează interacțiunea cluster big.LITTLE</string>
-<string name="mtk_normal">Normal</string>
-<string name="mtk_performance">Performanță</string>
-<string name="mtk_low_power">Putere redusă</string>
-<string name="mtk_balance">Echilibru</string>
-<string name="mtk_cpu_power_mode">Mod putere CPU</string>
-<string name="mtk_current_mode">Curent</string>
-<string name="mtk_voltage_offset">Offset tensiune (EEM)</string>
-<string name="mtk_eem_unit">6.25mV/unit</string>
-<string name="mtk_offset_value">Valoare offset</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc indisponibil</string>
+    <string name="mtk_cci_interconnect">Interconectare CCI</string>
+    <string name="mtk_cache_coherent">Interconectare cache coerentă</string>
+    <string name="mtk_big_little_desc">Controlează interacțiunea cluster big.LITTLE</string>
+    <string name="mtk_normal">Normal</string>
+    <string name="mtk_performance">Performanță</string>
+    <string name="mtk_low_power">Putere redusă</string>
+    <string name="mtk_balance">Echilibru</string>
+    <string name="mtk_cpu_power_mode">Mod putere CPU</string>
+    <string name="mtk_current_mode">Curent</string>
+    <string name="mtk_voltage_offset">Offset tensiune (EEM)</string>
+    <string name="mtk_eem_unit">6.25mV/unit</string>
+    <string name="mtk_offset_value">Valoare offset</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">TROTTLING TERMIC</string>
-<string name="mtk_temp_limit_exceeded">Limită temperatură depășită</string>
-<string name="mtk_normal_temp">Temperatură normală</string>
-<string name="mtk_eara_thermal">EARA Thermal</string>
-<string name="mtk_early_adaptation">Alocare resurse adaptare timpurie</string>
-<string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
-<string name="mtk_fake_temp_desc">Raportează temperatură falsă către kernel</string>
-<string name="mtk_throttling_desc">Dispozitivul face throttling termic. Performanță redusă pentru prevenire supraîncălzire.</string>
-<string name="mtk_thermal_daemon_info">Management termic MTK gestionat de daemon termic kernel. Citiri de la senzori on-die (tsens).</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">TROTTLING TERMIC</string>
+    <string name="mtk_temp_limit_exceeded">Limită temperatură depășită</string>
+    <string name="mtk_normal_temp">Temperatură normală</string>
+    <string name="mtk_eara_thermal">EARA Thermal</string>
+    <string name="mtk_early_adaptation">Alocare resurse adaptare timpurie</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">Raportează temperatură falsă către kernel</string>
+    <string name="mtk_throttling_desc">Dispozitivul face throttling termic. Performanță redusă pentru prevenire supraîncălzire.</string>
+    <string name="mtk_thermal_daemon_info">Management termic MTK gestionat de daemon termic kernel. Citiri de la senzori on-die (tsens).</string>
 
-<!-- Common Actions -->
-<string name="action_back">Înapoi</string>
-<string name="action_refresh">Reîmprospătează</string>
+    <!-- Common Actions -->
+    <string name="action_back">Înapoi</string>
+    <string name="action_refresh">Reîmprospătează</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">GPU Adreno</string>
-<string name="adreno_gpu_subtitle">Performanță și reglare</string>
-<string name="adreno_tab_freq">Frecv</string>
-<string name="adreno_tab_power">Putere</string>
-<string name="adreno_tab_bus">Bus</string>
-<string name="adreno_tab_thermal">Termic</string>
-<string name="adreno_tab_advanced">Adv</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">GPU Adreno</string>
+    <string name="adreno_gpu_subtitle">Performanță și reglare</string>
+    <string name="adreno_tab_freq">Frecv</string>
+    <string name="adreno_tab_power">Putere</string>
+    <string name="adreno_tab_bus">Bus</string>
+    <string name="adreno_tab_thermal">Termic</string>
+    <string name="adreno_tab_advanced">Adv</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">Frecvență curentă</string>
-<string name="adreno_freq_limits">Limite frecvență</string>
-<string name="adreno_minimum">Minim</string>
-<string name="adreno_maximum">Maxim</string>
-<string name="adreno_governor">Governor</string>
-<string name="adreno_current">Curent</string>
-<string name="adreno_change">Schimbă</string>
-<string name="adreno_frequency">Frecvență</string>
-<string name="adreno_cancel">Anulează</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">Frecvență curentă</string>
+    <string name="adreno_freq_limits">Limite frecvență</string>
+    <string name="adreno_minimum">Minim</string>
+    <string name="adreno_maximum">Maxim</string>
+    <string name="adreno_governor">Governor</string>
+    <string name="adreno_current">Curent</string>
+    <string name="adreno_change">Schimbă</string>
+    <string name="adreno_frequency">Frecvență</string>
+    <string name="adreno_cancel">Anulează</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">Throttling GPU</string>
-<string name="adreno_performance_limited">Performanță limitată</string>
-<string name="adreno_full_performance">Performanță completă</string>
-<string name="adreno_adreno_boost">Adreno Boost</string>
-<string name="adreno_level">Nivel</string>
-<string name="adreno_off">Oprit</string>
-<string name="adreno_low">Scăzut</string>
-<string name="adreno_med">Med</string>
-<string name="adreno_high">Ridicat</string>
-<string name="adreno_boost_desc">Nivelurile mai mari de boost cresc performanța dar consumă mai multă baterie și generează mai multă căldură.</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">Throttling GPU</string>
+    <string name="adreno_performance_limited">Performanță limitată</string>
+    <string name="adreno_full_performance">Performanță completă</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">Nivel</string>
+    <string name="adreno_off">Oprit</string>
+    <string name="adreno_low">Scăzut</string>
+    <string name="adreno_med">Med</string>
+    <string name="adreno_high">Ridicat</string>
+    <string name="adreno_boost_desc">Nivelurile mai mari de boost cresc performanța dar consumă mai multă baterie și generează mai multă căldură.</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">Componente Bus</string>
-<string name="adreno_no_bus_controls">Fără control Bus</string>
-<string name="adreno_no_bus_desc">Acest dispozitiv nu are componente bus configurabile</string>
-<string name="adreno_min_freq">Frecv minimă</string>
-<string name="adreno_max_freq">Frecv maximă</string>
-<string name="adreno_min">MIN</string>
-<string name="adreno_max">MAX</string>
-<string name="adreno_edit">Editează</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">Componente Bus</string>
+    <string name="adreno_no_bus_controls">Fără control Bus</string>
+    <string name="adreno_no_bus_desc">Acest dispozitiv nu are componente bus configurabile</string>
+    <string name="adreno_min_freq">Frecv minimă</string>
+    <string name="adreno_max_freq">Frecv maximă</string>
+    <string name="adreno_min">MIN</string>
+    <string name="adreno_max">MAX</string>
+    <string name="adreno_edit">Editează</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">LIMITARE TERMICĂ</string>
-<string name="adreno_gpu_temp">Temperatură GPU</string>
-<string name="adreno_thermal_zones">Zone termice</string>
-<string name="adreno_cooling_devices">Dispozitive de răcire</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">LIMITARE TERMICĂ</string>
+    <string name="adreno_gpu_temp">Temperatură GPU</string>
+    <string name="adreno_thermal_zones">Zone termice</string>
+    <string name="adreno_cooling_devices">Dispozitive de răcire</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL Avansat</string>
-<string name="adreno_force_no_nap">Forțează No NAP</string>
-<string name="adreno_no_nap_desc">Previne GPU să intre în repaus</string>
-<string name="adreno_force_clk_on">Forțează CLK On</string>
-<string name="adreno_clk_on_desc">Păstrează ceasul întotdeauna pornit</string>
-<string name="adreno_force_bus_on">Forțează Bus On</string>
-<string name="adreno_bus_on_desc">Păstrează bus întotdeauna activ</string>
-<string name="adreno_bus_split">Bus Split</string>
-<string name="adreno_bus_split_desc">Activează divizarea bus</string>
-<string name="adreno_throttling">Throttling</string>
-<string name="adreno_throttling_desc">Activează limitarea termică</string>
-<string name="adreno_power_levels">Niveluri de putere</string>
-<string name="adreno_default">Implicit</string>
-<string name="adreno_thermal">Termic</string>
-<string name="adreno_save">Salvează</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Activează Idler</string>
-<string name="adreno_idler_desc">Reduce consumul de energie în repaus</string>
-<string name="adreno_idle_wait">Așteptare inactiv</string>
-<string name="adreno_down_differential">Down Differential</string>
-<string name="adreno_workload_threshold">Prag de încărcare</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Activează Simple GPU</string>
-<string name="adreno_simple_gpu_desc">Algoritm alternativ governor GPU</string>
-<string name="adreno_laziness">Leneșeală</string>
-<string name="adreno_ramp_threshold">Prag rampă</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL Avansat</string>
+    <string name="adreno_force_no_nap">Forțează No NAP</string>
+    <string name="adreno_no_nap_desc">Previne GPU să intre în repaus</string>
+    <string name="adreno_force_clk_on">Forțează CLK On</string>
+    <string name="adreno_clk_on_desc">Păstrează ceasul întotdeauna pornit</string>
+    <string name="adreno_force_bus_on">Forțează Bus On</string>
+    <string name="adreno_bus_on_desc">Păstrează bus întotdeauna activ</string>
+    <string name="adreno_bus_split">Bus Split</string>
+    <string name="adreno_bus_split_desc">Activează divizarea bus</string>
+    <string name="adreno_throttling">Throttling</string>
+    <string name="adreno_throttling_desc">Activează limitarea termică</string>
+    <string name="adreno_power_levels">Niveluri de putere</string>
+    <string name="adreno_default">Implicit</string>
+    <string name="adreno_thermal">Termic</string>
+    <string name="adreno_save">Salvează</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Activează Idler</string>
+    <string name="adreno_idler_desc">Reduce consumul de energie în repaus</string>
+    <string name="adreno_idle_wait">Așteptare inactiv</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">Prag de încărcare</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Activează Simple GPU</string>
+    <string name="adreno_simple_gpu_desc">Algoritm alternativ governor GPU</string>
+    <string name="adreno_laziness">Leneșeală</string>
+    <string name="adreno_ramp_threshold">Prag rampă</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">Funcție</string>
-<string name="nav_tab_overview">Prezentare generală</string>
-<string name="nav_tab_adjust">Ajustare</string>
-<string name="nav_tab_support">Suport</string>
-<string name="nav_tools_desc">Instrumente</string>
-<string name="nav_power_desc">Alimentare</string>
-<string name="nav_settings_desc">Setări</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">Funcție</string>
+    <string name="nav_tab_overview">Prezentare generală</string>
+    <string name="nav_tab_adjust">Ajustare</string>
+    <string name="nav_tab_support">Suport</string>
+    <string name="nav_tools_desc">Instrumente</string>
+    <string name="nav_power_desc">Alimentare</string>
+    <string name="nav_settings_desc">Setări</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">Instrumente rapide</string>
-<string name="dialog_power_title">Meniu alimentare</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">Instrumente rapide</string>
+    <string name="dialog_power_title">Meniu alimentare</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">Terminal</string>
-<string name="tool_terminal_subtitle">Fereastră terminal în care poți tasta oriunde</string>
-<string name="tool_fps_title">Monitor FPS</string>
-<string name="tool_fps_subtitle">Overlay rată cadre în timp real</string>
-<string name="tool_process_title">Monitor procese</string>
-<string name="tool_process_subtitle">Afișează procesul monitorului</string>
-<string name="tool_activity_title">Inspector activitate</string>
-<string name="tool_activity_subtitle">Monitorizează pachetul și clasa activității curente</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">Terminal</string>
+    <string name="tool_terminal_subtitle">Fereastră terminal în care poți tasta oriunde</string>
+    <string name="tool_fps_title">Monitor FPS</string>
+    <string name="tool_fps_subtitle">Overlay rată cadre în timp real</string>
+    <string name="tool_process_title">Monitor procese</string>
+    <string name="tool_process_subtitle">Afișează procesul monitorului</string>
+    <string name="tool_activity_title">Inspector activitate</string>
+    <string name="tool_activity_subtitle">Monitorizează pachetul și clasa activității curente</string>
 
-<!-- Common Actions -->
-<string name="action_done">Terminat</string>
-<string name="action_cancel">Anulează</string>
-<string name="action_yes_do_it">Da, fă-o</string>
-<string name="confirm_action_title">Confirmă %s</string>
+    <!-- Common Actions -->
+    <string name="action_done">Terminat</string>
+    <string name="action_cancel">Anulează</string>
+    <string name="action_yes_do_it">Da, fă-o</string>
+    <string name="confirm_action_title">Confirmă %%s</string>
 
 
 </resources>

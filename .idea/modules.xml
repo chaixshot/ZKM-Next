@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ZuanKernelManager.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ZuanKernelManager.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kernel-flasher/ZuanKernelManager.kernel-flasher.main.iml" filepath="$PROJECT_DIR$/.idea/modules/kernel-flasher/ZuanKernelManager.kernel-flasher.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kernel-flasher/ZuanKernelManager.kernel-flasher.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/kernel-flasher/ZuanKernelManager.kernel-flasher.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/terminal-emulator/ZuanKernelManager.terminal-emulator.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/terminal-emulator/ZuanKernelManager.terminal-emulator.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/terminal-emulator/ZuanKernelManager.terminal-emulator.main.iml" filepath="$PROJECT_DIR$/.idea/modules/terminal-emulator/ZuanKernelManager.terminal-emulator.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/terminal-emulator/ZuanKernelManager.terminal-emulator.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/terminal-emulator/ZuanKernelManager.terminal-emulator.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/terminal-view/ZuanKernelManager.terminal-view.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/terminal-view/ZuanKernelManager.terminal-view.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/terminal-view/ZuanKernelManager.terminal-view.main.iml" filepath="$PROJECT_DIR$/.idea/modules/terminal-view/ZuanKernelManager.terminal-view.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/terminal-view/ZuanKernelManager.terminal-view.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/terminal-view/ZuanKernelManager.terminal-view.unitTest.iml" />
+    </modules>
+  </component>
+</project>

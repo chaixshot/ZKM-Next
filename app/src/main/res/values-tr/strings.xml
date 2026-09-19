@@ -167,12 +167,12 @@
     <string name="fps_stat_min">MİN FPS</string>
     <string name="fps_stat_avg">ORT FPS</string>
     <string name="fps_stat_var">VARYANS</string>
-    <string name="fps_stat_stable">STABİL %</string>
+    <string name="fps_stat_stable">STABİL %%</string>
     <string name="fps_stat_max_temp">MAKS SICAKLIK</string>
     <string name="fps_stat_avg_pwr">ORT GÜÇ</string>
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS ve Sıcaklık</string>
-    <string name="fps_chart_cpu">CPU Yükü (%)</string>
+    <string name="fps_chart_cpu">CPU Yükü (%%)</string>
     <string name="fps_export_csv">CSV DIŞA AKTAR</string>
     <string name="fps_delete">SİL</string>
 
@@ -715,14 +715,14 @@
     <string name="processes">İşlemler</string>
     <string name="floating_mode">Yüzen Mod</string>
     <string name="system_health">Sistem Sağlığı</string>
-    <string name="monitoring_threads">%d aktif thread izleniyor</string>
+    <string name="monitoring_threads">%1$d aktif thread izleniyor</string>
     <string name="top_load">En Yüksek Yük: %1$s (%2$s)</string>
     <string name="running_processes">Çalışan İşlemler</string>
     <string name="cpu_usage">CPU Kullanımı</string>
     <string name="top_cpu_usage">En Yüksek CPU Kullanımı</string>
     <string name="top_ram_usage">En Yüksek RAM Kullanımı</string>
     <string name="memory">Bellek</string>
-    <string name="limit_format">Limit: %d</string>
+    <string name="limit_format">Limit: %1$d</string>
     <string name="total">Toplam</string>
     <string name="user">Kullanıcı</string>
     <string name="sys">Sis</string>
@@ -754,8 +754,8 @@
     <string name="card_style_media">Medya</string>
     <string name="card_style_outlined">Çerçeveli</string>
     <string name="ksuweb_status_active">Aktif</string>
-    <string name="ksuweb_by_author">%s tarafından</string>
-    <string name="ksuweb_version_prefix">v%s</string>
+    <string name="ksuweb_by_author">%1$s tarafından</string>
+    <string name="ksuweb_version_prefix">v%1$s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">EYLEM</string>
     <string name="ksuweb_badge_disabled">DEVRE DIŞI</string>
@@ -795,7 +795,7 @@
     <string name="power_recovery_warning">Cihaz Kurtarma Moduna (TWRP/OrangeFox) yeniden başlayacak.</string>
     <string name="power_fastboot_warning">Cihaz Fastboot/Bootloader moduna yeniden başlayacak.</string>
     <string name="power_restart_ui_warning">Kullanıcı Arayüzü yeniden başlatılacak. Bu birkaç saniye sürebilir.</string>
-    <string name="confirm_action">%s Onayla</string>
+    <string name="confirm_action">%1$s Onayla</string>
     <string name="btn_confirm_yes">Evet, Yap</string>
 
     <string name="about_section_developer">Geliştirici Hakkında</string>
@@ -817,7 +817,7 @@
     <string name="intro_btn_decline">Reddet ve Çık</string>
     <string name="intro_footer_legal">\'Kabul Ediyorum\'a basarak Riskleri ve Gizlilik Politikasını kabul etmiş olursunuz.</string>
 
-    <string name="update_title">Ver %s\'ye Güncelle</string>
+    <string name="update_title">Ver %1$s\'ye Güncelle</string>
     <string name="update_changelog_title">Yenilikler</string>
     <string name="btn_update">Güncelle</string>
     <string name="downloading_update">Güncelleme indiriliyor…</string>
@@ -847,274 +847,274 @@
     <string name="lang_polish">Lehçe</string>
     <string name="lang_turkish">Türkçe</string>
     <string name="lang_dutch">Felemenkçe</string>
-<string name="graphics_unit">Grafik Birimi</string>
-<string name="graphics_processor">Grafik İşlemci</string>
-<string name="processor_sets">İşlemci Setleri (Cpuset)</string>
-<string name="core_control">Çekirdek Kontrolü</string>
-<string name="cpu_governor">CPU Düzenleyici</string>
-<string name="select_governor">Düzenleyici Seç</string>
-<string name="min_freq">Min. Frek</string>
-<string name="max_freq">Maks. Frek</string>
-<string name="min_frequency">Minimum Frekans</string>
-<string name="max_frequency">Maksimum Frekans</string>
-<string name="tab_performance">Performans</string>
-<string name="tab_tuning">Ayarlama</string>
-<string name="disable_cpu_title">CPU %1$d Devre Dışı Bırakılsın mı?</string>
-<string name="disable_cpu_warning">Bu çekirdeği devre dışı bırakmak performansı düşürebilir. Sistem görevlerini işlemek için diğer çekirdeklerin etkin olduğundan emin olun.</string>
-<string name="btn_disable">Devre Dışı Bırak</string>
-<string name="select_active_cores">Aktif çekirdekleri seç:</string>
-<string name="cpu_core_id">CPU %1$d</string>
-<string name="freq_mhz_format">%1$s MHz</string>
-<string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
-<string name="gpu_load_format">%1$s • Yük %2$s%%</string>
-<string name="cores_count">Çekirdek: %1$s</string>
-<string name="gpu_not_supported">GPU Arayüzü desteklenmiyor</string>
-<string name="not_available">Yok</string>
-<string name="no_options">Seçenek yok</string>
-<string name="label_value">Değer</string>
-<string name="zram_manager">ZRAM Yöneticisi</string>
-<string name="zram_status">ZRAM Durumu</string>
-<string name="disk_size_mb">Disk Boyutu: %1$d MB</string>
-<string name="zram_info_format">%1$d MB • %2$s</string>
-<string name="compression_algorithm">Sıkıştırma Algoritması</string>
-<string name="io_scheduler">I/O Zamanlayıcı</string>
-<string name="select_scheduler">Zamanlayıcı Seç</string>
-<string name="tunables">Ayarlanabilirler</string>
-<string name="virtual_memory">Sanal Bellek</string>
-<string name="swappiness">Swappiness</string>
-<string name="vfs_cache_pressure">VFS Önbellek Baskısı</string>
-<string name="dirty_ratio">Dirty Ratio</string>
-<string name="dirty_bg_ratio">Dirty BG Ratio</string>
-<string name="no_storage_devices">Desteklenen depolama cihazı bulunamadı.</string>
-<string name="scheduler_format">Zamanlayıcı: %1$s</string>
-<string name="btn_set">Ayarla</string>
-<string name="tcp_congestion">TCP Tıkanıklığı</string>
-<string name="tcp_parameters">TCP Parametreleri</string>
-<string name="syn_cookies">SYN Çerezleri</string>
-<string name="enabled">Etkin</string>
-<string name="disabled">Devre Dışı</string>
-<string name="tcp_reuse">TCP Yeniden Kullanım</string>
-<string name="on">Açık</string>
-<string name="off">Kapalı</string>
-<string name="fast_open">Hızlı Açma</string>
-<string name="tcp_sack">TCP SACK</string>
-<string name="ecn">ECN</string>
-<string name="kernel_log">Kernel Günlüğü</string>
-<string name="printk">Printk</string>
-<string name="feature_toggles">Özellik Anahtarları</string>
-<string name="bore_scheduler">BORE Zamanlayıcı</string>
-<string name="auto_group">Otomatik Grup</string>
-<string name="child_runs_first">Çocuk Önce Çalışır</string>
-<string name="sched_stats">Zamanlayıcı İstatistikleri</string>
-<string name="tunable_scaling">Ayarlanabilir Ölçekleme</string>
-<string name="cstate_aware">C-State Farkındalığı</string>
-<string name="uclamp_configuration">UClamp Yapılandırması</string>
-<string name="uclamp_max">UClamp Maks</string>
-<string name="uclamp_min">UClamp Min</string>
-<string name="advanced_parameters">Gelişmiş Parametreler</string>
-<string name="current_value_format">Mevcut değer: %1$s</string>
-<string name="new_value">Yeni Değer</string>
-<string name="edit">Düzenle</string>
+    <string name="graphics_unit">Grafik Birimi</string>
+    <string name="graphics_processor">Grafik İşlemci</string>
+    <string name="processor_sets">İşlemci Setleri (Cpuset)</string>
+    <string name="core_control">Çekirdek Kontrolü</string>
+    <string name="cpu_governor">CPU Düzenleyici</string>
+    <string name="select_governor">Düzenleyici Seç</string>
+    <string name="min_freq">Min. Frek</string>
+    <string name="max_freq">Maks. Frek</string>
+    <string name="min_frequency">Minimum Frekans</string>
+    <string name="max_frequency">Maksimum Frekans</string>
+    <string name="tab_performance">Performans</string>
+    <string name="tab_tuning">Ayarlama</string>
+    <string name="disable_cpu_title">CPU %1$d Devre Dışı Bırakılsın mı?</string>
+    <string name="disable_cpu_warning">Bu çekirdeği devre dışı bırakmak performansı düşürebilir. Sistem görevlerini işlemek için diğer çekirdeklerin etkin olduğundan emin olun.</string>
+    <string name="btn_disable">Devre Dışı Bırak</string>
+    <string name="select_active_cores">Aktif çekirdekleri seç:</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s MHz</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
+    <string name="gpu_load_format">%1$s • Yük %2$s%%</string>
+    <string name="cores_count">Çekirdek: %1$s</string>
+    <string name="gpu_not_supported">GPU Arayüzü desteklenmiyor</string>
+    <string name="not_available">Yok</string>
+    <string name="no_options">Seçenek yok</string>
+    <string name="label_value">Değer</string>
+    <string name="zram_manager">ZRAM Yöneticisi</string>
+    <string name="zram_status">ZRAM Durumu</string>
+    <string name="disk_size_mb">Disk Boyutu: %1$d MB</string>
+    <string name="zram_info_format">%1$d MB • %2$s</string>
+    <string name="compression_algorithm">Sıkıştırma Algoritması</string>
+    <string name="io_scheduler">I/O Zamanlayıcı</string>
+    <string name="select_scheduler">Zamanlayıcı Seç</string>
+    <string name="tunables">Ayarlanabilirler</string>
+    <string name="virtual_memory">Sanal Bellek</string>
+    <string name="swappiness">Swappiness</string>
+    <string name="vfs_cache_pressure">VFS Önbellek Baskısı</string>
+    <string name="dirty_ratio">Dirty Ratio</string>
+    <string name="dirty_bg_ratio">Dirty BG Ratio</string>
+    <string name="no_storage_devices">Desteklenen depolama cihazı bulunamadı.</string>
+    <string name="scheduler_format">Zamanlayıcı: %1$s</string>
+    <string name="btn_set">Ayarla</string>
+    <string name="tcp_congestion">TCP Tıkanıklığı</string>
+    <string name="tcp_parameters">TCP Parametreleri</string>
+    <string name="syn_cookies">SYN Çerezleri</string>
+    <string name="enabled">Etkin</string>
+    <string name="disabled">Devre Dışı</string>
+    <string name="tcp_reuse">TCP Yeniden Kullanım</string>
+    <string name="on">Açık</string>
+    <string name="off">Kapalı</string>
+    <string name="fast_open">Hızlı Açma</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">Kernel Günlüğü</string>
+    <string name="printk">Printk</string>
+    <string name="feature_toggles">Özellik Anahtarları</string>
+    <string name="bore_scheduler">BORE Zamanlayıcı</string>
+    <string name="auto_group">Otomatik Grup</string>
+    <string name="child_runs_first">Çocuk Önce Çalışır</string>
+    <string name="sched_stats">Zamanlayıcı İstatistikleri</string>
+    <string name="tunable_scaling">Ayarlanabilir Ölçekleme</string>
+    <string name="cstate_aware">C-State Farkındalığı</string>
+    <string name="uclamp_configuration">UClamp Yapılandırması</string>
+    <string name="uclamp_max">UClamp Maks</string>
+    <string name="uclamp_min">UClamp Min</string>
+    <string name="advanced_parameters">Gelişmiş Parametreler</string>
+    <string name="current_value_format">Mevcut değer: %1$s</string>
+    <string name="new_value">Yeni Değer</string>
+    <string name="edit">Düzenle</string>
 
-<!-- MTK Screen Main -->
-<string name="mtk_gpu_title">MediaTek GPU</string>
-<string name="mtk_gpu_subtitle">Dimensity/Mali Ayarı</string>
-<string name="mtk_tab_freq">Frek</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">Boost</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">Isı</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">MediaTek GPU</string>
+    <string name="mtk_gpu_subtitle">Dimensity/Mali Ayarı</string>
+    <string name="mtk_tab_freq">Frek</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">Boost</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">Isı</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS etkin</string>
-<string name="mtk_dvfs_enabled_desc">GPU frekansı dinamik. Statik kontrol için DVFS\'yi devre dışı bırakın veya frekansı kilitleyin.</string>
-<string name="mtk_gpu_dvfs">GPU DVFS</string>
-<string name="mtk_dynamic_scaling_on">Dinamik ölçekleme AÇIK</string>
-<string name="mtk_static_frequency">Statik frekans</string>
-<string name="mtk_dynamic">Dinamik</string>
-<string name="mtk_freq_locked">Frekans kilitli</string>
-<string name="mtk_current_frequency">Mevcut frekans</string>
-<string name="mtk_lock_frequency">Frekansı kilitle</string>
-<string name="mtk_select_opp_index">Kilitlemek için OPP indeksi seçin</string>
-<string name="mtk_unlock_frequency">Frekans kilidini aç</string>
-<string name="mtk_dvfs_limits">DVFS limitleri</string>
-<string name="mtk_minimum_boost">Minimum (Boost)</string>
-<string name="mtk_maximum_limit">Maksimum (Limit)</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS etkin</string>
+    <string name="mtk_dvfs_enabled_desc">GPU frekansı dinamik. Statik kontrol için DVFS\'yi devre dışı bırakın veya frekansı kilitleyin.</string>
+    <string name="mtk_gpu_dvfs">GPU DVFS</string>
+    <string name="mtk_dynamic_scaling_on">Dinamik ölçekleme AÇIK</string>
+    <string name="mtk_static_frequency">Statik frekans</string>
+    <string name="mtk_dynamic">Dinamik</string>
+    <string name="mtk_freq_locked">Frekans kilitli</string>
+    <string name="mtk_current_frequency">Mevcut frekans</string>
+    <string name="mtk_lock_frequency">Frekansı kilitle</string>
+    <string name="mtk_select_opp_index">Kilitlemek için OPP indeksi seçin</string>
+    <string name="mtk_unlock_frequency">Frekans kilidini aç</string>
+    <string name="mtk_dvfs_limits">DVFS limitleri</string>
+    <string name="mtk_minimum_boost">Minimum (Boost)</string>
+    <string name="mtk_maximum_limit">Maksimum (Limit)</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">DRAM kontrolü kullanılamıyor</string>
-<string name="mtk_dram_type">Tip</string>
-<string name="mtk_dram_controller">DRAM kontrolcüsü</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq Genel</string>
-<string name="mtk_dram_fliper">Fliper Eski</string>
-<string name="mtk_dram_unknown">Bilinmiyor</string>
-<string name="mtk_dram_current_step">Mevcut</string>
-<string name="mtk_dram_force_frequency">DRAM frekansını zorla</string>
-<string name="mtk_dram_lock_opp">Belirli OPP\'ye kilitle (DVFS yok)</string>
-<string name="mtk_dram_reset_dvfs">DVFS\'ye sıfırla</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">DRAM kontrolü kullanılamıyor</string>
+    <string name="mtk_dram_type">Tip</string>
+    <string name="mtk_dram_controller">DRAM kontrolcüsü</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq Genel</string>
+    <string name="mtk_dram_fliper">Fliper Eski</string>
+    <string name="mtk_dram_unknown">Bilinmiyor</string>
+    <string name="mtk_dram_current_step">Mevcut</string>
+    <string name="mtk_dram_force_frequency">DRAM frekansını zorla</string>
+    <string name="mtk_dram_lock_opp">Belirli OPP\'ye kilitle (DVFS yok)</string>
+    <string name="mtk_dram_reset_dvfs">DVFS\'ye sıfırla</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">Oyun ve performans</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">Akıcı oyun için kare artırma</string>
-<string name="mtk_ged_game_mode_title">GED Oyun Modu</string>
-<string name="mtk_ged_game_mode_subtitle">GPU yönetici oyun optimizasyonu</string>
-<string name="mtk_touch_boost_title">Dokunmatik Boost</string>
-<string name="mtk_touch_boost_subtitle">Dokunuşta CPU artırma</string>
-<string name="mtk_sched_boost_title">Zamanlayıcı Boost</string>
-<string name="mtk_sched_boost_subtitle">Ön plan uygulamaları için öncelik artırma</string>
-<string name="mtk_gaming_mode_preset">Oyun modu ön ayarı</string>
-<string name="mtk_gaming_mode_desc">Tüm artırımları anında etkinleştir</string>
-<string name="mtk_activate_gaming_mode">Oyun modunu etkinleştir</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">Oyun ve performans</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">Akıcı oyun için kare artırma</string>
+    <string name="mtk_ged_game_mode_title">GED Oyun Modu</string>
+    <string name="mtk_ged_game_mode_subtitle">GPU yönetici oyun optimizasyonu</string>
+    <string name="mtk_touch_boost_title">Dokunmatik Boost</string>
+    <string name="mtk_touch_boost_subtitle">Dokunuşta CPU artırma</string>
+    <string name="mtk_sched_boost_title">Zamanlayıcı Boost</string>
+    <string name="mtk_sched_boost_subtitle">Ön plan uygulamaları için öncelik artırma</string>
+    <string name="mtk_gaming_mode_preset">Oyun modu ön ayarı</string>
+    <string name="mtk_gaming_mode_desc">Tüm artırımları anında etkinleştir</string>
+    <string name="mtk_activate_gaming_mode">Oyun modunu etkinleştir</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM kullanılamıyor</string>
-<string name="mtk_ppm_not_found">/proc/ppm bulunamadı</string>
-<string name="mtk_ppm_controller">PPM kontrolcüsü</string>
-<string name="mtk_ppm_active">Aktif</string>
-<string name="mtk_ppm_disabled">Devre dışı</string>
-<string name="mtk_active_policies">Aktif politikalar</string>
-<string name="mtk_policy_hash">Politika #</string>
-<string name="mtk_ppm_no_policies">PPM etkin ancak politika algılanmadı. Bu bir kernel kısıtlaması olabilir.</string>
-<string name="mtk_about_ppm">PPM hakkında</string>
-<string name="mtk_ppm_description">Performance Power Management CPU/GPU güç dağılımını kontrol eder. \'Isı\' politikasını devre dışı bırakmak aşırı ısınmaya neden olabilir ancak performansı artırır.</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM kullanılamıyor</string>
+    <string name="mtk_ppm_not_found">/proc/ppm bulunamadı</string>
+    <string name="mtk_ppm_controller">PPM kontrolcüsü</string>
+    <string name="mtk_ppm_active">Aktif</string>
+    <string name="mtk_ppm_disabled">Devre dışı</string>
+    <string name="mtk_active_policies">Aktif politikalar</string>
+    <string name="mtk_policy_hash">Politika #</string>
+    <string name="mtk_ppm_no_policies">PPM etkin ancak politika algılanmadı. Bu bir kernel kısıtlaması olabilir.</string>
+    <string name="mtk_about_ppm">PPM hakkında</string>
+    <string name="mtk_ppm_description">Performance Power Management CPU/GPU güç dağılımını kontrol eder. \'Isı\' politikasını devre dışı bırakmak aşırı ısınmaya neden olabilir ancak performansı artırır.</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc kullanılamıyor</string>
-<string name="mtk_cci_interconnect">CCI bağlantısı</string>
-<string name="mtk_cache_coherent">Önbellek tutarlı bağlantı</string>
-<string name="mtk_big_little_desc">big.LITTLE küme etkileşimini kontrol eder</string>
-<string name="mtk_normal">Normal</string>
-<string name="mtk_performance">Performans</string>
-<string name="mtk_low_power">Düşük güç</string>
-<string name="mtk_balance">Denge</string>
-<string name="mtk_cpu_power_mode">CPU güç modu</string>
-<string name="mtk_current_mode">Mevcut</string>
-<string name="mtk_voltage_offset">Voltaj ofseti (EEM)</string>
-<string name="mtk_eem_unit">6.25mV/birim</string>
-<string name="mtk_offset_value">Ofset değeri</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc kullanılamıyor</string>
+    <string name="mtk_cci_interconnect">CCI bağlantısı</string>
+    <string name="mtk_cache_coherent">Önbellek tutarlı bağlantı</string>
+    <string name="mtk_big_little_desc">big.LITTLE küme etkileşimini kontrol eder</string>
+    <string name="mtk_normal">Normal</string>
+    <string name="mtk_performance">Performans</string>
+    <string name="mtk_low_power">Düşük güç</string>
+    <string name="mtk_balance">Denge</string>
+    <string name="mtk_cpu_power_mode">CPU güç modu</string>
+    <string name="mtk_current_mode">Mevcut</string>
+    <string name="mtk_voltage_offset">Voltaj ofseti (EEM)</string>
+    <string name="mtk_eem_unit">6.25mV/birim</string>
+    <string name="mtk_offset_value">Ofset değeri</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">ISI SINIRLAMA</string>
-<string name="mtk_temp_limit_exceeded">Sıcaklık limiti aşıldı</string>
-<string name="mtk_normal_temp">Normal sıcaklık</string>
-<string name="mtk_eara_thermal">EARA Isı</string>
-<string name="mtk_early_adaptation">Erken adaptasyon kaynak ayırma</string>
-<string name="mtk_eara_fake_throttle">EARA Sahte Sınırlama</string>
-<string name="mtk_fake_temp_desc">Çekirdeğe sahte sıcaklık bildir</string>
-<string name="mtk_throttling_desc">Cihaz ısı sınırlaması yapıyor. Aşırı ısınmayı önlemek için performans düşürüldü.</string>
-<string name="mtk_thermal_daemon_info">MTK ısı yönetimi çekirdek ısı daemon\'u tarafından işlenir. On-die sensörlerden (tsens) okuma.</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">ISI SINIRLAMA</string>
+    <string name="mtk_temp_limit_exceeded">Sıcaklık limiti aşıldı</string>
+    <string name="mtk_normal_temp">Normal sıcaklık</string>
+    <string name="mtk_eara_thermal">EARA Isı</string>
+    <string name="mtk_early_adaptation">Erken adaptasyon kaynak ayırma</string>
+    <string name="mtk_eara_fake_throttle">EARA Sahte Sınırlama</string>
+    <string name="mtk_fake_temp_desc">Çekirdeğe sahte sıcaklık bildir</string>
+    <string name="mtk_throttling_desc">Cihaz ısı sınırlaması yapıyor. Aşırı ısınmayı önlemek için performans düşürüldü.</string>
+    <string name="mtk_thermal_daemon_info">MTK ısı yönetimi çekirdek ısı daemon\'u tarafından işlenir. On-die sensörlerden (tsens) okuma.</string>
 
-<!-- Common Actions -->
-<string name="action_back">Geri</string>
-<string name="action_refresh">Yenile</string>
+    <!-- Common Actions -->
+    <string name="action_back">Geri</string>
+    <string name="action_refresh">Yenile</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">Adreno GPU</string>
-<string name="adreno_gpu_subtitle">Performans ve ayar</string>
-<string name="adreno_tab_freq">Frek</string>
-<string name="adreno_tab_power">Güç</string>
-<string name="adreno_tab_bus">Veri yolu</string>
-<string name="adreno_tab_thermal">Isı</string>
-<string name="adreno_tab_advanced">Gelişmiş</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">Adreno GPU</string>
+    <string name="adreno_gpu_subtitle">Performans ve ayar</string>
+    <string name="adreno_tab_freq">Frek</string>
+    <string name="adreno_tab_power">Güç</string>
+    <string name="adreno_tab_bus">Veri yolu</string>
+    <string name="adreno_tab_thermal">Isı</string>
+    <string name="adreno_tab_advanced">Gelişmiş</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">Mevcut frekans</string>
-<string name="adreno_freq_limits">Frekans limitleri</string>
-<string name="adreno_minimum">Minimum</string>
-<string name="adreno_maximum">Maksimum</string>
-<string name="adreno_governor">Governor</string>
-<string name="adreno_current">Mevcut</string>
-<string name="adreno_change">Değiştir</string>
-<string name="adreno_frequency">Frekans</string>
-<string name="adreno_cancel">İptal</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">Mevcut frekans</string>
+    <string name="adreno_freq_limits">Frekans limitleri</string>
+    <string name="adreno_minimum">Minimum</string>
+    <string name="adreno_maximum">Maksimum</string>
+    <string name="adreno_governor">Governor</string>
+    <string name="adreno_current">Mevcut</string>
+    <string name="adreno_change">Değiştir</string>
+    <string name="adreno_frequency">Frekans</string>
+    <string name="adreno_cancel">İptal</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">GPU kısma</string>
-<string name="adreno_performance_limited">Performans sınırlı</string>
-<string name="adreno_full_performance">Tam performans</string>
-<string name="adreno_adreno_boost">Adreno Boost</string>
-<string name="adreno_level">Seviye</string>
-<string name="adreno_off">Kapalı</string>
-<string name="adreno_low">Düşük</string>
-<string name="adreno_med">Orta</string>
-<string name="adreno_high">Yüksek</string>
-<string name="adreno_boost_desc">Daha yüksek boost seviyeleri performansı artırır ancak daha fazla batarya tüketir ve daha fazla ısı üretir.</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">GPU kısma</string>
+    <string name="adreno_performance_limited">Performans sınırlı</string>
+    <string name="adreno_full_performance">Tam performans</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">Seviye</string>
+    <string name="adreno_off">Kapalı</string>
+    <string name="adreno_low">Düşük</string>
+    <string name="adreno_med">Orta</string>
+    <string name="adreno_high">Yüksek</string>
+    <string name="adreno_boost_desc">Daha yüksek boost seviyeleri performansı artırır ancak daha fazla batarya tüketir ve daha fazla ısı üretir.</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">Veri yolu bileşenleri</string>
-<string name="adreno_no_bus_controls">Veri yolu kontrolü yok</string>
-<string name="adreno_no_bus_desc">Bu cihazda yapılandırılabilir veri yolu bileşeni yok</string>
-<string name="adreno_min_freq">Min frekans</string>
-<string name="adreno_max_freq">Maks frekans</string>
-<string name="adreno_min">MİN</string>
-<string name="adreno_max">MAKS</string>
-<string name="adreno_edit">Düzenle</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">Veri yolu bileşenleri</string>
+    <string name="adreno_no_bus_controls">Veri yolu kontrolü yok</string>
+    <string name="adreno_no_bus_desc">Bu cihazda yapılandırılabilir veri yolu bileşeni yok</string>
+    <string name="adreno_min_freq">Min frekans</string>
+    <string name="adreno_max_freq">Maks frekans</string>
+    <string name="adreno_min">MİN</string>
+    <string name="adreno_max">MAKS</string>
+    <string name="adreno_edit">Düzenle</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">ISI SINIRLAMA</string>
-<string name="adreno_gpu_temp">GPU sıcaklığı</string>
-<string name="adreno_thermal_zones">Isı bölgeleri</string>
-<string name="adreno_cooling_devices">Soğutma cihazları</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">ISI SINIRLAMA</string>
+    <string name="adreno_gpu_temp">GPU sıcaklığı</string>
+    <string name="adreno_thermal_zones">Isı bölgeleri</string>
+    <string name="adreno_cooling_devices">Soğutma cihazları</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL Gelişmiş</string>
-<string name="adreno_force_no_nap">Zorla No NAP</string>
-<string name="adreno_no_nap_desc">GPU nun uykuya geçmesini engelle</string>
-<string name="adreno_force_clk_on">Zorla CLK Açık</string>
-<string name="adreno_clk_on_desc">Saati her zaman açık tut</string>
-<string name="adreno_force_bus_on">Zorla Veri Yolu Açık</string>
-<string name="adreno_bus_on_desc">Veri yolunu her zaman aktif tut</string>
-<string name="adreno_bus_split">Veri Yolu Bölme</string>
-<string name="adreno_bus_split_desc">Veri yolu bölmesini etkinleştir</string>
-<string name="adreno_throttling">Kısma</string>
-<string name="adreno_throttling_desc">Isı kısmasını etkinleştir</string>
-<string name="adreno_power_levels">Güç seviyeleri</string>
-<string name="adreno_default">Varsayılan</string>
-<string name="adreno_thermal">Isı</string>
-<string name="adreno_save">Kaydet</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Idler ı etkinleştir</string>
-<string name="adreno_idler_desc">Boşta güç tüketimini azalt</string>
-<string name="adreno_idle_wait">Boşta bekleme</string>
-<string name="adreno_down_differential">Down Differential</string>
-<string name="adreno_workload_threshold">İş yükü eşiği</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Simple GPU yu etkinleştir</string>
-<string name="adreno_simple_gpu_desc">Alternatif GPU governor algoritması</string>
-<string name="adreno_laziness">Tembellik</string>
-<string name="adreno_ramp_threshold">Yükseliş eşiği</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL Gelişmiş</string>
+    <string name="adreno_force_no_nap">Zorla No NAP</string>
+    <string name="adreno_no_nap_desc">GPU nun uykuya geçmesini engelle</string>
+    <string name="adreno_force_clk_on">Zorla CLK Açık</string>
+    <string name="adreno_clk_on_desc">Saati her zaman açık tut</string>
+    <string name="adreno_force_bus_on">Zorla Veri Yolu Açık</string>
+    <string name="adreno_bus_on_desc">Veri yolunu her zaman aktif tut</string>
+    <string name="adreno_bus_split">Veri Yolu Bölme</string>
+    <string name="adreno_bus_split_desc">Veri yolu bölmesini etkinleştir</string>
+    <string name="adreno_throttling">Kısma</string>
+    <string name="adreno_throttling_desc">Isı kısmasını etkinleştir</string>
+    <string name="adreno_power_levels">Güç seviyeleri</string>
+    <string name="adreno_default">Varsayılan</string>
+    <string name="adreno_thermal">Isı</string>
+    <string name="adreno_save">Kaydet</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Idler ı etkinleştir</string>
+    <string name="adreno_idler_desc">Boşta güç tüketimini azalt</string>
+    <string name="adreno_idle_wait">Boşta bekleme</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">İş yükü eşiği</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Simple GPU yu etkinleştir</string>
+    <string name="adreno_simple_gpu_desc">Alternatif GPU governor algoritması</string>
+    <string name="adreno_laziness">Tembellik</string>
+    <string name="adreno_ramp_threshold">Yükseliş eşiği</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">Özellik</string>
-<string name="nav_tab_overview">Genel bakış</string>
-<string name="nav_tab_adjust">Ayarla</string>
-<string name="nav_tab_support">Destek</string>
-<string name="nav_tools_desc">Araçlar</string>
-<string name="nav_power_desc">Güç</string>
-<string name="nav_settings_desc">Ayarlar</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">Özellik</string>
+    <string name="nav_tab_overview">Genel bakış</string>
+    <string name="nav_tab_adjust">Ayarla</string>
+    <string name="nav_tab_support">Destek</string>
+    <string name="nav_tools_desc">Araçlar</string>
+    <string name="nav_power_desc">Güç</string>
+    <string name="nav_settings_desc">Ayarlar</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">Hızlı Araçlar</string>
-<string name="dialog_power_title">Güç Menüsü</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">Hızlı Araçlar</string>
+    <string name="dialog_power_title">Güç Menüsü</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">Terminal Kabuğu</string>
-<string name="tool_terminal_subtitle">Her yerde terminalde yazabileceğiniz pencere</string>
-<string name="tool_fps_title">FPS Monitörü</string>
-<string name="tool_fps_subtitle">Gerçek zamanlı kare hızı katmanı</string>
-<string name="tool_process_title">İşlem Monitörü</string>
-<string name="tool_process_subtitle">Monitör işlemini göster</string>
-<string name="tool_activity_title">Aktivite Denetleyicisi</string>
-<string name="tool_activity_subtitle">Mevcut üst aktivite paketini ve sınıfını izle</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">Terminal Kabuğu</string>
+    <string name="tool_terminal_subtitle">Her yerde terminalde yazabileceğiniz pencere</string>
+    <string name="tool_fps_title">FPS Monitörü</string>
+    <string name="tool_fps_subtitle">Gerçek zamanlı kare hızı katmanı</string>
+    <string name="tool_process_title">İşlem Monitörü</string>
+    <string name="tool_process_subtitle">Monitör işlemini göster</string>
+    <string name="tool_activity_title">Aktivite Denetleyicisi</string>
+    <string name="tool_activity_subtitle">Mevcut üst aktivite paketini ve sınıfını izle</string>
 
-<!-- Common Actions -->
-<string name="action_done">Tamam</string>
-<string name="action_cancel">İptal</string>
-<string name="action_yes_do_it">Evet, Yap</string>
-<string name="confirm_action_title">%s Onayla</string>
+    <!-- Common Actions -->
+    <string name="action_done">Tamam</string>
+    <string name="action_cancel">İptal</string>
+    <string name="action_yes_do_it">Evet, Yap</string>
+    <string name="confirm_action_title">%1$s Onayla</string>
 
 
 </resources>

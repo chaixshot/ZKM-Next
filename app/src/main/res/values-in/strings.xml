@@ -167,12 +167,12 @@
     <string name="fps_stat_min">FPS MIN</string>
     <string name="fps_stat_avg">FPS RATA2</string>
     <string name="fps_stat_var">VAR</string>
-    <string name="fps_stat_stable">STABIL %</string>
+    <string name="fps_stat_stable">STABIL %%</string>
     <string name="fps_stat_max_temp">SUHU MAKS</string>
     <string name="fps_stat_avg_pwr">DAYA RATA2</string>
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS &amp; Suhu</string>
-    <string name="fps_chart_cpu">Beban CPU (%)</string>
+    <string name="fps_chart_cpu">Beban CPU (%%)</string>
     <string name="fps_export_csv">EKSPOR CSV</string>
     <string name="fps_delete">HAPUS</string>
 
@@ -735,7 +735,7 @@
     <string name="card_style_media">Media</string>
     <string name="card_style_outlined">Garisbatas</string>
     <string name="ksuweb_status_active">Aktif</string>
-    <string name="ksuweb_by_author">Oleh %s</string>
+    <string name="ksuweb_by_author">Oleh %%s</string>
     <string name="ksuweb_version_prefix">v%s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">AKSI</string>
@@ -775,7 +775,7 @@
     <string name="power_recovery_warning">Perangkat akan dimulai ulang ke Mode Pemulihan (TWRP/OrangeFox).</string>
     <string name="power_fastboot_warning">Perangkat akan dimulai ulang ke mode Fastboot/Bootloader.</string>
     <string name="power_restart_ui_warning">Antarmuka Pengguna akan dimulai ulang. Ini mungkin membutuhkan beberapa detik.</string>
-    <string name="confirm_action">Konfirmasi %s</string>
+    <string name="confirm_action">Konfirmasi %%s</string>
     <string name="btn_confirm_yes">Ya, Lakukan</string>
 
     <string name="about_section_developer">Tentang Developer</string>
@@ -806,34 +806,34 @@
     <string name="intro_btn_decline">Tolak &amp; Keluar</string>
     <string name="intro_footer_legal">Dengan menekan \'Saya Setuju\', Anda menerima Risiko &amp; Kebijakan Privasi.</string>
 
-    <string name="update_title">Update to Ver %s</string>
+    <string name="update_title">Update to Ver %%s</string>
     <string name="update_changelog_title">What\'s New</string>
     <string name="btn_update">memperbarui</string>
     <string name="downloading_update">memperbarui …</string>
     <string name="update_available">Pembaruan Tersedia: %1$s</string>
     <string name="update_tap_install">Ketuk untuk melihat changelog dan install</string>
 
-<string name="lang_russian">Russian</string>
-<string name="lang_ukrainian">Ukrainian</string>
-<string name="lang_belarusian">Belarusian</string>
-<string name="lang_kazakh">Kazakh</string>
-<string name="lang_moldovan">Moldovan</string>
-<string name="lang_chinese_cn">Chinese (China)</string>
-<string name="lang_chinese_sg">Chinese (Singapore)</string>
-<string name="lang_chinese_tw">Chinese (Taiwan)</string>
-<string name="lang_chinese_hk">Chinese (Hong Kong)</string>
-<string name="lang_chinese_mo">Chinese (Macau)</string>
-<string name="lang_japanese">Japanese</string>
-<string name="lang_korean">Korean</string>
-<string name="lang_vietnamese">Vietnamese</string>
-<string name="lang_german">German</string>
-<string name="lang_french">French</string>
-<string name="lang_spanish">Spanish</string>
-<string name="lang_portuguese">Portuguese</string>
-<string name="lang_italian">Italian</string>
-<string name="lang_polish">Polish</string>
-<string name="lang_turkish">Turkish</string>
-<string name="lang_dutch">Dutch</string>
+    <string name="lang_russian">Russian</string>
+    <string name="lang_ukrainian">Ukrainian</string>
+    <string name="lang_belarusian">Belarusian</string>
+    <string name="lang_kazakh">Kazakh</string>
+    <string name="lang_moldovan">Moldovan</string>
+    <string name="lang_chinese_cn">Chinese (China)</string>
+    <string name="lang_chinese_sg">Chinese (Singapore)</string>
+    <string name="lang_chinese_tw">Chinese (Taiwan)</string>
+    <string name="lang_chinese_hk">Chinese (Hong Kong)</string>
+    <string name="lang_chinese_mo">Chinese (Macau)</string>
+    <string name="lang_japanese">Japanese</string>
+    <string name="lang_korean">Korean</string>
+    <string name="lang_vietnamese">Vietnamese</string>
+    <string name="lang_german">German</string>
+    <string name="lang_french">French</string>
+    <string name="lang_spanish">Spanish</string>
+    <string name="lang_portuguese">Portuguese</string>
+    <string name="lang_italian">Italian</string>
+    <string name="lang_polish">Polish</string>
+    <string name="lang_turkish">Turkish</string>
+    <string name="lang_dutch">Dutch</string>
 
     <!-- CPU/GPU SCREEN STRINGS -->
     <string name="graphics_unit">Unit Grafis</string>
@@ -911,205 +911,205 @@
     <string name="new_value">Nilai Baru</string>
     <string name="edit">Edit</string>
 
-  <!-- MTK Screen Main -->
-<string name="mtk_gpu_title">GPU MediaTek</string>
-<string name="mtk_gpu_subtitle">Tuning Dimensity/Mali</string>
-<string name="mtk_tab_freq">Frek</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">Boost</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">Thermal</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">GPU MediaTek</string>
+    <string name="mtk_gpu_subtitle">Tuning Dimensity/Mali</string>
+    <string name="mtk_tab_freq">Frek</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">Boost</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">Thermal</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS Aktif</string>
-<string name="mtk_dvfs_enabled_desc">Frekuensi GPU dinamis. Nonaktifkan DVFS atau kunci frekuensi untuk kontrol statis.</string>
-<string name="mtk_gpu_dvfs">DVFS GPU</string>
-<string name="mtk_dynamic_scaling_on">Skalasi Dinamis AKTIF</string>
-<string name="mtk_static_frequency">Frekuensi Statis</string>
-<string name="mtk_dynamic">Dinamis</string>
-<string name="mtk_freq_locked">Frekuensi Terkunci</string>
-<string name="mtk_current_frequency">Frekuensi Saat Ini</string>
-<string name="mtk_lock_frequency">Kunci Frekuensi</string>
-<string name="mtk_select_opp_index">Pilih indeks OPP untuk dikunci</string>
-<string name="mtk_unlock_frequency">Buka Kunci Frekuensi</string>
-<string name="mtk_dvfs_limits">Batas DVFS</string>
-<string name="mtk_minimum_boost">Minimum (Boost)</string>
-<string name="mtk_maximum_limit">Maksimum (Batas)</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS Aktif</string>
+    <string name="mtk_dvfs_enabled_desc">Frekuensi GPU dinamis. Nonaktifkan DVFS atau kunci frekuensi untuk kontrol statis.</string>
+    <string name="mtk_gpu_dvfs">DVFS GPU</string>
+    <string name="mtk_dynamic_scaling_on">Skalasi Dinamis AKTIF</string>
+    <string name="mtk_static_frequency">Frekuensi Statis</string>
+    <string name="mtk_dynamic">Dinamis</string>
+    <string name="mtk_freq_locked">Frekuensi Terkunci</string>
+    <string name="mtk_current_frequency">Frekuensi Saat Ini</string>
+    <string name="mtk_lock_frequency">Kunci Frekuensi</string>
+    <string name="mtk_select_opp_index">Pilih indeks OPP untuk dikunci</string>
+    <string name="mtk_unlock_frequency">Buka Kunci Frekuensi</string>
+    <string name="mtk_dvfs_limits">Batas DVFS</string>
+    <string name="mtk_minimum_boost">Minimum (Boost)</string>
+    <string name="mtk_maximum_limit">Maksimum (Batas)</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">Kontrol DRAM Tidak Tersedia</string>
-<string name="mtk_dram_type">Tipe</string>
-<string name="mtk_dram_controller">Kontroler DRAM</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq Generik</string>
-<string name="mtk_dram_fliper">Fliper Legacy</string>
-<string name="mtk_dram_unknown">Tidak Diketahui</string>
-<string name="mtk_dram_current_step">Saat Ini</string>
-<string name="mtk_dram_force_frequency">Paksa Frekuensi DRAM</string>
-<string name="mtk_dram_lock_opp">Kunci ke OPP spesifik (tanpa DVFS)</string>
-<string name="mtk_dram_reset_dvfs">Reset ke DVFS</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">Kontrol DRAM Tidak Tersedia</string>
+    <string name="mtk_dram_type">Tipe</string>
+    <string name="mtk_dram_controller">Kontroler DRAM</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq Generik</string>
+    <string name="mtk_dram_fliper">Fliper Legacy</string>
+    <string name="mtk_dram_unknown">Tidak Diketahui</string>
+    <string name="mtk_dram_current_step">Saat Ini</string>
+    <string name="mtk_dram_force_frequency">Paksa Frekuensi DRAM</string>
+    <string name="mtk_dram_lock_opp">Kunci ke OPP spesifik (tanpa DVFS)</string>
+    <string name="mtk_dram_reset_dvfs">Reset ke DVFS</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">Gaming &amp; Performa</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">Boost frame untuk gameplay mulus</string>
-<string name="mtk_ged_game_mode_title">Mode GED Game</string>
-<string name="mtk_ged_game_mode_subtitle">Optimasi governor GPU untuk gaming</string>
-<string name="mtk_touch_boost_title">Touch Boost</string>
-<string name="mtk_touch_boost_subtitle">Boost CPU saat input sentuhan</string>
-<string name="mtk_sched_boost_title">Scheduler Boost</string>
-<string name="mtk_sched_boost_subtitle">Peningkatan prioritas untuk aplikasi latar depan</string>
-<string name="mtk_gaming_mode_preset">Preset Mode Gaming</string>
-<string name="mtk_gaming_mode_desc">Aktifkan semua boost secara instan</string>
-<string name="mtk_activate_gaming_mode">Aktifkan Mode Gaming</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">Gaming &amp; Performa</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">Boost frame untuk gameplay mulus</string>
+    <string name="mtk_ged_game_mode_title">Mode GED Game</string>
+    <string name="mtk_ged_game_mode_subtitle">Optimasi governor GPU untuk gaming</string>
+    <string name="mtk_touch_boost_title">Touch Boost</string>
+    <string name="mtk_touch_boost_subtitle">Boost CPU saat input sentuhan</string>
+    <string name="mtk_sched_boost_title">Scheduler Boost</string>
+    <string name="mtk_sched_boost_subtitle">Peningkatan prioritas untuk aplikasi latar depan</string>
+    <string name="mtk_gaming_mode_preset">Preset Mode Gaming</string>
+    <string name="mtk_gaming_mode_desc">Aktifkan semua boost secara instan</string>
+    <string name="mtk_activate_gaming_mode">Aktifkan Mode Gaming</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM Tidak Tersedia</string>
-<string name="mtk_ppm_not_found">/proc/ppm tidak ditemukan</string>
-<string name="mtk_ppm_controller">Kontroler PPM</string>
-<string name="mtk_ppm_active">Aktif</string>
-<string name="mtk_ppm_disabled">Dinonaktifkan</string>
-<string name="mtk_active_policies">Kebijakan Aktif</string>
-<string name="mtk_policy_hash">Kebijakan #</string>
-<string name="mtk_ppm_no_policies">PPM aktif tapi tidak ada kebijakan terdeteksi. Mungkin pembatasan kernel.</string>
-<string name="mtk_about_ppm">Tentang PPM</string>
-<string name="mtk_ppm_description">Performance Power Management mengontrol alokasi daya CPU/GPU. Menonaktifkan kebijakan \'Thermal\' dapat menyebabkan overheat namun meningkatkan performa.</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM Tidak Tersedia</string>
+    <string name="mtk_ppm_not_found">/proc/ppm tidak ditemukan</string>
+    <string name="mtk_ppm_controller">Kontroler PPM</string>
+    <string name="mtk_ppm_active">Aktif</string>
+    <string name="mtk_ppm_disabled">Dinonaktifkan</string>
+    <string name="mtk_active_policies">Kebijakan Aktif</string>
+    <string name="mtk_policy_hash">Kebijakan #</string>
+    <string name="mtk_ppm_no_policies">PPM aktif tapi tidak ada kebijakan terdeteksi. Mungkin pembatasan kernel.</string>
+    <string name="mtk_about_ppm">Tentang PPM</string>
+    <string name="mtk_ppm_description">Performance Power Management mengontrol alokasi daya CPU/GPU. Menonaktifkan kebijakan \'Thermal\' dapat menyebabkan overheat namun meningkatkan performa.</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc Tidak Tersedia</string>
-<string name="mtk_cci_interconnect">Interkoneksi CCI</string>
-<string name="mtk_cache_coherent">Interkoneksi Cache Coherent</string>
-<string name="mtk_big_little_desc">Mengontrol interaksi kluster big.LITTLE</string>
-<string name="mtk_normal">Normal</string>
-<string name="mtk_performance">Performa</string>
-<string name="mtk_low_power">Daya Rendah</string>
-<string name="mtk_balance">Seimbang</string>
-<string name="mtk_cpu_power_mode">Mode Daya CPU</string>
-<string name="mtk_current_mode">Saat Ini</string>
-<string name="mtk_voltage_offset">Offset Tegangan (EEM)</string>
-<string name="mtk_eem_unit">6.25mV/unit</string>
-<string name="mtk_offset_value">Nilai Offset</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc Tidak Tersedia</string>
+    <string name="mtk_cci_interconnect">Interkoneksi CCI</string>
+    <string name="mtk_cache_coherent">Interkoneksi Cache Coherent</string>
+    <string name="mtk_big_little_desc">Mengontrol interaksi kluster big.LITTLE</string>
+    <string name="mtk_normal">Normal</string>
+    <string name="mtk_performance">Performa</string>
+    <string name="mtk_low_power">Daya Rendah</string>
+    <string name="mtk_balance">Seimbang</string>
+    <string name="mtk_cpu_power_mode">Mode Daya CPU</string>
+    <string name="mtk_current_mode">Saat Ini</string>
+    <string name="mtk_voltage_offset">Offset Tegangan (EEM)</string>
+    <string name="mtk_eem_unit">6.25mV/unit</string>
+    <string name="mtk_offset_value">Nilai Offset</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">THERMAL THROTTLING</string>
-<string name="mtk_temp_limit_exceeded">Batas Suhu Terlampaui</string>
-<string name="mtk_normal_temp">Suhu Normal</string>
-<string name="mtk_eara_thermal">EARA Thermal</string>
-<string name="mtk_early_adaptation">Alokasi Sumber Daya Adaptasi Awal</string>
-<string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
-<string name="mtk_fake_temp_desc">Laporkan suhu palsu ke kernel</string>
-<string name="mtk_throttling_desc">Perangkat sedang thermal throttling. Performa dikurangi untuk mencegah overheat.</string>
-<string name="mtk_thermal_daemon_info">Manajemen thermal MTK ditangani oleh daemon thermal kernel. Pembacaan dari sensor on-die (tsens).</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">THERMAL THROTTLING</string>
+    <string name="mtk_temp_limit_exceeded">Batas Suhu Terlampaui</string>
+    <string name="mtk_normal_temp">Suhu Normal</string>
+    <string name="mtk_eara_thermal">EARA Thermal</string>
+    <string name="mtk_early_adaptation">Alokasi Sumber Daya Adaptasi Awal</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">Laporkan suhu palsu ke kernel</string>
+    <string name="mtk_throttling_desc">Perangkat sedang thermal throttling. Performa dikurangi untuk mencegah overheat.</string>
+    <string name="mtk_thermal_daemon_info">Manajemen thermal MTK ditangani oleh daemon thermal kernel. Pembacaan dari sensor on-die (tsens).</string>
 
-<!-- Common Actions -->
-<string name="action_back">Kembali</string>
-<string name="action_refresh">Segarkan</string>
+    <!-- Common Actions -->
+    <string name="action_back">Kembali</string>
+    <string name="action_refresh">Segarkan</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">GPU Adreno</string>
-<string name="adreno_gpu_subtitle">Performa &amp; Tuning</string>
-<string name="adreno_tab_freq">Frek</string>
-<string name="adreno_tab_power">Daya</string>
-<string name="adreno_tab_bus">Bus</string>
-<string name="adreno_tab_thermal">Thermal</string>
-<string name="adreno_tab_advanced">Adv</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">GPU Adreno</string>
+    <string name="adreno_gpu_subtitle">Performa &amp; Tuning</string>
+    <string name="adreno_tab_freq">Frek</string>
+    <string name="adreno_tab_power">Daya</string>
+    <string name="adreno_tab_bus">Bus</string>
+    <string name="adreno_tab_thermal">Thermal</string>
+    <string name="adreno_tab_advanced">Adv</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">Frekuensi Saat Ini</string>
-<string name="adreno_freq_limits">Batas Frekuensi</string>
-<string name="adreno_minimum">Minimum</string>
-<string name="adreno_maximum">Maksimum</string>
-<string name="adreno_governor">Governor</string>
-<string name="adreno_current">Saat Ini</string>
-<string name="adreno_change">Ubah</string>
-<string name="adreno_frequency">Frekuensi</string>
-<string name="adreno_cancel">Batal</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">Frekuensi Saat Ini</string>
+    <string name="adreno_freq_limits">Batas Frekuensi</string>
+    <string name="adreno_minimum">Minimum</string>
+    <string name="adreno_maximum">Maksimum</string>
+    <string name="adreno_governor">Governor</string>
+    <string name="adreno_current">Saat Ini</string>
+    <string name="adreno_change">Ubah</string>
+    <string name="adreno_frequency">Frekuensi</string>
+    <string name="adreno_cancel">Batal</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">Throttling GPU</string>
-<string name="adreno_performance_limited">Performa terbatas</string>
-<string name="adreno_full_performance">Performa penuh</string>
-<string name="adreno_adreno_boost">Adreno Boost</string>
-<string name="adreno_level">Tingkat</string>
-<string name="adreno_off">Mati</string>
-<string name="adreno_low">Rendah</string>
-<string name="adreno_med">Sedang</string>
-<string name="adreno_high">Tinggi</string>
-<string name="adreno_boost_desc">Tingkat boost lebih tinggi meningkatkan performa tetapi mengonsumsi lebih banyak baterai dan menghasilkan lebih banyak panas.</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">Throttling GPU</string>
+    <string name="adreno_performance_limited">Performa terbatas</string>
+    <string name="adreno_full_performance">Performa penuh</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">Tingkat</string>
+    <string name="adreno_off">Mati</string>
+    <string name="adreno_low">Rendah</string>
+    <string name="adreno_med">Sedang</string>
+    <string name="adreno_high">Tinggi</string>
+    <string name="adreno_boost_desc">Tingkat boost lebih tinggi meningkatkan performa tetapi mengonsumsi lebih banyak baterai dan menghasilkan lebih banyak panas.</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">Komponen Bus</string>
-<string name="adreno_no_bus_controls">Tidak Ada Kontrol Bus</string>
-<string name="adreno_no_bus_desc">Perangkat ini tidak memiliki komponen bus yang dapat dikonfigurasi</string>
-<string name="adreno_min_freq">Frek Min</string>
-<string name="adreno_max_freq">Frek Maks</string>
-<string name="adreno_min">MIN</string>
-<string name="adreno_max">MAKS</string>
-<string name="adreno_edit">Edit</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">Komponen Bus</string>
+    <string name="adreno_no_bus_controls">Tidak Ada Kontrol Bus</string>
+    <string name="adreno_no_bus_desc">Perangkat ini tidak memiliki komponen bus yang dapat dikonfigurasi</string>
+    <string name="adreno_min_freq">Frek Min</string>
+    <string name="adreno_max_freq">Frek Maks</string>
+    <string name="adreno_min">MIN</string>
+    <string name="adreno_max">MAKS</string>
+    <string name="adreno_edit">Edit</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">THERMAL THROTTLING</string>
-<string name="adreno_gpu_temp">Suhu GPU</string>
-<string name="adreno_thermal_zones">Zona Thermal</string>
-<string name="adreno_cooling_devices">Perangkat Pendingin</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">THERMAL THROTTLING</string>
+    <string name="adreno_gpu_temp">Suhu GPU</string>
+    <string name="adreno_thermal_zones">Zona Thermal</string>
+    <string name="adreno_cooling_devices">Perangkat Pendingin</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL Lanjutan</string>
-<string name="adreno_force_no_nap">Paksa No NAP</string>
-<string name="adreno_no_nap_desc">Cegah GPU dari tidur</string>
-<string name="adreno_force_clk_on">Paksa CLK On</string>
-<string name="adreno_clk_on_desc">Jaga clock tetap menyala</string>
-<string name="adreno_force_bus_on">Paksa Bus On</string>
-<string name="adreno_bus_on_desc">Jaga bus tetap aktif</string>
-<string name="adreno_bus_split">Bus Split</string>
-<string name="adreno_bus_split_desc">Aktifkan pemisahan bus</string>
-<string name="adreno_throttling">Throttling</string>
-<string name="adreno_throttling_desc">Aktifkan thermal throttling</string>
-<string name="adreno_power_levels">Tingkat Daya</string>
-<string name="adreno_default">Default</string>
-<string name="adreno_thermal">Thermal</string>
-<string name="adreno_save">Simpan</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Aktifkan Idler</string>
-<string name="adreno_idler_desc">Kurangi konsumsi daya saat idle</string>
-<string name="adreno_idle_wait">Tunggu Idle</string>
-<string name="adreno_down_differential">Down Differential</string>
-<string name="adreno_workload_threshold">Ambang Batas Workload</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Aktifkan Simple GPU</string>
-<string name="adreno_simple_gpu_desc">Algoritma governor GPU alternatif</string>
-<string name="adreno_laziness">Kemalasan</string>
-<string name="adreno_ramp_threshold">Ambang Ramp</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL Lanjutan</string>
+    <string name="adreno_force_no_nap">Paksa No NAP</string>
+    <string name="adreno_no_nap_desc">Cegah GPU dari tidur</string>
+    <string name="adreno_force_clk_on">Paksa CLK On</string>
+    <string name="adreno_clk_on_desc">Jaga clock tetap menyala</string>
+    <string name="adreno_force_bus_on">Paksa Bus On</string>
+    <string name="adreno_bus_on_desc">Jaga bus tetap aktif</string>
+    <string name="adreno_bus_split">Bus Split</string>
+    <string name="adreno_bus_split_desc">Aktifkan pemisahan bus</string>
+    <string name="adreno_throttling">Throttling</string>
+    <string name="adreno_throttling_desc">Aktifkan thermal throttling</string>
+    <string name="adreno_power_levels">Tingkat Daya</string>
+    <string name="adreno_default">Default</string>
+    <string name="adreno_thermal">Thermal</string>
+    <string name="adreno_save">Simpan</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Aktifkan Idler</string>
+    <string name="adreno_idler_desc">Kurangi konsumsi daya saat idle</string>
+    <string name="adreno_idle_wait">Tunggu Idle</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">Ambang Batas Workload</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Aktifkan Simple GPU</string>
+    <string name="adreno_simple_gpu_desc">Algoritma governor GPU alternatif</string>
+    <string name="adreno_laziness">Kemalasan</string>
+    <string name="adreno_ramp_threshold">Ambang Ramp</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">Fitur</string>
-<string name="nav_tab_overview">Ringkasan</string>
-<string name="nav_tab_adjust">Sesuaikan</string>
-<string name="nav_tab_support">Dukungan</string>
-<string name="nav_tools_desc">Alat</string>
-<string name="nav_power_desc">Daya</string>
-<string name="nav_settings_desc">Pengaturan</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">Fitur</string>
+    <string name="nav_tab_overview">Ringkasan</string>
+    <string name="nav_tab_adjust">Sesuaikan</string>
+    <string name="nav_tab_support">Dukungan</string>
+    <string name="nav_tools_desc">Alat</string>
+    <string name="nav_power_desc">Daya</string>
+    <string name="nav_settings_desc">Pengaturan</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">Alat Cepat</string>
-<string name="dialog_power_title">Menu Daya</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">Alat Cepat</string>
+    <string name="dialog_power_title">Menu Daya</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">Shell Terminal</string>
-<string name="tool_terminal_subtitle">Jendela terminal yang bisa kamu ketik di mana saja</string>
-<string name="tool_fps_title">Monitor FPS</string>
-<string name="tool_fps_subtitle">Overlay frame rate real-time</string>
-<string name="tool_process_title">Monitor Proses</string>
-<string name="tool_process_subtitle">Tampilkan proses monitor kamu</string>
-<string name="tool_activity_title">Inspektur Aktivitas</string>
-<string name="tool_activity_subtitle">Pantau paket &amp; kelas aktivitas teratas saat ini</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">Shell Terminal</string>
+    <string name="tool_terminal_subtitle">Jendela terminal yang bisa kamu ketik di mana saja</string>
+    <string name="tool_fps_title">Monitor FPS</string>
+    <string name="tool_fps_subtitle">Overlay frame rate real-time</string>
+    <string name="tool_process_title">Monitor Proses</string>
+    <string name="tool_process_subtitle">Tampilkan proses monitor kamu</string>
+    <string name="tool_activity_title">Inspektur Aktivitas</string>
+    <string name="tool_activity_subtitle">Pantau paket &amp; kelas aktivitas teratas saat ini</string>
 
-<!-- Common Actions -->
-<string name="action_done">Selesai</string>
-<string name="action_cancel">Batal</string>
-<string name="action_yes_do_it">Ya, Lakukan</string>
-<string name="confirm_action_title">Konfirmasi %s</string>
+    <!-- Common Actions -->
+    <string name="action_done">Selesai</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_yes_do_it">Ya, Lakukan</string>
+    <string name="confirm_action_title">Konfirmasi %%s</string>
 
 
 </resources>

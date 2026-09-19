@@ -167,12 +167,12 @@
     <string name="fps_stat_min">MIN FPS</string>
     <string name="fps_stat_avg">AVG FPS</string>
     <string name="fps_stat_var">VAR</string>
-    <string name="fps_stat_stable">STABLE %</string>
+    <string name="fps_stat_stable">STABLE %%</string>
     <string name="fps_stat_max_temp">MAX TEMP</string>
     <string name="fps_stat_avg_pwr">AVG PWR</string>
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS &amp; Temperature</string>
-    <string name="fps_chart_cpu">CPU Load (%)</string>
+    <string name="fps_chart_cpu">CPU Load (%%)</string>
     <string name="fps_export_csv">EXPORT CSV</string>
     <string name="fps_delete">DELETE</string>
 
@@ -715,14 +715,14 @@
     <string name="processes">Processes</string>
     <string name="floating_mode">Floating Mode</string>
     <string name="system_health">System Health</string>
-    <string name="monitoring_threads">Monitoring %d active threads</string>
+    <string name="monitoring_threads">Monitoring %1$d active threads</string>
     <string name="top_load">Top Load: %1$s (%2$s)</string>
     <string name="running_processes">Running Processes</string>
     <string name="cpu_usage">CPU Usage</string>
     <string name="top_cpu_usage">Top CPU Usage</string>
     <string name="top_ram_usage">Top RAM Usage</string>
     <string name="memory">Memory</string>
-    <string name="limit_format">Limit: %d</string>
+    <string name="limit_format">Limit: %1$d</string>
     <string name="total">Total</string>
     <string name="user">User</string>
     <string name="sys">Sys</string>
@@ -754,15 +754,15 @@
     <string name="card_style_media">Media</string>
     <string name="card_style_outlined">Outlined</string>
     <string name="ksuweb_status_active">Active</string>
-    <string name="ksuweb_by_author">By %s</string>
-    <string name="ksuweb_version_prefix">v%s</string>
+    <string name="ksuweb_by_author">By %1$s</string>
+    <string name="ksuweb_version_prefix">v%1$s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">ACTION</string>
     <string name="ksuweb_badge_disabled">DISABLED</string>
     <string name="ksuweb_badge_webui">WEBUI</string>
     <string name="btn_refresh">Refresh</string>
     <string name="btn_options">Options</string>
-
+F
     <string name="nav_about">About</string>
     <string name="tab_feature">Feature</string>
     <string name="tab_overview">Overview</string>
@@ -795,7 +795,7 @@
     <string name="power_recovery_warning">Device will reboot into Recovery Mode (TWRP/OrangeFox).</string>
     <string name="power_fastboot_warning">Device will reboot into Fastboot/Bootloader mode.</string>
     <string name="power_restart_ui_warning">User Interface will restart. This might take a few seconds.</string>
-    <string name="confirm_action">Confirm %s</string>
+    <string name="confirm_action">Confirm %1$s</string>
     <string name="btn_confirm_yes">Yes, Do It</string>
 
     <string name="about_section_developer">About Developer</string>
@@ -817,323 +817,321 @@
     <string name="intro_btn_decline">Decline &amp; Exit</string>
     <string name="intro_footer_legal">By pressing \'I Agree\', you accept the Risks &amp; Privacy Policy.</string>
 
-    <string name="update_title">Update to Ver %s</string>
+    <string name="update_title">Update to Ver %1$s</string>
     <string name="update_changelog_title">What\'s New</string>
     <string name="btn_update">Update</string>
     <string name="downloading_update">Downloading update…</string>
     <string name="auto_download">Auto Download APK</string>
     <string name="auto_download_desc">Download and install automatically</string>
     <string name="btn_manual_download">Open Browser</string>
-<!-- Language Names -->
+    <!-- Language Names -->
 
-<string name="lang_russian">Russian</string>
-<string name="lang_ukrainian">Ukrainian</string>
-<string name="lang_belarusian">Belarusian</string>
-<string name="lang_kazakh">Kazakh</string>
-<string name="lang_moldovan">Moldovan</string>
-<string name="lang_chinese_cn">Chinese (China)</string>
-<string name="lang_chinese_sg">Chinese (Singapore)</string>
-<string name="lang_chinese_tw">Chinese (Taiwan)</string>
-<string name="lang_chinese_hk">Chinese (Hong Kong)</string>
-<string name="lang_chinese_mo">Chinese (Macau)</string>
-<string name="lang_japanese">Japanese</string>
-<string name="lang_korean">Korean</string>
-<string name="lang_vietnamese">Vietnamese</string>
-<string name="lang_german">German</string>
-<string name="lang_french">French</string>
-<string name="lang_spanish">Spanish</string>
-<string name="lang_portuguese">Portuguese</string>
-<string name="lang_italian">Italian</string>
-<string name="lang_polish">Polish</string>
-<string name="lang_turkish">Turkish</string>
-<string name="lang_dutch">Dutch</string>
+    <string name="lang_russian">Russian</string>
+    <string name="lang_ukrainian">Ukrainian</string>
+    <string name="lang_belarusian">Belarusian</string>
+    <string name="lang_kazakh">Kazakh</string>
+    <string name="lang_moldovan">Moldovan</string>
+    <string name="lang_chinese_cn">Chinese (China)</string>
+    <string name="lang_chinese_sg">Chinese (Singapore)</string>
+    <string name="lang_chinese_tw">Chinese (Taiwan)</string>
+    <string name="lang_chinese_hk">Chinese (Hong Kong)</string>
+    <string name="lang_chinese_mo">Chinese (Macau)</string>
+    <string name="lang_japanese">Japanese</string>
+    <string name="lang_korean">Korean</string>
+    <string name="lang_vietnamese">Vietnamese</string>
+    <string name="lang_german">German</string>
+    <string name="lang_french">French</string>
+    <string name="lang_spanish">Spanish</string>
+    <string name="lang_portuguese">Portuguese</string>
+    <string name="lang_italian">Italian</string>
+    <string name="lang_polish">Polish</string>
+    <string name="lang_turkish">Turkish</string>
+    <string name="lang_dutch">Dutch</string>
 
-<!-- ========================================== -->
-<!-- CPU/GPU SCREEN STRINGS                     -->
-<!-- ========================================== -->
-<string name="graphics_unit">Graphics Unit</string>
-<string name="graphics_processor">Graphics Processor</string>
-<string name="processor_sets">Processor Sets (Cpuset)</string>
-<string name="core_control">Core Control</string>
-<string name="cpu_governor">CPU Governor</string>
-<string name="select_governor">Select Governor</string>
-<string name="min_freq">Min Freq</string>
-<string name="max_freq">Max Freq</string>
-<string name="min_frequency">Min Frequency</string>
-<string name="max_frequency">Max Frequency</string>
-<string name="tab_performance">Performance</string>
-<string name="tab_tuning">Tuning</string>
-<string name="disable_cpu_title">Disable CPU %1$d?</string>
-<string name="disable_cpu_warning">Disabling this core may reduce performance. Ensure other cores are active to handle system tasks.</string>
-<string name="btn_disable">Disable</string>
-<string name="select_active_cores">Select active cores:</string>
-<string name="cpu_core_id">CPU %1$d</string>
-<string name="freq_mhz_format">%1$s MHz</string>
-<string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
-<string name="gpu_load_format">%1$s • %2$s%% Load</string>
-<string name="cores_count">Cores: %1$s</string>
-<string name="gpu_not_supported">GPU Interface not supported</string>
-<string name="not_available">N/A</string>
-<string name="no_options">No options</string>
-<string name="label_value">Value</string>
+    <!-- ========================================== -->
+    <!-- CPU/GPU SCREEN STRINGS                     -->
+    <!-- ========================================== -->
+    <string name="graphics_unit">Graphics Unit</string>
+    <string name="graphics_processor">Graphics Processor</string>
+    <string name="processor_sets">Processor Sets (Cpuset)</string>
+    <string name="core_control">Core Control</string>
+    <string name="cpu_governor">CPU Governor</string>
+    <string name="select_governor">Select Governor</string>
+    <string name="min_freq">Min Freq</string>
+    <string name="max_freq">Max Freq</string>
+    <string name="min_frequency">Min Frequency</string>
+    <string name="max_frequency">Max Frequency</string>
+    <string name="tab_performance">Performance</string>
+    <string name="tab_tuning">Tuning</string>
+    <string name="disable_cpu_title">Disable CPU %1$d?</string>
+    <string name="disable_cpu_warning">Disabling this core may reduce performance. Ensure other cores are active to handle system tasks.</string>
+    <string name="btn_disable">Disable</string>
+    <string name="select_active_cores">Select active cores:</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s MHz</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
+    <string name="gpu_load_format">%1$s • %2$s%% Load</string>
+    <string name="cores_count">Cores: %1$s</string>
+    <string name="gpu_not_supported">GPU Interface not supported</string>
+    <string name="not_available">N/A</string>
+    <string name="no_options">No options</string>
+    <string name="label_value">Value</string>
 
-<!-- ========================================== -->
-<!-- MEMORY SCREEN STRINGS                      -->
-<!-- ========================================== -->
-<string name="zram_manager">ZRAM Manager</string>
-<string name="zram_status">ZRAM Status</string>
-<string name="disk_size_mb">Disk Size: %1$d MB</string>
-<string name="zram_info_format">%1$d MB • %2$s</string>
-<string name="compression_algorithm">Compression Algorithm</string>
-<string name="io_scheduler">I/O Scheduler</string>
-<string name="select_scheduler">Select Scheduler</string>
-<string name="tunables">Tunables</string>
-<string name="virtual_memory">Virtual Memory</string>
-<string name="swappiness">Swappiness</string>
-<string name="vfs_cache_pressure">VFS Cache Pressure</string>
-<string name="dirty_ratio">Dirty Ratio</string>
-<string name="dirty_bg_ratio">Dirty BG Ratio</string>
-<string name="no_storage_devices">No supported storage devices found.</string>
-<string name="scheduler_format">Scheduler: %1$s</string>
-<string name="btn_set">Set</string>
+    <!-- ========================================== -->
+    <!-- MEMORY SCREEN STRINGS                      -->
+    <!-- ========================================== -->
+    <string name="zram_manager">ZRAM Manager</string>
+    <string name="zram_status">ZRAM Status</string>
+    <string name="disk_size_mb">Disk Size: %1$d MB</string>
+    <string name="zram_info_format">%1$d MB • %2$s</string>
+    <string name="compression_algorithm">Compression Algorithm</string>
+    <string name="io_scheduler">I/O Scheduler</string>
+    <string name="select_scheduler">Select Scheduler</string>
+    <string name="tunables">Tunables</string>
+    <string name="virtual_memory">Virtual Memory</string>
+    <string name="swappiness">Swappiness</string>
+    <string name="vfs_cache_pressure">VFS Cache Pressure</string>
+    <string name="dirty_ratio">Dirty Ratio</string>
+    <string name="dirty_bg_ratio">Dirty BG Ratio</string>
+    <string name="no_storage_devices">No supported storage devices found.</string>
+    <string name="scheduler_format">Scheduler: %1$s</string>
+    <string name="btn_set">Set</string>
 
-<!-- ========================================== -->
-<!-- NETWORK SCREEN STRINGS                     -->
-<!-- ========================================== -->
-<string name="tcp_congestion">TCP Congestion</string>
-<string name="tcp_parameters">TCP Parameters</string>
-<string name="syn_cookies">SYN Cookies</string>
-<string name="enabled">Enabled</string>
-<string name="disabled">Disabled</string>
-<string name="tcp_reuse">TCP Reuse</string>
-<string name="on">On</string>
-<string name="off">Off</string>
-<string name="fast_open">Fast Open</string>
-<string name="tcp_sack">TCP SACK</string>
-<string name="ecn">ECN</string>
-<string name="kernel_log">Kernel Log</string>
-<string name="printk">Printk</string>
+    <!-- ========================================== -->
+    <!-- NETWORK SCREEN STRINGS                     -->
+    <!-- ========================================== -->
+    <string name="tcp_congestion">TCP Congestion</string>
+    <string name="tcp_parameters">TCP Parameters</string>
+    <string name="syn_cookies">SYN Cookies</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="tcp_reuse">TCP Reuse</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="fast_open">Fast Open</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">Kernel Log</string>
+    <string name="printk">Printk</string>
 
-<!-- ========================================== -->
-<!-- SCHEDULER SCREEN STRINGS                   -->
-<!-- ========================================== -->
-<string name="feature_toggles">Feature Toggles</string>
-<string name="bore_scheduler">BORE Scheduler</string>
-<string name="auto_group">Auto Group</string>
-<string name="child_runs_first">Child Runs First</string>
-<string name="sched_stats">Sched Stats</string>
-<string name="tunable_scaling">Tunable Scaling</string>
-<string name="cstate_aware">C-State Aware</string>
-<string name="uclamp_configuration">UClamp Configuration</string>
-<string name="uclamp_max">UClamp Max</string>
-<string name="uclamp_min">UClamp Min</string>
-<string name="advanced_parameters">Advanced Parameters</string>
-<string name="current_value_format">Current value: %1$s</string>
-<string name="new_value">New Value</string>
-<string name="edit">Edit</string>
+    <!-- ========================================== -->
+    <!-- SCHEDULER SCREEN STRINGS                   -->
+    <!-- ========================================== -->
+    <string name="feature_toggles">Feature Toggles</string>
+    <string name="bore_scheduler">BORE Scheduler</string>
+    <string name="auto_group">Auto Group</string>
+    <string name="child_runs_first">Child Runs First</string>
+    <string name="sched_stats">Sched Stats</string>
+    <string name="tunable_scaling">Tunable Scaling</string>
+    <string name="cstate_aware">C-State Aware</string>
+    <string name="uclamp_configuration">UClamp Configuration</string>
+    <string name="uclamp_max">UClamp Max</string>
+    <string name="uclamp_min">UClamp Min</string>
+    <string name="advanced_parameters">Advanced Parameters</string>
+    <string name="current_value_format">Current value: %1$s</string>
+    <string name="new_value">New Value</string>
+    <string name="edit">Edit</string>
 
-<!-- MTK Screen Main -->
-<string name="mtk_gpu_title">MediaTek GPU</string>
-<string name="mtk_gpu_subtitle">Dimensity/Mali Tuning</string>
-<string name="mtk_tab_freq">Freq</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">Boost</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">Thermal</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">MediaTek GPU</string>
+    <string name="mtk_gpu_subtitle">Dimensity/Mali Tuning</string>
+    <string name="mtk_tab_freq">Freq</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">Boost</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">Thermal</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS is Enabled</string>
-<string name="mtk_dvfs_enabled_desc">GPU frequency dynamic. Disable DVFS or lock frequency for static control.</string>
-<string name="mtk_gpu_dvfs">GPU DVFS</string>
-<string name="mtk_dynamic_scaling_on">Dynamic Scaling ON</string>
-<string name="mtk_static_frequency">Static Frequency</string>
-<string name="mtk_dynamic">Dynamic</string>
-<string name="mtk_freq_locked">Frequency Locked</string>
-<string name="mtk_current_frequency">Current Frequency</string>
-<string name="mtk_lock_frequency">Lock Frequency</string>
-<string name="mtk_select_opp_index">Select OPP index to lock</string>
-<string name="mtk_unlock_frequency">Unlock Frequency</string>
-<string name="mtk_dvfs_limits">DVFS Limits</string>
-<string name="mtk_minimum_boost">Minimum (Boost)</string>
-<string name="mtk_maximum_limit">Maximum (Limit)</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS is Enabled</string>
+    <string name="mtk_dvfs_enabled_desc">GPU frequency dynamic. Disable DVFS or lock frequency for static control.</string>
+    <string name="mtk_gpu_dvfs">GPU DVFS</string>
+    <string name="mtk_dynamic_scaling_on">Dynamic Scaling ON</string>
+    <string name="mtk_static_frequency">Static Frequency</string>
+    <string name="mtk_dynamic">Dynamic</string>
+    <string name="mtk_freq_locked">Frequency Locked</string>
+    <string name="mtk_current_frequency">Current Frequency</string>
+    <string name="mtk_lock_frequency">Lock Frequency</string>
+    <string name="mtk_select_opp_index">Select OPP index to lock</string>
+    <string name="mtk_unlock_frequency">Unlock Frequency</string>
+    <string name="mtk_dvfs_limits">DVFS Limits</string>
+    <string name="mtk_minimum_boost">Minimum (Boost)</string>
+    <string name="mtk_maximum_limit">Maximum (Limit)</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">DRAM Control Unavailable</string>
-<string name="mtk_dram_type">Type</string>
-<string name="mtk_dram_controller">DRAM Controller</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq Generic</string>
-<string name="mtk_dram_fliper">Fliper Legacy</string>
-<string name="mtk_dram_unknown">Unknown</string>
-<string name="mtk_dram_current_step">Current</string>
-<string name="mtk_dram_force_frequency">Force DRAM Frequency</string>
-<string name="mtk_dram_lock_opp">Lock to specific OPP (no DVFS)</string>
-<string name="mtk_dram_reset_dvfs">Reset to DVFS</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">DRAM Control Unavailable</string>
+    <string name="mtk_dram_type">Type</string>
+    <string name="mtk_dram_controller">DRAM Controller</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq Generic</string>
+    <string name="mtk_dram_fliper">Fliper Legacy</string>
+    <string name="mtk_dram_unknown">Unknown</string>
+    <string name="mtk_dram_current_step">Current</string>
+    <string name="mtk_dram_force_frequency">Force DRAM Frequency</string>
+    <string name="mtk_dram_lock_opp">Lock to specific OPP (no DVFS)</string>
+    <string name="mtk_dram_reset_dvfs">Reset to DVFS</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">Gaming &amp; Performance</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">Frame boost for smooth gameplay</string>
-<string name="mtk_ged_game_mode_title">GED Game Mode</string>
-<string name="mtk_ged_game_mode_subtitle">GPU governor gaming optimization</string>
-<string name="mtk_touch_boost_title">Touch Boost</string>
-<string name="mtk_touch_boost_subtitle">CPU boost on touch input</string>
-<string name="mtk_sched_boost_title">Scheduler Boost</string>
-<string name="mtk_sched_boost_subtitle">Priority boost for foreground apps</string>
-<string name="mtk_gaming_mode_preset">Gaming Mode Preset</string>
-<string name="mtk_gaming_mode_desc">Enable all boosts instantly</string>
-<string name="mtk_activate_gaming_mode">Activate Gaming Mode</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">Gaming &amp; Performance</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">Frame boost for smooth gameplay</string>
+    <string name="mtk_ged_game_mode_title">GED Game Mode</string>
+    <string name="mtk_ged_game_mode_subtitle">GPU governor gaming optimization</string>
+    <string name="mtk_touch_boost_title">Touch Boost</string>
+    <string name="mtk_touch_boost_subtitle">CPU boost on touch input</string>
+    <string name="mtk_sched_boost_title">Scheduler Boost</string>
+    <string name="mtk_sched_boost_subtitle">Priority boost for foreground apps</string>
+    <string name="mtk_gaming_mode_preset">Gaming Mode Preset</string>
+    <string name="mtk_gaming_mode_desc">Enable all boosts instantly</string>
+    <string name="mtk_activate_gaming_mode">Activate Gaming Mode</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM Not Available</string>
-<string name="mtk_ppm_not_found">/proc/ppm not found</string>
-<string name="mtk_ppm_controller">PPM Controller</string>
-<string name="mtk_ppm_active">Active</string>
-<string name="mtk_ppm_disabled">Disabled</string>
-<string name="mtk_active_policies">Active Policies</string>
-<string name="mtk_policy_hash">Policy #</string>
-<string name="mtk_ppm_no_policies">PPM enabled but no policies detected. This might be a kernel restriction.</string>
-<string name="mtk_about_ppm">About PPM</string>
-<string name="mtk_ppm_description">Performance Power Management controls CPU/GPU power allocation. Disabling \'Thermal\' policy may cause overheating but improves performance.</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM Not Available</string>
+    <string name="mtk_ppm_not_found">/proc/ppm not found</string>
+    <string name="mtk_ppm_controller">PPM Controller</string>
+    <string name="mtk_ppm_active">Active</string>
+    <string name="mtk_ppm_disabled">Disabled</string>
+    <string name="mtk_active_policies">Active Policies</string>
+    <string name="mtk_policy_hash">Policy #</string>
+    <string name="mtk_ppm_no_policies">PPM enabled but no policies detected. This might be a kernel restriction.</string>
+    <string name="mtk_about_ppm">About PPM</string>
+    <string name="mtk_ppm_description">Performance Power Management controls CPU/GPU power allocation. Disabling \'Thermal\' policy may cause overheating but improves performance.</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc Not Available</string>
-<string name="mtk_cci_interconnect">CCI Interconnect</string>
-<string name="mtk_cache_coherent">Cache Coherent Interconnect</string>
-<string name="mtk_big_little_desc">Controls big.LITTLE cluster interaction</string>
-<string name="mtk_normal">Normal</string>
-<string name="mtk_performance">Performance</string>
-<string name="mtk_low_power">Low Power</string>
-<string name="mtk_balance">Balance</string>
-<string name="mtk_cpu_power_mode">CPU Power Mode</string>
-<string name="mtk_current_mode">Current</string>
-<string name="mtk_voltage_offset">Voltage Offset (EEM)</string>
-<string name="mtk_eem_unit">6.25mV/unit</string>
-<string name="mtk_offset_value">Offset Value</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc Not Available</string>
+    <string name="mtk_cci_interconnect">CCI Interconnect</string>
+    <string name="mtk_cache_coherent">Cache Coherent Interconnect</string>
+    <string name="mtk_big_little_desc">Controls big.LITTLE cluster interaction</string>
+    <string name="mtk_normal">Normal</string>
+    <string name="mtk_performance">Performance</string>
+    <string name="mtk_low_power">Low Power</string>
+    <string name="mtk_balance">Balance</string>
+    <string name="mtk_cpu_power_mode">CPU Power Mode</string>
+    <string name="mtk_current_mode">Current</string>
+    <string name="mtk_voltage_offset">Voltage Offset (EEM)</string>
+    <string name="mtk_eem_unit">6.25mV/unit</string>
+    <string name="mtk_offset_value">Offset Value</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">THERMAL THROTTLING</string>
-<string name="mtk_temp_limit_exceeded">Temperature Limit Exceeded</string>
-<string name="mtk_normal_temp">Normal Temperature</string>
-<string name="mtk_eara_thermal">EARA Thermal</string>
-<string name="mtk_early_adaptation">Early Adaptation Resource Allocation</string>
-<string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
-<string name="mtk_fake_temp_desc">Report fake temperature to kernel</string>
-<string name="mtk_throttling_desc">Device is thermal throttling. Performance reduced to prevent overheating.</string>
-<string name="mtk_thermal_daemon_info">MTK thermal management handled by kernel thermal daemon. Readings from on-die sensors (tsens).</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">THERMAL THROTTLING</string>
+    <string name="mtk_temp_limit_exceeded">Temperature Limit Exceeded</string>
+    <string name="mtk_normal_temp">Normal Temperature</string>
+    <string name="mtk_eara_thermal">EARA Thermal</string>
+    <string name="mtk_early_adaptation">Early Adaptation Resource Allocation</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">Report fake temperature to kernel</string>
+    <string name="mtk_throttling_desc">Device is thermal throttling. Performance reduced to prevent overheating.</string>
+    <string name="mtk_thermal_daemon_info">MTK thermal management handled by kernel thermal daemon. Readings from on-die sensors (tsens).</string>
 
-<!-- Common Actions -->
-<string name="action_back">Back</string>
-<string name="action_refresh">Refresh</string>
+    <!-- Common Actions -->
+    <string name="action_back">Back</string>
+    <string name="action_refresh">Refresh</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">Adreno GPU</string>
-<string name="adreno_gpu_subtitle">Performance &amp; Tuning</string>
-<string name="adreno_tab_freq">Freq</string>
-<string name="adreno_tab_power">Power</string>
-<string name="adreno_tab_bus">Bus</string>
-<string name="adreno_tab_thermal">Thermal</string>
-<string name="adreno_tab_advanced">Adv</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">Adreno GPU</string>
+    <string name="adreno_gpu_subtitle">Performance &amp; Tuning</string>
+    <string name="adreno_tab_freq">Freq</string>
+    <string name="adreno_tab_power">Power</string>
+    <string name="adreno_tab_bus">Bus</string>
+    <string name="adreno_tab_thermal">Thermal</string>
+    <string name="adreno_tab_advanced">Adv</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">Current Frequency</string>
-<string name="adreno_freq_limits">Frequency Limits</string>
-<string name="adreno_minimum">Minimum</string>
-<string name="adreno_maximum">Maximum</string>
-<string name="adreno_governor">Governor</string>
-<string name="adreno_current">Current</string>
-<string name="adreno_change">Change</string>
-<string name="adreno_frequency">Frequency</string>
-<string name="adreno_cancel">Cancel</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">Current Frequency</string>
+    <string name="adreno_freq_limits">Frequency Limits</string>
+    <string name="adreno_minimum">Minimum</string>
+    <string name="adreno_maximum">Maximum</string>
+    <string name="adreno_governor">Governor</string>
+    <string name="adreno_current">Current</string>
+    <string name="adreno_change">Change</string>
+    <string name="adreno_frequency">Frequency</string>
+    <string name="adreno_cancel">Cancel</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">GPU Throttling</string>
-<string name="adreno_performance_limited">Performance limited</string>
-<string name="adreno_full_performance">Full performance</string>
-<string name="adreno_adreno_boost">Adreno Boost</string>
-<string name="adreno_level">Level</string>
-<string name="adreno_off">Off</string>
-<string name="adreno_low">Low</string>
-<string name="adreno_med">Med</string>
-<string name="adreno_high">High</string>
-<string name="adreno_boost_desc">Higher boost levels increase performance but consume more battery and generate more heat.</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">GPU Throttling</string>
+    <string name="adreno_performance_limited">Performance limited</string>
+    <string name="adreno_full_performance">Full performance</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">Level</string>
+    <string name="adreno_off">Off</string>
+    <string name="adreno_low">Low</string>
+    <string name="adreno_med">Med</string>
+    <string name="adreno_high">High</string>
+    <string name="adreno_boost_desc">Higher boost levels increase performance but consume more battery and generate more heat.</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">Bus Components</string>
-<string name="adreno_no_bus_controls">No Bus Controls</string>
-<string name="adreno_no_bus_desc">This device doesn\'t have configurable bus components</string>
-<string name="adreno_min_freq">Min Frequency</string>
-<string name="adreno_max_freq">Max Frequency</string>
-<string name="adreno_min">MIN</string>
-<string name="adreno_max">MAX</string>
-<string name="adreno_edit">Edit</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">Bus Components</string>
+    <string name="adreno_no_bus_controls">No Bus Controls</string>
+    <string name="adreno_no_bus_desc">This device doesn\'t have configurable bus components</string>
+    <string name="adreno_min_freq">Min Frequency</string>
+    <string name="adreno_max_freq">Max Frequency</string>
+    <string name="adreno_min">MIN</string>
+    <string name="adreno_max">MAX</string>
+    <string name="adreno_edit">Edit</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">THERMAL THROTTLING</string>
-<string name="adreno_gpu_temp">GPU Temperature</string>
-<string name="adreno_thermal_zones">Thermal Zones</string>
-<string name="adreno_cooling_devices">Cooling Devices</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">THERMAL THROTTLING</string>
+    <string name="adreno_gpu_temp">GPU Temperature</string>
+    <string name="adreno_thermal_zones">Thermal Zones</string>
+    <string name="adreno_cooling_devices">Cooling Devices</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL Advanced</string>
-<string name="adreno_force_no_nap">Force No NAP</string>
-<string name="adreno_no_nap_desc">Prevent GPU from napping</string>
-<string name="adreno_force_clk_on">Force CLK On</string>
-<string name="adreno_clk_on_desc">Keep clock always on</string>
-<string name="adreno_force_bus_on">Force Bus On</string>
-<string name="adreno_bus_on_desc">Keep bus always active</string>
-<string name="adreno_bus_split">Bus Split</string>
-<string name="adreno_bus_split_desc">Enable bus splitting</string>
-<string name="adreno_throttling">Throttling</string>
-<string name="adreno_throttling_desc">Enable thermal throttling</string>
-<string name="adreno_power_levels">Power Levels</string>
-<string name="adreno_default">Default</string>
-<string name="adreno_thermal">Thermal</string>
-<string name="adreno_save">Save</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Enable Idler</string>
-<string name="adreno_idler_desc">Reduce power consumption during idle</string>
-<string name="adreno_idle_wait">Idle Wait</string>
-<string name="adreno_down_differential">Down Differential</string>
-<string name="adreno_workload_threshold">Workload Threshold</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Enable Simple GPU</string>
-<string name="adreno_simple_gpu_desc">Alternative GPU governor algorithm</string>
-<string name="adreno_laziness">Laziness</string>
-<string name="adreno_ramp_threshold">Ramp Threshold</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL Advanced</string>
+    <string name="adreno_force_no_nap">Force No NAP</string>
+    <string name="adreno_no_nap_desc">Prevent GPU from napping</string>
+    <string name="adreno_force_clk_on">Force CLK On</string>
+    <string name="adreno_clk_on_desc">Keep clock always on</string>
+    <string name="adreno_force_bus_on">Force Bus On</string>
+    <string name="adreno_bus_on_desc">Keep bus always active</string>
+    <string name="adreno_bus_split">Bus Split</string>
+    <string name="adreno_bus_split_desc">Enable bus splitting</string>
+    <string name="adreno_throttling">Throttling</string>
+    <string name="adreno_throttling_desc">Enable thermal throttling</string>
+    <string name="adreno_power_levels">Power Levels</string>
+    <string name="adreno_default">Default</string>
+    <string name="adreno_thermal">Thermal</string>
+    <string name="adreno_save">Save</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Enable Idler</string>
+    <string name="adreno_idler_desc">Reduce power consumption during idle</string>
+    <string name="adreno_idle_wait">Idle Wait</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">Workload Threshold</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Enable Simple GPU</string>
+    <string name="adreno_simple_gpu_desc">Alternative GPU governor algorithm</string>
+    <string name="adreno_laziness">Laziness</string>
+    <string name="adreno_ramp_threshold">Ramp Threshold</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">Feature</string>
-<string name="nav_tab_overview">Overview</string>
-<string name="nav_tab_adjust">Adjust</string>
-<string name="nav_tab_support">Support</string>
-<string name="nav_tools_desc">Tools</string>
-<string name="nav_power_desc">Power</string>
-<string name="nav_settings_desc">Settings</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">Feature</string>
+    <string name="nav_tab_overview">Overview</string>
+    <string name="nav_tab_adjust">Adjust</string>
+    <string name="nav_tab_support">Support</string>
+    <string name="nav_tools_desc">Tools</string>
+    <string name="nav_power_desc">Power</string>
+    <string name="nav_settings_desc">Settings</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">Quick Tools</string>
-<string name="dialog_power_title">Power Menu</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">Quick Tools</string>
+    <string name="dialog_power_title">Power Menu</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">Terminal Shell</string>
-<string name="tool_terminal_subtitle">Terminal window you can type in the terminal anywhere</string>
-<string name="tool_fps_title">FPS Monitor</string>
-<string name="tool_fps_subtitle">Real-time frame rate overlay</string>
-<string name="tool_process_title">Process Monitor</string>
-<string name="tool_process_subtitle">Show your monitor process</string>
-<string name="tool_activity_title">Activity Inspector</string>
-<string name="tool_activity_subtitle">Monitor current top activity package &amp; class</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">Terminal Shell</string>
+    <string name="tool_terminal_subtitle">Terminal window you can type in the terminal anywhere</string>
+    <string name="tool_fps_title">FPS Monitor</string>
+    <string name="tool_fps_subtitle">Real-time frame rate overlay</string>
+    <string name="tool_process_title">Process Monitor</string>
+    <string name="tool_process_subtitle">Show your monitor process</string>
+    <string name="tool_activity_title">Activity Inspector</string>
+    <string name="tool_activity_subtitle">Monitor current top activity package &amp; class</string>
 
 
-
-<!-- Common Actions -->
-<string name="action_done">Done</string>
-<string name="action_cancel">Cancel</string>
-<string name="action_yes_do_it">Yes, Do It</string>
-<string name="confirm_action_title">Confirm %s</string>
-
+    <!-- Common Actions -->
+    <string name="action_done">Done</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_yes_do_it">Yes, Do It</string>
+    <string name="confirm_action_title">Confirm %1$s</string>
 
 
 </resources>

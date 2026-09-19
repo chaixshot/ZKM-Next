@@ -167,12 +167,12 @@
     <string name="fps_stat_min">最小FPS</string>
     <string name="fps_stat_avg">平均FPS</string>
     <string name="fps_stat_var">分散</string>
-    <string name="fps_stat_stable">安定率 %</string>
+    <string name="fps_stat_stable">安定率 %%</string>
     <string name="fps_stat_max_temp">最高温度</string>
     <string name="fps_stat_avg_pwr">平均消費電力</string>
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPSと温度</string>
-    <string name="fps_chart_cpu">CPU負荷 (%)</string>
+    <string name="fps_chart_cpu">CPU負荷 (%%)</string>
     <string name="fps_export_csv">CSVエクスポート</string>
     <string name="fps_delete">削除</string>
 
@@ -754,7 +754,7 @@
     <string name="card_style_media">メディア</string>
     <string name="card_style_outlined">アウトライン</string>
     <string name="ksuweb_status_active">アクティブ</string>
-    <string name="ksuweb_by_author">作成者: %s</string>
+    <string name="ksuweb_by_author">作成者: %%s</string>
     <string name="ksuweb_version_prefix">v%s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">アクション</string>
@@ -817,7 +817,7 @@
     <string name="intro_btn_decline">拒否して終了</string>
     <string name="intro_footer_legal">「同意する」を押すことで、リスクとプライバシーポリシーに同意したことになります。</string>
 
-    <string name="update_title">バージョン %s に更新</string>
+    <string name="update_title">バージョン %%s に更新</string>
     <string name="update_changelog_title">新着情報</string>
     <string name="btn_update">更新</string>
     <string name="downloading_update">更新をダウンロード中…</string>
@@ -847,274 +847,274 @@
     <string name="lang_polish">ポーランド語</string>
     <string name="lang_turkish">トルコ語</string>
     <string name="lang_dutch">オランダ語</string>
-<string name="graphics_unit">グラフィックユニット</string>
-<string name="graphics_processor">グラフィックプロセッサ</string>
-<string name="processor_sets">プロセッサセット (Cpuset)</string>
-<string name="core_control">コア制御</string>
-<string name="cpu_governor">CPU ガバナ</string>
-<string name="select_governor">ガバナを選択</string>
-<string name="min_freq">最小周波数</string>
-<string name="max_freq">最大周波数</string>
-<string name="min_frequency">最小周波数</string>
-<string name="max_frequency">最大周波数</string>
-<string name="tab_performance">パフォーマンス</string>
-<string name="tab_tuning">チューニング</string>
-<string name="disable_cpu_title">CPU %1$d を無効にしますか？</string>
-<string name="disable_cpu_warning">このコアを無効にすると性能が低下する可能性があります。システムタスクを処理するために他のコアが有効であることを確認してください。</string>
-<string name="btn_disable">無効にする</string>
-<string name="select_active_cores">アクティブなコアを選択：</string>
-<string name="cpu_core_id">CPU %1$d</string>
-<string name="freq_mhz_format">%1$s MHz</string>
-<string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
-<string name="gpu_load_format">%1$s • 負荷 %2$s%%</string>
-<string name="cores_count">コア数：%1$s</string>
-<string name="gpu_not_supported">GPU インターフェースはサポートされていません</string>
-<string name="not_available">該当なし</string>
-<string name="no_options">オプションなし</string>
-<string name="label_value">値</string>
-<string name="zram_manager">ZRAM マネージャー</string>
-<string name="zram_status">ZRAM ステータス</string>
-<string name="disk_size_mb">ディスクサイズ：%1$d MB</string>
-<string name="zram_info_format">%1$d MB • %2$s</string>
-<string name="compression_algorithm">圧縮アルゴリズム</string>
-<string name="io_scheduler">I/O スケジューラ</string>
-<string name="select_scheduler">スケジューラを選択</string>
-<string name="tunables">調整可能項目</string>
-<string name="virtual_memory">仮想メモリ</string>
-<string name="swappiness">Swappiness</string>
-<string name="vfs_cache_pressure">VFS キャッシュプレッシャー</string>
-<string name="dirty_ratio">Dirty Ratio</string>
-<string name="dirty_bg_ratio">Dirty BG Ratio</string>
-<string name="no_storage_devices">サポートされているストレージデバイスが見つかりません。</string>
-<string name="scheduler_format">スケジューラ：%1$s</string>
-<string name="btn_set">設定</string>
-<string name="tcp_congestion">TCP 輻輳制御</string>
-<string name="tcp_parameters">TCP パラメータ</string>
-<string name="syn_cookies">SYN Cookie</string>
-<string name="enabled">有効</string>
-<string name="disabled">無効</string>
-<string name="tcp_reuse">TCP 再利用</string>
-<string name="on">オン</string>
-<string name="off">オフ</string>
-<string name="fast_open">Fast Open</string>
-<string name="tcp_sack">TCP SACK</string>
-<string name="ecn">ECN</string>
-<string name="kernel_log">カーネルログ</string>
-<string name="printk">Printk</string>
-<string name="feature_toggles">機能トグル</string>
-<string name="bore_scheduler">BORE スケジューラ</string>
-<string name="auto_group">自動グループ</string>
-<string name="child_runs_first">子プロセス優先</string>
-<string name="sched_stats">スケジューラ統計</string>
-<string name="tunable_scaling">調整可能スケーリング</string>
-<string name="cstate_aware">C-State 対応</string>
-<string name="uclamp_configuration">UClamp 設定</string>
-<string name="uclamp_max">UClamp 最大</string>
-<string name="uclamp_min">UClamp 最小</string>
-<string name="advanced_parameters">詳細パラメータ</string>
-<string name="current_value_format">現在の値：%1$s</string>
-<string name="new_value">新しい値</string>
-<string name="edit">編集</string>
+    <string name="graphics_unit">グラフィックユニット</string>
+    <string name="graphics_processor">グラフィックプロセッサ</string>
+    <string name="processor_sets">プロセッサセット (Cpuset)</string>
+    <string name="core_control">コア制御</string>
+    <string name="cpu_governor">CPU ガバナ</string>
+    <string name="select_governor">ガバナを選択</string>
+    <string name="min_freq">最小周波数</string>
+    <string name="max_freq">最大周波数</string>
+    <string name="min_frequency">最小周波数</string>
+    <string name="max_frequency">最大周波数</string>
+    <string name="tab_performance">パフォーマンス</string>
+    <string name="tab_tuning">チューニング</string>
+    <string name="disable_cpu_title">CPU %1$d を無効にしますか？</string>
+    <string name="disable_cpu_warning">このコアを無効にすると性能が低下する可能性があります。システムタスクを処理するために他のコアが有効であることを確認してください。</string>
+    <string name="btn_disable">無効にする</string>
+    <string name="select_active_cores">アクティブなコアを選択：</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s MHz</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
+    <string name="gpu_load_format">%1$s • 負荷 %2$s%%</string>
+    <string name="cores_count">コア数：%1$s</string>
+    <string name="gpu_not_supported">GPU インターフェースはサポートされていません</string>
+    <string name="not_available">該当なし</string>
+    <string name="no_options">オプションなし</string>
+    <string name="label_value">値</string>
+    <string name="zram_manager">ZRAM マネージャー</string>
+    <string name="zram_status">ZRAM ステータス</string>
+    <string name="disk_size_mb">ディスクサイズ：%1$d MB</string>
+    <string name="zram_info_format">%1$d MB • %2$s</string>
+    <string name="compression_algorithm">圧縮アルゴリズム</string>
+    <string name="io_scheduler">I/O スケジューラ</string>
+    <string name="select_scheduler">スケジューラを選択</string>
+    <string name="tunables">調整可能項目</string>
+    <string name="virtual_memory">仮想メモリ</string>
+    <string name="swappiness">Swappiness</string>
+    <string name="vfs_cache_pressure">VFS キャッシュプレッシャー</string>
+    <string name="dirty_ratio">Dirty Ratio</string>
+    <string name="dirty_bg_ratio">Dirty BG Ratio</string>
+    <string name="no_storage_devices">サポートされているストレージデバイスが見つかりません。</string>
+    <string name="scheduler_format">スケジューラ：%1$s</string>
+    <string name="btn_set">設定</string>
+    <string name="tcp_congestion">TCP 輻輳制御</string>
+    <string name="tcp_parameters">TCP パラメータ</string>
+    <string name="syn_cookies">SYN Cookie</string>
+    <string name="enabled">有効</string>
+    <string name="disabled">無効</string>
+    <string name="tcp_reuse">TCP 再利用</string>
+    <string name="on">オン</string>
+    <string name="off">オフ</string>
+    <string name="fast_open">Fast Open</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">カーネルログ</string>
+    <string name="printk">Printk</string>
+    <string name="feature_toggles">機能トグル</string>
+    <string name="bore_scheduler">BORE スケジューラ</string>
+    <string name="auto_group">自動グループ</string>
+    <string name="child_runs_first">子プロセス優先</string>
+    <string name="sched_stats">スケジューラ統計</string>
+    <string name="tunable_scaling">調整可能スケーリング</string>
+    <string name="cstate_aware">C-State 対応</string>
+    <string name="uclamp_configuration">UClamp 設定</string>
+    <string name="uclamp_max">UClamp 最大</string>
+    <string name="uclamp_min">UClamp 最小</string>
+    <string name="advanced_parameters">詳細パラメータ</string>
+    <string name="current_value_format">現在の値：%1$s</string>
+    <string name="new_value">新しい値</string>
+    <string name="edit">編集</string>
 
-<!-- MTK Screen Main -->
-<string name="mtk_gpu_title">MediaTek GPU</string>
-<string name="mtk_gpu_subtitle">Dimensity/Mali チューニング</string>
-<string name="mtk_tab_freq">周波数</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">ブースト</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">温度</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">MediaTek GPU</string>
+    <string name="mtk_gpu_subtitle">Dimensity/Mali チューニング</string>
+    <string name="mtk_tab_freq">周波数</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">ブースト</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">温度</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS 有効</string>
-<string name="mtk_dvfs_enabled_desc">GPU周波数は動的です。DVFSを無効化するか、周波数をロックして静的に制御してください。</string>
-<string name="mtk_gpu_dvfs">GPU DVFS</string>
-<string name="mtk_dynamic_scaling_on">動的スケーリング ON</string>
-<string name="mtk_static_frequency">固定周波数</string>
-<string name="mtk_dynamic">動的</string>
-<string name="mtk_freq_locked">周波数ロック済み</string>
-<string name="mtk_current_frequency">現在の周波数</string>
-<string name="mtk_lock_frequency">周波数をロック</string>
-<string name="mtk_select_opp_index">ロックするOPPインデックスを選択</string>
-<string name="mtk_unlock_frequency">周波数ロック解除</string>
-<string name="mtk_dvfs_limits">DVFS 制限</string>
-<string name="mtk_minimum_boost">最小（ブースト）</string>
-<string name="mtk_maximum_limit">最大（制限）</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS 有効</string>
+    <string name="mtk_dvfs_enabled_desc">GPU周波数は動的です。DVFSを無効化するか、周波数をロックして静的に制御してください。</string>
+    <string name="mtk_gpu_dvfs">GPU DVFS</string>
+    <string name="mtk_dynamic_scaling_on">動的スケーリング ON</string>
+    <string name="mtk_static_frequency">固定周波数</string>
+    <string name="mtk_dynamic">動的</string>
+    <string name="mtk_freq_locked">周波数ロック済み</string>
+    <string name="mtk_current_frequency">現在の周波数</string>
+    <string name="mtk_lock_frequency">周波数をロック</string>
+    <string name="mtk_select_opp_index">ロックするOPPインデックスを選択</string>
+    <string name="mtk_unlock_frequency">周波数ロック解除</string>
+    <string name="mtk_dvfs_limits">DVFS 制限</string>
+    <string name="mtk_minimum_boost">最小（ブースト）</string>
+    <string name="mtk_maximum_limit">最大（制限）</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">DRAM 制御不可用</string>
-<string name="mtk_dram_type">タイプ</string>
-<string name="mtk_dram_controller">DRAM コントローラー</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq ジェネリック</string>
-<string name="mtk_dram_fliper">Fliper レガシー</string>
-<string name="mtk_dram_unknown">不明</string>
-<string name="mtk_dram_current_step">現在</string>
-<string name="mtk_dram_force_frequency">DRAM 周波数を強制</string>
-<string name="mtk_dram_lock_opp">特定のOPPにロック（DVFSなし）</string>
-<string name="mtk_dram_reset_dvfs">DVFSにリセット</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">DRAM 制御不可用</string>
+    <string name="mtk_dram_type">タイプ</string>
+    <string name="mtk_dram_controller">DRAM コントローラー</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq ジェネリック</string>
+    <string name="mtk_dram_fliper">Fliper レガシー</string>
+    <string name="mtk_dram_unknown">不明</string>
+    <string name="mtk_dram_current_step">現在</string>
+    <string name="mtk_dram_force_frequency">DRAM 周波数を強制</string>
+    <string name="mtk_dram_lock_opp">特定のOPPにロック（DVFSなし）</string>
+    <string name="mtk_dram_reset_dvfs">DVFSにリセット</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">ゲーム &amp; パフォーマンス</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">スムーズなゲームプレイのためのフレームブースト</string>
-<string name="mtk_ged_game_mode_title">GED ゲームモード</string>
-<string name="mtk_ged_game_mode_subtitle">GPU ガバナー ゲーミング最適化</string>
-<string name="mtk_touch_boost_title">タッチブースト</string>
-<string name="mtk_touch_boost_subtitle">タッチ入力時のCPUブースト</string>
-<string name="mtk_sched_boost_title">スケジューラーブースト</string>
-<string name="mtk_sched_boost_subtitle">フォアグラウンドアプリの優先度ブースト</string>
-<string name="mtk_gaming_mode_preset">ゲーミングモード プリセット</string>
-<string name="mtk_gaming_mode_desc">すべてのブーストを即座に有効化</string>
-<string name="mtk_activate_gaming_mode">ゲーミングモードを有効化</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">ゲーム &amp; パフォーマンス</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">スムーズなゲームプレイのためのフレームブースト</string>
+    <string name="mtk_ged_game_mode_title">GED ゲームモード</string>
+    <string name="mtk_ged_game_mode_subtitle">GPU ガバナー ゲーミング最適化</string>
+    <string name="mtk_touch_boost_title">タッチブースト</string>
+    <string name="mtk_touch_boost_subtitle">タッチ入力時のCPUブースト</string>
+    <string name="mtk_sched_boost_title">スケジューラーブースト</string>
+    <string name="mtk_sched_boost_subtitle">フォアグラウンドアプリの優先度ブースト</string>
+    <string name="mtk_gaming_mode_preset">ゲーミングモード プリセット</string>
+    <string name="mtk_gaming_mode_desc">すべてのブーストを即座に有効化</string>
+    <string name="mtk_activate_gaming_mode">ゲーミングモードを有効化</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM 利用不可</string>
-<string name="mtk_ppm_not_found">/proc/ppm が見つかりません</string>
-<string name="mtk_ppm_controller">PPM コントローラー</string>
-<string name="mtk_ppm_active">アクティブ</string>
-<string name="mtk_ppm_disabled">無効</string>
-<string name="mtk_active_policies">アクティブポリシー</string>
-<string name="mtk_policy_hash">ポリシー #</string>
-<string name="mtk_ppm_no_policies">PPMは有効ですが、ポリシーが検出されません。カーネル制限の可能性があります。</string>
-<string name="mtk_about_ppm">PPM について</string>
-<string name="mtk_ppm_description">Performance Power ManagementはCPU/GPUの電力配分を制御します。「Thermal」ポリシーを無効にすると過熱する可能性がありますが、パフォーマンスが向上します。</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM 利用不可</string>
+    <string name="mtk_ppm_not_found">/proc/ppm が見つかりません</string>
+    <string name="mtk_ppm_controller">PPM コントローラー</string>
+    <string name="mtk_ppm_active">アクティブ</string>
+    <string name="mtk_ppm_disabled">無効</string>
+    <string name="mtk_active_policies">アクティブポリシー</string>
+    <string name="mtk_policy_hash">ポリシー #</string>
+    <string name="mtk_ppm_no_policies">PPMは有効ですが、ポリシーが検出されません。カーネル制限の可能性があります。</string>
+    <string name="mtk_about_ppm">PPM について</string>
+    <string name="mtk_ppm_description">Performance Power ManagementはCPU/GPUの電力配分を制御します。「Thermal」ポリシーを無効にすると過熱する可能性がありますが、パフォーマンスが向上します。</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc 利用不可</string>
-<string name="mtk_cci_interconnect">CCI インターコネクト</string>
-<string name="mtk_cache_coherent">キャッシュコヒーレントインターコネクト</string>
-<string name="mtk_big_little_desc">big.LITTLE クラスター間の相互作用を制御</string>
-<string name="mtk_normal">通常</string>
-<string name="mtk_performance">パフォーマンス</string>
-<string name="mtk_low_power">省電力</string>
-<string name="mtk_balance">バランス</string>
-<string name="mtk_cpu_power_mode">CPU 電源モード</string>
-<string name="mtk_current_mode">現在</string>
-<string name="mtk_voltage_offset">電圧オフセット (EEM)</string>
-<string name="mtk_eem_unit">6.25mV/単位</string>
-<string name="mtk_offset_value">オフセット値</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc 利用不可</string>
+    <string name="mtk_cci_interconnect">CCI インターコネクト</string>
+    <string name="mtk_cache_coherent">キャッシュコヒーレントインターコネクト</string>
+    <string name="mtk_big_little_desc">big.LITTLE クラスター間の相互作用を制御</string>
+    <string name="mtk_normal">通常</string>
+    <string name="mtk_performance">パフォーマンス</string>
+    <string name="mtk_low_power">省電力</string>
+    <string name="mtk_balance">バランス</string>
+    <string name="mtk_cpu_power_mode">CPU 電源モード</string>
+    <string name="mtk_current_mode">現在</string>
+    <string name="mtk_voltage_offset">電圧オフセット (EEM)</string>
+    <string name="mtk_eem_unit">6.25mV/単位</string>
+    <string name="mtk_offset_value">オフセット値</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">サーマルスロットリング</string>
-<string name="mtk_temp_limit_exceeded">温度制限超過</string>
-<string name="mtk_normal_temp">正常温度</string>
-<string name="mtk_eara_thermal">EARA Thermal</string>
-<string name="mtk_early_adaptation">早期適応リソース割り当て</string>
-<string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
-<string name="mtk_fake_temp_desc">カーネルに偽の温度を報告</string>
-<string name="mtk_throttling_desc">デバイスがサーマルスロットリング中です。過熱防止のためパフォーマンスが低下しています。</string>
-<string name="mtk_thermal_daemon_info">MTKの温度管理はカーネルサーマルデーモンによって処理されます。オンダイセンサー(tsens)から読み取り。</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">サーマルスロットリング</string>
+    <string name="mtk_temp_limit_exceeded">温度制限超過</string>
+    <string name="mtk_normal_temp">正常温度</string>
+    <string name="mtk_eara_thermal">EARA Thermal</string>
+    <string name="mtk_early_adaptation">早期適応リソース割り当て</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">カーネルに偽の温度を報告</string>
+    <string name="mtk_throttling_desc">デバイスがサーマルスロットリング中です。過熱防止のためパフォーマンスが低下しています。</string>
+    <string name="mtk_thermal_daemon_info">MTKの温度管理はカーネルサーマルデーモンによって処理されます。オンダイセンサー(tsens)から読み取り。</string>
 
-<!-- Common Actions -->
-<string name="action_back">戻る</string>
-<string name="action_refresh">更新</string>
+    <!-- Common Actions -->
+    <string name="action_back">戻る</string>
+    <string name="action_refresh">更新</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">Adreno GPU</string>
-<string name="adreno_gpu_subtitle">パフォーマンスとチューニング</string>
-<string name="adreno_tab_freq">周波数</string>
-<string name="adreno_tab_power">電源</string>
-<string name="adreno_tab_bus">バス</string>
-<string name="adreno_tab_thermal">温度</string>
-<string name="adreno_tab_advanced">詳細</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">Adreno GPU</string>
+    <string name="adreno_gpu_subtitle">パフォーマンスとチューニング</string>
+    <string name="adreno_tab_freq">周波数</string>
+    <string name="adreno_tab_power">電源</string>
+    <string name="adreno_tab_bus">バス</string>
+    <string name="adreno_tab_thermal">温度</string>
+    <string name="adreno_tab_advanced">詳細</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">現在の周波数</string>
-<string name="adreno_freq_limits">周波数制限</string>
-<string name="adreno_minimum">最小</string>
-<string name="adreno_maximum">最大</string>
-<string name="adreno_governor">ガバナー</string>
-<string name="adreno_current">現在</string>
-<string name="adreno_change">変更</string>
-<string name="adreno_frequency">周波数</string>
-<string name="adreno_cancel">キャンセル</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">現在の周波数</string>
+    <string name="adreno_freq_limits">周波数制限</string>
+    <string name="adreno_minimum">最小</string>
+    <string name="adreno_maximum">最大</string>
+    <string name="adreno_governor">ガバナー</string>
+    <string name="adreno_current">現在</string>
+    <string name="adreno_change">変更</string>
+    <string name="adreno_frequency">周波数</string>
+    <string name="adreno_cancel">キャンセル</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">GPU スロットリング</string>
-<string name="adreno_performance_limited">性能制限</string>
-<string name="adreno_full_performance">フルパフォーマンス</string>
-<string name="adreno_adreno_boost">Adreno ブースト</string>
-<string name="adreno_level">レベル</string>
-<string name="adreno_off">オフ</string>
-<string name="adreno_low">低</string>
-<string name="adreno_med">中</string>
-<string name="adreno_high">高</string>
-<string name="adreno_boost_desc">ブーストレベルが高いほど性能は向上しますが、バッテリー消費が増え、発熱も増加します。</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">GPU スロットリング</string>
+    <string name="adreno_performance_limited">性能制限</string>
+    <string name="adreno_full_performance">フルパフォーマンス</string>
+    <string name="adreno_adreno_boost">Adreno ブースト</string>
+    <string name="adreno_level">レベル</string>
+    <string name="adreno_off">オフ</string>
+    <string name="adreno_low">低</string>
+    <string name="adreno_med">中</string>
+    <string name="adreno_high">高</string>
+    <string name="adreno_boost_desc">ブーストレベルが高いほど性能は向上しますが、バッテリー消費が増え、発熱も増加します。</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">バスコンポーネント</string>
-<string name="adreno_no_bus_controls">バス制御なし</string>
-<string name="adreno_no_bus_desc">このデバイスには設定可能なバスコンポーネントがありません</string>
-<string name="adreno_min_freq">最小周波数</string>
-<string name="adreno_max_freq">最大周波数</string>
-<string name="adreno_min">最小</string>
-<string name="adreno_max">最大</string>
-<string name="adreno_edit">編集</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">バスコンポーネント</string>
+    <string name="adreno_no_bus_controls">バス制御なし</string>
+    <string name="adreno_no_bus_desc">このデバイスには設定可能なバスコンポーネントがありません</string>
+    <string name="adreno_min_freq">最小周波数</string>
+    <string name="adreno_max_freq">最大周波数</string>
+    <string name="adreno_min">最小</string>
+    <string name="adreno_max">最大</string>
+    <string name="adreno_edit">編集</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">サーマルスロットリング</string>
-<string name="adreno_gpu_temp">GPU 温度</string>
-<string name="adreno_thermal_zones">サーマルゾーン</string>
-<string name="adreno_cooling_devices">冷却装置</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">サーマルスロットリング</string>
+    <string name="adreno_gpu_temp">GPU 温度</string>
+    <string name="adreno_thermal_zones">サーマルゾーン</string>
+    <string name="adreno_cooling_devices">冷却装置</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL 詳細設定</string>
-<string name="adreno_force_no_nap">強制 No NAP</string>
-<string name="adreno_no_nap_desc">GPU がナップ状態になるのを防ぐ</string>
-<string name="adreno_force_clk_on">強制 CLK オン</string>
-<string name="adreno_clk_on_desc">クロックを常時オンに保つ</string>
-<string name="adreno_force_bus_on">強制バスオン</string>
-<string name="adreno_bus_on_desc">バスを常にアクティブに保つ</string>
-<string name="adreno_bus_split">バススプリット</string>
-<string name="adreno_bus_split_desc">バススプリットを有効化</string>
-<string name="adreno_throttling">スロットリング</string>
-<string name="adreno_throttling_desc">サーマルスロットリングを有効化</string>
-<string name="adreno_power_levels">電力レベル</string>
-<string name="adreno_default">デフォルト</string>
-<string name="adreno_thermal">サーマル</string>
-<string name="adreno_save">保存</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Idler を有効化</string>
-<string name="adreno_idler_desc">アイドル時の消費電力を削減</string>
-<string name="adreno_idle_wait">アイドル待機</string>
-<string name="adreno_down_differential">ダウンディファレンシャル</string>
-<string name="adreno_workload_threshold">ワークロード閾値</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Simple GPU を有効化</string>
-<string name="adreno_simple_gpu_desc">代替 GPU ガバナーアルゴリズム</string>
-<string name="adreno_laziness">レイジネス</string>
-<string name="adreno_ramp_threshold">ランプ閾値</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL 詳細設定</string>
+    <string name="adreno_force_no_nap">強制 No NAP</string>
+    <string name="adreno_no_nap_desc">GPU がナップ状態になるのを防ぐ</string>
+    <string name="adreno_force_clk_on">強制 CLK オン</string>
+    <string name="adreno_clk_on_desc">クロックを常時オンに保つ</string>
+    <string name="adreno_force_bus_on">強制バスオン</string>
+    <string name="adreno_bus_on_desc">バスを常にアクティブに保つ</string>
+    <string name="adreno_bus_split">バススプリット</string>
+    <string name="adreno_bus_split_desc">バススプリットを有効化</string>
+    <string name="adreno_throttling">スロットリング</string>
+    <string name="adreno_throttling_desc">サーマルスロットリングを有効化</string>
+    <string name="adreno_power_levels">電力レベル</string>
+    <string name="adreno_default">デフォルト</string>
+    <string name="adreno_thermal">サーマル</string>
+    <string name="adreno_save">保存</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Idler を有効化</string>
+    <string name="adreno_idler_desc">アイドル時の消費電力を削減</string>
+    <string name="adreno_idle_wait">アイドル待機</string>
+    <string name="adreno_down_differential">ダウンディファレンシャル</string>
+    <string name="adreno_workload_threshold">ワークロード閾値</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Simple GPU を有効化</string>
+    <string name="adreno_simple_gpu_desc">代替 GPU ガバナーアルゴリズム</string>
+    <string name="adreno_laziness">レイジネス</string>
+    <string name="adreno_ramp_threshold">ランプ閾値</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">機能</string>
-<string name="nav_tab_overview">概要</string>
-<string name="nav_tab_adjust">調整</string>
-<string name="nav_tab_support">サポート</string>
-<string name="nav_tools_desc">ツール</string>
-<string name="nav_power_desc">電源</string>
-<string name="nav_settings_desc">設定</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">機能</string>
+    <string name="nav_tab_overview">概要</string>
+    <string name="nav_tab_adjust">調整</string>
+    <string name="nav_tab_support">サポート</string>
+    <string name="nav_tools_desc">ツール</string>
+    <string name="nav_power_desc">電源</string>
+    <string name="nav_settings_desc">設定</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">クイックツール</string>
-<string name="dialog_power_title">電源メニュー</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">クイックツール</string>
+    <string name="dialog_power_title">電源メニュー</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">ターミナルシェル</string>
-<string name="tool_terminal_subtitle">どこでも入力できるターミナルウィンドウ</string>
-<string name="tool_fps_title">FPS モニター</string>
-<string name="tool_fps_subtitle">リアルタイムフレームレートオーバーレイ</string>
-<string name="tool_process_title">プロセスモニター</string>
-<string name="tool_process_subtitle">モニタープロセスを表示</string>
-<string name="tool_activity_title">アクティビティインスペクター</string>
-<string name="tool_activity_subtitle">現在のトップアクティビティのパッケージとクラスを監視</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">ターミナルシェル</string>
+    <string name="tool_terminal_subtitle">どこでも入力できるターミナルウィンドウ</string>
+    <string name="tool_fps_title">FPS モニター</string>
+    <string name="tool_fps_subtitle">リアルタイムフレームレートオーバーレイ</string>
+    <string name="tool_process_title">プロセスモニター</string>
+    <string name="tool_process_subtitle">モニタープロセスを表示</string>
+    <string name="tool_activity_title">アクティビティインスペクター</string>
+    <string name="tool_activity_subtitle">現在のトップアクティビティのパッケージとクラスを監視</string>
 
-<!-- Common Actions -->
-<string name="action_done">完了</string>
-<string name="action_cancel">キャンセル</string>
-<string name="action_yes_do_it">はい、実行します</string>
-<string name="confirm_action_title">%sを確認</string>
+    <!-- Common Actions -->
+    <string name="action_done">完了</string>
+    <string name="action_cancel">キャンセル</string>
+    <string name="action_yes_do_it">はい、実行します</string>
+    <string name="confirm_action_title">%sを確認</string>
 
 
 </resources>

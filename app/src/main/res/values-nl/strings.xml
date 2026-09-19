@@ -167,12 +167,12 @@
     <string name="fps_stat_min">MIN FPS</string>
     <string name="fps_stat_avg">GEM FPS</string>
     <string name="fps_stat_var">VAR</string>
-    <string name="fps_stat_stable">STABIEL %</string>
+    <string name="fps_stat_stable">STABIEL %%</string>
     <string name="fps_stat_max_temp">MAX TEMP</string>
     <string name="fps_stat_avg_pwr">GEM PWR</string>
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS &amp; Temperatuur</string>
-    <string name="fps_chart_cpu">CPU Belasting (%)</string>
+    <string name="fps_chart_cpu">CPU Belasting (%%)</string>
     <string name="fps_export_csv">EXPORTEER CSV</string>
     <string name="fps_delete">VERWIJDER</string>
 
@@ -754,7 +754,7 @@
     <string name="card_style_media">Media</string>
     <string name="card_style_outlined">Omlijnd</string>
     <string name="ksuweb_status_active">Actief</string>
-    <string name="ksuweb_by_author">Door %s</string>
+    <string name="ksuweb_by_author">Door %%s</string>
     <string name="ksuweb_version_prefix">v%s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">ACTIE</string>
@@ -795,7 +795,7 @@
     <string name="power_recovery_warning">Apparaat zal herstarten in Recovery Modus (TWRP/OrangeFox).</string>
     <string name="power_fastboot_warning">Apparaat zal herstarten in Fastboot/Bootloader modus.</string>
     <string name="power_restart_ui_warning">Gebruikersinterface zal herstarten. Dit kan een paar seconden duren.</string>
-    <string name="confirm_action">Bevestig %s</string>
+    <string name="confirm_action">Bevestig %%s</string>
     <string name="btn_confirm_yes">Ja, Doe Het</string>
 
     <string name="about_section_developer">Over Ontwikkelaar</string>
@@ -817,305 +817,305 @@
     <string name="intro_btn_decline">Weiger &amp; Afsluiten</string>
     <string name="intro_footer_legal">Door op \'Ik Ga Akkoord\' te drukken, accepteer je de Risico\'s &amp; Privacy Beleid.</string>
 
-    <string name="update_title">Update naar Ver %s</string>
+    <string name="update_title">Update naar Ver %%s</string>
     <string name="update_changelog_title">Wat is Nieuw</string>
     <string name="btn_update">Update</string>
     <string name="downloading_update">Update downloaden…</string>
     <string name="auto_download">Auto Download APK</string>
     <string name="auto_download_desc">Download en installeer automatisch</string>
     <string name="btn_manual_download">Open Browser</string>
-<!-- Language Names -->
+    <!-- Language Names -->
 
-<string name="lang_russian">Russisch</string>
-<string name="lang_ukrainian">Oekraïens</string>
-<string name="lang_belarusian">Wit-Russisch</string>
-<string name="lang_kazakh">Kazachs</string>
-<string name="lang_moldovan">Moldavisch</string>
-<string name="lang_chinese_cn">Chinees (China)</string>
-<string name="lang_chinese_sg">Chinees (Singapore)</string>
-<string name="lang_chinese_tw">Chinees (Taiwan)</string>
-<string name="lang_chinese_hk">Chinees (Hong Kong)</string>
-<string name="lang_chinese_mo">Chinees (Macau)</string>
-<string name="lang_japanese">Japans</string>
-<string name="lang_korean">Koreaans</string>
-<string name="lang_vietnamese">Vietnamees</string>
-<string name="lang_german">Duits</string>
-<string name="lang_french">Frans</string>
-<string name="lang_spanish">Spaans</string>
-<string name="lang_portuguese">Portugees</string>
-<string name="lang_italian">Italiaans</string>
-<string name="lang_polish">Pools</string>
-<string name="lang_turkish">Turks</string>
-<string name="lang_dutch">Nederlands</string>
+    <string name="lang_russian">Russisch</string>
+    <string name="lang_ukrainian">Oekraïens</string>
+    <string name="lang_belarusian">Wit-Russisch</string>
+    <string name="lang_kazakh">Kazachs</string>
+    <string name="lang_moldovan">Moldavisch</string>
+    <string name="lang_chinese_cn">Chinees (China)</string>
+    <string name="lang_chinese_sg">Chinees (Singapore)</string>
+    <string name="lang_chinese_tw">Chinees (Taiwan)</string>
+    <string name="lang_chinese_hk">Chinees (Hong Kong)</string>
+    <string name="lang_chinese_mo">Chinees (Macau)</string>
+    <string name="lang_japanese">Japans</string>
+    <string name="lang_korean">Koreaans</string>
+    <string name="lang_vietnamese">Vietnamees</string>
+    <string name="lang_german">Duits</string>
+    <string name="lang_french">Frans</string>
+    <string name="lang_spanish">Spaans</string>
+    <string name="lang_portuguese">Portugees</string>
+    <string name="lang_italian">Italiaans</string>
+    <string name="lang_polish">Pools</string>
+    <string name="lang_turkish">Turks</string>
+    <string name="lang_dutch">Nederlands</string>
 
-<string name="graphics_unit">Grafische Eenheid</string>
-<string name="graphics_processor">Grafische Processor</string>
-<string name="processor_sets">Processor Sets (Cpuset)</string>
-<string name="core_control">Kernbesturing</string>
-<string name="cpu_governor">CPU Governor</string>
-<string name="select_governor">Selecteer Governor</string>
-<string name="min_freq">Min. Freq</string>
-<string name="max_freq">Max. Freq</string>
-<string name="min_frequency">Minimale Frequentie</string>
-<string name="max_frequency">Maximale Frequentie</string>
-<string name="tab_performance">Prestatie</string>
-<string name="tab_tuning">Afstemming</string>
-<string name="disable_cpu_title">CPU %1$d uitschakelen?</string>
-<string name="disable_cpu_warning">Het uitschakelen van deze kern kan de prestaties verminderen. Zorg ervoor dat andere kernen actief zijn om systeemtaken te verwerken.</string>
-<string name="btn_disable">Uitschakelen</string>
-<string name="select_active_cores">Selecteer actieve kernen:</string>
-<string name="cpu_core_id">CPU %1$d</string>
-<string name="freq_mhz_format">%1$s MHz</string>
-<string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
-<string name="gpu_load_format">%1$s • Belasting %2$s%%</string>
-<string name="cores_count">Kernen: %1$s</string>
-<string name="gpu_not_supported">GPU-interface niet ondersteund</string>
-<string name="not_available">N/B</string>
-<string name="no_options">Geen opties</string>
-<string name="label_value">Waarde</string>
-<string name="zram_manager">ZRAM Beheerder</string>
-<string name="zram_status">ZRAM Status</string>
-<string name="disk_size_mb">Schijfgrootte: %1$d MB</string>
-<string name="zram_info_format">%1$d MB • %2$s</string>
-<string name="compression_algorithm">Compressie-algoritme</string>
-<string name="io_scheduler">I/O Scheduler</string>
-<string name="select_scheduler">Selecteer Scheduler</string>
-<string name="tunables">Instelbare Parameters</string>
-<string name="virtual_memory">Virtueel Geheugen</string>
-<string name="swappiness">Swappiness</string>
-<string name="vfs_cache_pressure">VFS Cache Druk</string>
-<string name="dirty_ratio">Dirty Ratio</string>
-<string name="dirty_bg_ratio">Dirty BG Ratio</string>
-<string name="no_storage_devices">Geen ondersteunde opslagapparaten gevonden.</string>
-<string name="scheduler_format">Scheduler: %1$s</string>
-<string name="btn_set">Instellen</string>
-<string name="tcp_congestion">TCP Congestie</string>
-<string name="tcp_parameters">TCP Parameters</string>
-<string name="syn_cookies">SYN Cookies</string>
-<string name="enabled">Ingeschakeld</string>
-<string name="disabled">Uitgeschakeld</string>
-<string name="tcp_reuse">TCP Hergebruik</string>
-<string name="on">Aan</string>
-<string name="off">Uit</string>
-<string name="fast_open">Snel Openen</string>
-<string name="tcp_sack">TCP SACK</string>
-<string name="ecn">ECN</string>
-<string name="kernel_log">Kernel Log</string>
-<string name="printk">Printk</string>
-<string name="feature_toggles">Functie Schakelaars</string>
-<string name="bore_scheduler">BORE Scheduler</string>
-<string name="auto_group">Automatische Groep</string>
-<string name="child_runs_first">Kind Loopt Eerst</string>
-<string name="sched_stats">Scheduler Statistieken</string>
-<string name="tunable_scaling">Instelbare Schaling</string>
-<string name="cstate_aware">C-State Bewust</string>
-<string name="uclamp_configuration">UClamp Configuratie</string>
-<string name="uclamp_max">UClamp Max</string>
-<string name="uclamp_min">UClamp Min</string>
-<string name="advanced_parameters">Geavanceerde Parameters</string>
-<string name="current_value_format">Huidige waarde: %1$s</string>
-<string name="new_value">Nieuwe Waarde</string>
-<string name="edit">Bewerken</string>
+    <string name="graphics_unit">Grafische Eenheid</string>
+    <string name="graphics_processor">Grafische Processor</string>
+    <string name="processor_sets">Processor Sets (Cpuset)</string>
+    <string name="core_control">Kernbesturing</string>
+    <string name="cpu_governor">CPU Governor</string>
+    <string name="select_governor">Selecteer Governor</string>
+    <string name="min_freq">Min. Freq</string>
+    <string name="max_freq">Max. Freq</string>
+    <string name="min_frequency">Minimale Frequentie</string>
+    <string name="max_frequency">Maximale Frequentie</string>
+    <string name="tab_performance">Prestatie</string>
+    <string name="tab_tuning">Afstemming</string>
+    <string name="disable_cpu_title">CPU %1$d uitschakelen?</string>
+    <string name="disable_cpu_warning">Het uitschakelen van deze kern kan de prestaties verminderen. Zorg ervoor dat andere kernen actief zijn om systeemtaken te verwerken.</string>
+    <string name="btn_disable">Uitschakelen</string>
+    <string name="select_active_cores">Selecteer actieve kernen:</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s MHz</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
+    <string name="gpu_load_format">%1$s • Belasting %2$s%%</string>
+    <string name="cores_count">Kernen: %1$s</string>
+    <string name="gpu_not_supported">GPU-interface niet ondersteund</string>
+    <string name="not_available">N/B</string>
+    <string name="no_options">Geen opties</string>
+    <string name="label_value">Waarde</string>
+    <string name="zram_manager">ZRAM Beheerder</string>
+    <string name="zram_status">ZRAM Status</string>
+    <string name="disk_size_mb">Schijfgrootte: %1$d MB</string>
+    <string name="zram_info_format">%1$d MB • %2$s</string>
+    <string name="compression_algorithm">Compressie-algoritme</string>
+    <string name="io_scheduler">I/O Scheduler</string>
+    <string name="select_scheduler">Selecteer Scheduler</string>
+    <string name="tunables">Instelbare Parameters</string>
+    <string name="virtual_memory">Virtueel Geheugen</string>
+    <string name="swappiness">Swappiness</string>
+    <string name="vfs_cache_pressure">VFS Cache Druk</string>
+    <string name="dirty_ratio">Dirty Ratio</string>
+    <string name="dirty_bg_ratio">Dirty BG Ratio</string>
+    <string name="no_storage_devices">Geen ondersteunde opslagapparaten gevonden.</string>
+    <string name="scheduler_format">Scheduler: %1$s</string>
+    <string name="btn_set">Instellen</string>
+    <string name="tcp_congestion">TCP Congestie</string>
+    <string name="tcp_parameters">TCP Parameters</string>
+    <string name="syn_cookies">SYN Cookies</string>
+    <string name="enabled">Ingeschakeld</string>
+    <string name="disabled">Uitgeschakeld</string>
+    <string name="tcp_reuse">TCP Hergebruik</string>
+    <string name="on">Aan</string>
+    <string name="off">Uit</string>
+    <string name="fast_open">Snel Openen</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">Kernel Log</string>
+    <string name="printk">Printk</string>
+    <string name="feature_toggles">Functie Schakelaars</string>
+    <string name="bore_scheduler">BORE Scheduler</string>
+    <string name="auto_group">Automatische Groep</string>
+    <string name="child_runs_first">Kind Loopt Eerst</string>
+    <string name="sched_stats">Scheduler Statistieken</string>
+    <string name="tunable_scaling">Instelbare Schaling</string>
+    <string name="cstate_aware">C-State Bewust</string>
+    <string name="uclamp_configuration">UClamp Configuratie</string>
+    <string name="uclamp_max">UClamp Max</string>
+    <string name="uclamp_min">UClamp Min</string>
+    <string name="advanced_parameters">Geavanceerde Parameters</string>
+    <string name="current_value_format">Huidige waarde: %1$s</string>
+    <string name="new_value">Nieuwe Waarde</string>
+    <string name="edit">Bewerken</string>
 
-<!-- MTK Screen Main -->
-<string name="mtk_gpu_title">MediaTek GPU</string>
-<string name="mtk_gpu_subtitle">Dimensity/Mali Afstelling</string>
-<string name="mtk_tab_freq">Freq</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">Boost</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">Thermisch</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">MediaTek GPU</string>
+    <string name="mtk_gpu_subtitle">Dimensity/Mali Afstelling</string>
+    <string name="mtk_tab_freq">Freq</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">Boost</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">Thermisch</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS ingeschakeld</string>
-<string name="mtk_dvfs_enabled_desc">GPU-frequentie is dynamisch. Schakel DVFS uit of vergrendel frequentie voor statische controle.</string>
-<string name="mtk_gpu_dvfs">GPU DVFS</string>
-<string name="mtk_dynamic_scaling_on">Dynamische schaling AAN</string>
-<string name="mtk_static_frequency">Statische frequentie</string>
-<string name="mtk_dynamic">Dynamisch</string>
-<string name="mtk_freq_locked">Frequentie vergrendeld</string>
-<string name="mtk_current_frequency">Huidige frequentie</string>
-<string name="mtk_lock_frequency">Vergrendel frequentie</string>
-<string name="mtk_select_opp_index">Selecteer OPP-index om te vergrendelen</string>
-<string name="mtk_unlock_frequency">Ontgrendel frequentie</string>
-<string name="mtk_dvfs_limits">DVFS limieten</string>
-<string name="mtk_minimum_boost">Minimum (Boost)</string>
-<string name="mtk_maximum_limit">Maximum (Limiet)</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS ingeschakeld</string>
+    <string name="mtk_dvfs_enabled_desc">GPU-frequentie is dynamisch. Schakel DVFS uit of vergrendel frequentie voor statische controle.</string>
+    <string name="mtk_gpu_dvfs">GPU DVFS</string>
+    <string name="mtk_dynamic_scaling_on">Dynamische schaling AAN</string>
+    <string name="mtk_static_frequency">Statische frequentie</string>
+    <string name="mtk_dynamic">Dynamisch</string>
+    <string name="mtk_freq_locked">Frequentie vergrendeld</string>
+    <string name="mtk_current_frequency">Huidige frequentie</string>
+    <string name="mtk_lock_frequency">Vergrendel frequentie</string>
+    <string name="mtk_select_opp_index">Selecteer OPP-index om te vergrendelen</string>
+    <string name="mtk_unlock_frequency">Ontgrendel frequentie</string>
+    <string name="mtk_dvfs_limits">DVFS limieten</string>
+    <string name="mtk_minimum_boost">Minimum (Boost)</string>
+    <string name="mtk_maximum_limit">Maximum (Limiet)</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">DRAM-besturing niet beschikbaar</string>
-<string name="mtk_dram_type">Type</string>
-<string name="mtk_dram_controller">DRAM-controller</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq Generiek</string>
-<string name="mtk_dram_fliper">Fliper Legacy</string>
-<string name="mtk_dram_unknown">Onbekend</string>
-<string name="mtk_dram_current_step">Huidig</string>
-<string name="mtk_dram_force_frequency">Forceer DRAM-frequentie</string>
-<string name="mtk_dram_lock_opp">Vergrendel op specifieke OPP (geen DVFS)</string>
-<string name="mtk_dram_reset_dvfs">Reset naar DVFS</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">DRAM-besturing niet beschikbaar</string>
+    <string name="mtk_dram_type">Type</string>
+    <string name="mtk_dram_controller">DRAM-controller</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq Generiek</string>
+    <string name="mtk_dram_fliper">Fliper Legacy</string>
+    <string name="mtk_dram_unknown">Onbekend</string>
+    <string name="mtk_dram_current_step">Huidig</string>
+    <string name="mtk_dram_force_frequency">Forceer DRAM-frequentie</string>
+    <string name="mtk_dram_lock_opp">Vergrendel op specifieke OPP (geen DVFS)</string>
+    <string name="mtk_dram_reset_dvfs">Reset naar DVFS</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">Gaming &amp; Prestatie</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">Frame boost voor vloeiende gameplay</string>
-<string name="mtk_ged_game_mode_title">GED Game Modus</string>
-<string name="mtk_ged_game_mode_subtitle">GPU governor gaming optimalisatie</string>
-<string name="mtk_touch_boost_title">Touch Boost</string>
-<string name="mtk_touch_boost_subtitle">CPU boost bij aanraking</string>
-<string name="mtk_sched_boost_title">Scheduler Boost</string>
-<string name="mtk_sched_boost_subtitle">Prioriteit boost voor voorgrond apps</string>
-<string name="mtk_gaming_mode_preset">Gaming modus preset</string>
-<string name="mtk_gaming_mode_desc">Schakel alle boosts direct in</string>
-<string name="mtk_activate_gaming_mode">Activeer gaming modus</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">Gaming &amp; Prestatie</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">Frame boost voor vloeiende gameplay</string>
+    <string name="mtk_ged_game_mode_title">GED Game Modus</string>
+    <string name="mtk_ged_game_mode_subtitle">GPU governor gaming optimalisatie</string>
+    <string name="mtk_touch_boost_title">Touch Boost</string>
+    <string name="mtk_touch_boost_subtitle">CPU boost bij aanraking</string>
+    <string name="mtk_sched_boost_title">Scheduler Boost</string>
+    <string name="mtk_sched_boost_subtitle">Prioriteit boost voor voorgrond apps</string>
+    <string name="mtk_gaming_mode_preset">Gaming modus preset</string>
+    <string name="mtk_gaming_mode_desc">Schakel alle boosts direct in</string>
+    <string name="mtk_activate_gaming_mode">Activeer gaming modus</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM niet beschikbaar</string>
-<string name="mtk_ppm_not_found">/proc/ppm niet gevonden</string>
-<string name="mtk_ppm_controller">PPM-controller</string>
-<string name="mtk_ppm_active">Actief</string>
-<string name="mtk_ppm_disabled">Uitgeschakeld</string>
-<string name="mtk_active_policies">Actieve beleidsregels</string>
-<string name="mtk_policy_hash">Beleid #</string>
-<string name="mtk_ppm_no_policies">PPM ingeschakeld maar geen beleid gedetecteerd. Mogelijk kernel-beperking.</string>
-<string name="mtk_about_ppm">Over PPM</string>
-<string name="mtk_ppm_description">Performance Power Management beheert CPU/GPU energie-toewijzing. Uitschakelen van \'Thermal\' beleid kan oververhitting veroorzaken maar verbetert prestatie.</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM niet beschikbaar</string>
+    <string name="mtk_ppm_not_found">/proc/ppm niet gevonden</string>
+    <string name="mtk_ppm_controller">PPM-controller</string>
+    <string name="mtk_ppm_active">Actief</string>
+    <string name="mtk_ppm_disabled">Uitgeschakeld</string>
+    <string name="mtk_active_policies">Actieve beleidsregels</string>
+    <string name="mtk_policy_hash">Beleid #</string>
+    <string name="mtk_ppm_no_policies">PPM ingeschakeld maar geen beleid gedetecteerd. Mogelijk kernel-beperking.</string>
+    <string name="mtk_about_ppm">Over PPM</string>
+    <string name="mtk_ppm_description">Performance Power Management beheert CPU/GPU energie-toewijzing. Uitschakelen van \'Thermal\' beleid kan oververhitting veroorzaken maar verbetert prestatie.</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc niet beschikbaar</string>
-<string name="mtk_cci_interconnect">CCI Interconnect</string>
-<string name="mtk_cache_coherent">Cache-coherente interconnect</string>
-<string name="mtk_big_little_desc">Bestuurt big.LITTLE cluster interactie</string>
-<string name="mtk_normal">Normaal</string>
-<string name="mtk_performance">Prestatie</string>
-<string name="mtk_low_power">Laag verbruik</string>
-<string name="mtk_balance">Balans</string>
-<string name="mtk_cpu_power_mode">CPU energiemodus</string>
-<string name="mtk_current_mode">Huidig</string>
-<string name="mtk_voltage_offset">Voltage-offset (EEM)</string>
-<string name="mtk_eem_unit">6.25mV/eenheid</string>
-<string name="mtk_offset_value">Offset-waarde</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc niet beschikbaar</string>
+    <string name="mtk_cci_interconnect">CCI Interconnect</string>
+    <string name="mtk_cache_coherent">Cache-coherente interconnect</string>
+    <string name="mtk_big_little_desc">Bestuurt big.LITTLE cluster interactie</string>
+    <string name="mtk_normal">Normaal</string>
+    <string name="mtk_performance">Prestatie</string>
+    <string name="mtk_low_power">Laag verbruik</string>
+    <string name="mtk_balance">Balans</string>
+    <string name="mtk_cpu_power_mode">CPU energiemodus</string>
+    <string name="mtk_current_mode">Huidig</string>
+    <string name="mtk_voltage_offset">Voltage-offset (EEM)</string>
+    <string name="mtk_eem_unit">6.25mV/eenheid</string>
+    <string name="mtk_offset_value">Offset-waarde</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">THERMISCH THROTTLEN</string>
-<string name="mtk_temp_limit_exceeded">Temperatuurlimiet overschreden</string>
-<string name="mtk_normal_temp">Normale temperatuur</string>
-<string name="mtk_eara_thermal">EARA Thermisch</string>
-<string name="mtk_early_adaptation">Vroege adaptatie hulpbronnentoewijzing</string>
-<string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
-<string name="mtk_fake_temp_desc">Meld valse temperatuur aan kernel</string>
-<string name="mtk_throttling_desc">Apparaat is aan het thermisch throttlen. Prestatie verlaagd om oververhitting te voorkomen.</string>
-<string name="mtk_thermal_daemon_info">MTK thermisch beheer afgehandeld door kernel thermische daemon. Uitlezingen van on-die sensoren (tsens).</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">THERMISCH THROTTLEN</string>
+    <string name="mtk_temp_limit_exceeded">Temperatuurlimiet overschreden</string>
+    <string name="mtk_normal_temp">Normale temperatuur</string>
+    <string name="mtk_eara_thermal">EARA Thermisch</string>
+    <string name="mtk_early_adaptation">Vroege adaptatie hulpbronnentoewijzing</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">Meld valse temperatuur aan kernel</string>
+    <string name="mtk_throttling_desc">Apparaat is aan het thermisch throttlen. Prestatie verlaagd om oververhitting te voorkomen.</string>
+    <string name="mtk_thermal_daemon_info">MTK thermisch beheer afgehandeld door kernel thermische daemon. Uitlezingen van on-die sensoren (tsens).</string>
 
-<!-- Common Actions -->
-<string name="action_back">Terug</string>
-<string name="action_refresh">Vernieuwen</string>
+    <!-- Common Actions -->
+    <string name="action_back">Terug</string>
+    <string name="action_refresh">Vernieuwen</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">Adreno GPU</string>
-<string name="adreno_gpu_subtitle">Prestatie en afstelling</string>
-<string name="adreno_tab_freq">Freq</string>
-<string name="adreno_tab_power">Vermogen</string>
-<string name="adreno_tab_bus">Bus</string>
-<string name="adreno_tab_thermal">Thermisch</string>
-<string name="adreno_tab_advanced">Gevorderd</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">Adreno GPU</string>
+    <string name="adreno_gpu_subtitle">Prestatie en afstelling</string>
+    <string name="adreno_tab_freq">Freq</string>
+    <string name="adreno_tab_power">Vermogen</string>
+    <string name="adreno_tab_bus">Bus</string>
+    <string name="adreno_tab_thermal">Thermisch</string>
+    <string name="adreno_tab_advanced">Gevorderd</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">Huidige frequentie</string>
-<string name="adreno_freq_limits">Frequentielimieten</string>
-<string name="adreno_minimum">Minimum</string>
-<string name="adreno_maximum">Maximum</string>
-<string name="adreno_governor">Governor</string>
-<string name="adreno_current">Huidig</string>
-<string name="adreno_change">Wijzig</string>
-<string name="adreno_frequency">Frequentie</string>
-<string name="adreno_cancel">Annuleren</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">Huidige frequentie</string>
+    <string name="adreno_freq_limits">Frequentielimieten</string>
+    <string name="adreno_minimum">Minimum</string>
+    <string name="adreno_maximum">Maximum</string>
+    <string name="adreno_governor">Governor</string>
+    <string name="adreno_current">Huidig</string>
+    <string name="adreno_change">Wijzig</string>
+    <string name="adreno_frequency">Frequentie</string>
+    <string name="adreno_cancel">Annuleren</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">GPU-throttling</string>
-<string name="adreno_performance_limited">Prestatie beperkt</string>
-<string name="adreno_full_performance">Volledige prestatie</string>
-<string name="adreno_adreno_boost">Adreno Boost</string>
-<string name="adreno_level">Niveau</string>
-<string name="adreno_off">Uit</string>
-<string name="adreno_low">Laag</string>
-<string name="adreno_med">Gem</string>
-<string name="adreno_high">Hoog</string>
-<string name="adreno_boost_desc">Hogere boost-niveaus verhogen prestatie maar verbruiken meer batterij en genereren meer warmte.</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">GPU-throttling</string>
+    <string name="adreno_performance_limited">Prestatie beperkt</string>
+    <string name="adreno_full_performance">Volledige prestatie</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">Niveau</string>
+    <string name="adreno_off">Uit</string>
+    <string name="adreno_low">Laag</string>
+    <string name="adreno_med">Gem</string>
+    <string name="adreno_high">Hoog</string>
+    <string name="adreno_boost_desc">Hogere boost-niveaus verhogen prestatie maar verbruiken meer batterij en genereren meer warmte.</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">Bus-componenten</string>
-<string name="adreno_no_bus_controls">Geen bus-bediening</string>
-<string name="adreno_no_bus_desc">Dit apparaat heeft geen configureerbare bus-componenten</string>
-<string name="adreno_min_freq">Min freq</string>
-<string name="adreno_max_freq">Max freq</string>
-<string name="adreno_min">MIN</string>
-<string name="adreno_max">MAX</string>
-<string name="adreno_edit">Bewerk</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">Bus-componenten</string>
+    <string name="adreno_no_bus_controls">Geen bus-bediening</string>
+    <string name="adreno_no_bus_desc">Dit apparaat heeft geen configureerbare bus-componenten</string>
+    <string name="adreno_min_freq">Min freq</string>
+    <string name="adreno_max_freq">Max freq</string>
+    <string name="adreno_min">MIN</string>
+    <string name="adreno_max">MAX</string>
+    <string name="adreno_edit">Bewerk</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">THERMISCH THROTTLEN</string>
-<string name="adreno_gpu_temp">GPU-temperatuur</string>
-<string name="adreno_thermal_zones">Thermische zones</string>
-<string name="adreno_cooling_devices">Koelapparaten</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">THERMISCH THROTTLEN</string>
+    <string name="adreno_gpu_temp">GPU-temperatuur</string>
+    <string name="adreno_thermal_zones">Thermische zones</string>
+    <string name="adreno_cooling_devices">Koelapparaten</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL Gevorderd</string>
-<string name="adreno_force_no_nap">Forceer No NAP</string>
-<string name="adreno_no_nap_desc">Voorkom dat GPU dutjes doet</string>
-<string name="adreno_force_clk_on">Forceer CLK Aan</string>
-<string name="adreno_clk_on_desc">Houd klok altijd aan</string>
-<string name="adreno_force_bus_on">Forceer Bus Aan</string>
-<string name="adreno_bus_on_desc">Houd bus altijd actief</string>
-<string name="adreno_bus_split">Bus Split</string>
-<string name="adreno_bus_split_desc">Schakel bus-splitsing in</string>
-<string name="adreno_throttling">Throttling</string>
-<string name="adreno_throttling_desc">Schakel thermisch throttelen in</string>
-<string name="adreno_power_levels">Vermogensniveaus</string>
-<string name="adreno_default">Standaard</string>
-<string name="adreno_thermal">Thermisch</string>
-<string name="adreno_save">Opslaan</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Schakel Idler in</string>
-<string name="adreno_idler_desc">Verminder energieverbruik bij inactief</string>
-<string name="adreno_idle_wait">Wachttijd inactief</string>
-<string name="adreno_down_differential">Down Differential</string>
-<string name="adreno_workload_threshold">Drempel werkbelasting</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Schakel Simple GPU in</string>
-<string name="adreno_simple_gpu_desc">Alternatief GPU-governor-algoritme</string>
-<string name="adreno_laziness">Luiheid</string>
-<string name="adreno_ramp_threshold">Drempel helling</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL Gevorderd</string>
+    <string name="adreno_force_no_nap">Forceer No NAP</string>
+    <string name="adreno_no_nap_desc">Voorkom dat GPU dutjes doet</string>
+    <string name="adreno_force_clk_on">Forceer CLK Aan</string>
+    <string name="adreno_clk_on_desc">Houd klok altijd aan</string>
+    <string name="adreno_force_bus_on">Forceer Bus Aan</string>
+    <string name="adreno_bus_on_desc">Houd bus altijd actief</string>
+    <string name="adreno_bus_split">Bus Split</string>
+    <string name="adreno_bus_split_desc">Schakel bus-splitsing in</string>
+    <string name="adreno_throttling">Throttling</string>
+    <string name="adreno_throttling_desc">Schakel thermisch throttelen in</string>
+    <string name="adreno_power_levels">Vermogensniveaus</string>
+    <string name="adreno_default">Standaard</string>
+    <string name="adreno_thermal">Thermisch</string>
+    <string name="adreno_save">Opslaan</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Schakel Idler in</string>
+    <string name="adreno_idler_desc">Verminder energieverbruik bij inactief</string>
+    <string name="adreno_idle_wait">Wachttijd inactief</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">Drempel werkbelasting</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Schakel Simple GPU in</string>
+    <string name="adreno_simple_gpu_desc">Alternatief GPU-governor-algoritme</string>
+    <string name="adreno_laziness">Luiheid</string>
+    <string name="adreno_ramp_threshold">Drempel helling</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">Functie</string>
-<string name="nav_tab_overview">Overzicht</string>
-<string name="nav_tab_adjust">Aanpassen</string>
-<string name="nav_tab_support">Ondersteuning</string>
-<string name="nav_tools_desc">Gereedschap</string>
-<string name="nav_power_desc">Stroom</string>
-<string name="nav_settings_desc">Instellingen</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">Functie</string>
+    <string name="nav_tab_overview">Overzicht</string>
+    <string name="nav_tab_adjust">Aanpassen</string>
+    <string name="nav_tab_support">Ondersteuning</string>
+    <string name="nav_tools_desc">Gereedschap</string>
+    <string name="nav_power_desc">Stroom</string>
+    <string name="nav_settings_desc">Instellingen</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">Snelle gereedschappen</string>
-<string name="dialog_power_title">Energiemenu</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">Snelle gereedschappen</string>
+    <string name="dialog_power_title">Energiemenu</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">Terminal</string>
-<string name="tool_terminal_subtitle">Terminalvenster waarin je overal kunt typen</string>
-<string name="tool_fps_title">FPS-monitor</string>
-<string name="tool_fps_subtitle">Real-time framerate overlay</string>
-<string name="tool_process_title">Procesmonitor</string>
-<string name="tool_process_subtitle">Toon je monitorproces</string>
-<string name="tool_activity_title">Activiteiteninspecteur</string>
-<string name="tool_activity_subtitle">Monitor huidige topactiviteit pakket en klasse</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">Terminal</string>
+    <string name="tool_terminal_subtitle">Terminalvenster waarin je overal kunt typen</string>
+    <string name="tool_fps_title">FPS-monitor</string>
+    <string name="tool_fps_subtitle">Real-time framerate overlay</string>
+    <string name="tool_process_title">Procesmonitor</string>
+    <string name="tool_process_subtitle">Toon je monitorproces</string>
+    <string name="tool_activity_title">Activiteiteninspecteur</string>
+    <string name="tool_activity_subtitle">Monitor huidige topactiviteit pakket en klasse</string>
 
-<!-- Common Actions -->
-<string name="action_done">Klaar</string>
-<string name="action_cancel">Annuleren</string>
-<string name="action_yes_do_it">Ja, doe het</string>
-<string name="confirm_action_title">Bevestig %s</string>
+    <!-- Common Actions -->
+    <string name="action_done">Klaar</string>
+    <string name="action_cancel">Annuleren</string>
+    <string name="action_yes_do_it">Ja, doe het</string>
+    <string name="confirm_action_title">Bevestig %%s</string>
 
 
 </resources>

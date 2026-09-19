@@ -167,12 +167,12 @@
     <string name="fps_stat_min">FPS TỐI THIỂU</string>
     <string name="fps_stat_avg">FPS TRUNG BÌNH</string>
     <string name="fps_stat_var">PHƯƠNG SAI</string>
-    <string name="fps_stat_stable">ỔN ĐỊNH %</string>
+    <string name="fps_stat_stable">ỔN ĐỊNH %%</string>
     <string name="fps_stat_max_temp">NHIỆT ĐỘ TỐI ĐA</string>
     <string name="fps_stat_avg_pwr">CÔNG SUẤT TB</string>
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS &amp; Nhiệt độ</string>
-    <string name="fps_chart_cpu">Tải CPU (%)</string>
+    <string name="fps_chart_cpu">Tải CPU (%%)</string>
     <string name="fps_export_csv">XUẤT CSV</string>
     <string name="fps_delete">XÓA</string>
 
@@ -754,7 +754,7 @@
     <string name="card_style_media">Đa phương tiện</string>
     <string name="card_style_outlined">Viền ngoài</string>
     <string name="ksuweb_status_active">Đang hoạt động</string>
-    <string name="ksuweb_by_author">Bởi %s</string>
+    <string name="ksuweb_by_author">Bởi %%s</string>
     <string name="ksuweb_version_prefix">v%s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">HÀNH ĐỘNG</string>
@@ -795,7 +795,7 @@
     <string name="power_recovery_warning">Thiết bị sẽ khởi động vào Chế độ Recovery (TWRP/OrangeFox).</string>
     <string name="power_fastboot_warning">Thiết bị sẽ khởi động vào chế độ Fastboot/Bootloader.</string>
     <string name="power_restart_ui_warning">Giao diện người dùng sẽ khởi động lại. Có thể mất vài giây.</string>
-    <string name="confirm_action">Xác nhận %s</string>
+    <string name="confirm_action">Xác nhận %%s</string>
     <string name="btn_confirm_yes">Có, thực hiện</string>
 
     <string name="about_section_developer">Về Nhà phát triển</string>
@@ -817,7 +817,7 @@
     <string name="intro_btn_decline">Từ chối &amp; Thoát</string>
     <string name="intro_footer_legal">Bằng cách nhấn \'Tôi đồng ý\', bạn chấp nhận Rủi ro &amp; Chính sách Quyền riêng tư.</string>
 
-    <string name="update_title">Cập nhật lên Phiên bản %s</string>
+    <string name="update_title">Cập nhật lên Phiên bản %%s</string>
     <string name="update_changelog_title">Có gì mới</string>
     <string name="btn_update">Cập nhật</string>
     <string name="downloading_update">Đang tải xuống bản cập nhật…</string>
@@ -847,274 +847,274 @@
     <string name="lang_polish">Tiếng Ba Lan</string>
     <string name="lang_turkish">Tiếng Thổ Nhĩ Kỳ</string>
     <string name="lang_dutch">Tiếng Hà Lan</string>
-<string name="graphics_unit">Đơn vị Đồ họa</string>
-<string name="graphics_processor">Bộ xử lý Đồ họa</string>
-<string name="processor_sets">Bộ xử lý (Cpuset)</string>
-<string name="core_control">Điều khiển Nhân</string>
-<string name="cpu_governor">Bộ điều chỉnh CPU</string>
-<string name="select_governor">Chọn Bộ điều chỉnh</string>
-<string name="min_freq">Tần số Min</string>
-<string name="max_freq">Tần số Max</string>
-<string name="min_frequency">Tần số Tối thiểu</string>
-<string name="max_frequency">Tần số Tối đa</string>
-<string name="tab_performance">Hiệu năng</string>
-<string name="tab_tuning">Tinh chỉnh</string>
-<string name="disable_cpu_title">Tắt CPU %1$d?</string>
-<string name="disable_cpu_warning">Tắt nhân này có thể làm giảm hiệu năng. Đảm bảo các nhân khác đang hoạt động để xử lý tác vụ hệ thống.</string>
-<string name="btn_disable">Tắt</string>
-<string name="select_active_cores">Chọn nhân đang hoạt động:</string>
-<string name="cpu_core_id">CPU %1$d</string>
-<string name="freq_mhz_format">%1$s MHz</string>
-<string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
-<string name="gpu_load_format">%1$s • Tải %2$s%%</string>
-<string name="cores_count">Số nhân: %1$s</string>
-<string name="gpu_not_supported">Giao diện GPU không được hỗ trợ</string>
-<string name="not_available">Không có</string>
-<string name="no_options">Không có tùy chọn</string>
-<string name="label_value">Giá trị</string>
-<string name="zram_manager">Quản lý ZRAM</string>
-<string name="zram_status">Trạng thái ZRAM</string>
-<string name="disk_size_mb">Kích thước Đĩa: %1$d MB</string>
-<string name="zram_info_format">%1$d MB • %2$s</string>
-<string name="compression_algorithm">Thuật toán Nén</string>
-<string name="io_scheduler">Trình lập lịch I/O</string>
-<string name="select_scheduler">Chọn Trình lập lịch</string>
-<string name="tunables">Các tham số</string>
-<string name="virtual_memory">Bộ nhớ Ảo</string>
-<string name="swappiness">Swappiness</string>
-<string name="vfs_cache_pressure">Áp lực Cache VFS</string>
-<string name="dirty_ratio">Tỷ lệ Dirty</string>
-<string name="dirty_bg_ratio">Tỷ lệ BG Dirty</string>
-<string name="no_storage_devices">Không tìm thấy thiết bị lưu trữ được hỗ trợ.</string>
-<string name="scheduler_format">Trình lập lịch: %1$s</string>
-<string name="btn_set">Đặt</string>
-<string name="tcp_congestion">Tắc nghẽn TCP</string>
-<string name="tcp_parameters">Tham số TCP</string>
-<string name="syn_cookies">SYN Cookies</string>
-<string name="enabled">Đã bật</string>
-<string name="disabled">Đã tắt</string>
-<string name="tcp_reuse">Tái sử dụng TCP</string>
-<string name="on">Bật</string>
-<string name="off">Tắt</string>
-<string name="fast_open">Mở nhanh</string>
-<string name="tcp_sack">TCP SACK</string>
-<string name="ecn">ECN</string>
-<string name="kernel_log">Nhật ký Kernel</string>
-<string name="printk">Printk</string>
-<string name="feature_toggles">Chuyển đổi Tính năng</string>
-<string name="bore_scheduler">Trình lập lịch BORE</string>
-<string name="auto_group">Tự động Nhóm</string>
-<string name="child_runs_first">Tiến trình con Chạy trước</string>
-<string name="sched_stats">Thống kê Lập lịch</string>
-<string name="tunable_scaling">Điều chỉnh Tỷ lệ</string>
-<string name="cstate_aware">Nhận biết C-State</string>
-<string name="uclamp_configuration">Cấu hình UClamp</string>
-<string name="uclamp_max">UClamp Tối đa</string>
-<string name="uclamp_min">UClamp Tối thiểu</string>
-<string name="advanced_parameters">Tham số Nâng cao</string>
-<string name="current_value_format">Giá trị hiện tại: %1$s</string>
-<string name="new_value">Giá trị Mới</string>
-<string name="edit">Chỉnh sửa</string>
+    <string name="graphics_unit">Đơn vị Đồ họa</string>
+    <string name="graphics_processor">Bộ xử lý Đồ họa</string>
+    <string name="processor_sets">Bộ xử lý (Cpuset)</string>
+    <string name="core_control">Điều khiển Nhân</string>
+    <string name="cpu_governor">Bộ điều chỉnh CPU</string>
+    <string name="select_governor">Chọn Bộ điều chỉnh</string>
+    <string name="min_freq">Tần số Min</string>
+    <string name="max_freq">Tần số Max</string>
+    <string name="min_frequency">Tần số Tối thiểu</string>
+    <string name="max_frequency">Tần số Tối đa</string>
+    <string name="tab_performance">Hiệu năng</string>
+    <string name="tab_tuning">Tinh chỉnh</string>
+    <string name="disable_cpu_title">Tắt CPU %1$d?</string>
+    <string name="disable_cpu_warning">Tắt nhân này có thể làm giảm hiệu năng. Đảm bảo các nhân khác đang hoạt động để xử lý tác vụ hệ thống.</string>
+    <string name="btn_disable">Tắt</string>
+    <string name="select_active_cores">Chọn nhân đang hoạt động:</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s MHz</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
+    <string name="gpu_load_format">%1$s • Tải %2$s%%</string>
+    <string name="cores_count">Số nhân: %1$s</string>
+    <string name="gpu_not_supported">Giao diện GPU không được hỗ trợ</string>
+    <string name="not_available">Không có</string>
+    <string name="no_options">Không có tùy chọn</string>
+    <string name="label_value">Giá trị</string>
+    <string name="zram_manager">Quản lý ZRAM</string>
+    <string name="zram_status">Trạng thái ZRAM</string>
+    <string name="disk_size_mb">Kích thước Đĩa: %1$d MB</string>
+    <string name="zram_info_format">%1$d MB • %2$s</string>
+    <string name="compression_algorithm">Thuật toán Nén</string>
+    <string name="io_scheduler">Trình lập lịch I/O</string>
+    <string name="select_scheduler">Chọn Trình lập lịch</string>
+    <string name="tunables">Các tham số</string>
+    <string name="virtual_memory">Bộ nhớ Ảo</string>
+    <string name="swappiness">Swappiness</string>
+    <string name="vfs_cache_pressure">Áp lực Cache VFS</string>
+    <string name="dirty_ratio">Tỷ lệ Dirty</string>
+    <string name="dirty_bg_ratio">Tỷ lệ BG Dirty</string>
+    <string name="no_storage_devices">Không tìm thấy thiết bị lưu trữ được hỗ trợ.</string>
+    <string name="scheduler_format">Trình lập lịch: %1$s</string>
+    <string name="btn_set">Đặt</string>
+    <string name="tcp_congestion">Tắc nghẽn TCP</string>
+    <string name="tcp_parameters">Tham số TCP</string>
+    <string name="syn_cookies">SYN Cookies</string>
+    <string name="enabled">Đã bật</string>
+    <string name="disabled">Đã tắt</string>
+    <string name="tcp_reuse">Tái sử dụng TCP</string>
+    <string name="on">Bật</string>
+    <string name="off">Tắt</string>
+    <string name="fast_open">Mở nhanh</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">Nhật ký Kernel</string>
+    <string name="printk">Printk</string>
+    <string name="feature_toggles">Chuyển đổi Tính năng</string>
+    <string name="bore_scheduler">Trình lập lịch BORE</string>
+    <string name="auto_group">Tự động Nhóm</string>
+    <string name="child_runs_first">Tiến trình con Chạy trước</string>
+    <string name="sched_stats">Thống kê Lập lịch</string>
+    <string name="tunable_scaling">Điều chỉnh Tỷ lệ</string>
+    <string name="cstate_aware">Nhận biết C-State</string>
+    <string name="uclamp_configuration">Cấu hình UClamp</string>
+    <string name="uclamp_max">UClamp Tối đa</string>
+    <string name="uclamp_min">UClamp Tối thiểu</string>
+    <string name="advanced_parameters">Tham số Nâng cao</string>
+    <string name="current_value_format">Giá trị hiện tại: %1$s</string>
+    <string name="new_value">Giá trị Mới</string>
+    <string name="edit">Chỉnh sửa</string>
 
-<!-- MTK Screen Main -->
-<string name="mtk_gpu_title">GPU MediaTek</string>
-<string name="mtk_gpu_subtitle">Tinh chỉnh Dimensity/Mali</string>
-<string name="mtk_tab_freq">Tần số</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">Tăng tốc</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">Nhiệt</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">GPU MediaTek</string>
+    <string name="mtk_gpu_subtitle">Tinh chỉnh Dimensity/Mali</string>
+    <string name="mtk_tab_freq">Tần số</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">Tăng tốc</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">Nhiệt</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS đã bật</string>
-<string name="mtk_dvfs_enabled_desc">Tần số GPU động. Tắt DVFS hoặc khóa tần số để kiểm soát tĩnh.</string>
-<string name="mtk_gpu_dvfs">DVFS GPU</string>
-<string name="mtk_dynamic_scaling_on">Tỷ lệ động BẬT</string>
-<string name="mtk_static_frequency">Tần số tĩnh</string>
-<string name="mtk_dynamic">Động</string>
-<string name="mtk_freq_locked">Tần số đã khóa</string>
-<string name="mtk_current_frequency">Tần số hiện tại</string>
-<string name="mtk_lock_frequency">Khóa tần số</string>
-<string name="mtk_select_opp_index">Chọn chỉ số OPP để khóa</string>
-<string name="mtk_unlock_frequency">Mở khóa tần số</string>
-<string name="mtk_dvfs_limits">Giới hạn DVFS</string>
-<string name="mtk_minimum_boost">Tối thiểu (Tăng tốc)</string>
-<string name="mtk_maximum_limit">Tối đa (Giới hạn)</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS đã bật</string>
+    <string name="mtk_dvfs_enabled_desc">Tần số GPU động. Tắt DVFS hoặc khóa tần số để kiểm soát tĩnh.</string>
+    <string name="mtk_gpu_dvfs">DVFS GPU</string>
+    <string name="mtk_dynamic_scaling_on">Tỷ lệ động BẬT</string>
+    <string name="mtk_static_frequency">Tần số tĩnh</string>
+    <string name="mtk_dynamic">Động</string>
+    <string name="mtk_freq_locked">Tần số đã khóa</string>
+    <string name="mtk_current_frequency">Tần số hiện tại</string>
+    <string name="mtk_lock_frequency">Khóa tần số</string>
+    <string name="mtk_select_opp_index">Chọn chỉ số OPP để khóa</string>
+    <string name="mtk_unlock_frequency">Mở khóa tần số</string>
+    <string name="mtk_dvfs_limits">Giới hạn DVFS</string>
+    <string name="mtk_minimum_boost">Tối thiểu (Tăng tốc)</string>
+    <string name="mtk_maximum_limit">Tối đa (Giới hạn)</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">Điều khiển DRAM không khả dụng</string>
-<string name="mtk_dram_type">Loại</string>
-<string name="mtk_dram_controller">Bộ điều khiển DRAM</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq Generic</string>
-<string name="mtk_dram_fliper">Fliper Legacy</string>
-<string name="mtk_dram_unknown">Không xác định</string>
-<string name="mtk_dram_current_step">Hiện tại</string>
-<string name="mtk_dram_force_frequency">Ép tần số DRAM</string>
-<string name="mtk_dram_lock_opp">Khóa vào OPP cụ thể (không DVFS)</string>
-<string name="mtk_dram_reset_dvfs">Đặt lại DVFS</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">Điều khiển DRAM không khả dụng</string>
+    <string name="mtk_dram_type">Loại</string>
+    <string name="mtk_dram_controller">Bộ điều khiển DRAM</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq Generic</string>
+    <string name="mtk_dram_fliper">Fliper Legacy</string>
+    <string name="mtk_dram_unknown">Không xác định</string>
+    <string name="mtk_dram_current_step">Hiện tại</string>
+    <string name="mtk_dram_force_frequency">Ép tần số DRAM</string>
+    <string name="mtk_dram_lock_opp">Khóa vào OPP cụ thể (không DVFS)</string>
+    <string name="mtk_dram_reset_dvfs">Đặt lại DVFS</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">Chơi game &amp; Hiệu năng</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">Tăng khung hình cho gameplay mượt mà</string>
-<string name="mtk_ged_game_mode_title">Chế độ GED Game</string>
-<string name="mtk_ged_game_mode_subtitle">Tối ưu hóa bộ điều chỉnh GPU cho game</string>
-<string name="mtk_touch_boost_title">Touch Boost</string>
-<string name="mtk_touch_boost_subtitle">Tăng tốc CPU khi chạm</string>
-<string name="mtk_sched_boost_title">Scheduler Boost</string>
-<string name="mtk_sched_boost_subtitle">Tăng ưu tiên cho ứng dụng nền trước</string>
-<string name="mtk_gaming_mode_preset">Cài đặt trước chế độ Game</string>
-<string name="mtk_gaming_mode_desc">Bật tất cả tăng tốc ngay lập tức</string>
-<string name="mtk_activate_gaming_mode">Kích hoạt chế độ Game</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">Chơi game &amp; Hiệu năng</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">Tăng khung hình cho gameplay mượt mà</string>
+    <string name="mtk_ged_game_mode_title">Chế độ GED Game</string>
+    <string name="mtk_ged_game_mode_subtitle">Tối ưu hóa bộ điều chỉnh GPU cho game</string>
+    <string name="mtk_touch_boost_title">Touch Boost</string>
+    <string name="mtk_touch_boost_subtitle">Tăng tốc CPU khi chạm</string>
+    <string name="mtk_sched_boost_title">Scheduler Boost</string>
+    <string name="mtk_sched_boost_subtitle">Tăng ưu tiên cho ứng dụng nền trước</string>
+    <string name="mtk_gaming_mode_preset">Cài đặt trước chế độ Game</string>
+    <string name="mtk_gaming_mode_desc">Bật tất cả tăng tốc ngay lập tức</string>
+    <string name="mtk_activate_gaming_mode">Kích hoạt chế độ Game</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM không khả dụng</string>
-<string name="mtk_ppm_not_found">Không tìm thấy /proc/ppm</string>
-<string name="mtk_ppm_controller">Bộ điều khiển PPM</string>
-<string name="mtk_ppm_active">Đang hoạt động</string>
-<string name="mtk_ppm_disabled">Đã tắt</string>
-<string name="mtk_active_policies">Chính sách đang hoạt động</string>
-<string name="mtk_policy_hash">Chính sách #</string>
-<string name="mtk_ppm_no_policies">PPM đã bật nhưng không phát hiện chính sách. Có thể do hạn chế kernel.</string>
-<string name="mtk_about_ppm">Về PPM</string>
-<string name="mtk_ppm_description">Performance Power Management kiểm soát phân bổ năng lượng CPU/GPU. Tắt chính sách \'Nhiệt\' có thể gây quá nhiệt nhưng cải thiện hiệu năng.</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM không khả dụng</string>
+    <string name="mtk_ppm_not_found">Không tìm thấy /proc/ppm</string>
+    <string name="mtk_ppm_controller">Bộ điều khiển PPM</string>
+    <string name="mtk_ppm_active">Đang hoạt động</string>
+    <string name="mtk_ppm_disabled">Đã tắt</string>
+    <string name="mtk_active_policies">Chính sách đang hoạt động</string>
+    <string name="mtk_policy_hash">Chính sách #</string>
+    <string name="mtk_ppm_no_policies">PPM đã bật nhưng không phát hiện chính sách. Có thể do hạn chế kernel.</string>
+    <string name="mtk_about_ppm">Về PPM</string>
+    <string name="mtk_ppm_description">Performance Power Management kiểm soát phân bổ năng lượng CPU/GPU. Tắt chính sách \'Nhiệt\' có thể gây quá nhiệt nhưng cải thiện hiệu năng.</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc không khả dụng</string>
-<string name="mtk_cci_interconnect">Kết nối CCI</string>
-<string name="mtk_cache_coherent">Kết nối bộ nhớ đệm nhất quán</string>
-<string name="mtk_big_little_desc">Điều khiển tương tác cụm big.LITTLE</string>
-<string name="mtk_normal">Bình thường</string>
-<string name="mtk_performance">Hiệu năng</string>
-<string name="mtk_low_power">Tiết kiệm pin</string>
-<string name="mtk_balance">Cân bằng</string>
-<string name="mtk_cpu_power_mode">Chế độ nguồn CPU</string>
-<string name="mtk_current_mode">Hiện tại</string>
-<string name="mtk_voltage_offset">Độ lệch điện áp (EEM)</string>
-<string name="mtk_eem_unit">6.25mV/đơn vị</string>
-<string name="mtk_offset_value">Giá trị lệch</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc không khả dụng</string>
+    <string name="mtk_cci_interconnect">Kết nối CCI</string>
+    <string name="mtk_cache_coherent">Kết nối bộ nhớ đệm nhất quán</string>
+    <string name="mtk_big_little_desc">Điều khiển tương tác cụm big.LITTLE</string>
+    <string name="mtk_normal">Bình thường</string>
+    <string name="mtk_performance">Hiệu năng</string>
+    <string name="mtk_low_power">Tiết kiệm pin</string>
+    <string name="mtk_balance">Cân bằng</string>
+    <string name="mtk_cpu_power_mode">Chế độ nguồn CPU</string>
+    <string name="mtk_current_mode">Hiện tại</string>
+    <string name="mtk_voltage_offset">Độ lệch điện áp (EEM)</string>
+    <string name="mtk_eem_unit">6.25mV/đơn vị</string>
+    <string name="mtk_offset_value">Giá trị lệch</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">GIỚI HẠN NHIỆT</string>
-<string name="mtk_temp_limit_exceeded">Vượt quá giới hạn nhiệt độ</string>
-<string name="mtk_normal_temp">Nhiệt độ bình thường</string>
-<string name="mtk_eara_thermal">EARA Thermal</string>
-<string name="mtk_early_adaptation">Phân bổ tài nguyên thích ứng sớm</string>
-<string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
-<string name="mtk_fake_temp_desc">Báo cáo nhiệt độ giả cho kernel</string>
-<string name="mtk_throttling_desc">Thiết bị đang giới hạn nhiệt. Hiệu năng giảm để ngăn quá nhiệt.</string>
-<string name="mtk_thermal_daemon_info">Quản lý nhiệt MTK do daemon nhiệt kernel xử lý. Đọc từ cảm biến on-die (tsens).</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">GIỚI HẠN NHIỆT</string>
+    <string name="mtk_temp_limit_exceeded">Vượt quá giới hạn nhiệt độ</string>
+    <string name="mtk_normal_temp">Nhiệt độ bình thường</string>
+    <string name="mtk_eara_thermal">EARA Thermal</string>
+    <string name="mtk_early_adaptation">Phân bổ tài nguyên thích ứng sớm</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">Báo cáo nhiệt độ giả cho kernel</string>
+    <string name="mtk_throttling_desc">Thiết bị đang giới hạn nhiệt. Hiệu năng giảm để ngăn quá nhiệt.</string>
+    <string name="mtk_thermal_daemon_info">Quản lý nhiệt MTK do daemon nhiệt kernel xử lý. Đọc từ cảm biến on-die (tsens).</string>
 
-<!-- Common Actions -->
-<string name="action_back">Quay lại</string>
-<string name="action_refresh">Làm mới</string>
+    <!-- Common Actions -->
+    <string name="action_back">Quay lại</string>
+    <string name="action_refresh">Làm mới</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">GPU Adreno</string>
-<string name="adreno_gpu_subtitle">Hiệu năng và điều chỉnh</string>
-<string name="adreno_tab_freq">Tần số</string>
-<string name="adreno_tab_power">Nguồn</string>
-<string name="adreno_tab_bus">Bus</string>
-<string name="adreno_tab_thermal">Nhiệt</string>
-<string name="adreno_tab_advanced">Nâng cao</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">GPU Adreno</string>
+    <string name="adreno_gpu_subtitle">Hiệu năng và điều chỉnh</string>
+    <string name="adreno_tab_freq">Tần số</string>
+    <string name="adreno_tab_power">Nguồn</string>
+    <string name="adreno_tab_bus">Bus</string>
+    <string name="adreno_tab_thermal">Nhiệt</string>
+    <string name="adreno_tab_advanced">Nâng cao</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">Tần số hiện tại</string>
-<string name="adreno_freq_limits">Giới hạn tần số</string>
-<string name="adreno_minimum">Tối thiểu</string>
-<string name="adreno_maximum">Tối đa</string>
-<string name="adreno_governor">Governor</string>
-<string name="adreno_current">Hiện tại</string>
-<string name="adreno_change">Thay đổi</string>
-<string name="adreno_frequency">Tần số</string>
-<string name="adreno_cancel">Hủy</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">Tần số hiện tại</string>
+    <string name="adreno_freq_limits">Giới hạn tần số</string>
+    <string name="adreno_minimum">Tối thiểu</string>
+    <string name="adreno_maximum">Tối đa</string>
+    <string name="adreno_governor">Governor</string>
+    <string name="adreno_current">Hiện tại</string>
+    <string name="adreno_change">Thay đổi</string>
+    <string name="adreno_frequency">Tần số</string>
+    <string name="adreno_cancel">Hủy</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">Giới hạn GPU</string>
-<string name="adreno_performance_limited">Hiệu năng bị giới hạn</string>
-<string name="adreno_full_performance">Hiệu năng đầy đủ</string>
-<string name="adreno_adreno_boost">Adreno Boost</string>
-<string name="adreno_level">Mức độ</string>
-<string name="adreno_off">Tắt</string>
-<string name="adreno_low">Thấp</string>
-<string name="adreno_med">Trung bình</string>
-<string name="adreno_high">Cao</string>
-<string name="adreno_boost_desc">Mức boost cao hơn tăng hiệu năng nhưng tiêu tốn nhiều pin hơn và tạo ra nhiều nhiệt hơn.</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">Giới hạn GPU</string>
+    <string name="adreno_performance_limited">Hiệu năng bị giới hạn</string>
+    <string name="adreno_full_performance">Hiệu năng đầy đủ</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">Mức độ</string>
+    <string name="adreno_off">Tắt</string>
+    <string name="adreno_low">Thấp</string>
+    <string name="adreno_med">Trung bình</string>
+    <string name="adreno_high">Cao</string>
+    <string name="adreno_boost_desc">Mức boost cao hơn tăng hiệu năng nhưng tiêu tốn nhiều pin hơn và tạo ra nhiều nhiệt hơn.</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">Thành phần Bus</string>
-<string name="adreno_no_bus_controls">Không có điều khiển Bus</string>
-<string name="adreno_no_bus_desc">Thiết bị này không có thành phần bus có thể cấu hình</string>
-<string name="adreno_min_freq">Tần số tối thiểu</string>
-<string name="adreno_max_freq">Tần số tối đa</string>
-<string name="adreno_min">TỐI THIỂU</string>
-<string name="adreno_max">TỐI ĐA</string>
-<string name="adreno_edit">Sửa</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">Thành phần Bus</string>
+    <string name="adreno_no_bus_controls">Không có điều khiển Bus</string>
+    <string name="adreno_no_bus_desc">Thiết bị này không có thành phần bus có thể cấu hình</string>
+    <string name="adreno_min_freq">Tần số tối thiểu</string>
+    <string name="adreno_max_freq">Tần số tối đa</string>
+    <string name="adreno_min">TỐI THIỂU</string>
+    <string name="adreno_max">TỐI ĐA</string>
+    <string name="adreno_edit">Sửa</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">GIỚI HẠN NHIỆT</string>
-<string name="adreno_gpu_temp">Nhiệt độ GPU</string>
-<string name="adreno_thermal_zones">Vùng nhiệt</string>
-<string name="adreno_cooling_devices">Thiết bị làm mát</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">GIỚI HẠN NHIỆT</string>
+    <string name="adreno_gpu_temp">Nhiệt độ GPU</string>
+    <string name="adreno_thermal_zones">Vùng nhiệt</string>
+    <string name="adreno_cooling_devices">Thiết bị làm mát</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL Nâng cao</string>
-<string name="adreno_force_no_nap">Buộc No NAP</string>
-<string name="adreno_no_nap_desc">Ngăn GPU ngủ</string>
-<string name="adreno_force_clk_on">Buộc CLK Bật</string>
-<string name="adreno_clk_on_desc">Giữ xung nhịp luôn bật</string>
-<string name="adreno_force_bus_on">Buộc Bus Bật</string>
-<string name="adreno_bus_on_desc">Giữ bus luôn hoạt động</string>
-<string name="adreno_bus_split">Chia Bus</string>
-<string name="adreno_bus_split_desc">Bật chia bus</string>
-<string name="adreno_throttling">Giới hạn</string>
-<string name="adreno_throttling_desc">Bật giới hạn nhiệt</string>
-<string name="adreno_power_levels">Mức nguồn</string>
-<string name="adreno_default">Mặc định</string>
-<string name="adreno_thermal">Nhiệt</string>
-<string name="adreno_save">Lưu</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Bật Idler</string>
-<string name="adreno_idler_desc">Giảm tiêu thụ điện khi nhàn rỗi</string>
-<string name="adreno_idle_wait">Chờ nhàn rỗi</string>
-<string name="adreno_down_differential">Down Differential</string>
-<string name="adreno_workload_threshold">Ngưỡng khối lượng công việc</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Bật Simple GPU</string>
-<string name="adreno_simple_gpu_desc">Thuật toán governor GPU thay thế</string>
-<string name="adreno_laziness">Độ lười</string>
-<string name="adreno_ramp_threshold">Ngưỡng tăng</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL Nâng cao</string>
+    <string name="adreno_force_no_nap">Buộc No NAP</string>
+    <string name="adreno_no_nap_desc">Ngăn GPU ngủ</string>
+    <string name="adreno_force_clk_on">Buộc CLK Bật</string>
+    <string name="adreno_clk_on_desc">Giữ xung nhịp luôn bật</string>
+    <string name="adreno_force_bus_on">Buộc Bus Bật</string>
+    <string name="adreno_bus_on_desc">Giữ bus luôn hoạt động</string>
+    <string name="adreno_bus_split">Chia Bus</string>
+    <string name="adreno_bus_split_desc">Bật chia bus</string>
+    <string name="adreno_throttling">Giới hạn</string>
+    <string name="adreno_throttling_desc">Bật giới hạn nhiệt</string>
+    <string name="adreno_power_levels">Mức nguồn</string>
+    <string name="adreno_default">Mặc định</string>
+    <string name="adreno_thermal">Nhiệt</string>
+    <string name="adreno_save">Lưu</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Bật Idler</string>
+    <string name="adreno_idler_desc">Giảm tiêu thụ điện khi nhàn rỗi</string>
+    <string name="adreno_idle_wait">Chờ nhàn rỗi</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">Ngưỡng khối lượng công việc</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Bật Simple GPU</string>
+    <string name="adreno_simple_gpu_desc">Thuật toán governor GPU thay thế</string>
+    <string name="adreno_laziness">Độ lười</string>
+    <string name="adreno_ramp_threshold">Ngưỡng tăng</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">Tính năng</string>
-<string name="nav_tab_overview">Tổng quan</string>
-<string name="nav_tab_adjust">Điều chỉnh</string>
-<string name="nav_tab_support">Hỗ trợ</string>
-<string name="nav_tools_desc">Công cụ</string>
-<string name="nav_power_desc">Nguồn điện</string>
-<string name="nav_settings_desc">Cài đặt</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">Tính năng</string>
+    <string name="nav_tab_overview">Tổng quan</string>
+    <string name="nav_tab_adjust">Điều chỉnh</string>
+    <string name="nav_tab_support">Hỗ trợ</string>
+    <string name="nav_tools_desc">Công cụ</string>
+    <string name="nav_power_desc">Nguồn điện</string>
+    <string name="nav_settings_desc">Cài đặt</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">Công cụ nhanh</string>
-<string name="dialog_power_title">Menu nguồn</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">Công cụ nhanh</string>
+    <string name="dialog_power_title">Menu nguồn</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">Terminal Shell</string>
-<string name="tool_terminal_subtitle">Cửa sổ terminal bạn có thể gõ lệnh ở bất cứ đâu</string>
-<string name="tool_fps_title">Theo dõi FPS</string>
-<string name="tool_fps_subtitle">Lớp phủ tốc độ khung hình thời gian thực</string>
-<string name="tool_process_title">Theo dõi tiến trình</string>
-<string name="tool_process_subtitle">Hiển thị tiến trình theo dõi của bạn</string>
-<string name="tool_activity_title">Kiểm tra hoạt động</string>
-<string name="tool_activity_subtitle">Theo dõi gói và lớp hoạt động hiện tại</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">Terminal Shell</string>
+    <string name="tool_terminal_subtitle">Cửa sổ terminal bạn có thể gõ lệnh ở bất cứ đâu</string>
+    <string name="tool_fps_title">Theo dõi FPS</string>
+    <string name="tool_fps_subtitle">Lớp phủ tốc độ khung hình thời gian thực</string>
+    <string name="tool_process_title">Theo dõi tiến trình</string>
+    <string name="tool_process_subtitle">Hiển thị tiến trình theo dõi của bạn</string>
+    <string name="tool_activity_title">Kiểm tra hoạt động</string>
+    <string name="tool_activity_subtitle">Theo dõi gói và lớp hoạt động hiện tại</string>
 
-<!-- Common Actions -->
-<string name="action_done">Xong</string>
-<string name="action_cancel">Hủy</string>
-<string name="action_yes_do_it">Có, thực hiện</string>
-<string name="confirm_action_title">Xác nhận %s</string>
+    <!-- Common Actions -->
+    <string name="action_done">Xong</string>
+    <string name="action_cancel">Hủy</string>
+    <string name="action_yes_do_it">Có, thực hiện</string>
+    <string name="confirm_action_title">Xác nhận %%s</string>
 
 
 </resources>

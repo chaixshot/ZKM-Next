@@ -168,12 +168,12 @@
     <string name="fps_stat_min">ЕҢ ТӨМ FPS</string>
     <string name="fps_stat_avg">ОРТ FPS</string>
     <string name="fps_stat_var">ӨЗГ</string>
-    <string name="fps_stat_stable">ТҰРАҚ %</string>
+    <string name="fps_stat_stable">ТҰРАҚ %%</string>
     <string name="fps_stat_max_temp">ЕҢ ЖОҒ ТЕМП</string>
     <string name="fps_stat_avg_pwr">ОРТ ҚУАТ</string>
     <string name="fps_stat_ram">ЖЖҚ</string>
     <string name="fps_chart_fps_temp">FPS және Температура</string>
-    <string name="fps_chart_cpu">ЦП Жүктемесі (%)</string>
+    <string name="fps_chart_cpu">ЦП Жүктемесі (%%)</string>
     <string name="fps_export_csv">CSV ЭКСПОРТТАУ</string>
     <string name="fps_delete">ЖОЮ</string>
 
@@ -825,297 +825,297 @@
     <string name="auto_download">APK Автожүктеу</string>
     <string name="auto_download_desc">Автоматты түрде жүктеу және орнату</string>
     <string name="btn_manual_download">Браузерді Ашу</string>
-    
+
     <string name="lang_russian">Russian</string>
-<string name="lang_ukrainian">Ukrainian</string>
-<string name="lang_belarusian">Belarusian</string>
-<string name="lang_kazakh">Kazakh</string>
-<string name="lang_moldovan">Moldovan</string>
-<string name="lang_chinese_cn">Chinese (China)</string>
-<string name="lang_chinese_sg">Chinese (Singapore)</string>
-<string name="lang_chinese_tw">Chinese (Taiwan)</string>
-<string name="lang_chinese_hk">Chinese (Hong Kong)</string>
-<string name="lang_chinese_mo">Chinese (Macau)</string>
-<string name="lang_japanese">Japanese</string>
-<string name="lang_korean">Korean</string>
-<string name="lang_vietnamese">Vietnamese</string>
-<string name="lang_german">German</string>
-<string name="lang_french">French</string>
-<string name="lang_spanish">Spanish</string>
-<string name="lang_portuguese">Portuguese</string>
-<string name="lang_italian">Italian</string>
-<string name="lang_polish">Polish</string>
-<string name="lang_turkish">Turkish</string>
-<string name="lang_dutch">Dutch</string>
-    
-<string name="graphics_unit">Графикалық блок</string>
-<string name="graphics_processor">Графикалық процессор</string>
-<string name="processor_sets">Процессор жиындары (Cpuset)</string>
-<string name="core_control">Ядроларды басқару</string>
-<string name="cpu_governor">CPU реттеушісі</string>
-<string name="select_governor">Реттеушіні таңдау</string>
-<string name="min_freq">Мин. жиi.</string>
-<string name="max_freq">Макс. жиi.</string>
-<string name="min_frequency">Ең төмен жиілік</string>
-<string name="max_frequency">Ең жоғары жиілік</string>
-<string name="tab_performance">Өнімділік</string>
-<string name="tab_tuning">Реттеу</string>
-<string name="disable_cpu_title">CPU %1$d өшіру керек пе?</string>
-<string name="disable_cpu_warning">Бұл ядроны өшіру өнімділікті төмендетуі мүмкін. Жүйелік тапсырмаларды өңдеу үшін басқа ядролар белсенді екеніне көз жеткізіңіз.</string>
-<string name="btn_disable">Өшіру</string>
-<string name="select_active_cores">Белсенді ядроларды таңдаңыз:</string>
-<string name="cpu_core_id">CPU %1$d</string>
-<string name="freq_mhz_format">%1$s МГц</string>
-<string name="cluster_info_format">%1$s • %2$s-%3$s МГц</string>
-<string name="gpu_load_format">%1$s • Жүктеме %2$s%%</string>
-<string name="cores_count">Ядролар: %1$s</string>
-<string name="gpu_not_supported">GPU интерфейсі қолдамайды</string>
-<string name="not_available">Жоқ</string>
-<string name="no_options">Параметрлер жоқ</string>
-<string name="label_value">Мәні</string>
-<string name="zram_manager">ZRAM менеджері</string>
-<string name="zram_status">ZRAM күйі</string>
-<string name="disk_size_mb">Диск көлемі: %1$d МБ</string>
-<string name="zram_info_format">%1$d МБ • %2$s</string>
-<string name="compression_algorithm">Қысу алгоритмі</string>
-<string name="io_scheduler">I/O жоспарлаушысы</string>
-<string name="select_scheduler">Жоспарлаушыны таңдау</string>
-<string name="tunables">Параметрлер</string>
-<string name="virtual_memory">Виртуалды жад</string>
-<string name="swappiness">Swappiness</string>
-<string name="vfs_cache_pressure">VFS кэш қысымы</string>
-<string name="dirty_ratio">Dirty Ratio</string>
-<string name="dirty_bg_ratio">Dirty BG Ratio</string>
-<string name="no_storage_devices">Қолданылатын сақтау құрылғылары табылмады.</string>
-<string name="scheduler_format">Жоспарлаушы: %1$s</string>
-<string name="btn_set">Орнату</string>
-<string name="tcp_congestion">TCP қ congestиясын басқару</string>
-<string name="tcp_parameters">TCP параметрлері</string>
-<string name="syn_cookies">SYN cookie</string>
-<string name="enabled">Қосулы</string>
-<string name="disabled">Өшірілген</string>
-<string name="tcp_reuse">TCP қайта пайдалану</string>
-<string name="on">Қосу</string>
-<string name="off">Өшіру</string>
-<string name="fast_open">Жылдам ашу</string>
-<string name="tcp_sack">TCP SACK</string>
-<string name="ecn">ECN</string>
-<string name="kernel_log">Ядро журналы</string>
-<string name="printk">Printk</string>
-<string name="feature_toggles">Функция ауыстырғыштары</string>
-<string name="bore_scheduler">BORE жоспарлаушысы</string>
-<string name="auto_group">Авто топтау</string>
-<string name="child_runs_first">Бала процестер алдымен</string>
-<string name="sched_stats">Жоспарлаушы статистикасы</string>
-<string name="tunable_scaling">Параметр масштабтауы</string>
-<string name="cstate_aware">C-State хабардар</string>
-<string name="uclamp_configuration">UClamp конфигурациясы</string>
-<string name="uclamp_max">UClamp макс</string>
-<string name="uclamp_min">UClamp мин</string>
-<string name="advanced_parameters">Кеңейтілген параметрлер</string>
-<string name="current_value_format">Ағымдағы мән: %1$s</string>
-<string name="new_value">Жаңа мән</string>
-<string name="edit">Өңдеу</string>
+    <string name="lang_ukrainian">Ukrainian</string>
+    <string name="lang_belarusian">Belarusian</string>
+    <string name="lang_kazakh">Kazakh</string>
+    <string name="lang_moldovan">Moldovan</string>
+    <string name="lang_chinese_cn">Chinese (China)</string>
+    <string name="lang_chinese_sg">Chinese (Singapore)</string>
+    <string name="lang_chinese_tw">Chinese (Taiwan)</string>
+    <string name="lang_chinese_hk">Chinese (Hong Kong)</string>
+    <string name="lang_chinese_mo">Chinese (Macau)</string>
+    <string name="lang_japanese">Japanese</string>
+    <string name="lang_korean">Korean</string>
+    <string name="lang_vietnamese">Vietnamese</string>
+    <string name="lang_german">German</string>
+    <string name="lang_french">French</string>
+    <string name="lang_spanish">Spanish</string>
+    <string name="lang_portuguese">Portuguese</string>
+    <string name="lang_italian">Italian</string>
+    <string name="lang_polish">Polish</string>
+    <string name="lang_turkish">Turkish</string>
+    <string name="lang_dutch">Dutch</string>
 
-<!-- MTK Screen Main -->
-<string name="mtk_gpu_title">MediaTek GPU</string>
-<string name="mtk_gpu_subtitle">Dimensity/Mali баптау</string>
-<string name="mtk_tab_freq">Жиiл</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">Boost</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">Темп</string>
+    <string name="graphics_unit">Графикалық блок</string>
+    <string name="graphics_processor">Графикалық процессор</string>
+    <string name="processor_sets">Процессор жиындары (Cpuset)</string>
+    <string name="core_control">Ядроларды басқару</string>
+    <string name="cpu_governor">CPU реттеушісі</string>
+    <string name="select_governor">Реттеушіні таңдау</string>
+    <string name="min_freq">Мин. жиi.</string>
+    <string name="max_freq">Макс. жиi.</string>
+    <string name="min_frequency">Ең төмен жиілік</string>
+    <string name="max_frequency">Ең жоғары жиілік</string>
+    <string name="tab_performance">Өнімділік</string>
+    <string name="tab_tuning">Реттеу</string>
+    <string name="disable_cpu_title">CPU %1$d өшіру керек пе?</string>
+    <string name="disable_cpu_warning">Бұл ядроны өшіру өнімділікті төмендетуі мүмкін. Жүйелік тапсырмаларды өңдеу үшін басқа ядролар белсенді екеніне көз жеткізіңіз.</string>
+    <string name="btn_disable">Өшіру</string>
+    <string name="select_active_cores">Белсенді ядроларды таңдаңыз:</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s МГц</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s МГц</string>
+    <string name="gpu_load_format">%1$s • Жүктеме %2$s%%</string>
+    <string name="cores_count">Ядролар: %1$s</string>
+    <string name="gpu_not_supported">GPU интерфейсі қолдамайды</string>
+    <string name="not_available">Жоқ</string>
+    <string name="no_options">Параметрлер жоқ</string>
+    <string name="label_value">Мәні</string>
+    <string name="zram_manager">ZRAM менеджері</string>
+    <string name="zram_status">ZRAM күйі</string>
+    <string name="disk_size_mb">Диск көлемі: %1$d МБ</string>
+    <string name="zram_info_format">%1$d МБ • %2$s</string>
+    <string name="compression_algorithm">Қысу алгоритмі</string>
+    <string name="io_scheduler">I/O жоспарлаушысы</string>
+    <string name="select_scheduler">Жоспарлаушыны таңдау</string>
+    <string name="tunables">Параметрлер</string>
+    <string name="virtual_memory">Виртуалды жад</string>
+    <string name="swappiness">Swappiness</string>
+    <string name="vfs_cache_pressure">VFS кэш қысымы</string>
+    <string name="dirty_ratio">Dirty Ratio</string>
+    <string name="dirty_bg_ratio">Dirty BG Ratio</string>
+    <string name="no_storage_devices">Қолданылатын сақтау құрылғылары табылмады.</string>
+    <string name="scheduler_format">Жоспарлаушы: %1$s</string>
+    <string name="btn_set">Орнату</string>
+    <string name="tcp_congestion">TCP қ congestиясын басқару</string>
+    <string name="tcp_parameters">TCP параметрлері</string>
+    <string name="syn_cookies">SYN cookie</string>
+    <string name="enabled">Қосулы</string>
+    <string name="disabled">Өшірілген</string>
+    <string name="tcp_reuse">TCP қайта пайдалану</string>
+    <string name="on">Қосу</string>
+    <string name="off">Өшіру</string>
+    <string name="fast_open">Жылдам ашу</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">Ядро журналы</string>
+    <string name="printk">Printk</string>
+    <string name="feature_toggles">Функция ауыстырғыштары</string>
+    <string name="bore_scheduler">BORE жоспарлаушысы</string>
+    <string name="auto_group">Авто топтау</string>
+    <string name="child_runs_first">Бала процестер алдымен</string>
+    <string name="sched_stats">Жоспарлаушы статистикасы</string>
+    <string name="tunable_scaling">Параметр масштабтауы</string>
+    <string name="cstate_aware">C-State хабардар</string>
+    <string name="uclamp_configuration">UClamp конфигурациясы</string>
+    <string name="uclamp_max">UClamp макс</string>
+    <string name="uclamp_min">UClamp мин</string>
+    <string name="advanced_parameters">Кеңейтілген параметрлер</string>
+    <string name="current_value_format">Ағымдағы мән: %1$s</string>
+    <string name="new_value">Жаңа мән</string>
+    <string name="edit">Өңдеу</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS қосулы</string>
-<string name="mtk_dvfs_enabled_desc">GPU жиілігі динамикалық. DVFS-ті өшіру немесе статикалық басқару үшін жиілікті бұғаттау.</string>
-<string name="mtk_gpu_dvfs">GPU DVFS</string>
-<string name="mtk_dynamic_scaling_on">Динамикалық масштабтау ҚОСУЛЫ</string>
-<string name="mtk_static_frequency">Статикалық жиілік</string>
-<string name="mtk_dynamic">Динамикалық</string>
-<string name="mtk_freq_locked">Жиілік бұғатталған</string>
-<string name="mtk_current_frequency">Ағымдағы жиілік</string>
-<string name="mtk_lock_frequency">Жиілікті бұғаттау</string>
-<string name="mtk_select_opp_index">Бұғаттау үшін OPP индексін таңдаңыз</string>
-<string name="mtk_unlock_frequency">Жиілікті ашу</string>
-<string name="mtk_dvfs_limits">DVFS шектері</string>
-<string name="mtk_minimum_boost">Минимум (Boost)</string>
-<string name="mtk_maximum_limit">Максимум (Шектеу)</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">MediaTek GPU</string>
+    <string name="mtk_gpu_subtitle">Dimensity/Mali баптау</string>
+    <string name="mtk_tab_freq">Жиiл</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">Boost</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">Темп</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">DRAM басқару қолжетімсіз</string>
-<string name="mtk_dram_type">Түрі</string>
-<string name="mtk_dram_controller">DRAM контроллері</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq Generic</string>
-<string name="mtk_dram_fliper">Fliper Legacy</string>
-<string name="mtk_dram_unknown">Белгісіз</string>
-<string name="mtk_dram_current_step">Ағымдағы</string>
-<string name="mtk_dram_force_frequency">DRAM жиілігін мәжбүрлеу</string>
-<string name="mtk_dram_lock_opp">Нақты OPP-ға бұғаттау (DVFS жоқ)</string>
-<string name="mtk_dram_reset_dvfs">DVFS-ке қайтару</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS қосулы</string>
+    <string name="mtk_dvfs_enabled_desc">GPU жиілігі динамикалық. DVFS-ті өшіру немесе статикалық басқару үшін жиілікті бұғаттау.</string>
+    <string name="mtk_gpu_dvfs">GPU DVFS</string>
+    <string name="mtk_dynamic_scaling_on">Динамикалық масштабтау ҚОСУЛЫ</string>
+    <string name="mtk_static_frequency">Статикалық жиілік</string>
+    <string name="mtk_dynamic">Динамикалық</string>
+    <string name="mtk_freq_locked">Жиілік бұғатталған</string>
+    <string name="mtk_current_frequency">Ағымдағы жиілік</string>
+    <string name="mtk_lock_frequency">Жиілікті бұғаттау</string>
+    <string name="mtk_select_opp_index">Бұғаттау үшін OPP индексін таңдаңыз</string>
+    <string name="mtk_unlock_frequency">Жиілікті ашу</string>
+    <string name="mtk_dvfs_limits">DVFS шектері</string>
+    <string name="mtk_minimum_boost">Минимум (Boost)</string>
+    <string name="mtk_maximum_limit">Максимум (Шектеу)</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">Ойын және өнімділік</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">Тегіс ойын үшін кадрды үдету</string>
-<string name="mtk_ged_game_mode_title">GED Game Mode</string>
-<string name="mtk_ged_game_mode_subtitle">Ойындар үшін GPU губернаторын оңтайландыру</string>
-<string name="mtk_touch_boost_title">Touch Boost</string>
-<string name="mtk_touch_boost_subtitle">Сенсорлық енгізуде CPU үдету</string>
-<string name="mtk_sched_boost_title">Scheduler Boost</string>
-<string name="mtk_sched_boost_subtitle">Алдыңғы қосымшалар үшін приоритет үдету</string>
-<string name="mtk_gaming_mode_preset">Ойын режимі пресеті</string>
-<string name="mtk_gaming_mode_desc">Барлық үдетуді лезде қосу</string>
-<string name="mtk_activate_gaming_mode">Ойын режимін белсендіру</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">DRAM басқару қолжетімсіз</string>
+    <string name="mtk_dram_type">Түрі</string>
+    <string name="mtk_dram_controller">DRAM контроллері</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq Generic</string>
+    <string name="mtk_dram_fliper">Fliper Legacy</string>
+    <string name="mtk_dram_unknown">Белгісіз</string>
+    <string name="mtk_dram_current_step">Ағымдағы</string>
+    <string name="mtk_dram_force_frequency">DRAM жиілігін мәжбүрлеу</string>
+    <string name="mtk_dram_lock_opp">Нақты OPP-ға бұғаттау (DVFS жоқ)</string>
+    <string name="mtk_dram_reset_dvfs">DVFS-ке қайтару</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM қолжетімсіз</string>
-<string name="mtk_ppm_not_found">/proc/ppm табылмады</string>
-<string name="mtk_ppm_controller">PPM контроллері</string>
-<string name="mtk_ppm_active">Белсенді</string>
-<string name="mtk_ppm_disabled">Өшірілген</string>
-<string name="mtk_active_policies">Белсенді саясаттар</string>
-<string name="mtk_policy_hash">Саясат #</string>
-<string name="mtk_ppm_no_policies">PPM қосулы, бірақ саясаттар табылмады. Бұл ядро шектеуі болуы мүмкін.</string>
-<string name="mtk_about_ppm">PPM туралы</string>
-<string name="mtk_ppm_description">Performance Power Management CPU/GPU энергиясын бөлуді басқарады. \'Thermal\' саясатын өшіру қызуы мүмкін, бірақ өнімділікті арттырады.</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">Ойын және өнімділік</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">Тегіс ойын үшін кадрды үдету</string>
+    <string name="mtk_ged_game_mode_title">GED Game Mode</string>
+    <string name="mtk_ged_game_mode_subtitle">Ойындар үшін GPU губернаторын оңтайландыру</string>
+    <string name="mtk_touch_boost_title">Touch Boost</string>
+    <string name="mtk_touch_boost_subtitle">Сенсорлық енгізуде CPU үдету</string>
+    <string name="mtk_sched_boost_title">Scheduler Boost</string>
+    <string name="mtk_sched_boost_subtitle">Алдыңғы қосымшалар үшін приоритет үдету</string>
+    <string name="mtk_gaming_mode_preset">Ойын режимі пресеті</string>
+    <string name="mtk_gaming_mode_desc">Барлық үдетуді лезде қосу</string>
+    <string name="mtk_activate_gaming_mode">Ойын режимін белсендіру</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc қолжетімсіз</string>
-<string name="mtk_cci_interconnect">CCI Interconnect</string>
-<string name="mtk_cache_coherent">Кэш-үйлесімді интерконнект</string>
-<string name="mtk_big_little_desc">big.LITTLE кластерлік өзара әрекеттесуді басқару</string>
-<string name="mtk_normal">Қалыпты</string>
-<string name="mtk_performance">Өнімділік</string>
-<string name="mtk_low_power">Төмен қуат</string>
-<string name="mtk_balance">Теңгерім</string>
-<string name="mtk_cpu_power_mode">CPU қуат режимі</string>
-<string name="mtk_current_mode">Ағымдағы</string>
-<string name="mtk_voltage_offset">Кернеу ығысу (EEM)</string>
-<string name="mtk_eem_unit">6.25мВ/бірлік</string>
-<string name="mtk_offset_value">Ығысу мәнін</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM қолжетімсіз</string>
+    <string name="mtk_ppm_not_found">/proc/ppm табылмады</string>
+    <string name="mtk_ppm_controller">PPM контроллері</string>
+    <string name="mtk_ppm_active">Белсенді</string>
+    <string name="mtk_ppm_disabled">Өшірілген</string>
+    <string name="mtk_active_policies">Белсенді саясаттар</string>
+    <string name="mtk_policy_hash">Саясат #</string>
+    <string name="mtk_ppm_no_policies">PPM қосулы, бірақ саясаттар табылмады. Бұл ядро шектеуі болуы мүмкін.</string>
+    <string name="mtk_about_ppm">PPM туралы</string>
+    <string name="mtk_ppm_description">Performance Power Management CPU/GPU энергиясын бөлуді басқарады. \'Thermal\' саясатын өшіру қызуы мүмкін, бірақ өнімділікті арттырады.</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">ТЕРМАЛДЫҚ ТРОТТЛИНГ</string>
-<string name="mtk_temp_limit_exceeded">Температура шегі асып кетті</string>
-<string name="mtk_normal_temp">Қалыпты температура</string>
-<string name="mtk_eara_thermal">EARA Thermal</string>
-<string name="mtk_early_adaptation">Ерте бейімделу ресурстарын бөлу</string>
-<string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
-<string name="mtk_fake_temp_desc">Ядроға жалған температура туралы хабарлау</string>
-<string name="mtk_throttling_desc">Құрылғы троттлинг жасап жатыр. Қызуын болдырмау үшін өнімділік төмендетілді.</string>
-<string name="mtk_thermal_daemon_info">MTK термалық басқару ядро термалық демоны арқылы жүзеге асырылады. On-die сенсорлардан (tsens) оқу.</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc қолжетімсіз</string>
+    <string name="mtk_cci_interconnect">CCI Interconnect</string>
+    <string name="mtk_cache_coherent">Кэш-үйлесімді интерконнект</string>
+    <string name="mtk_big_little_desc">big.LITTLE кластерлік өзара әрекеттесуді басқару</string>
+    <string name="mtk_normal">Қалыпты</string>
+    <string name="mtk_performance">Өнімділік</string>
+    <string name="mtk_low_power">Төмен қуат</string>
+    <string name="mtk_balance">Теңгерім</string>
+    <string name="mtk_cpu_power_mode">CPU қуат режимі</string>
+    <string name="mtk_current_mode">Ағымдағы</string>
+    <string name="mtk_voltage_offset">Кернеу ығысу (EEM)</string>
+    <string name="mtk_eem_unit">6.25мВ/бірлік</string>
+    <string name="mtk_offset_value">Ығысу мәнін</string>
 
-<!-- Common Actions -->
-<string name="action_back">Артқа</string>
-<string name="action_refresh">Жаңарту</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">ТЕРМАЛДЫҚ ТРОТТЛИНГ</string>
+    <string name="mtk_temp_limit_exceeded">Температура шегі асып кетті</string>
+    <string name="mtk_normal_temp">Қалыпты температура</string>
+    <string name="mtk_eara_thermal">EARA Thermal</string>
+    <string name="mtk_early_adaptation">Ерте бейімделу ресурстарын бөлу</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">Ядроға жалған температура туралы хабарлау</string>
+    <string name="mtk_throttling_desc">Құрылғы троттлинг жасап жатыр. Қызуын болдырмау үшін өнімділік төмендетілді.</string>
+    <string name="mtk_thermal_daemon_info">MTK термалық басқару ядро термалық демоны арқылы жүзеге асырылады. On-die сенсорлардан (tsens) оқу.</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">Adreno GPU</string>
-<string name="adreno_gpu_subtitle">Өнімділік және баптау</string>
-<string name="adreno_tab_freq">Жиiл</string>
-<string name="adreno_tab_power">Қуат</string>
-<string name="adreno_tab_bus">Bus</string>
-<string name="adreno_tab_thermal">Темп</string>
-<string name="adreno_tab_advanced">Adv</string>
+    <!-- Common Actions -->
+    <string name="action_back">Артқа</string>
+    <string name="action_refresh">Жаңарту</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">Ағымдағы жиілік</string>
-<string name="adreno_freq_limits">Жиілік шектері</string>
-<string name="adreno_minimum">Минимум</string>
-<string name="adreno_maximum">Максимум</string>
-<string name="adreno_governor">Governor</string>
-<string name="adreno_current">Ағымдағы</string>
-<string name="adreno_change">Өзгерту</string>
-<string name="adreno_frequency">Жиілік</string>
-<string name="adreno_cancel">Бас тарту</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">Adreno GPU</string>
+    <string name="adreno_gpu_subtitle">Өнімділік және баптау</string>
+    <string name="adreno_tab_freq">Жиiл</string>
+    <string name="adreno_tab_power">Қуат</string>
+    <string name="adreno_tab_bus">Bus</string>
+    <string name="adreno_tab_thermal">Темп</string>
+    <string name="adreno_tab_advanced">Adv</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">GPU Throttling</string>
-<string name="adreno_performance_limited">Өнімділік шектеулі</string>
-<string name="adreno_full_performance">Толық өнімділік</string>
-<string name="adreno_adreno_boost">Adreno Boost</string>
-<string name="adreno_level">Деңгей</string>
-<string name="adreno_off">Өшіру</string>
-<string name="adreno_low">Төмен</string>
-<string name="adreno_med">Орт</string>
-<string name="adreno_high">Жоғары</string>
-<string name="adreno_boost_desc">Жоғары boost деңгейлері өнімділікті арттырады, бірақ батареяны көп тұтынады және көп жылу шығарады.</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">Ағымдағы жиілік</string>
+    <string name="adreno_freq_limits">Жиілік шектері</string>
+    <string name="adreno_minimum">Минимум</string>
+    <string name="adreno_maximum">Максимум</string>
+    <string name="adreno_governor">Governor</string>
+    <string name="adreno_current">Ағымдағы</string>
+    <string name="adreno_change">Өзгерту</string>
+    <string name="adreno_frequency">Жиілік</string>
+    <string name="adreno_cancel">Бас тарту</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">Bus компоненттері</string>
-<string name="adreno_no_bus_controls">Bus басқару жоқ</string>
-<string name="adreno_no_bus_desc">Бұл құрылғыда бапталатын bus компоненттері жоқ</string>
-<string name="adreno_min_freq">Мин жиілік</string>
-<string name="adreno_max_freq">Макс жиілік</string>
-<string name="adreno_min">МИН</string>
-<string name="adreno_max">МАКС</string>
-<string name="adreno_edit">Өңдеу</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">GPU Throttling</string>
+    <string name="adreno_performance_limited">Өнімділік шектеулі</string>
+    <string name="adreno_full_performance">Толық өнімділік</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">Деңгей</string>
+    <string name="adreno_off">Өшіру</string>
+    <string name="adreno_low">Төмен</string>
+    <string name="adreno_med">Орт</string>
+    <string name="adreno_high">Жоғары</string>
+    <string name="adreno_boost_desc">Жоғары boost деңгейлері өнімділікті арттырады, бірақ батареяны көп тұтынады және көп жылу шығарады.</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">ТЕРМАЛДЫҚ THROTTLING</string>
-<string name="adreno_gpu_temp">GPU температурасы</string>
-<string name="adreno_thermal_zones">Термалдық аймақтар</string>
-<string name="adreno_cooling_devices">Салқындату құрылғылары</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">Bus компоненттері</string>
+    <string name="adreno_no_bus_controls">Bus басқару жоқ</string>
+    <string name="adreno_no_bus_desc">Бұл құрылғыда бапталатын bus компоненттері жоқ</string>
+    <string name="adreno_min_freq">Мин жиілік</string>
+    <string name="adreno_max_freq">Макс жиілік</string>
+    <string name="adreno_min">МИН</string>
+    <string name="adreno_max">МАКС</string>
+    <string name="adreno_edit">Өңдеу</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL Кеңейтілген</string>
-<string name="adreno_force_no_nap">No NAP мәжбүрлеу</string>
-<string name="adreno_no_nap_desc">GPU ұйқыдан тұруын болдырмау</string>
-<string name="adreno_force_clk_on">CLK On мәжбүрлеу</string>
-<string name="adreno_clk_on_desc">Сағатты әрқашан қосулы ұстау</string>
-<string name="adreno_force_bus_on">Bus On мәжбүрлеу</string>
-<string name="adreno_bus_on_desc">Bus әрқашан белсенді ұстау</string>
-<string name="adreno_bus_split">Bus Split</string>
-<string name="adreno_bus_split_desc">Bus бөлінісін қосу</string>
-<string name="adreno_throttling">Throttling</string>
-<string name="adreno_throttling_desc">Термалдық throttling қосу</string>
-<string name="adreno_power_levels">Қуат деңгейлері</string>
-<string name="adreno_default">Әдепкі</string>
-<string name="adreno_thermal">Термалдық</string>
-<string name="adreno_save">Сақтау</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Idler қосу</string>
-<string name="adreno_idler_desc">Бос кезде энергия тұтынуын азайту</string>
-<string name="adreno_idle_wait">Бос күту</string>
-<string name="adreno_down_differential">Down Differential</string>
-<string name="adreno_workload_threshold">Жүктеме шегі</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Simple GPU қосу</string>
-<string name="adreno_simple_gpu_desc">GPU governor баламалы алгоритмі</string>
-<string name="adreno_laziness">Жалқаулық</string>
-<string name="adreno_ramp_threshold">Ramp шегі</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">ТЕРМАЛДЫҚ THROTTLING</string>
+    <string name="adreno_gpu_temp">GPU температурасы</string>
+    <string name="adreno_thermal_zones">Термалдық аймақтар</string>
+    <string name="adreno_cooling_devices">Салқындату құрылғылары</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">Функция</string>
-<string name="nav_tab_overview">Шолу</string>
-<string name="nav_tab_adjust">Баптау</string>
-<string name="nav_tab_support">Қолдау</string>
-<string name="nav_tools_desc">Құралдар</string>
-<string name="nav_power_desc">Қуат</string>
-<string name="nav_settings_desc">Параметрлер</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL Кеңейтілген</string>
+    <string name="adreno_force_no_nap">No NAP мәжбүрлеу</string>
+    <string name="adreno_no_nap_desc">GPU ұйқыдан тұруын болдырмау</string>
+    <string name="adreno_force_clk_on">CLK On мәжбүрлеу</string>
+    <string name="adreno_clk_on_desc">Сағатты әрқашан қосулы ұстау</string>
+    <string name="adreno_force_bus_on">Bus On мәжбүрлеу</string>
+    <string name="adreno_bus_on_desc">Bus әрқашан белсенді ұстау</string>
+    <string name="adreno_bus_split">Bus Split</string>
+    <string name="adreno_bus_split_desc">Bus бөлінісін қосу</string>
+    <string name="adreno_throttling">Throttling</string>
+    <string name="adreno_throttling_desc">Термалдық throttling қосу</string>
+    <string name="adreno_power_levels">Қуат деңгейлері</string>
+    <string name="adreno_default">Әдепкі</string>
+    <string name="adreno_thermal">Термалдық</string>
+    <string name="adreno_save">Сақтау</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Idler қосу</string>
+    <string name="adreno_idler_desc">Бос кезде энергия тұтынуын азайту</string>
+    <string name="adreno_idle_wait">Бос күту</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">Жүктеме шегі</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Simple GPU қосу</string>
+    <string name="adreno_simple_gpu_desc">GPU governor баламалы алгоритмі</string>
+    <string name="adreno_laziness">Жалқаулық</string>
+    <string name="adreno_ramp_threshold">Ramp шегі</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">Жылдам құралдар</string>
-<string name="dialog_power_title">Қуат мәзірі</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">Функция</string>
+    <string name="nav_tab_overview">Шолу</string>
+    <string name="nav_tab_adjust">Баптау</string>
+    <string name="nav_tab_support">Қолдау</string>
+    <string name="nav_tools_desc">Құралдар</string>
+    <string name="nav_power_desc">Қуат</string>
+    <string name="nav_settings_desc">Параметрлер</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">Терминал</string>
-<string name="tool_terminal_subtitle">Кез келген жерде теруге болатын терезе</string>
-<string name="tool_fps_title">FPS мониторы</string>
-<string name="tool_fps_subtitle">Нақты уақыттағы кадр жиілігі оверлейі</string>
-<string name="tool_process_title">Процесс мониторы</string>
-<string name="tool_process_subtitle">Монитор процесін көрсету</string>
-<string name="tool_activity_title">Әрекет инспекторы</string>
-<string name="tool_activity_subtitle">Ағымдағы үздік қызмет пакеті мен класын бақылау</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">Жылдам құралдар</string>
+    <string name="dialog_power_title">Қуат мәзірі</string>
 
-<!-- Common Actions -->
-<string name="action_done">Дайын</string>
-<string name="action_cancel">Бас тарту</string>
-<string name="action_yes_do_it">Иә, жасау</string>
-<string name="confirm_action_title">%s растау</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">Терминал</string>
+    <string name="tool_terminal_subtitle">Кез келген жерде теруге болатын терезе</string>
+    <string name="tool_fps_title">FPS мониторы</string>
+    <string name="tool_fps_subtitle">Нақты уақыттағы кадр жиілігі оверлейі</string>
+    <string name="tool_process_title">Процесс мониторы</string>
+    <string name="tool_process_subtitle">Монитор процесін көрсету</string>
+    <string name="tool_activity_title">Әрекет инспекторы</string>
+    <string name="tool_activity_subtitle">Ағымдағы үздік қызмет пакеті мен класын бақылау</string>
+
+    <!-- Common Actions -->
+    <string name="action_done">Дайын</string>
+    <string name="action_cancel">Бас тарту</string>
+    <string name="action_yes_do_it">Иә, жасау</string>
+    <string name="confirm_action_title">%s растау</string>
 
 
 </resources>

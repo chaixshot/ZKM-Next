@@ -168,12 +168,12 @@
     <string name="fps_stat_min">МИН FPS</string>
     <string name="fps_stat_avg">СРД FPS</string>
     <string name="fps_stat_var">ИЗМ</string>
-    <string name="fps_stat_stable">СТАБ %</string>
+    <string name="fps_stat_stable">СТАБ %%</string>
     <string name="fps_stat_max_temp">МАКС ТЕМП</string>
     <string name="fps_stat_avg_pwr">СРД МОЩН</string>
     <string name="fps_stat_ram">ОЗУ</string>
     <string name="fps_chart_fps_temp">FPS и Температура</string>
-    <string name="fps_chart_cpu">Нагрузка ЦПУ (%)</string>
+    <string name="fps_chart_cpu">Нагрузка ЦПУ (%%)</string>
     <string name="fps_export_csv">ЭКСПОРТ CSV</string>
     <string name="fps_delete">УДАЛИТЬ</string>
 
@@ -755,7 +755,7 @@
     <string name="card_style_media">Медиа</string>
     <string name="card_style_outlined">Контур</string>
     <string name="ksuweb_status_active">Активен</string>
-    <string name="ksuweb_by_author">От %s</string>
+    <string name="ksuweb_by_author">От %%s</string>
     <string name="ksuweb_version_prefix">v%s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">ДЕЙСТВИЕ</string>
@@ -796,7 +796,7 @@
     <string name="power_recovery_warning">Устройство перезагрузится в режим Recovery (TWRP/OrangeFox).</string>
     <string name="power_fastboot_warning">Устройство перезагрузится в режим Fastboot/Bootloader.</string>
     <string name="power_restart_ui_warning">Пользовательский интерфейс перезапустится. Это может занять несколько секунд.</string>
-    <string name="confirm_action">Подтвердить %s</string>
+    <string name="confirm_action">Подтвердить %%s</string>
     <string name="btn_confirm_yes">Да, сделать это</string>
 
     <string name="about_section_developer">О разработчике</string>
@@ -818,35 +818,35 @@
     <string name="intro_btn_decline">Отклонить и выйти</string>
     <string name="intro_footer_legal">Нажимая \'Согласен\', вы принимаете риски и политику конфиденциальности.</string>
 
-    <string name="update_title">Обновление до версии %s</string>
+    <string name="update_title">Обновление до версии %%s</string>
     <string name="update_changelog_title">Что нового</string>
     <string name="btn_update">Обновить</string>
     <string name="downloading_update">Загрузка обновления…</string>
     <string name="auto_download">Автозагрузка APK</string>
     <string name="auto_download_desc">Загружать и устанавливать автоматически</string>
     <string name="btn_manual_download">Открыть браузер</string>
-    
+
     <string name="lang_russian">Russian</string>
-<string name="lang_ukrainian">Ukrainian</string>
-<string name="lang_belarusian">Belarusian</string>
-<string name="lang_kazakh">Kazakh</string>
-<string name="lang_moldovan">Moldovan</string>
-<string name="lang_chinese_cn">Chinese (China)</string>
-<string name="lang_chinese_sg">Chinese (Singapore)</string>
-<string name="lang_chinese_tw">Chinese (Taiwan)</string>
-<string name="lang_chinese_hk">Chinese (Hong Kong)</string>
-<string name="lang_chinese_mo">Chinese (Macau)</string>
-<string name="lang_japanese">Japanese</string>
-<string name="lang_korean">Korean</string>
-<string name="lang_vietnamese">Vietnamese</string>
-<string name="lang_german">German</string>
-<string name="lang_french">French</string>
-<string name="lang_spanish">Spanish</string>
-<string name="lang_portuguese">Portuguese</string>
-<string name="lang_italian">Italian</string>
-<string name="lang_polish">Polish</string>
-<string name="lang_turkish">Turkish</string>
-<string name="lang_dutch">Dutch</string>
+    <string name="lang_ukrainian">Ukrainian</string>
+    <string name="lang_belarusian">Belarusian</string>
+    <string name="lang_kazakh">Kazakh</string>
+    <string name="lang_moldovan">Moldovan</string>
+    <string name="lang_chinese_cn">Chinese (China)</string>
+    <string name="lang_chinese_sg">Chinese (Singapore)</string>
+    <string name="lang_chinese_tw">Chinese (Taiwan)</string>
+    <string name="lang_chinese_hk">Chinese (Hong Kong)</string>
+    <string name="lang_chinese_mo">Chinese (Macau)</string>
+    <string name="lang_japanese">Japanese</string>
+    <string name="lang_korean">Korean</string>
+    <string name="lang_vietnamese">Vietnamese</string>
+    <string name="lang_german">German</string>
+    <string name="lang_french">French</string>
+    <string name="lang_spanish">Spanish</string>
+    <string name="lang_portuguese">Portuguese</string>
+    <string name="lang_italian">Italian</string>
+    <string name="lang_polish">Polish</string>
+    <string name="lang_turkish">Turkish</string>
+    <string name="lang_dutch">Dutch</string>
 
 
     <!-- CPU/GPU SCREEN STRINGS -->
@@ -925,205 +925,205 @@
     <string name="new_value">Новое значение</string>
     <string name="edit">Изменить</string>
 
-  <!-- MTK Screen Main -->
-<string name="mtk_gpu_title">GPU MediaTek</string>
-<string name="mtk_gpu_subtitle">Настройка Dimensity/Mali</string>
-<string name="mtk_tab_freq">Част</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">Буст</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">Терм</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">GPU MediaTek</string>
+    <string name="mtk_gpu_subtitle">Настройка Dimensity/Mali</string>
+    <string name="mtk_tab_freq">Част</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">Буст</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">Терм</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS включен</string>
-<string name="mtk_dvfs_enabled_desc">Частота GPU динамическая. Отключите DVFS или заблокируйте частоту для статического управления.</string>
-<string name="mtk_gpu_dvfs">DVFS GPU</string>
-<string name="mtk_dynamic_scaling_on">Динамическое масштабирование ВКЛ</string>
-<string name="mtk_static_frequency">Статическая частота</string>
-<string name="mtk_dynamic">Динамический</string>
-<string name="mtk_freq_locked">Частота заблокирована</string>
-<string name="mtk_current_frequency">Текущая частота</string>
-<string name="mtk_lock_frequency">Заблокировать частоту</string>
-<string name="mtk_select_opp_index">Выберите индекс OPP для блокировки</string>
-<string name="mtk_unlock_frequency">Разблокировать частоту</string>
-<string name="mtk_dvfs_limits">Лимиты DVFS</string>
-<string name="mtk_minimum_boost">Минимум (Буст)</string>
-<string name="mtk_maximum_limit">Максимум (Лимит)</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS включен</string>
+    <string name="mtk_dvfs_enabled_desc">Частота GPU динамическая. Отключите DVFS или заблокируйте частоту для статического управления.</string>
+    <string name="mtk_gpu_dvfs">DVFS GPU</string>
+    <string name="mtk_dynamic_scaling_on">Динамическое масштабирование ВКЛ</string>
+    <string name="mtk_static_frequency">Статическая частота</string>
+    <string name="mtk_dynamic">Динамический</string>
+    <string name="mtk_freq_locked">Частота заблокирована</string>
+    <string name="mtk_current_frequency">Текущая частота</string>
+    <string name="mtk_lock_frequency">Заблокировать частоту</string>
+    <string name="mtk_select_opp_index">Выберите индекс OPP для блокировки</string>
+    <string name="mtk_unlock_frequency">Разблокировать частоту</string>
+    <string name="mtk_dvfs_limits">Лимиты DVFS</string>
+    <string name="mtk_minimum_boost">Минимум (Буст)</string>
+    <string name="mtk_maximum_limit">Максимум (Лимит)</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">Управление DRAM недоступно</string>
-<string name="mtk_dram_type">Тип</string>
-<string name="mtk_dram_controller">Контроллер DRAM</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq Generic</string>
-<string name="mtk_dram_fliper">Fliper Legacy</string>
-<string name="mtk_dram_unknown">Неизвестно</string>
-<string name="mtk_dram_current_step">Текущий</string>
-<string name="mtk_dram_force_frequency">Принудительная частота DRAM</string>
-<string name="mtk_dram_lock_opp">Блокировка на OPP (без DVFS)</string>
-<string name="mtk_dram_reset_dvfs">Сброс к DVFS</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">Управление DRAM недоступно</string>
+    <string name="mtk_dram_type">Тип</string>
+    <string name="mtk_dram_controller">Контроллер DRAM</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq Generic</string>
+    <string name="mtk_dram_fliper">Fliper Legacy</string>
+    <string name="mtk_dram_unknown">Неизвестно</string>
+    <string name="mtk_dram_current_step">Текущий</string>
+    <string name="mtk_dram_force_frequency">Принудительная частота DRAM</string>
+    <string name="mtk_dram_lock_opp">Блокировка на OPP (без DVFS)</string>
+    <string name="mtk_dram_reset_dvfs">Сброс к DVFS</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">Игры и производительность</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">Ускорение кадров для плавной игры</string>
-<string name="mtk_ged_game_mode_title">Режим GED Game</string>
-<string name="mtk_ged_game_mode_subtitle">Оптимизация губернатора GPU для игр</string>
-<string name="mtk_touch_boost_title">Touch Boost</string>
-<string name="mtk_touch_boost_subtitle">Ускорение CPU при касании</string>
-<string name="mtk_sched_boost_title">Scheduler Boost</string>
-<string name="mtk_sched_boost_subtitle">Приоритет для активных приложений</string>
-<string name="mtk_gaming_mode_preset">Пресет игрового режима</string>
-<string name="mtk_gaming_mode_desc">Включить все ускорения мгновенно</string>
-<string name="mtk_activate_gaming_mode">Активировать игровой режим</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">Игры и производительность</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">Ускорение кадров для плавной игры</string>
+    <string name="mtk_ged_game_mode_title">Режим GED Game</string>
+    <string name="mtk_ged_game_mode_subtitle">Оптимизация губернатора GPU для игр</string>
+    <string name="mtk_touch_boost_title">Touch Boost</string>
+    <string name="mtk_touch_boost_subtitle">Ускорение CPU при касании</string>
+    <string name="mtk_sched_boost_title">Scheduler Boost</string>
+    <string name="mtk_sched_boost_subtitle">Приоритет для активных приложений</string>
+    <string name="mtk_gaming_mode_preset">Пресет игрового режима</string>
+    <string name="mtk_gaming_mode_desc">Включить все ускорения мгновенно</string>
+    <string name="mtk_activate_gaming_mode">Активировать игровой режим</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM недоступен</string>
-<string name="mtk_ppm_not_found">/proc/ppm не найден</string>
-<string name="mtk_ppm_controller">Контроллер PPM</string>
-<string name="mtk_ppm_active">Активен</string>
-<string name="mtk_ppm_disabled">Отключен</string>
-<string name="mtk_active_policies">Активные политики</string>
-<string name="mtk_policy_hash">Политика #</string>
-<string name="mtk_ppm_no_policies">PPM включен, но политики не обнаружены. Возможно ограничение ядра.</string>
-<string name="mtk_about_ppm">О PPM</string>
-<string name="mtk_ppm_description">Performance Power Management контролирует распределение энергии CPU/GPU. Отключение политики \'Thermal\' может вызвать перегрев, но улучшит производительность.</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM недоступен</string>
+    <string name="mtk_ppm_not_found">/proc/ppm не найден</string>
+    <string name="mtk_ppm_controller">Контроллер PPM</string>
+    <string name="mtk_ppm_active">Активен</string>
+    <string name="mtk_ppm_disabled">Отключен</string>
+    <string name="mtk_active_policies">Активные политики</string>
+    <string name="mtk_policy_hash">Политика #</string>
+    <string name="mtk_ppm_no_policies">PPM включен, но политики не обнаружены. Возможно ограничение ядра.</string>
+    <string name="mtk_about_ppm">О PPM</string>
+    <string name="mtk_ppm_description">Performance Power Management контролирует распределение энергии CPU/GPU. Отключение политики \'Thermal\' может вызвать перегрев, но улучшит производительность.</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc недоступно</string>
-<string name="mtk_cci_interconnect">CCI Interconnect</string>
-<string name="mtk_cache_coherent">Когерентное кэш-соединение</string>
-<string name="mtk_big_little_desc">Управление взаимодействием кластеров big.LITTLE</string>
-<string name="mtk_normal">Нормальный</string>
-<string name="mtk_performance">Производительность</string>
-<string name="mtk_low_power">Низкое энергопотребление</string>
-<string name="mtk_balance">Баланс</string>
-<string name="mtk_cpu_power_mode">Режим питания CPU</string>
-<string name="mtk_current_mode">Текущий</string>
-<string name="mtk_voltage_offset">Смещение напряжения (EEM)</string>
-<string name="mtk_eem_unit">6.25мВ/ед</string>
-<string name="mtk_offset_value">Значение смещения</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc недоступно</string>
+    <string name="mtk_cci_interconnect">CCI Interconnect</string>
+    <string name="mtk_cache_coherent">Когерентное кэш-соединение</string>
+    <string name="mtk_big_little_desc">Управление взаимодействием кластеров big.LITTLE</string>
+    <string name="mtk_normal">Нормальный</string>
+    <string name="mtk_performance">Производительность</string>
+    <string name="mtk_low_power">Низкое энергопотребление</string>
+    <string name="mtk_balance">Баланс</string>
+    <string name="mtk_cpu_power_mode">Режим питания CPU</string>
+    <string name="mtk_current_mode">Текущий</string>
+    <string name="mtk_voltage_offset">Смещение напряжения (EEM)</string>
+    <string name="mtk_eem_unit">6.25мВ/ед</string>
+    <string name="mtk_offset_value">Значение смещения</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">ТЕРМАЛЬНОЕ ТРОТТЛИНГ</string>
-<string name="mtk_temp_limit_exceeded">Превышен температурный лимит</string>
-<string name="mtk_normal_temp">Нормальная температура</string>
-<string name="mtk_eara_thermal">EARA Thermal</string>
-<string name="mtk_early_adaptation">Раннее распределение ресурсов</string>
-<string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
-<string name="mtk_fake_temp_desc">Поддельная температура для ядра</string>
-<string name="mtk_throttling_desc">Устройство троттлит. Производительность снижена для предотвращения перегрева.</string>
-<string name="mtk_thermal_daemon_info">Управление температурой MTK осуществляется демоном ядра. Данные сенсоров on-die (tsens).</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">ТЕРМАЛЬНОЕ ТРОТТЛИНГ</string>
+    <string name="mtk_temp_limit_exceeded">Превышен температурный лимит</string>
+    <string name="mtk_normal_temp">Нормальная температура</string>
+    <string name="mtk_eara_thermal">EARA Thermal</string>
+    <string name="mtk_early_adaptation">Раннее распределение ресурсов</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">Поддельная температура для ядра</string>
+    <string name="mtk_throttling_desc">Устройство троттлит. Производительность снижена для предотвращения перегрева.</string>
+    <string name="mtk_thermal_daemon_info">Управление температурой MTK осуществляется демоном ядра. Данные сенсоров on-die (tsens).</string>
 
-<!-- Common Actions -->
-<string name="action_back">Назад</string>
-<string name="action_refresh">Обновить</string>
+    <!-- Common Actions -->
+    <string name="action_back">Назад</string>
+    <string name="action_refresh">Обновить</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">GPU Adreno</string>
-<string name="adreno_gpu_subtitle">Производительность и настройка</string>
-<string name="adreno_tab_freq">Част</string>
-<string name="adreno_tab_power">Питание</string>
-<string name="adreno_tab_bus">Шина</string>
-<string name="adreno_tab_thermal">Терм</string>
-<string name="adreno_tab_advanced">Adv</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">GPU Adreno</string>
+    <string name="adreno_gpu_subtitle">Производительность и настройка</string>
+    <string name="adreno_tab_freq">Част</string>
+    <string name="adreno_tab_power">Питание</string>
+    <string name="adreno_tab_bus">Шина</string>
+    <string name="adreno_tab_thermal">Терм</string>
+    <string name="adreno_tab_advanced">Adv</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">Текущая частота</string>
-<string name="adreno_freq_limits">Лимиты частоты</string>
-<string name="adreno_minimum">Минимум</string>
-<string name="adreno_maximum">Максимум</string>
-<string name="adreno_governor">Губернатор</string>
-<string name="adreno_current">Текущий</string>
-<string name="adreno_change">Изменить</string>
-<string name="adreno_frequency">Частота</string>
-<string name="adreno_cancel">Отмена</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">Текущая частота</string>
+    <string name="adreno_freq_limits">Лимиты частоты</string>
+    <string name="adreno_minimum">Минимум</string>
+    <string name="adreno_maximum">Максимум</string>
+    <string name="adreno_governor">Губернатор</string>
+    <string name="adreno_current">Текущий</string>
+    <string name="adreno_change">Изменить</string>
+    <string name="adreno_frequency">Частота</string>
+    <string name="adreno_cancel">Отмена</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">Троттлинг GPU</string>
-<string name="adreno_performance_limited">Производительность ограничена</string>
-<string name="adreno_full_performance">Полная производительность</string>
-<string name="adreno_adreno_boost">Adreno Boost</string>
-<string name="adreno_level">Уровень</string>
-<string name="adreno_off">Выкл</string>
-<string name="adreno_low">Низкий</string>
-<string name="adreno_med">Сред</string>
-<string name="adreno_high">Высокий</string>
-<string name="adreno_boost_desc">Высокие уровни boost увеличивают производительность, но потребляют больше батареи и генерируют больше тепла.</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">Троттлинг GPU</string>
+    <string name="adreno_performance_limited">Производительность ограничена</string>
+    <string name="adreno_full_performance">Полная производительность</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">Уровень</string>
+    <string name="adreno_off">Выкл</string>
+    <string name="adreno_low">Низкий</string>
+    <string name="adreno_med">Сред</string>
+    <string name="adreno_high">Высокий</string>
+    <string name="adreno_boost_desc">Высокие уровни boost увеличивают производительность, но потребляют больше батареи и генерируют больше тепла.</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">Компоненты шины</string>
-<string name="adreno_no_bus_controls">Нет управления шиной</string>
-<string name="adreno_no_bus_desc">Это устройство не имеет настраиваемых компонентов шины</string>
-<string name="adreno_min_freq">Мин частота</string>
-<string name="adreno_max_freq">Макс частота</string>
-<string name="adreno_min">МИН</string>
-<string name="adreno_max">МАКС</string>
-<string name="adreno_edit">Редакт</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">Компоненты шины</string>
+    <string name="adreno_no_bus_controls">Нет управления шиной</string>
+    <string name="adreno_no_bus_desc">Это устройство не имеет настраиваемых компонентов шины</string>
+    <string name="adreno_min_freq">Мин частота</string>
+    <string name="adreno_max_freq">Макс частота</string>
+    <string name="adreno_min">МИН</string>
+    <string name="adreno_max">МАКС</string>
+    <string name="adreno_edit">Редакт</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">ТЕРМАЛЬНЫЙ ТРОТТЛИНГ</string>
-<string name="adreno_gpu_temp">Температура GPU</string>
-<string name="adreno_thermal_zones">Термальные зоны</string>
-<string name="adreno_cooling_devices">Охлаждающие устройства</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">ТЕРМАЛЬНЫЙ ТРОТТЛИНГ</string>
+    <string name="adreno_gpu_temp">Температура GPU</string>
+    <string name="adreno_thermal_zones">Термальные зоны</string>
+    <string name="adreno_cooling_devices">Охлаждающие устройства</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL Расширенные</string>
-<string name="adreno_force_no_nap">Принудительно No NAP</string>
-<string name="adreno_no_nap_desc">Запретить GPU переходить в сон</string>
-<string name="adreno_force_clk_on">Принудительно CLK On</string>
-<string name="adreno_clk_on_desc">Держать тактовый сигнал всегда включенным</string>
-<string name="adreno_force_bus_on">Принудительно Bus On</string>
-<string name="adreno_bus_on_desc">Держать шину всегда активной</string>
-<string name="adreno_bus_split">Bus Split</string>
-<string name="adreno_bus_split_desc">Включить разделение шины</string>
-<string name="adreno_throttling">Троттлинг</string>
-<string name="adreno_throttling_desc">Включить термальный троттлинг</string>
-<string name="adreno_power_levels">Уровни мощности</string>
-<string name="adreno_default">По умолчанию</string>
-<string name="adreno_thermal">Термальный</string>
-<string name="adreno_save">Сохранить</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Включить Idler</string>
-<string name="adreno_idler_desc">Снизить потребление энергии в простое</string>
-<string name="adreno_idle_wait">Ожидание простоя</string>
-<string name="adreno_down_differential">Down Differential</string>
-<string name="adreno_workload_threshold">Порог нагрузки</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Включить Simple GPU</string>
-<string name="adreno_simple_gpu_desc">Альтернативный алгоритм губернатора GPU</string>
-<string name="adreno_laziness">Леность</string>
-<string name="adreno_ramp_threshold">Порог нарастания</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL Расширенные</string>
+    <string name="adreno_force_no_nap">Принудительно No NAP</string>
+    <string name="adreno_no_nap_desc">Запретить GPU переходить в сон</string>
+    <string name="adreno_force_clk_on">Принудительно CLK On</string>
+    <string name="adreno_clk_on_desc">Держать тактовый сигнал всегда включенным</string>
+    <string name="adreno_force_bus_on">Принудительно Bus On</string>
+    <string name="adreno_bus_on_desc">Держать шину всегда активной</string>
+    <string name="adreno_bus_split">Bus Split</string>
+    <string name="adreno_bus_split_desc">Включить разделение шины</string>
+    <string name="adreno_throttling">Троттлинг</string>
+    <string name="adreno_throttling_desc">Включить термальный троттлинг</string>
+    <string name="adreno_power_levels">Уровни мощности</string>
+    <string name="adreno_default">По умолчанию</string>
+    <string name="adreno_thermal">Термальный</string>
+    <string name="adreno_save">Сохранить</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Включить Idler</string>
+    <string name="adreno_idler_desc">Снизить потребление энергии в простое</string>
+    <string name="adreno_idle_wait">Ожидание простоя</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">Порог нагрузки</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Включить Simple GPU</string>
+    <string name="adreno_simple_gpu_desc">Альтернативный алгоритм губернатора GPU</string>
+    <string name="adreno_laziness">Леность</string>
+    <string name="adreno_ramp_threshold">Порог нарастания</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">Функция</string>
-<string name="nav_tab_overview">Обзор</string>
-<string name="nav_tab_adjust">Настройка</string>
-<string name="nav_tab_support">Поддержка</string>
-<string name="nav_tools_desc">Инструменты</string>
-<string name="nav_power_desc">Питание</string>
-<string name="nav_settings_desc">Настройки</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">Функция</string>
+    <string name="nav_tab_overview">Обзор</string>
+    <string name="nav_tab_adjust">Настройка</string>
+    <string name="nav_tab_support">Поддержка</string>
+    <string name="nav_tools_desc">Инструменты</string>
+    <string name="nav_power_desc">Питание</string>
+    <string name="nav_settings_desc">Настройки</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">Быстрые инструменты</string>
-<string name="dialog_power_title">Меню питания</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">Быстрые инструменты</string>
+    <string name="dialog_power_title">Меню питания</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">Терминал</string>
-<string name="tool_terminal_subtitle">Окно терминала для ввода команд в любом месте</string>
-<string name="tool_fps_title">Монитор FPS</string>
-<string name="tool_fps_subtitle">Оверлей частоты кадров в реальном времени</string>
-<string name="tool_process_title">Монитор процессов</string>
-<string name="tool_process_subtitle">Показать процесс монитора</string>
-<string name="tool_activity_title">Инспектор активности</string>
-<string name="tool_activity_subtitle">Мониторинг текущего пакета и класса активности</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">Терминал</string>
+    <string name="tool_terminal_subtitle">Окно терминала для ввода команд в любом месте</string>
+    <string name="tool_fps_title">Монитор FPS</string>
+    <string name="tool_fps_subtitle">Оверлей частоты кадров в реальном времени</string>
+    <string name="tool_process_title">Монитор процессов</string>
+    <string name="tool_process_subtitle">Показать процесс монитора</string>
+    <string name="tool_activity_title">Инспектор активности</string>
+    <string name="tool_activity_subtitle">Мониторинг текущего пакета и класса активности</string>
 
-<!-- Common Actions -->
-<string name="action_done">Готово</string>
-<string name="action_cancel">Отмена</string>
-<string name="action_yes_do_it">Да, сделать</string>
-<string name="confirm_action_title">Подтвердить %s</string>
+    <!-- Common Actions -->
+    <string name="action_done">Готово</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_yes_do_it">Да, сделать</string>
+    <string name="confirm_action_title">Подтвердить %%s</string>
 
-    
+
 </resources>

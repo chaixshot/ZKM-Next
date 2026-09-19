@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Kernel Flasher</string>
-    <string name="root_required">È richiesto l'accesso root</string>
+        <string name="root_required">È richiesto l\'accesso root</string>
     <string name="root_service_disconnected">Il servizio root è disconnesso</string>
     <string name="device">Dispositivo</string>
     <string name="model">Modello</string>

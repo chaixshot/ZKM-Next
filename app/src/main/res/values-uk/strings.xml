@@ -167,12 +167,12 @@
     <string name="fps_stat_min">МІН FPS</string>
     <string name="fps_stat_avg">СЕР FPS</string>
     <string name="fps_stat_var">ЗМІН</string>
-    <string name="fps_stat_stable">СТАБ %</string>
+    <string name="fps_stat_stable">СТАБ %%</string>
     <string name="fps_stat_max_temp">МАКС ТЕМП</string>
     <string name="fps_stat_avg_pwr">СЕР ПОТУЖ</string>
     <string name="fps_stat_ram">ОЗП</string>
     <string name="fps_chart_fps_temp">FPS та Температура</string>
-    <string name="fps_chart_cpu">Навантаження ЦПУ (%)</string>
+    <string name="fps_chart_cpu">Навантаження ЦПУ (%%)</string>
     <string name="fps_export_csv">ЕКСПОРТ CSV</string>
     <string name="fps_delete">ВИДАЛИТИ</string>
 
@@ -715,14 +715,14 @@
     <string name="processes">Процеси</string>
     <string name="floating_mode">Плаваючий режим</string>
     <string name="system_health">Здоров\'я системи</string>
-    <string name="monitoring_threads">Моніторинг %d активних потоків</string>
+    <string name="monitoring_threads">Моніторинг %1$d активних потоків</string>
     <string name="top_load">Топ навантаження: %1$s (%2$s)</string>
     <string name="running_processes">Запущені процеси</string>
     <string name="cpu_usage">Використання ЦПУ</string>
     <string name="top_cpu_usage">Топ використання ЦПУ</string>
     <string name="top_ram_usage">Топ використання ОЗП</string>
     <string name="memory">Пам\'ять</string>
-    <string name="limit_format">Ліміт: %d</string>
+    <string name="limit_format">Ліміт: %1$d</string>
     <string name="total">Всього</string>
     <string name="user">Користувач</string>
     <string name="sys">Система</string>
@@ -754,8 +754,8 @@
     <string name="card_style_media">Медіа</string>
     <string name="card_style_outlined">Контур</string>
     <string name="ksuweb_status_active">Активний</string>
-    <string name="ksuweb_by_author">Від %s</string>
-    <string name="ksuweb_version_prefix">v%s</string>
+    <string name="ksuweb_by_author">Від %1$s</string>
+    <string name="ksuweb_version_prefix">v%1$s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">ДІЯ</string>
     <string name="ksuweb_badge_disabled">ВИМКНЕНО</string>
@@ -795,7 +795,7 @@
     <string name="power_recovery_warning">Пристрій перезавантажиться в режим Recovery (TWRP/OrangeFox).</string>
     <string name="power_fastboot_warning">Пристрій перезавантажиться в режим Fastboot/Bootloader.</string>
     <string name="power_restart_ui_warning">Користувацький інтерфейс перезапуститься. Це може зайняти кілька секунд.</string>
-    <string name="confirm_action">Підтвердити %s</string>
+    <string name="confirm_action">Підтвердити %1$s</string>
     <string name="btn_confirm_yes">Так, зробити це</string>
 
     <string name="about_section_developer">Про розробника</string>
@@ -817,304 +817,304 @@
     <string name="intro_btn_decline">Відхилити та вийти</string>
     <string name="intro_footer_legal">Натискаючи \'Погоджуюсь\', ви приймаєте ризики та політику конфіденційності.</string>
 
-    <string name="update_title">Оновлення до версії %s</string>
+    <string name="update_title">Оновлення до версії %1$s</string>
     <string name="update_changelog_title">Що нового</string>
     <string name="btn_update">Оновити</string>
     <string name="downloading_update">Завантаження оновлення…</string>
     <string name="auto_download">Автозавантаження APK</string>
     <string name="auto_download_desc">Завантажувати та встановлювати автоматично</string>
     <string name="btn_manual_download">Відкрити браузер</string>
-    
-<string name="lang_russian">Russian</string>
-<string name="lang_ukrainian">Ukrainian</string>
-<string name="lang_belarusian">Belarusian</string>
-<string name="lang_kazakh">Kazakh</string>
-<string name="lang_moldovan">Moldovan</string>
-<string name="lang_chinese_cn">Chinese (China)</string>
-<string name="lang_chinese_sg">Chinese (Singapore)</string>
-<string name="lang_chinese_tw">Chinese (Taiwan)</string>
-<string name="lang_chinese_hk">Chinese (Hong Kong)</string>
-<string name="lang_chinese_mo">Chinese (Macau)</string>
-<string name="lang_japanese">Japanese</string>
-<string name="lang_korean">Korean</string>
-<string name="lang_vietnamese">Vietnamese</string>
-<string name="lang_german">German</string>
-<string name="lang_french">French</string>
-<string name="lang_spanish">Spanish</string>
-<string name="lang_portuguese">Portuguese</string>
-<string name="lang_italian">Italian</string>
-<string name="lang_polish">Polish</string>
-<string name="lang_turkish">Turkish</string>
-<string name="lang_dutch">Dutch</string>
-    
-<string name="graphics_unit">Графічний блок</string>
-<string name="graphics_processor">Графічний процесор</string>
-<string name="processor_sets">Набори процесорів (Cpuset)</string>
-<string name="core_control">Керування ядрами</string>
-<string name="cpu_governor">Регулятор CPU</string>
-<string name="select_governor">Вибрати регулятор</string>
-<string name="min_freq">Мін. част.</string>
-<string name="max_freq">Макс. част.</string>
-<string name="min_frequency">Мінімальна частота</string>
-<string name="max_frequency">Максимальна частота</string>
-<string name="tab_performance">Продуктивність</string>
-<string name="tab_tuning">Налаштування</string>
-<string name="disable_cpu_title">Вимкнути CPU %1$d?</string>
-<string name="disable_cpu_warning">Вимкнення цього ядра може знизити продуктивність. Переконайтеся, що інші ядра активні для обробки системних завдань.</string>
-<string name="btn_disable">Вимкнути</string>
-<string name="select_active_cores">Виберіть активні ядра:</string>
-<string name="cpu_core_id">CPU %1$d</string>
-<string name="freq_mhz_format">%1$s МГц</string>
-<string name="cluster_info_format">%1$s • %2$s-%3$s МГц</string>
-<string name="gpu_load_format">%1$s • Завантаження %2$s%%</string>
-<string name="cores_count">Ядер: %1$s</string>
-<string name="gpu_not_supported">Інтерфейс GPU не підтримується</string>
-<string name="not_available">Н/Д</string>
-<string name="no_options">Немає параметрів</string>
-<string name="label_value">Значення</string>
-<string name="zram_manager">Керування ZRAM</string>
-<string name="zram_status">Статус ZRAM</string>
-<string name="disk_size_mb">Розмір диска: %1$d МБ</string>
-<string name="zram_info_format">%1$d МБ • %2$s</string>
-<string name="compression_algorithm">Алгоритм стиснення</string>
-<string name="io_scheduler">Планувальник I/O</string>
-<string name="select_scheduler">Вибрати планувальник</string>
-<string name="tunables">Налаштування</string>
-<string name="virtual_memory">Віртуальна пам\'ять</string>
-<string name="swappiness">Swappiness</string>
-<string name="vfs_cache_pressure">Тиск кешу VFS</string>
-<string name="dirty_ratio">Dirty Ratio</string>
-<string name="dirty_bg_ratio">Dirty BG Ratio</string>
-<string name="no_storage_devices">Підтримувані пристрої зберігання не знайдено.</string>
-<string name="scheduler_format">Планувальник: %1$s</string>
-<string name="btn_set">Встановити</string>
-<string name="tcp_congestion">Керування перевантаженням TCP</string>
-<string name="tcp_parameters">Параметри TCP</string>
-<string name="syn_cookies">SYN-cookie</string>
-<string name="enabled">Увімкнено</string>
-<string name="disabled">Вимкнено</string>
-<string name="tcp_reuse">Повторне використання TCP</string>
-<string name="on">Увімк</string>
-<string name="off">Вимк</string>
-<string name="fast_open">Швидке відкриття</string>
-<string name="tcp_sack">TCP SACK</string>
-<string name="ecn">ECN</string>
-<string name="kernel_log">Журнал ядра</string>
-<string name="printk">Printk</string>
-<string name="feature_toggles">Перемикачі функцій</string>
-<string name="bore_scheduler">Планувальник BORE</string>
-<string name="auto_group">Автогрупування</string>
-<string name="child_runs_first">Спочатку дочірні процеси</string>
-<string name="sched_stats">Статистика планувальника</string>
-<string name="tunable_scaling">Масштабування налаштувань</string>
-<string name="cstate_aware">Облік C-станів</string>
-<string name="uclamp_configuration">Конфігурація UClamp</string>
-<string name="uclamp_max">UClamp макс</string>
-<string name="uclamp_min">UClamp мін</string>
-<string name="advanced_parameters">Розширені параметри</string>
-<string name="current_value_format">Поточне значення: %1$s</string>
-<string name="new_value">Нове значення</string>
-<string name="edit">Редагувати</string>
 
-<!-- MTK Screen Main -->
-<string name="mtk_gpu_title">GPU MediaTek</string>
-<string name="mtk_gpu_subtitle">Налаштування Dimensity/Mali</string>
-<string name="mtk_tab_freq">Част</string>
-<string name="mtk_tab_dram">DRAM</string>
-<string name="mtk_tab_boost">Буст</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">Терм</string>
+    <string name="lang_russian">Russian</string>
+    <string name="lang_ukrainian">Ukrainian</string>
+    <string name="lang_belarusian">Belarusian</string>
+    <string name="lang_kazakh">Kazakh</string>
+    <string name="lang_moldovan">Moldovan</string>
+    <string name="lang_chinese_cn">Chinese (China)</string>
+    <string name="lang_chinese_sg">Chinese (Singapore)</string>
+    <string name="lang_chinese_tw">Chinese (Taiwan)</string>
+    <string name="lang_chinese_hk">Chinese (Hong Kong)</string>
+    <string name="lang_chinese_mo">Chinese (Macau)</string>
+    <string name="lang_japanese">Japanese</string>
+    <string name="lang_korean">Korean</string>
+    <string name="lang_vietnamese">Vietnamese</string>
+    <string name="lang_german">German</string>
+    <string name="lang_french">French</string>
+    <string name="lang_spanish">Spanish</string>
+    <string name="lang_portuguese">Portuguese</string>
+    <string name="lang_italian">Italian</string>
+    <string name="lang_polish">Polish</string>
+    <string name="lang_turkish">Turkish</string>
+    <string name="lang_dutch">Dutch</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS увімкнено</string>
-<string name="mtk_dvfs_enabled_desc">Частота GPU динамічна. Вимкніть DVFS або заблокуйте частоту для статичного керування.</string>
-<string name="mtk_gpu_dvfs">DVFS GPU</string>
-<string name="mtk_dynamic_scaling_on">Динамічне масштабування УВІМК</string>
-<string name="mtk_static_frequency">Статична частота</string>
-<string name="mtk_dynamic">Динамічний</string>
-<string name="mtk_freq_locked">Частота заблокована</string>
-<string name="mtk_current_frequency">Поточна частота</string>
-<string name="mtk_lock_frequency">Заблокувати частоту</string>
-<string name="mtk_select_opp_index">Виберіть індекс OPP для блокування</string>
-<string name="mtk_unlock_frequency">Розблокувати частоту</string>
-<string name="mtk_dvfs_limits">Ліміти DVFS</string>
-<string name="mtk_minimum_boost">Мінімум (Буст)</string>
-<string name="mtk_maximum_limit">Максимум (Ліміт)</string>
+    <string name="graphics_unit">Графічний блок</string>
+    <string name="graphics_processor">Графічний процесор</string>
+    <string name="processor_sets">Набори процесорів (Cpuset)</string>
+    <string name="core_control">Керування ядрами</string>
+    <string name="cpu_governor">Регулятор CPU</string>
+    <string name="select_governor">Вибрати регулятор</string>
+    <string name="min_freq">Мін. част.</string>
+    <string name="max_freq">Макс. част.</string>
+    <string name="min_frequency">Мінімальна частота</string>
+    <string name="max_frequency">Максимальна частота</string>
+    <string name="tab_performance">Продуктивність</string>
+    <string name="tab_tuning">Налаштування</string>
+    <string name="disable_cpu_title">Вимкнути CPU %1$d?</string>
+    <string name="disable_cpu_warning">Вимкнення цього ядра може знизити продуктивність. Переконайтеся, що інші ядра активні для обробки системних завдань.</string>
+    <string name="btn_disable">Вимкнути</string>
+    <string name="select_active_cores">Виберіть активні ядра:</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s МГц</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s МГц</string>
+    <string name="gpu_load_format">%1$s • Завантаження %2$s%%</string>
+    <string name="cores_count">Ядер: %1$s</string>
+    <string name="gpu_not_supported">Інтерфейс GPU не підтримується</string>
+    <string name="not_available">Н/Д</string>
+    <string name="no_options">Немає параметрів</string>
+    <string name="label_value">Значення</string>
+    <string name="zram_manager">Керування ZRAM</string>
+    <string name="zram_status">Статус ZRAM</string>
+    <string name="disk_size_mb">Розмір диска: %1$d МБ</string>
+    <string name="zram_info_format">%1$d МБ • %2$s</string>
+    <string name="compression_algorithm">Алгоритм стиснення</string>
+    <string name="io_scheduler">Планувальник I/O</string>
+    <string name="select_scheduler">Вибрати планувальник</string>
+    <string name="tunables">Налаштування</string>
+    <string name="virtual_memory">Віртуальна пам\'ять</string>
+    <string name="swappiness">Swappiness</string>
+    <string name="vfs_cache_pressure">Тиск кешу VFS</string>
+    <string name="dirty_ratio">Dirty Ratio</string>
+    <string name="dirty_bg_ratio">Dirty BG Ratio</string>
+    <string name="no_storage_devices">Підтримувані пристрої зберігання не знайдено.</string>
+    <string name="scheduler_format">Планувальник: %1$s</string>
+    <string name="btn_set">Встановити</string>
+    <string name="tcp_congestion">Керування перевантаженням TCP</string>
+    <string name="tcp_parameters">Параметри TCP</string>
+    <string name="syn_cookies">SYN-cookie</string>
+    <string name="enabled">Увімкнено</string>
+    <string name="disabled">Вимкнено</string>
+    <string name="tcp_reuse">Повторне використання TCP</string>
+    <string name="on">Увімк</string>
+    <string name="off">Вимк</string>
+    <string name="fast_open">Швидке відкриття</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">Журнал ядра</string>
+    <string name="printk">Printk</string>
+    <string name="feature_toggles">Перемикачі функцій</string>
+    <string name="bore_scheduler">Планувальник BORE</string>
+    <string name="auto_group">Автогрупування</string>
+    <string name="child_runs_first">Спочатку дочірні процеси</string>
+    <string name="sched_stats">Статистика планувальника</string>
+    <string name="tunable_scaling">Масштабування налаштувань</string>
+    <string name="cstate_aware">Облік C-станів</string>
+    <string name="uclamp_configuration">Конфігурація UClamp</string>
+    <string name="uclamp_max">UClamp макс</string>
+    <string name="uclamp_min">UClamp мін</string>
+    <string name="advanced_parameters">Розширені параметри</string>
+    <string name="current_value_format">Поточне значення: %1$s</string>
+    <string name="new_value">Нове значення</string>
+    <string name="edit">Редагувати</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">Керування DRAM недоступне</string>
-<string name="mtk_dram_type">Тип</string>
-<string name="mtk_dram_controller">Контролер DRAM</string>
-<string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq Generic</string>
-<string name="mtk_dram_fliper">Fliper Legacy</string>
-<string name="mtk_dram_unknown">Невідомо</string>
-<string name="mtk_dram_current_step">Поточний</string>
-<string name="mtk_dram_force_frequency">Примусова частота DRAM</string>
-<string name="mtk_dram_lock_opp">Блокування на OPP (без DVFS)</string>
-<string name="mtk_dram_reset_dvfs">Скидання до DVFS</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">GPU MediaTek</string>
+    <string name="mtk_gpu_subtitle">Налаштування Dimensity/Mali</string>
+    <string name="mtk_tab_freq">Част</string>
+    <string name="mtk_tab_dram">DRAM</string>
+    <string name="mtk_tab_boost">Буст</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">Терм</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">Ігри та продуктивність</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">Прискорення кадрів для плавної гри</string>
-<string name="mtk_ged_game_mode_title">Режим GED Game</string>
-<string name="mtk_ged_game_mode_subtitle">Оптимізація губернатора GPU для ігор</string>
-<string name="mtk_touch_boost_title">Touch Boost</string>
-<string name="mtk_touch_boost_subtitle">Прискорення CPU при дотику</string>
-<string name="mtk_sched_boost_title">Scheduler Boost</string>
-<string name="mtk_sched_boost_subtitle">Пріоритет для активних додатків</string>
-<string name="mtk_gaming_mode_preset">Пресет ігрового режиму</string>
-<string name="mtk_gaming_mode_desc">Увімкнути все прискорення миттєво</string>
-<string name="mtk_activate_gaming_mode">Активувати ігровий режим</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS увімкнено</string>
+    <string name="mtk_dvfs_enabled_desc">Частота GPU динамічна. Вимкніть DVFS або заблокуйте частоту для статичного керування.</string>
+    <string name="mtk_gpu_dvfs">DVFS GPU</string>
+    <string name="mtk_dynamic_scaling_on">Динамічне масштабування УВІМК</string>
+    <string name="mtk_static_frequency">Статична частота</string>
+    <string name="mtk_dynamic">Динамічний</string>
+    <string name="mtk_freq_locked">Частота заблокована</string>
+    <string name="mtk_current_frequency">Поточна частота</string>
+    <string name="mtk_lock_frequency">Заблокувати частоту</string>
+    <string name="mtk_select_opp_index">Виберіть індекс OPP для блокування</string>
+    <string name="mtk_unlock_frequency">Розблокувати частоту</string>
+    <string name="mtk_dvfs_limits">Ліміти DVFS</string>
+    <string name="mtk_minimum_boost">Мінімум (Буст)</string>
+    <string name="mtk_maximum_limit">Максимум (Ліміт)</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM недоступний</string>
-<string name="mtk_ppm_not_found">/proc/ppm не знайдено</string>
-<string name="mtk_ppm_controller">Контролер PPM</string>
-<string name="mtk_ppm_active">Активний</string>
-<string name="mtk_ppm_disabled">Вимкнено</string>
-<string name="mtk_active_policies">Активні політики</string>
-<string name="mtk_policy_hash">Політика #</string>
-<string name="mtk_ppm_no_policies">PPM увімкнено, але політики не виявлено. Можливе обмеження ядра.</string>
-<string name="mtk_about_ppm">Про PPM</string>
-<string name="mtk_ppm_description">Performance Power Management контролює розподіл енергії CPU/GPU. Вимкнення політики \'Thermal\' може викликати перегрів, але покращить продуктивність.</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">Керування DRAM недоступне</string>
+    <string name="mtk_dram_type">Тип</string>
+    <string name="mtk_dram_controller">Контролер DRAM</string>
+    <string name="mtk_dram_mmdvfs">MediaTek MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq Generic</string>
+    <string name="mtk_dram_fliper">Fliper Legacy</string>
+    <string name="mtk_dram_unknown">Невідомо</string>
+    <string name="mtk_dram_current_step">Поточний</string>
+    <string name="mtk_dram_force_frequency">Примусова частота DRAM</string>
+    <string name="mtk_dram_lock_opp">Блокування на OPP (без DVFS)</string>
+    <string name="mtk_dram_reset_dvfs">Скидання до DVFS</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU Misc недоступно</string>
-<string name="mtk_cci_interconnect">CCI Interconnect</string>
-<string name="mtk_cache_coherent">Когерентне кеш-з\'єднання</string>
-<string name="mtk_big_little_desc">Керування взаємодією кластерів big.LITTLE</string>
-<string name="mtk_normal">Нормальний</string>
-<string name="mtk_performance">Продуктивність</string>
-<string name="mtk_low_power">Низьке споживання</string>
-<string name="mtk_balance">Баланс</string>
-<string name="mtk_cpu_power_mode">Режим живлення CPU</string>
-<string name="mtk_current_mode">Поточний</string>
-<string name="mtk_voltage_offset">Зміщення напруги (EEM)</string>
-<string name="mtk_eem_unit">6.25мВ/од</string>
-<string name="mtk_offset_value">Значення зміщення</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">Ігри та продуктивність</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">Прискорення кадрів для плавної гри</string>
+    <string name="mtk_ged_game_mode_title">Режим GED Game</string>
+    <string name="mtk_ged_game_mode_subtitle">Оптимізація губернатора GPU для ігор</string>
+    <string name="mtk_touch_boost_title">Touch Boost</string>
+    <string name="mtk_touch_boost_subtitle">Прискорення CPU при дотику</string>
+    <string name="mtk_sched_boost_title">Scheduler Boost</string>
+    <string name="mtk_sched_boost_subtitle">Пріоритет для активних додатків</string>
+    <string name="mtk_gaming_mode_preset">Пресет ігрового режиму</string>
+    <string name="mtk_gaming_mode_desc">Увімкнути все прискорення миттєво</string>
+    <string name="mtk_activate_gaming_mode">Активувати ігровий режим</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">ТЕРМАЛЬНЕ ТРОТЛІНГ</string>
-<string name="mtk_temp_limit_exceeded">Перевищено температурний ліміт</string>
-<string name="mtk_normal_temp">Нормальна температура</string>
-<string name="mtk_eara_thermal">EARA Thermal</string>
-<string name="mtk_early_adaptation">Раннє розподілення ресурсів</string>
-<string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
-<string name="mtk_fake_temp_desc">Фальшива температура для ядра</string>
-<string name="mtk_throttling_desc">Пристрій троттлить. Продуктивність знижено для запобігання перегріву.</string>
-<string name="mtk_thermal_daemon_info">Керування температурою MTK здійснюється демоном ядра. Дані сенсорів on-die (tsens).</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM недоступний</string>
+    <string name="mtk_ppm_not_found">/proc/ppm не знайдено</string>
+    <string name="mtk_ppm_controller">Контролер PPM</string>
+    <string name="mtk_ppm_active">Активний</string>
+    <string name="mtk_ppm_disabled">Вимкнено</string>
+    <string name="mtk_active_policies">Активні політики</string>
+    <string name="mtk_policy_hash">Політика #</string>
+    <string name="mtk_ppm_no_policies">PPM увімкнено, але політики не виявлено. Можливе обмеження ядра.</string>
+    <string name="mtk_about_ppm">Про PPM</string>
+    <string name="mtk_ppm_description">Performance Power Management контролює розподіл енергії CPU/GPU. Вимкнення політики \'Thermal\' може викликати перегрів, але покращить продуктивність.</string>
 
-<!-- Common Actions -->
-<string name="action_back">Назад</string>
-<string name="action_refresh">Оновити</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU Misc недоступно</string>
+    <string name="mtk_cci_interconnect">CCI Interconnect</string>
+    <string name="mtk_cache_coherent">Когерентне кеш-з\'єднання</string>
+    <string name="mtk_big_little_desc">Керування взаємодією кластерів big.LITTLE</string>
+    <string name="mtk_normal">Нормальний</string>
+    <string name="mtk_performance">Продуктивність</string>
+    <string name="mtk_low_power">Низьке споживання</string>
+    <string name="mtk_balance">Баланс</string>
+    <string name="mtk_cpu_power_mode">Режим живлення CPU</string>
+    <string name="mtk_current_mode">Поточний</string>
+    <string name="mtk_voltage_offset">Зміщення напруги (EEM)</string>
+    <string name="mtk_eem_unit">6.25мВ/од</string>
+    <string name="mtk_offset_value">Значення зміщення</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">GPU Adreno</string>
-<string name="adreno_gpu_subtitle">Продуктивність і налаштування</string>
-<string name="adreno_tab_freq">Част</string>
-<string name="adreno_tab_power">Живлення</string>
-<string name="adreno_tab_bus">Шина</string>
-<string name="adreno_tab_thermal">Терм</string>
-<string name="adreno_tab_advanced">Adv</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">ТЕРМАЛЬНЕ ТРОТЛІНГ</string>
+    <string name="mtk_temp_limit_exceeded">Перевищено температурний ліміт</string>
+    <string name="mtk_normal_temp">Нормальна температура</string>
+    <string name="mtk_eara_thermal">EARA Thermal</string>
+    <string name="mtk_early_adaptation">Раннє розподілення ресурсів</string>
+    <string name="mtk_eara_fake_throttle">EARA Fake Throttle</string>
+    <string name="mtk_fake_temp_desc">Фальшива температура для ядра</string>
+    <string name="mtk_throttling_desc">Пристрій троттлить. Продуктивність знижено для запобігання перегріву.</string>
+    <string name="mtk_thermal_daemon_info">Керування температурою MTK здійснюється демоном ядра. Дані сенсорів on-die (tsens).</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">Поточна частота</string>
-<string name="adreno_freq_limits">Ліміти частоти</string>
-<string name="adreno_minimum">Мінімум</string>
-<string name="adreno_maximum">Максимум</string>
-<string name="adreno_governor">Губернатор</string>
-<string name="adreno_current">Поточний</string>
-<string name="adreno_change">Змінити</string>
-<string name="adreno_frequency">Частота</string>
-<string name="adreno_cancel">Скасувати</string>
+    <!-- Common Actions -->
+    <string name="action_back">Назад</string>
+    <string name="action_refresh">Оновити</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">Троттлінг GPU</string>
-<string name="adreno_performance_limited">Продуктивність обмежена</string>
-<string name="adreno_full_performance">Повна продуктивність</string>
-<string name="adreno_adreno_boost">Adreno Boost</string>
-<string name="adreno_level">Рівень</string>
-<string name="adreno_off">Вимк</string>
-<string name="adreno_low">Низький</string>
-<string name="adreno_med">Сер</string>
-<string name="adreno_high">Високий</string>
-<string name="adreno_boost_desc">Вищі рівні boost збільшують продуктивність, але споживають більше батареї та генерують більше тепла.</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">GPU Adreno</string>
+    <string name="adreno_gpu_subtitle">Продуктивність і налаштування</string>
+    <string name="adreno_tab_freq">Част</string>
+    <string name="adreno_tab_power">Живлення</string>
+    <string name="adreno_tab_bus">Шина</string>
+    <string name="adreno_tab_thermal">Терм</string>
+    <string name="adreno_tab_advanced">Adv</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">Компоненти шини</string>
-<string name="adreno_no_bus_controls">Немає керування шиною</string>
-<string name="adreno_no_bus_desc">Цей пристрій не має налаштовуваних компонентів шини</string>
-<string name="adreno_min_freq">Мін частота</string>
-<string name="adreno_max_freq">Макс частота</string>
-<string name="adreno_min">МІН</string>
-<string name="adreno_max">МАКС</string>
-<string name="adreno_edit">Ред</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">Поточна частота</string>
+    <string name="adreno_freq_limits">Ліміти частоти</string>
+    <string name="adreno_minimum">Мінімум</string>
+    <string name="adreno_maximum">Максимум</string>
+    <string name="adreno_governor">Губернатор</string>
+    <string name="adreno_current">Поточний</string>
+    <string name="adreno_change">Змінити</string>
+    <string name="adreno_frequency">Частота</string>
+    <string name="adreno_cancel">Скасувати</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">ТЕРМАЛЬНИЙ ТРОТЛІНГ</string>
-<string name="adreno_gpu_temp">Температура GPU</string>
-<string name="adreno_thermal_zones">Термальні зони</string>
-<string name="adreno_cooling_devices">Охолоджуючі пристрої</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">Троттлінг GPU</string>
+    <string name="adreno_performance_limited">Продуктивність обмежена</string>
+    <string name="adreno_full_performance">Повна продуктивність</string>
+    <string name="adreno_adreno_boost">Adreno Boost</string>
+    <string name="adreno_level">Рівень</string>
+    <string name="adreno_off">Вимк</string>
+    <string name="adreno_low">Низький</string>
+    <string name="adreno_med">Сер</string>
+    <string name="adreno_high">Високий</string>
+    <string name="adreno_boost_desc">Вищі рівні boost збільшують продуктивність, але споживають більше батареї та генерують більше тепла.</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL Розширені</string>
-<string name="adreno_force_no_nap">Примусово No NAP</string>
-<string name="adreno_no_nap_desc">Заборонити GPU переходити в сон</string>
-<string name="adreno_force_clk_on">Примусово CLK On</string>
-<string name="adreno_clk_on_desc">Тримати тактовий сигнал завжди увімкненим</string>
-<string name="adreno_force_bus_on">Примусово Bus On</string>
-<string name="adreno_bus_on_desc">Тримати шину завжди активною</string>
-<string name="adreno_bus_split">Bus Split</string>
-<string name="adreno_bus_split_desc">Увімкнути розділення шини</string>
-<string name="adreno_throttling">Троттлінг</string>
-<string name="adreno_throttling_desc">Увімкнути термальний троттлінг</string>
-<string name="adreno_power_levels">Рівні потужності</string>
-<string name="adreno_default">За замовчуванням</string>
-<string name="adreno_thermal">Термальний</string>
-<string name="adreno_save">Зберегти</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">Увімкнути Idler</string>
-<string name="adreno_idler_desc">Знизити споживання енергії в простої</string>
-<string name="adreno_idle_wait">Очікування простою</string>
-<string name="adreno_down_differential">Down Differential</string>
-<string name="adreno_workload_threshold">Поріг навантаження</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">Увімкнути Simple GPU</string>
-<string name="adreno_simple_gpu_desc">Альтернативний алгоритм губернатора GPU</string>
-<string name="adreno_laziness">Лінь</string>
-<string name="adreno_ramp_threshold">Поріг наростання</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">Компоненти шини</string>
+    <string name="adreno_no_bus_controls">Немає керування шиною</string>
+    <string name="adreno_no_bus_desc">Цей пристрій не має налаштовуваних компонентів шини</string>
+    <string name="adreno_min_freq">Мін частота</string>
+    <string name="adreno_max_freq">Макс частота</string>
+    <string name="adreno_min">МІН</string>
+    <string name="adreno_max">МАКС</string>
+    <string name="adreno_edit">Ред</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">Функція</string>
-<string name="nav_tab_overview">Огляд</string>
-<string name="nav_tab_adjust">Налаштування</string>
-<string name="nav_tab_support">Підтримка</string>
-<string name="nav_tools_desc">Інструменти</string>
-<string name="nav_power_desc">Живлення</string>
-<string name="nav_settings_desc">Налаштування</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">ТЕРМАЛЬНИЙ ТРОТЛІНГ</string>
+    <string name="adreno_gpu_temp">Температура GPU</string>
+    <string name="adreno_thermal_zones">Термальні зони</string>
+    <string name="adreno_cooling_devices">Охолоджуючі пристрої</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">Швидкі інструменти</string>
-<string name="dialog_power_title">Меню живлення</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL Розширені</string>
+    <string name="adreno_force_no_nap">Примусово No NAP</string>
+    <string name="adreno_no_nap_desc">Заборонити GPU переходити в сон</string>
+    <string name="adreno_force_clk_on">Примусово CLK On</string>
+    <string name="adreno_clk_on_desc">Тримати тактовий сигнал завжди увімкненим</string>
+    <string name="adreno_force_bus_on">Примусово Bus On</string>
+    <string name="adreno_bus_on_desc">Тримати шину завжди активною</string>
+    <string name="adreno_bus_split">Bus Split</string>
+    <string name="adreno_bus_split_desc">Увімкнути розділення шини</string>
+    <string name="adreno_throttling">Троттлінг</string>
+    <string name="adreno_throttling_desc">Увімкнути термальний троттлінг</string>
+    <string name="adreno_power_levels">Рівні потужності</string>
+    <string name="adreno_default">За замовчуванням</string>
+    <string name="adreno_thermal">Термальний</string>
+    <string name="adreno_save">Зберегти</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">Увімкнути Idler</string>
+    <string name="adreno_idler_desc">Знизити споживання енергії в простої</string>
+    <string name="adreno_idle_wait">Очікування простою</string>
+    <string name="adreno_down_differential">Down Differential</string>
+    <string name="adreno_workload_threshold">Поріг навантаження</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">Увімкнути Simple GPU</string>
+    <string name="adreno_simple_gpu_desc">Альтернативний алгоритм губернатора GPU</string>
+    <string name="adreno_laziness">Лінь</string>
+    <string name="adreno_ramp_threshold">Поріг наростання</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">Термінал</string>
-<string name="tool_terminal_subtitle">Вікно термінала для введення команд будь-де</string>
-<string name="tool_fps_title">Монітор FPS</string>
-<string name="tool_fps_subtitle">Оверлей частоти кадрів у реальному часі</string>
-<string name="tool_process_title">Монітор процесів</string>
-<string name="tool_process_subtitle">Показати процес монітора</string>
-<string name="tool_activity_title">Інспектор активності</string>
-<string name="tool_activity_subtitle">Моніторинг поточного пакета та класу активності</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">Функція</string>
+    <string name="nav_tab_overview">Огляд</string>
+    <string name="nav_tab_adjust">Налаштування</string>
+    <string name="nav_tab_support">Підтримка</string>
+    <string name="nav_tools_desc">Інструменти</string>
+    <string name="nav_power_desc">Живлення</string>
+    <string name="nav_settings_desc">Налаштування</string>
 
-<!-- Common Actions -->
-<string name="action_done">Готово</string>
-<string name="action_cancel">Скасувати</string>
-<string name="action_yes_do_it">Так, зробити</string>
-<string name="confirm_action_title">Підтвердити %s</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">Швидкі інструменти</string>
+    <string name="dialog_power_title">Меню живлення</string>
+
+    <!-- Tools -->
+    <string name="tool_terminal_title">Термінал</string>
+    <string name="tool_terminal_subtitle">Вікно термінала для введення команд будь-де</string>
+    <string name="tool_fps_title">Монітор FPS</string>
+    <string name="tool_fps_subtitle">Оверлей частоти кадрів у реальному часі</string>
+    <string name="tool_process_title">Монітор процесів</string>
+    <string name="tool_process_subtitle">Показати процес монітора</string>
+    <string name="tool_activity_title">Інспектор активності</string>
+    <string name="tool_activity_subtitle">Моніторинг поточного пакета та класу активності</string>
+
+    <!-- Common Actions -->
+    <string name="action_done">Готово</string>
+    <string name="action_cancel">Скасувати</string>
+    <string name="action_yes_do_it">Так, зробити</string>
+    <string name="confirm_action_title">Підтвердити %1$s</string>
 
 
 </resources>

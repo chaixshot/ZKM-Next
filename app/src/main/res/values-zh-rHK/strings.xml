@@ -167,12 +167,12 @@
     <string name="fps_stat_min">最低 FPS</string>
     <string name="fps_stat_avg">平均 FPS</string>
     <string name="fps_stat_var">變異數</string>
-    <string name="fps_stat_stable">穩定率 %</string>
+    <string name="fps_stat_stable">穩定率 %%</string>
     <string name="fps_stat_max_temp">最高溫度</string>
     <string name="fps_stat_avg_pwr">平均功耗</string>
     <string name="fps_stat_ram">記憶體</string>
     <string name="fps_chart_fps_temp">FPS 與溫度</string>
-    <string name="fps_chart_cpu">CPU 負載 (%)</string>
+    <string name="fps_chart_cpu">CPU 負載 (%%)</string>
     <string name="fps_export_csv">匯出 CSV</string>
     <string name="fps_delete">刪除</string>
 
@@ -754,7 +754,7 @@
     <string name="card_style_media">媒體</string>
     <string name="card_style_outlined">外框</string>
     <string name="ksuweb_status_active">活躍</string>
-    <string name="ksuweb_by_author">作者 %s</string>
+    <string name="ksuweb_by_author">作者 %%s</string>
     <string name="ksuweb_version_prefix">v%s</string>
     <string name="ksuweb_version_author_format">v%1$s • %2$s</string>
     <string name="ksuweb_badge_action">操作</string>
@@ -795,7 +795,7 @@
     <string name="power_recovery_warning">裝置將會重新啟動進入恢復模式 (TWRP/OrangeFox)。</string>
     <string name="power_fastboot_warning">裝置將會重新啟動進入 Fastboot/開機載入程式模式。</string>
     <string name="power_restart_ui_warning">用戶介面將會重新啟動。這可能需要幾秒鐘。</string>
-    <string name="confirm_action">確認 %s</string>
+    <string name="confirm_action">確認 %%s</string>
     <string name="btn_confirm_yes">是的，執行</string>
 
     <string name="about_section_developer">關於開發者</string>
@@ -817,14 +817,14 @@
     <string name="intro_btn_decline">拒絕並退出</string>
     <string name="intro_footer_legal">按下\'我同意\'即表示你接受風險與私隱政策。</string>
 
-    <string name="update_title">更新至版本 %s</string>
+    <string name="update_title">更新至版本 %%s</string>
     <string name="update_changelog_title">新功能</string>
     <string name="btn_update">更新</string>
     <string name="downloading_update">正在下載更新…</string>
     <string name="auto_download">自動下載 APK</string>
     <string name="auto_download_desc">自動下載並安裝</string>
     <string name="btn_manual_download">開啟瀏覽器</string>
-    
+
     <string name="lang_russian">俄文</string>
     <string name="lang_ukrainian">烏克蘭文</string>
     <string name="lang_belarusian">白俄羅斯文</string>
@@ -846,274 +846,274 @@
     <string name="lang_polish">波蘭文</string>
     <string name="lang_turkish">土耳其文</string>
     <string name="lang_dutch">荷蘭文</string>
-<string name="graphics_unit">圖形單元</string>
-<string name="graphics_processor">圖像處理器</string>
-<string name="processor_sets">處理器集 (Cpuset)</string>
-<string name="core_control">核心控制</string>
-<string name="cpu_governor">CPU 調速器</string>
-<string name="select_governor">選擇調速器</string>
-<string name="min_freq">最低頻率</string>
-<string name="max_freq">最高頻率</string>
-<string name="min_frequency">最低頻率</string>
-<string name="max_frequency">最高頻率</string>
-<string name="tab_performance">效能</string>
-<string name="tab_tuning">調校</string>
-<string name="disable_cpu_title">停用 CPU %1$d?</string>
-<string name="disable_cpu_warning">停用此核心可能會降低效能。請確保其他核心處於活動狀態以處理系統任務。</string>
-<string name="btn_disable">停用</string>
-<string name="select_active_cores">選擇活動核心：</string>
-<string name="cpu_core_id">CPU %1$d</string>
-<string name="freq_mhz_format">%1$s MHz</string>
-<string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
-<string name="gpu_load_format">%1$s • 負載 %2$s%%</string>
-<string name="cores_count">核心數：%1$s</string>
-<string name="gpu_not_supported">不支援 GPU 介面</string>
-<string name="not_available">不適用</string>
-<string name="no_options">無選項</string>
-<string name="label_value">數值</string>
-<string name="zram_manager">ZRAM 管理員</string>
-<string name="zram_status">ZRAM 狀態</string>
-<string name="disk_size_mb">磁碟大小：%1$d MB</string>
-<string name="zram_info_format">%1$d MB • %2$s</string>
-<string name="compression_algorithm">壓縮演算法</string>
-<string name="io_scheduler">I/O 排程器</string>
-<string name="select_scheduler">選擇排程器</string>
-<string name="tunables">可調參數</string>
-<string name="virtual_memory">虛擬記憶體</string>
-<string name="swappiness">Swappiness</string>
-<string name="vfs_cache_pressure">VFS 快取壓力</string>
-<string name="dirty_ratio">污頁比率</string>
-<string name="dirty_bg_ratio">背景污頁比率</string>
-<string name="no_storage_devices">找不到支援的儲存裝置。</string>
-<string name="scheduler_format">排程器：%1$s</string>
-<string name="btn_set">設定</string>
-<string name="tcp_congestion">TCP 擠塞控制</string>
-<string name="tcp_parameters">TCP 參數</string>
-<string name="syn_cookies">SYN Cookies</string>
-<string name="enabled">已啟用</string>
-<string name="disabled">已停用</string>
-<string name="tcp_reuse">TCP 重用</string>
-<string name="on">開</string>
-<string name="off">關</string>
-<string name="fast_open">快速開啟</string>
-<string name="tcp_sack">TCP SACK</string>
-<string name="ecn">ECN</string>
-<string name="kernel_log">核心日誌</string>
-<string name="printk">Printk</string>
-<string name="feature_toggles">功能切換</string>
-<string name="bore_scheduler">BORE 排程器</string>
-<string name="auto_group">自動分組</string>
-<string name="child_runs_first">子程序優先</string>
-<string name="sched_stats">排程統計</string>
-<string name="tunable_scaling">可調縮放</string>
-<string name="cstate_aware">C-State 感知</string>
-<string name="uclamp_configuration">UClamp 配置</string>
-<string name="uclamp_max">UClamp 最大值</string>
-<string name="uclamp_min">UClamp 最小值</string>
-<string name="advanced_parameters">進階參數</string>
-<string name="current_value_format">現時數值：%1$s</string>
-<string name="new_value">新數值</string>
-<string name="edit">編輯</string>
+    <string name="graphics_unit">圖形單元</string>
+    <string name="graphics_processor">圖像處理器</string>
+    <string name="processor_sets">處理器集 (Cpuset)</string>
+    <string name="core_control">核心控制</string>
+    <string name="cpu_governor">CPU 調速器</string>
+    <string name="select_governor">選擇調速器</string>
+    <string name="min_freq">最低頻率</string>
+    <string name="max_freq">最高頻率</string>
+    <string name="min_frequency">最低頻率</string>
+    <string name="max_frequency">最高頻率</string>
+    <string name="tab_performance">效能</string>
+    <string name="tab_tuning">調校</string>
+    <string name="disable_cpu_title">停用 CPU %1$d?</string>
+    <string name="disable_cpu_warning">停用此核心可能會降低效能。請確保其他核心處於活動狀態以處理系統任務。</string>
+    <string name="btn_disable">停用</string>
+    <string name="select_active_cores">選擇活動核心：</string>
+    <string name="cpu_core_id">CPU %1$d</string>
+    <string name="freq_mhz_format">%1$s MHz</string>
+    <string name="cluster_info_format">%1$s • %2$s-%3$s MHz</string>
+    <string name="gpu_load_format">%1$s • 負載 %2$s%%</string>
+    <string name="cores_count">核心數：%1$s</string>
+    <string name="gpu_not_supported">不支援 GPU 介面</string>
+    <string name="not_available">不適用</string>
+    <string name="no_options">無選項</string>
+    <string name="label_value">數值</string>
+    <string name="zram_manager">ZRAM 管理員</string>
+    <string name="zram_status">ZRAM 狀態</string>
+    <string name="disk_size_mb">磁碟大小：%1$d MB</string>
+    <string name="zram_info_format">%1$d MB • %2$s</string>
+    <string name="compression_algorithm">壓縮演算法</string>
+    <string name="io_scheduler">I/O 排程器</string>
+    <string name="select_scheduler">選擇排程器</string>
+    <string name="tunables">可調參數</string>
+    <string name="virtual_memory">虛擬記憶體</string>
+    <string name="swappiness">Swappiness</string>
+    <string name="vfs_cache_pressure">VFS 快取壓力</string>
+    <string name="dirty_ratio">污頁比率</string>
+    <string name="dirty_bg_ratio">背景污頁比率</string>
+    <string name="no_storage_devices">找不到支援的儲存裝置。</string>
+    <string name="scheduler_format">排程器：%1$s</string>
+    <string name="btn_set">設定</string>
+    <string name="tcp_congestion">TCP 擠塞控制</string>
+    <string name="tcp_parameters">TCP 參數</string>
+    <string name="syn_cookies">SYN Cookies</string>
+    <string name="enabled">已啟用</string>
+    <string name="disabled">已停用</string>
+    <string name="tcp_reuse">TCP 重用</string>
+    <string name="on">開</string>
+    <string name="off">關</string>
+    <string name="fast_open">快速開啟</string>
+    <string name="tcp_sack">TCP SACK</string>
+    <string name="ecn">ECN</string>
+    <string name="kernel_log">核心日誌</string>
+    <string name="printk">Printk</string>
+    <string name="feature_toggles">功能切換</string>
+    <string name="bore_scheduler">BORE 排程器</string>
+    <string name="auto_group">自動分組</string>
+    <string name="child_runs_first">子程序優先</string>
+    <string name="sched_stats">排程統計</string>
+    <string name="tunable_scaling">可調縮放</string>
+    <string name="cstate_aware">C-State 感知</string>
+    <string name="uclamp_configuration">UClamp 配置</string>
+    <string name="uclamp_max">UClamp 最大值</string>
+    <string name="uclamp_min">UClamp 最小值</string>
+    <string name="advanced_parameters">進階參數</string>
+    <string name="current_value_format">現時數值：%1$s</string>
+    <string name="new_value">新數值</string>
+    <string name="edit">編輯</string>
 
-<!-- MTK Screen Main -->
-<string name="mtk_gpu_title">聯發科 GPU</string>
-<string name="mtk_gpu_subtitle">天璣/Mali 調校</string>
-<string name="mtk_tab_freq">頻率</string>
-<string name="mtk_tab_dram">記憶體</string>
-<string name="mtk_tab_boost">加速</string>
-<string name="mtk_tab_ppm">PPM</string>
-<string name="mtk_tab_cpu">CPU</string>
-<string name="mtk_tab_thermal">溫控</string>
+    <!-- MTK Screen Main -->
+    <string name="mtk_gpu_title">聯發科 GPU</string>
+    <string name="mtk_gpu_subtitle">天璣/Mali 調校</string>
+    <string name="mtk_tab_freq">頻率</string>
+    <string name="mtk_tab_dram">記憶體</string>
+    <string name="mtk_tab_boost">加速</string>
+    <string name="mtk_tab_ppm">PPM</string>
+    <string name="mtk_tab_cpu">CPU</string>
+    <string name="mtk_tab_thermal">溫控</string>
 
-<!-- MTK Freq Tab -->
-<string name="mtk_dvfs_enabled_title">DVFS 已啟用</string>
-<string name="mtk_dvfs_enabled_desc">GPU 頻率為動態。停用 DVFS 或鎖定頻率以進行靜態控制。</string>
-<string name="mtk_gpu_dvfs">GPU DVFS</string>
-<string name="mtk_dynamic_scaling_on">動態調整已開啟</string>
-<string name="mtk_static_frequency">靜態頻率</string>
-<string name="mtk_dynamic">動態</string>
-<string name="mtk_freq_locked">頻率已鎖定</string>
-<string name="mtk_current_frequency">目前頻率</string>
-<string name="mtk_lock_frequency">鎖定頻率</string>
-<string name="mtk_select_opp_index">選擇要鎖定的 OPP 索引</string>
-<string name="mtk_unlock_frequency">解除鎖定頻率</string>
-<string name="mtk_dvfs_limits">DVFS 限制</string>
-<string name="mtk_minimum_boost">最小值（加速）</string>
-<string name="mtk_maximum_limit">最大值（限制）</string>
+    <!-- MTK Freq Tab -->
+    <string name="mtk_dvfs_enabled_title">DVFS 已啟用</string>
+    <string name="mtk_dvfs_enabled_desc">GPU 頻率為動態。停用 DVFS 或鎖定頻率以進行靜態控制。</string>
+    <string name="mtk_gpu_dvfs">GPU DVFS</string>
+    <string name="mtk_dynamic_scaling_on">動態調整已開啟</string>
+    <string name="mtk_static_frequency">靜態頻率</string>
+    <string name="mtk_dynamic">動態</string>
+    <string name="mtk_freq_locked">頻率已鎖定</string>
+    <string name="mtk_current_frequency">目前頻率</string>
+    <string name="mtk_lock_frequency">鎖定頻率</string>
+    <string name="mtk_select_opp_index">選擇要鎖定的 OPP 索引</string>
+    <string name="mtk_unlock_frequency">解除鎖定頻率</string>
+    <string name="mtk_dvfs_limits">DVFS 限制</string>
+    <string name="mtk_minimum_boost">最小值（加速）</string>
+    <string name="mtk_maximum_limit">最大值（限制）</string>
 
-<!-- MTK DRAM Tab -->
-<string name="mtk_dram_unavailable">DRAM 控制不可用</string>
-<string name="mtk_dram_type">類型</string>
-<string name="mtk_dram_controller">DRAM 控制器</string>
-<string name="mtk_dram_mmdvfs">聯發科 MMDVFS</string>
-<string name="mtk_dram_devfreq">DevFreq 通用</string>
-<string name="mtk_dram_fliper">Fliper 傳統</string>
-<string name="mtk_dram_unknown">未知</string>
-<string name="mtk_dram_current_step">目前</string>
-<string name="mtk_dram_force_frequency">強制 DRAM 頻率</string>
-<string name="mtk_dram_lock_opp">鎖定至特定 OPP（無 DVFS）</string>
-<string name="mtk_dram_reset_dvfs">重設為 DVFS</string>
+    <!-- MTK DRAM Tab -->
+    <string name="mtk_dram_unavailable">DRAM 控制不可用</string>
+    <string name="mtk_dram_type">類型</string>
+    <string name="mtk_dram_controller">DRAM 控制器</string>
+    <string name="mtk_dram_mmdvfs">聯發科 MMDVFS</string>
+    <string name="mtk_dram_devfreq">DevFreq 通用</string>
+    <string name="mtk_dram_fliper">Fliper 傳統</string>
+    <string name="mtk_dram_unknown">未知</string>
+    <string name="mtk_dram_current_step">目前</string>
+    <string name="mtk_dram_force_frequency">強制 DRAM 頻率</string>
+    <string name="mtk_dram_lock_opp">鎖定至特定 OPP（無 DVFS）</string>
+    <string name="mtk_dram_reset_dvfs">重設為 DVFS</string>
 
-<!-- MTK Boost Tab -->
-<string name="mtk_gaming_performance">遊戲與效能</string>
-<string name="mtk_fpsgo_title">FPSGO</string>
-<string name="mtk_fpsgo_subtitle">幀率加速，流暢遊戲體驗</string>
-<string name="mtk_ged_game_mode_title">GED 遊戲模式</string>
-<string name="mtk_ged_game_mode_subtitle">GPU 調節器遊戲最佳化</string>
-<string name="mtk_touch_boost_title">觸控加速</string>
-<string name="mtk_touch_boost_subtitle">觸控輸入時 CPU 加速</string>
-<string name="mtk_sched_boost_title">排程器加速</string>
-<string name="mtk_sched_boost_subtitle">前景應用程式優先權提升</string>
-<string name="mtk_gaming_mode_preset">遊戲模式預設</string>
-<string name="mtk_gaming_mode_desc">立即啟用所有加速</string>
-<string name="mtk_activate_gaming_mode">啟動遊戲模式</string>
+    <!-- MTK Boost Tab -->
+    <string name="mtk_gaming_performance">遊戲與效能</string>
+    <string name="mtk_fpsgo_title">FPSGO</string>
+    <string name="mtk_fpsgo_subtitle">幀率加速，流暢遊戲體驗</string>
+    <string name="mtk_ged_game_mode_title">GED 遊戲模式</string>
+    <string name="mtk_ged_game_mode_subtitle">GPU 調節器遊戲最佳化</string>
+    <string name="mtk_touch_boost_title">觸控加速</string>
+    <string name="mtk_touch_boost_subtitle">觸控輸入時 CPU 加速</string>
+    <string name="mtk_sched_boost_title">排程器加速</string>
+    <string name="mtk_sched_boost_subtitle">前景應用程式優先權提升</string>
+    <string name="mtk_gaming_mode_preset">遊戲模式預設</string>
+    <string name="mtk_gaming_mode_desc">立即啟用所有加速</string>
+    <string name="mtk_activate_gaming_mode">啟動遊戲模式</string>
 
-<!-- MTK PPM Tab -->
-<string name="mtk_ppm_unavailable">PPM 不可用</string>
-<string name="mtk_ppm_not_found">找不到 /proc/ppm</string>
-<string name="mtk_ppm_controller">PPM 控制器</string>
-<string name="mtk_ppm_active">作用中</string>
-<string name="mtk_ppm_disabled">已停用</string>
-<string name="mtk_active_policies">作用中政策</string>
-<string name="mtk_policy_hash">政策 #</string>
-<string name="mtk_ppm_no_policies">PPM 已啟用但未偵測到政策。這可能是內核限制。</string>
-<string name="mtk_about_ppm">關於 PPM</string>
-<string name="mtk_ppm_description">效能電源管理控制 CPU/GPU 功率分配。停用「溫控」政策可能會導致過熱但會提升效能。</string>
+    <!-- MTK PPM Tab -->
+    <string name="mtk_ppm_unavailable">PPM 不可用</string>
+    <string name="mtk_ppm_not_found">找不到 /proc/ppm</string>
+    <string name="mtk_ppm_controller">PPM 控制器</string>
+    <string name="mtk_ppm_active">作用中</string>
+    <string name="mtk_ppm_disabled">已停用</string>
+    <string name="mtk_active_policies">作用中政策</string>
+    <string name="mtk_policy_hash">政策 #</string>
+    <string name="mtk_ppm_no_policies">PPM 已啟用但未偵測到政策。這可能是內核限制。</string>
+    <string name="mtk_about_ppm">關於 PPM</string>
+    <string name="mtk_ppm_description">效能電源管理控制 CPU/GPU 功率分配。停用「溫控」政策可能會導致過熱但會提升效能。</string>
 
-<!-- MTK CPU Tab -->
-<string name="mtk_cpu_unavailable">CPU 其他設定不可用</string>
-<string name="mtk_cci_interconnect">CCI 互連</string>
-<string name="mtk_cache_coherent">快取一致性互連</string>
-<string name="mtk_big_little_desc">控制 big.LITTLE 叢集互動</string>
-<string name="mtk_normal">正常</string>
-<string name="mtk_performance">效能</string>
-<string name="mtk_low_power">低功耗</string>
-<string name="mtk_balance">平衡</string>
-<string name="mtk_cpu_power_mode">CPU 電源模式</string>
-<string name="mtk_current_mode">目前</string>
-<string name="mtk_voltage_offset">電壓偏移 (EEM)</string>
-<string name="mtk_eem_unit">6.25毫伏/單位</string>
-<string name="mtk_offset_value">偏移值</string>
+    <!-- MTK CPU Tab -->
+    <string name="mtk_cpu_unavailable">CPU 其他設定不可用</string>
+    <string name="mtk_cci_interconnect">CCI 互連</string>
+    <string name="mtk_cache_coherent">快取一致性互連</string>
+    <string name="mtk_big_little_desc">控制 big.LITTLE 叢集互動</string>
+    <string name="mtk_normal">正常</string>
+    <string name="mtk_performance">效能</string>
+    <string name="mtk_low_power">低功耗</string>
+    <string name="mtk_balance">平衡</string>
+    <string name="mtk_cpu_power_mode">CPU 電源模式</string>
+    <string name="mtk_current_mode">目前</string>
+    <string name="mtk_voltage_offset">電壓偏移 (EEM)</string>
+    <string name="mtk_eem_unit">6.25毫伏/單位</string>
+    <string name="mtk_offset_value">偏移值</string>
 
-<!-- MTK Thermal Tab -->
-<string name="mtk_thermal_throttling">過熱降頻</string>
-<string name="mtk_temp_limit_exceeded">超過溫度限制</string>
-<string name="mtk_normal_temp">正常溫度</string>
-<string name="mtk_eara_thermal">EARA 溫控</string>
-<string name="mtk_early_adaptation">早期適應資源分配</string>
-<string name="mtk_eara_fake_throttle">EARA 虛假降頻</string>
-<string name="mtk_fake_temp_desc">向內核回報虛假溫度</string>
-<string name="mtk_throttling_desc">裝置正在過熱降頻。為防止過熱，效能已降低。</string>
-<string name="mtk_thermal_daemon_info">聯發科溫控由內核溫控守護程序處理。讀取晶粒上感測器 (tsens) 資料。</string>
+    <!-- MTK Thermal Tab -->
+    <string name="mtk_thermal_throttling">過熱降頻</string>
+    <string name="mtk_temp_limit_exceeded">超過溫度限制</string>
+    <string name="mtk_normal_temp">正常溫度</string>
+    <string name="mtk_eara_thermal">EARA 溫控</string>
+    <string name="mtk_early_adaptation">早期適應資源分配</string>
+    <string name="mtk_eara_fake_throttle">EARA 虛假降頻</string>
+    <string name="mtk_fake_temp_desc">向內核回報虛假溫度</string>
+    <string name="mtk_throttling_desc">裝置正在過熱降頻。為防止過熱，效能已降低。</string>
+    <string name="mtk_thermal_daemon_info">聯發科溫控由內核溫控守護程序處理。讀取晶粒上感測器 (tsens) 資料。</string>
 
-<!-- Common Actions -->
-<string name="action_back">返回</string>
-<string name="action_refresh">重新整理</string>
+    <!-- Common Actions -->
+    <string name="action_back">返回</string>
+    <string name="action_refresh">重新整理</string>
 
-<!-- Adreno Screen -->
-<string name="adreno_gpu_title">Adreno GPU</string>
-<string name="adreno_gpu_subtitle">效能與調校</string>
-<string name="adreno_tab_freq">頻率</string>
-<string name="adreno_tab_power">電源</string>
-<string name="adreno_tab_bus">匯流排</string>
-<string name="adreno_tab_thermal">溫控</string>
-<string name="adreno_tab_advanced">進階</string>
+    <!-- Adreno Screen -->
+    <string name="adreno_gpu_title">Adreno GPU</string>
+    <string name="adreno_gpu_subtitle">效能與調校</string>
+    <string name="adreno_tab_freq">頻率</string>
+    <string name="adreno_tab_power">電源</string>
+    <string name="adreno_tab_bus">匯流排</string>
+    <string name="adreno_tab_thermal">溫控</string>
+    <string name="adreno_tab_advanced">進階</string>
 
-<!-- Adreno Freq -->
-<string name="adreno_current_frequency">目前頻率</string>
-<string name="adreno_freq_limits">頻率限制</string>
-<string name="adreno_minimum">最小</string>
-<string name="adreno_maximum">最大</string>
-<string name="adreno_governor">調節器</string>
-<string name="adreno_current">目前</string>
-<string name="adreno_change">變更</string>
-<string name="adreno_frequency">頻率</string>
-<string name="adreno_cancel">取消</string>
+    <!-- Adreno Freq -->
+    <string name="adreno_current_frequency">目前頻率</string>
+    <string name="adreno_freq_limits">頻率限制</string>
+    <string name="adreno_minimum">最小</string>
+    <string name="adreno_maximum">最大</string>
+    <string name="adreno_governor">調節器</string>
+    <string name="adreno_current">目前</string>
+    <string name="adreno_change">變更</string>
+    <string name="adreno_frequency">頻率</string>
+    <string name="adreno_cancel">取消</string>
 
-<!-- Adreno Power -->
-<string name="adreno_gpu_throttling">GPU 節流</string>
-<string name="adreno_performance_limited">效能受限</string>
-<string name="adreno_full_performance">全效能</string>
-<string name="adreno_adreno_boost">Adreno 加速</string>
-<string name="adreno_level">等級</string>
-<string name="adreno_off">關閉</string>
-<string name="adreno_low">低</string>
-<string name="adreno_med">中</string>
-<string name="adreno_high">高</string>
-<string name="adreno_boost_desc">更高的加速等級提升效能但消耗更多電池並產生更多熱量。</string>
+    <!-- Adreno Power -->
+    <string name="adreno_gpu_throttling">GPU 節流</string>
+    <string name="adreno_performance_limited">效能受限</string>
+    <string name="adreno_full_performance">全效能</string>
+    <string name="adreno_adreno_boost">Adreno 加速</string>
+    <string name="adreno_level">等級</string>
+    <string name="adreno_off">關閉</string>
+    <string name="adreno_low">低</string>
+    <string name="adreno_med">中</string>
+    <string name="adreno_high">高</string>
+    <string name="adreno_boost_desc">更高的加速等級提升效能但消耗更多電池並產生更多熱量。</string>
 
-<!-- Adreno Bus -->
-<string name="adreno_bus_components">匯流排元件</string>
-<string name="adreno_no_bus_controls">無匯流排控制</string>
-<string name="adreno_no_bus_desc">此裝置沒有可設定的匯流排元件</string>
-<string name="adreno_min_freq">最小頻率</string>
-<string name="adreno_max_freq">最大頻率</string>
-<string name="adreno_min">最小</string>
-<string name="adreno_max">最大</string>
-<string name="adreno_edit">編輯</string>
+    <!-- Adreno Bus -->
+    <string name="adreno_bus_components">匯流排元件</string>
+    <string name="adreno_no_bus_controls">無匯流排控制</string>
+    <string name="adreno_no_bus_desc">此裝置沒有可設定的匯流排元件</string>
+    <string name="adreno_min_freq">最小頻率</string>
+    <string name="adreno_max_freq">最大頻率</string>
+    <string name="adreno_min">最小</string>
+    <string name="adreno_max">最大</string>
+    <string name="adreno_edit">編輯</string>
 
-<!-- Adreno Thermal -->
-<string name="adreno_thermal_throttling">過熱降頻</string>
-<string name="adreno_gpu_temp">GPU 溫度</string>
-<string name="adreno_thermal_zones">溫控區域</string>
-<string name="adreno_cooling_devices">散熱裝置</string>
+    <!-- Adreno Thermal -->
+    <string name="adreno_thermal_throttling">過熱降頻</string>
+    <string name="adreno_gpu_temp">GPU 溫度</string>
+    <string name="adreno_thermal_zones">溫控區域</string>
+    <string name="adreno_cooling_devices">散熱裝置</string>
 
-<!-- Adreno Advanced -->
-<string name="adreno_kgsl_advanced">KGSL 進階</string>
-<string name="adreno_force_no_nap">強制 No NAP</string>
-<string name="adreno_no_nap_desc">阻止 GPU 進入休眠</string>
-<string name="adreno_force_clk_on">強制 CLK 開啟</string>
-<string name="adreno_clk_on_desc">保持時脈始終開啟</string>
-<string name="adreno_force_bus_on">強制匯流排開啟</string>
-<string name="adreno_bus_on_desc">保持匯流排始終活躍</string>
-<string name="adreno_bus_split">匯流排分離</string>
-<string name="adreno_bus_split_desc">啟用匯流排分離</string>
-<string name="adreno_throttling">節流</string>
-<string name="adreno_throttling_desc">啟用過熱降頻</string>
-<string name="adreno_power_levels">功率級別</string>
-<string name="adreno_default">預設</string>
-<string name="adreno_thermal">溫控</string>
-<string name="adreno_save">儲存</string>
-<string name="adreno_adreno_idler">Adreno Idler</string>
-<string name="adreno_enable_idler">啟用 Idler</string>
-<string name="adreno_idler_desc">閒置時降低功耗</string>
-<string name="adreno_idle_wait">閒置等待</string>
-<string name="adreno_down_differential">降頻差值</string>
-<string name="adreno_workload_threshold">負載閾值</string>
-<string name="adreno_simple_gpu">Simple GPU</string>
-<string name="adreno_enable_simple_gpu">啟用 Simple GPU</string>
-<string name="adreno_simple_gpu_desc">替代 GPU 調節器演算法</string>
-<string name="adreno_laziness">惰性</string>
-<string name="adreno_ramp_threshold">斜坡閾值</string>
+    <!-- Adreno Advanced -->
+    <string name="adreno_kgsl_advanced">KGSL 進階</string>
+    <string name="adreno_force_no_nap">強制 No NAP</string>
+    <string name="adreno_no_nap_desc">阻止 GPU 進入休眠</string>
+    <string name="adreno_force_clk_on">強制 CLK 開啟</string>
+    <string name="adreno_clk_on_desc">保持時脈始終開啟</string>
+    <string name="adreno_force_bus_on">強制匯流排開啟</string>
+    <string name="adreno_bus_on_desc">保持匯流排始終活躍</string>
+    <string name="adreno_bus_split">匯流排分離</string>
+    <string name="adreno_bus_split_desc">啟用匯流排分離</string>
+    <string name="adreno_throttling">節流</string>
+    <string name="adreno_throttling_desc">啟用過熱降頻</string>
+    <string name="adreno_power_levels">功率級別</string>
+    <string name="adreno_default">預設</string>
+    <string name="adreno_thermal">溫控</string>
+    <string name="adreno_save">儲存</string>
+    <string name="adreno_adreno_idler">Adreno Idler</string>
+    <string name="adreno_enable_idler">啟用 Idler</string>
+    <string name="adreno_idler_desc">閒置時降低功耗</string>
+    <string name="adreno_idle_wait">閒置等待</string>
+    <string name="adreno_down_differential">降頻差值</string>
+    <string name="adreno_workload_threshold">負載閾值</string>
+    <string name="adreno_simple_gpu">Simple GPU</string>
+    <string name="adreno_enable_simple_gpu">啟用 Simple GPU</string>
+    <string name="adreno_simple_gpu_desc">替代 GPU 調節器演算法</string>
+    <string name="adreno_laziness">惰性</string>
+    <string name="adreno_ramp_threshold">斜坡閾值</string>
 
-<!-- Navigation Tabs -->
-<string name="nav_tab_feature">功能</string>
-<string name="nav_tab_overview">概覽</string>
-<string name="nav_tab_adjust">調整</string>
-<string name="nav_tab_support">支援</string>
-<string name="nav_tools_desc">工具</string>
-<string name="nav_power_desc">電源</string>
-<string name="nav_settings_desc">設定</string>
+    <!-- Navigation Tabs -->
+    <string name="nav_tab_feature">功能</string>
+    <string name="nav_tab_overview">概覽</string>
+    <string name="nav_tab_adjust">調整</string>
+    <string name="nav_tab_support">支援</string>
+    <string name="nav_tools_desc">工具</string>
+    <string name="nav_power_desc">電源</string>
+    <string name="nav_settings_desc">設定</string>
 
-<!-- Dialog Titles -->
-<string name="dialog_tools_title">快捷工具</string>
-<string name="dialog_power_title">電源選單</string>
+    <!-- Dialog Titles -->
+    <string name="dialog_tools_title">快捷工具</string>
+    <string name="dialog_power_title">電源選單</string>
 
-<!-- Tools -->
-<string name="tool_terminal_title">終端機 Shell</string>
-<string name="tool_terminal_subtitle">可在任何地方輸入的終端機視窗</string>
-<string name="tool_fps_title">FPS 監視器</string>
-<string name="tool_fps_subtitle">即時幀率懸浮窗</string>
-<string name="tool_process_title">行程監視器</string>
-<string name="tool_process_subtitle">顯示你的監視器行程</string>
-<string name="tool_activity_title">活動檢查器</string>
-<string name="tool_activity_subtitle">監視目前頂層活動套件與類別</string>
+    <!-- Tools -->
+    <string name="tool_terminal_title">終端機 Shell</string>
+    <string name="tool_terminal_subtitle">可在任何地方輸入的終端機視窗</string>
+    <string name="tool_fps_title">FPS 監視器</string>
+    <string name="tool_fps_subtitle">即時幀率懸浮窗</string>
+    <string name="tool_process_title">行程監視器</string>
+    <string name="tool_process_subtitle">顯示你的監視器行程</string>
+    <string name="tool_activity_title">活動檢查器</string>
+    <string name="tool_activity_subtitle">監視目前頂層活動套件與類別</string>
 
-<!-- Common Actions -->
-<string name="action_done">完成</string>
-<string name="action_cancel">取消</string>
-<string name="action_yes_do_it">是的，執行</string>
-<string name="confirm_action_title">確認%s</string>
+    <!-- Common Actions -->
+    <string name="action_done">完成</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_yes_do_it">是的，執行</string>
+    <string name="confirm_action_title">確認%s</string>
 
 
 </resources>
