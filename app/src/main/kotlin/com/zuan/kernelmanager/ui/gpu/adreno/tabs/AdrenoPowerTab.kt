@@ -132,17 +132,18 @@ fun AdrenoPowerTab(
         }
         
         // Adreno Boost Card
-        item {
-            Surface(
-                shape = RoundedCornerShape(24.dp),
-                color = cardColor,
-                modifier = Modifier.fillMaxWidth().then(if (isGlassActive) glassModifier else Modifier)
-            ) {
-                Column(
-                    modifier = Modifier.padding(24.dp)
+        if (state.hasAdrenoBoost) {
+            item {
+                Surface(
+                    shape = RoundedCornerShape(24.dp),
+                    color = cardColor,
+                    modifier = Modifier.fillMaxWidth().then(if (isGlassActive) glassModifier else Modifier)
                 ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
+                    Column(
+                        modifier = Modifier.padding(24.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         Surface(
@@ -217,6 +218,7 @@ fun AdrenoPowerTab(
                     )
                 }
             }
+        }
         }
         
         item { Spacer(Modifier.height(80.dp)) }

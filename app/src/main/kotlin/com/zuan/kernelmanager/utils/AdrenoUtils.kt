@@ -18,13 +18,32 @@ object AdrenoUtils {
     }
 
     fun readData(path: String): String {
-        return try { RootIpcManager.ipc?.readNode(path)?.trim() ?: "" } catch (e: Exception) { "" }
+        return try { 
+            val targetPath = if (path.endsWith("adrenoboost") && !File(path).exists()) {
+                when {
+                    File("/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost").exists() -> "/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost"
+                    File("/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost").exists() -> "/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost"
+                    File("/sys/class/kgsl/kgsl-3d0/adrenoboost").exists() -> "/sys/class/kgsl/kgsl-3d0/adrenoboost"
+                    else -> path
+                }
+            } else path
+            RootIpcManager.ipc?.readNode(targetPath)?.trim() ?: "" 
+        } catch (e: Exception) { "" }
     }
 
     fun writeData(path: String, value: String): Boolean {
         return try {
-            RootIpcManager.ipc?.writeNode(path, value) ?: run {
-                Shell.cmd("su -c 'echo \"$value\" > $path'").exec().isSuccess
+            val targetPath = if (path.endsWith("adrenoboost") && !checkExists(path)) {
+                when {
+                    checkExists("/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost") -> "/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost"
+                    checkExists("/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost") -> "/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost"
+                    checkExists("/sys/class/kgsl/kgsl-3d0/adrenoboost") -> "/sys/class/kgsl/kgsl-3d0/adrenoboost"
+                    else -> path
+                }
+            } else path
+
+            RootIpcManager.ipc?.writeNode(targetPath, value) ?: run {
+                Shell.cmd("su -c 'echo \"$value\" > $targetPath'").exec().isSuccess
             }
         } catch (e: Exception) { false }
     }
@@ -64,6 +83,10 @@ object AdrenoUtils {
     fun hasAdrenoIdler(): Boolean = checkExists(IDLER_DIR)
     fun hasSimpleGpu(): Boolean = checkExists(SIMPLE_GPU_DIR)
     fun hasGpuThrottling(): Boolean = checkExists(GPU_THROTTLING)
+    fun hasAdrenoBoost(): Boolean = checkExists(ADRENO_BOOST) || 
+                                    checkExists("/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost") ||
+                                    checkExists("/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost") ||
+                                    checkExists("/sys/class/kgsl/kgsl-3d0/adrenoboost")
     fun hasBusDcvs(): Boolean = checkExists(BUS_DCVS_DIR)
     fun hasBusmon(): Boolean = checkExists(BUSMON_DIR)
 

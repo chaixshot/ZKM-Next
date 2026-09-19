@@ -218,7 +218,14 @@ class BootReceiver : BroadcastReceiver() {
                                 Shell.cmd("echo ${gpuObj.getString("throttling")} > /sys/class/kgsl/kgsl-3d0/throttling").exec()
                             }
                             if (gpuObj.has("adrenoBoost")) {
-                                Shell.cmd("echo ${gpuObj.getString("adrenoBoost")} > /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost").exec()
+                                val ab = gpuObj.getString("adrenoBoost")
+                                val abPath = when {
+                                    Utils.testFile(AdrenoUtils.ADRENO_BOOST) -> AdrenoUtils.ADRENO_BOOST
+                                    Utils.testFile("/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost") -> "/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost"
+                                    Utils.testFile("/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost") -> "/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost"
+                                    else -> AdrenoUtils.ADRENO_BOOST
+                                }
+                                Shell.cmd("echo $ab > $abPath").exec()
                             }
 
                             // Advanced KGSL settings

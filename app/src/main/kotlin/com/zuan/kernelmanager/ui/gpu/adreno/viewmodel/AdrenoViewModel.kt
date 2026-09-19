@@ -31,7 +31,7 @@ class AdrenoViewModel(application: Application) : AndroidViewModel(application) 
     data class CoolingDevice(val name: String, val curState: Int, val maxState: Int)
     
     data class FreqState(val minFreq: String = "N/A", val maxFreq: String = "N/A", val currentFreq: String = "N/A", val governor: String = "N/A", val availableFreqs: List<String> = emptyList(), val availableGovs: List<String> = emptyList())
-    data class PowerState(val adrenoBoost: String = "0", val hasGpuThrottling: Boolean = false, val gpuThrottling: String = "0")
+    data class PowerState(val adrenoBoost: String = "0", val hasAdrenoBoost: Boolean = false, val hasGpuThrottling: Boolean = false, val gpuThrottling: String = "0")
     
     // Tab Bus (Gabungan DCVS, Busmon, UFSHC)
     data class BusDcvsState(val hasBusDcvs: Boolean = false, val busComponents: List<BusState> = emptyList(), val busmon: DevfreqState = DevfreqState(), val ufshc: DevfreqState = DevfreqState())
@@ -103,8 +103,10 @@ class AdrenoViewModel(application: Application) : AndroidViewModel(application) 
 
     private suspend fun loadPowerData(): PowerState {
         val hasThrottling = AdrenoUtils.hasGpuThrottling()
+        val hasBoost = AdrenoUtils.hasAdrenoBoost()
         return PowerState(
-            adrenoBoost = fastRead(AdrenoUtils.ADRENO_BOOST),
+            adrenoBoost = if (hasBoost) fastRead(AdrenoUtils.ADRENO_BOOST) else "0",
+            hasAdrenoBoost = hasBoost,
             hasGpuThrottling = hasThrottling, gpuThrottling = if (hasThrottling) fastRead(AdrenoUtils.GPU_THROTTLING) else "0"
         )
     }
