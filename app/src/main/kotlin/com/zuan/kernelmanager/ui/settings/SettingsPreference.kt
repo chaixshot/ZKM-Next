@@ -215,11 +215,9 @@ class SettingsPreference(context: Context) {
     private val _selectedNetProfileName = MutableStateFlow(getSelectedNetProfileName())
     val selectedNetProfileName: StateFlow<String?> = _selectedNetProfileName.asStateFlow()
 
-    private val _batteryProfilesJson = MutableStateFlow(getBatteryProfilesJson())
-    val batteryProfilesJson: StateFlow<String> = _batteryProfilesJson.asStateFlow()
 
-    private val _selectedBatteryProfileName = MutableStateFlow(getSelectedBatteryProfileName())
-    val selectedBatteryProfileName: StateFlow<String?> = _selectedBatteryProfileName.asStateFlow()
+    private val _individualCpuSettingsJson = MutableStateFlow(getIndividualCpuSettingsJson())
+    val individualCpuSettingsJson: StateFlow<String> = _individualCpuSettingsJson.asStateFlow()
 
     private val _batteryMonitorEnabled = MutableStateFlow(getBatteryMonitorEnabled())
     val batteryMonitorEnabled: StateFlow<Boolean> = _batteryMonitorEnabled.asStateFlow()
@@ -305,8 +303,7 @@ class SettingsPreference(context: Context) {
         private const val NET_PROFILES_KEY = "net_profiles_json"
         private const val SELECTED_NET_PROFILE_NAME_KEY = "selected_net_profile_name"
         
-        private const val BATTERY_PROFILES_KEY = "battery_profiles_json"
-        private const val SELECTED_BATTERY_PROFILE_NAME_KEY = "selected_battery_profile_name"
+        private const val INDIVIDUAL_CPU_SETTINGS_KEY = "individual_cpu_settings_json"
 
         private const val BATTERY_MONITOR_KEY = "battery_monitor_enabled"
         private const val SMART_CUTOFF_KEY = "smart_cutoff_enabled"
@@ -508,17 +505,13 @@ class SettingsPreference(context: Context) {
     }
     private fun getSelectedNetProfileName(): String? = prefs.getString(SELECTED_NET_PROFILE_NAME_KEY, null)
 
-    fun setBatteryProfilesJson(json: String) {
-        prefs.edit { putString(BATTERY_PROFILES_KEY, json) }
-        _batteryProfilesJson.value = json
-    }
-    private fun getBatteryProfilesJson(): String = prefs.getString(BATTERY_PROFILES_KEY, "[]") ?: "[]"
 
-    fun setSelectedBatteryProfileName(name: String?) {
-        prefs.edit { putString(SELECTED_BATTERY_PROFILE_NAME_KEY, name) }
-        _selectedBatteryProfileName.value = name
+
+    fun setIndividualCpuSettingsJson(json: String) {
+        prefs.edit { putString(INDIVIDUAL_CPU_SETTINGS_KEY, json) }
+        _individualCpuSettingsJson.value = json
     }
-    private fun getSelectedBatteryProfileName(): String? = prefs.getString(SELECTED_BATTERY_PROFILE_NAME_KEY, null)
+    private fun getIndividualCpuSettingsJson(): String = prefs.getString(INDIVIDUAL_CPU_SETTINGS_KEY, "{}") ?: "{}"
 
     fun setBatteryMonitorEnabled(enabled: Boolean) { prefs.edit { putBoolean(BATTERY_MONITOR_KEY, enabled) }; _batteryMonitorEnabled.value = enabled }
     private fun getBatteryMonitorEnabled(): Boolean = prefs.getBoolean(BATTERY_MONITOR_KEY, false)
@@ -548,7 +541,7 @@ class SettingsPreference(context: Context) {
     private fun getThermalSconfig(): String = prefs.getString(THERMAL_SCONFIG_KEY, "0") ?: "0"
 
     fun setApplyOnBoot(enabled: Boolean) { prefs.edit { putBoolean(APPLY_ON_BOOT_KEY, enabled) }; _applyOnBoot.value = enabled }
-    private fun getApplyOnBoot(): Boolean = prefs.getBoolean(APPLY_ON_BOOT_KEY, false)
+    private fun getApplyOnBoot(): Boolean = prefs.getBoolean(APPLY_ON_BOOT_KEY, true)
 }
 
 private fun SharedPreferences.toFloat(key: String, defValue: Float): Float = try { this.getFloat(key, defValue) } catch (e: Exception) { defValue }

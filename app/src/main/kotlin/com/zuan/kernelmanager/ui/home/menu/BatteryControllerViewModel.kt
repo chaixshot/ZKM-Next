@@ -7,9 +7,11 @@
  */
 package com.zuan.kernelmanager.ui.home.menu
 
+import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.zuan.kernelmanager.service.BatteryMonitorService
@@ -22,9 +24,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.json.JSONArray
-import org.json.JSONObject
-import android.widget.Toast
 
 // --- DATA CLASS BARU UNTUK GRAFIK REAL-TIME ---
 data class ChartPoint(
@@ -75,9 +74,6 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
     private val _isSmartChargeSupported = MutableStateFlow(false)
     private val _isChargingLimitSupported = MutableStateFlow(false)
 
-    private val _profiles = MutableStateFlow<List<BatteryProfile>>(emptyList())
-    val profiles: StateFlow<List<BatteryProfile>> = _profiles
-
     // Exposed Flows
     val batteryInfo: StateFlow<BatteryInfo?> = _batteryInfo
     val chargingStats: StateFlow<ChargingStats?> = _chargingStats
@@ -113,6 +109,7 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
                 if (_isAutoRefresh.value) {
                     refreshData()
                 }
+                delay(2000) 
             }
         }
     }
@@ -143,20 +140,15 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
             if (!isCurrentlyPlugged) {
                 if (lastPhysicallyPlugged) unpluggedTimestamp = currentTime
                 
-                // Jika sudah dicabut lebih dari 10 detik, pastikan toggle charging ON
-                // Kita izinkan ini jika level di bawah target - 5%, karena itu pasti REAL unplug
-                // (tidak mungkin fake unplug terjadi saat level jauh di bawah target)
-                val targetLimit = _smartCutoffLimit.value
+                val targetLimit = settingsPreference.smartCutoffLimit.value
                 val isSafelyBelowTarget = info.level < (targetLimit - 5)
                 
-                if ((!_smartCutoffEnabled.value || isSafelyBelowTarget) && currentTime - unpluggedTimestamp > 10000 && !isChargingEnabledVal) {
+                if ((!settingsPreference.smartCutoffEnabled.value || isSafelyBelowTarget) && currentTime - unpluggedTimestamp > 10000 && !isChargingEnabledVal) {
                     BatteryControllerUtils.setChargingEnabled(true)
                 }
             } else {
-                // Jika baru dicolok (Transition from Unplugged to Plugged)
                 if (!lastPhysicallyPlugged) {
-                    // Pastikan charging aktif saat dicolok kabel
-                    if (!isChargingEnabledVal && !_smartCutoffEnabled.value) {
+                    if (!isChargingEnabledVal && !settingsPreference.smartCutoffEnabled.value) {
                         BatteryControllerUtils.setChargingEnabled(true)
                     }
                 }
@@ -268,7 +260,7 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
         val intent = Intent(context, SmartCutoffService::class.java)
         if (enable) {
             intent.putExtra(SmartCutoffService.EXTRA_LIMIT, _smartCutoffLimit.value.toInt())
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) context.startForegroundService(intent) else context.startService(intent)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) context.startForegroundService(intent) else context.startService(intent)
         } else {
             intent.action = SmartCutoffService.ACTION_STOP_SERVICE
             context.startService(intent)
@@ -283,7 +275,7 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
                 delay(500) 
                 withContext(Dispatchers.Main) {
                     val intent = Intent(context, BatteryMonitorService::class.java)
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) context.startForegroundService(intent) else context.startService(intent)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) context.startForegroundService(intent) else context.startService(intent)
                 }
             }
         } else {
@@ -321,7 +313,6 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
         viewModelScope.launch(Dispatchers.IO) { 
             if (BatteryControllerUtils.setChargingEnabled(enabled)) {
                 _isChargingEnabled.value = enabled 
-                // Kita tidak simpan status ini karena bahaya jika mati permanen setelah reboot
             }
         } 
     }
@@ -335,7 +326,7 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
     }
     
     private fun isServiceRunning(context: Context, serviceClass: Class<*>): Boolean {
-        val manager = context.getSystemService(Context.ACTIVITY_SERVICE) as android.app.ActivityManager
+        val manager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         for (service in manager.getRunningServices(Int.MAX_VALUE)) {
             if (serviceClass.name == service.service.className) return true
         }

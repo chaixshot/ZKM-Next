@@ -133,6 +133,7 @@ fun MainSettingsContent(
     val cardDarkness by viewModel.cardDarkness.collectAsState()
     val bgType by viewModel.bgType.collectAsState()
     val isHazeEnabled by viewModel.isHazeEnabled.collectAsState() 
+    val applyOnBoot by viewModel.applyOnBoot.collectAsState()
     
     val themeColorName by viewModel.currentThemeColor.collectAsState()
     val isCustomColor by viewModel.isCustomColor.collectAsState()
@@ -285,6 +286,16 @@ fun MainSettingsContent(
                                 subtitle = stringResource(R.string.pref_wallpaper_style_desc),
                                 onClick = { navController.navigate(NavigationRoute.WallpaperStyle.route) },
                                 iconTint = finalPrimary
+                            )
+                            HorizontalDivider(modifier = Modifier.fillMaxWidth(), color = dividerColor, thickness = 0.8.dp)
+                            SettingsSwitchItem(
+                                icon = Icons.Outlined.CheckCircle,
+                                title = "Apply on Boot",
+                                subtitle = "Re-apply all Soc and Battery settings after reboot",
+                                checked = applyOnBoot,
+                                onCheckedChange = { viewModel.setApplyOnBoot(it) },
+                                iconTint = finalPrimary,
+                                accentColor = finalPrimary
                             )
                         }
                     }

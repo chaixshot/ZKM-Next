@@ -213,6 +213,7 @@ fun BatteryControllerScreen(
                 HorizontalDivider(color = if (isCustomBg) Color.White.copy(0.2f) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.2f))
                 when (selectedTab) {
                     0 -> BatteryDashboardTab(viewModel, isGlassActive, hazeState, finalCardColor, textColor, subTextColor, effectivePrimary)
+                    1 -> BatteryControlsTab(viewModel, isGlassActive, hazeState, finalCardColor, textColor, subTextColor, effectivePrimary)
                     2 -> BatterySettingsTab(viewModel, isGlassActive, hazeState, finalCardColor, textColor, subTextColor, effectivePrimary)
                 }
             }
@@ -558,6 +559,7 @@ fun BatteryControlsTab(
     val hasThermalSconfig by viewModel.hasThermalSconfig.collectAsStateWithLifecycle()
 
     LazyColumn(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        item { Spacer(modifier = Modifier.height(8.dp)) }
         item { ModernControlCardGlass(stringResource(R.string.battery_monitor_service), stringResource(R.string.battery_monitor_service_desc), Icons.Rounded.Visibility, monitorEnabled, isGlassActive, textColor, subTextColor, primaryColor) { viewModel.toggleMonitor(context, it) } }
         item { ModernControlCardGlass(stringResource(R.string.battery_enable_charging), stringResource(R.string.battery_enable_charging_desc), Icons.Rounded.Power, isChargingEnabled, isGlassActive, textColor, subTextColor, primaryColor) { viewModel.toggleCharging(it) } }
         

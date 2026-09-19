@@ -10,8 +10,10 @@ package com.zuan.kernelmanager.ui.socmenu
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
+import com.topjohnwu.superuser.Shell
 import androidx.lifecycle.viewModelScope
 import com.zuan.kernelmanager.ui.settings.SettingsPreference
+import com.zuan.kernelmanager.utils.GenericGpuUtils
 import com.zuan.kernelmanager.utils.Utils
 import com.zuan.kernelmanager.utils.AdrenoUtils
 import kotlinx.coroutines.Dispatchers
@@ -115,6 +117,7 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
     private fun loadProfiles() {
         viewModelScope.launch {
             val json = settingsPreference.cpuGpuProfilesJson.value
+            _profiles.value = parseProfilesJson(json)
         }
     }
 
@@ -339,6 +342,7 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
         viewModelScope.launch(Dispatchers.IO) {
             val file = if (target == "min") "scaling_min_freq" else "scaling_max_freq"
             CpuGpuUtils.writeFreq(policyPath, file, selectedFreq)
+            saveIndividualCpuSetting(policyPath, target, selectedFreq)
             loadDynamicCPUData() 
         }
     }
@@ -346,9 +350,21 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
     fun updateGov(selectedGov: String, policyPath: String) {
         viewModelScope.launch(Dispatchers.IO) {
             CpuGpuUtils.writeGov(policyPath, selectedGov)
+            saveIndividualCpuSetting(policyPath, "governor", selectedGov)
             loadDynamicCPUData()
             loadGovTunables(policyPath, selectedGov)
         }
+    }
+
+    private fun saveIndividualCpuSetting(policyPath: String, key: String, value: String) {
+        try {
+            val json = settingsPreference.individualCpuSettingsJson.value
+            val root = JSONObject(json)
+            val clusterObj = if (root.has(policyPath)) root.getJSONObject(policyPath) else JSONObject()
+            clusterObj.put(key, value)
+            root.put(policyPath, clusterObj)
+            settingsPreference.setIndividualCpuSettingsJson(root.toString())
+        } catch (e: Exception) { e.printStackTrace() }
     }
 
     fun loadGovTunables(policyPath: String, governor: String) {
@@ -545,6 +561,17 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
             profile.cpusets?.forEach { (key, value) ->
                 val path = "/dev/cpuset/$key/cpus"
                 if (Utils.testFile(path)) Shell.cmd("echo \"$value\" > $path").exec()
+            }
+            
+            // GPU
+            profile.gpuSetting?.let { gpu ->
+                if (gpu.type == CpuGpuUtils.GpuType.ADRENO.name) {
+                    Shell.cmd("echo ${gpu.currentFreq} > /sys/class/kgsl/kgsl-3d0/gpuclk").exec()
+                } else if (gpu.type == CpuGpuUtils.GpuType.GENERIC_DEVFREQ.name) {
+                    GenericGpuUtils.getGpuPath()?.let { path ->
+                        GenericGpuUtils.setFreq(path, "max", gpu.currentFreq)
+                    }
+                }
             }
             
             loadDynamicCPUData()

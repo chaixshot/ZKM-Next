@@ -74,11 +74,12 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     val customSecondaryColor = settingsPreference.customSecondaryColor
     val customTertiaryColor = settingsPreference.customTertiaryColor
 
+    val applyOnBoot = settingsPreference.applyOnBoot
+
     val selectedCpuProfileName = settingsPreference.selectedCpuProfileName
     val selectedSchedProfileName = settingsPreference.selectedSchedProfileName
     val selectedMemProfileName = settingsPreference.selectedMemProfileName
     val selectedNetProfileName = settingsPreference.selectedNetProfileName
-    val selectedBatteryProfileName = settingsPreference.selectedBatteryProfileName
 
     // --- UI CONFIG COMBINED ---
     private val visualConfigFlow = combine(
@@ -237,6 +238,8 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     fun setCustomPrimaryColor(color: Int) { viewModelScope.launch { settingsPreference.setCustomPrimaryColor(color) } }
     fun setCustomSecondaryColor(color: Int) { viewModelScope.launch { settingsPreference.setCustomSecondaryColor(color) } }
     fun setCustomTertiaryColor(color: Int) { viewModelScope.launch { settingsPreference.setCustomTertiaryColor(color) } }
+
+    fun setApplyOnBoot(enabled: Boolean) { viewModelScope.launch { settingsPreference.setApplyOnBoot(enabled) } }
 }
 
 // Helper Classes
