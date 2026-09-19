@@ -88,8 +88,12 @@ object AdrenoUtils {
     fun writeFreqGPU(filePath: String, frequencyMHz: String) {
         try {
             val freqMHzLong = frequencyMHz.toLongOrNull() ?: return
-            val freqHz = freqMHzLong * 1000000
-            writeData(filePath, freqHz.toString())
+            if (filePath.contains("mhz", ignoreCase = true)) {
+                writeData(filePath, frequencyMHz)
+            } else {
+                val freqHz = freqMHzLong * 1000000
+                writeData(filePath, freqHz.toString())
+            }
         } catch (e: Exception) { e.printStackTrace() }
     }
 

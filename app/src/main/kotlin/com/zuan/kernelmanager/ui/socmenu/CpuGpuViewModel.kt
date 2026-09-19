@@ -511,11 +511,11 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
                 if (gpu.type == CpuGpuUtils.GpuType.ADRENO.name) {
                     if (!gpu.minFreq.isNullOrEmpty()) {
                         val freqMHzLong = gpu.minFreq.toLongOrNull()
-                        if (freqMHzLong != null) Shell.cmd("echo ${freqMHzLong * 1000000} > /sys/class/kgsl/kgsl-3d0/min_clock_mhz").exec()
+                        if (freqMHzLong != null) Shell.cmd("echo ${gpu.minFreq} > /sys/class/kgsl/kgsl-3d0/min_clock_mhz").exec()
                     }
                     if (!gpu.maxFreq.isNullOrEmpty()) {
                         val freqMHzLong = gpu.maxFreq.toLongOrNull()
-                        if (freqMHzLong != null) Shell.cmd("echo ${freqMHzLong * 1000000} > /sys/class/kgsl/kgsl-3d0/max_clock_mhz").exec()
+                        if (freqMHzLong != null) Shell.cmd("echo ${gpu.maxFreq} > /sys/class/kgsl/kgsl-3d0/max_clock_mhz").exec()
                     }
                     if (!gpu.governor.isNullOrEmpty()) {
                         Shell.cmd("echo ${gpu.governor} > /sys/class/kgsl/kgsl-3d0/devfreq/governor").exec()
