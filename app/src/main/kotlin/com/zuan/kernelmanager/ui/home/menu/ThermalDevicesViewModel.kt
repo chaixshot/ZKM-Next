@@ -7,8 +7,12 @@
  */
 package com.zuan.kernelmanager.ui.home.menu
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.zuan.kernelmanager.ui.settings.SettingsPreference
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,8 +32,8 @@ data class ThermalStats(
     val totalZones: Int = 0
 )
 
-class ThermalDevicesViewModel : ViewModel() {
-
+class ThermalDevicesViewModel(application: Application) : AndroidViewModel(application) {
+    private val settingsPreference = SettingsPreference.getInstance(application)
     private val _allZones = MutableStateFlow<List<ThermalZone>>(emptyList())
     private val _coolingDevices = MutableStateFlow<List<ThermalCoolingDevice>>(emptyList())
     private val _selectedFilter = MutableStateFlow("All")
@@ -144,7 +148,19 @@ class ThermalDevicesViewModel : ViewModel() {
     fun setThermalPolicy(policy: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val success = ThermalUtils.setThermalPolicy(policy)
-            if (success) _thermalPolicy.value = policy
+            if (success) {
+                _thermalPolicy.value = policy
+                // Persist if it's an sconfig value
+                val sconfigValue = when (policy.lowercase()) {
+                    "default" -> "0"
+                    "gaming" -> "13"
+                    "benchmark" -> "10"
+                    "camera" -> "11"
+                    "video" -> "12"
+                    else -> null
+                }
+                sconfigValue?.let { settingsPreference.setThermalSconfig(it) }
+            }
         }
     }
 

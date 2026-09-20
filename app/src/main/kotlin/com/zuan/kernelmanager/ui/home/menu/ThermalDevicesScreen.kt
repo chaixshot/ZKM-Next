@@ -1128,7 +1128,12 @@ fun ThermalPolicyDialog(
     subTextColor: Color,
     primaryColor: Color
 ) {
-    val policies = listOf("default", "performance", "balanced", "powersave", "user_space")
+    val policies = if (currentPolicy.startsWith("sconfig") || 
+                    listOf("default", "gaming", "benchmark", "camera", "video").contains(currentPolicy)) {
+        listOf("default", "gaming", "benchmark", "camera", "video")
+    } else {
+        listOf("default", "performance", "balanced", "powersave", "user_space")
+    }
 
     AlertDialog(
         onDismissRequest = onDismiss,

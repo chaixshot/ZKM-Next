@@ -136,13 +136,56 @@ object ThermalUtils {
     }
 
     fun getThermalPolicy(): String {
-        val result = Shell.cmd("cat /sys/class/thermal/thermal_policy 2>/dev/null || echo 'default'").exec()
-        return if (result.isSuccess) result.out.joinToString("").trim() else "default"
+        val policyPath = "/sys/class/thermal/thermal_policy"
+        val sconfigPath = "/sys/class/thermal/thermal_message/sconfig"
+        
+        return when {
+            File(policyPath).exists() -> {
+                val res = Shell.cmd("cat $policyPath").exec()
+                if (res.isSuccess) res.out.joinToString("").trim() else "default"
+            }
+            File(sconfigPath).exists() -> {
+                val res = Shell.cmd("cat $sconfigPath").exec()
+                if (res.isSuccess) {
+                    val value = res.out.joinToString("").trim()
+                    when (value) {
+                        "0" -> "default"
+                        "13" -> "gaming"
+                        "10" -> "benchmark"
+                        "11" -> "camera"
+                        "12" -> "video"
+                        else -> "sconfig: $value"
+                    }
+                } else "default"
+            }
+            else -> "default"
+        }
     }
 
     fun setThermalPolicy(policy: String): Boolean {
-        val result = Shell.cmd("echo $policy > /sys/class/thermal/thermal_policy 2>/dev/null").exec()
-        return result.isSuccess
+        val policyPath = "/sys/class/thermal/thermal_policy"
+        val sconfigPath = "/sys/class/thermal/thermal_message/sconfig"
+
+        return when {
+            File(policyPath).exists() -> {
+                Shell.cmd("echo $policy > $policyPath").exec().isSuccess
+            }
+            File(sconfigPath).exists() -> {
+                val value = when (policy.lowercase()) {
+                    "default" -> "0"
+                    "gaming" -> "13"
+                    "benchmark" -> "10"
+                    "camera" -> "11"
+                    "video" -> "12"
+                    else -> policy // assume direct value
+                }
+                Shell.cmd("chmod 644 $sconfigPath").exec()
+                val res = Shell.cmd("echo $value > $sconfigPath").exec().isSuccess
+                Shell.cmd("chmod 444 $sconfigPath").exec()
+                res
+            }
+            else -> false
+        }
     }
 
     fun getTripPoints(zonePath: String): List<TripPoint> {
