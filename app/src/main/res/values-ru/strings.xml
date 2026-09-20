@@ -1142,6 +1142,8 @@
     <string name="profile_auto_apply_success">Автоматически применен профиль \'%s\'</string>
     <string name="profile_save">Сохранить</string>
     <string name="profile_cancel">Отмена</string>
+    <string name="profile_op_saving">Сохранение профиля…</string>
+    <string name="profile_op_applying">Применение профиля…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">Применять при загрузке</string>

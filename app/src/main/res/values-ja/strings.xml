@@ -1133,6 +1133,8 @@
     <string name="profile_auto_apply_success">プロファイル \'%s\' を自動適用しました</string>
     <string name="profile_save">保存</string>
     <string name="profile_cancel">キャンセル</string>
+    <string name="profile_op_saving">プロファイルを保存中…</string>
+    <string name="profile_op_applying">プロファイルを適用中…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">起動時に適用</string>

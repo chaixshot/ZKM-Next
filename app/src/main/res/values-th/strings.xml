@@ -1119,6 +1119,8 @@
     <string name="profile_auto_apply_success">ใช้โปรไฟล์ \'%s\' อัตโนมัติแล้ว</string>
     <string name="profile_save">บันทึก</string>
     <string name="profile_cancel">ยกเลิก</string>
+    <string name="profile_op_saving">กำลังบันทึกโปรไฟล์…</string>
+    <string name="profile_op_applying">กำลังใช้โปรไฟล์…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">ใช้ค่าเมื่อเปิดเครื่อง</string>

@@ -1133,6 +1133,8 @@
     <string name="profile_auto_apply_success">Perfil \'%s\' aplicado automaticamente</string>
     <string name="profile_save">Salvar</string>
     <string name="profile_cancel">Cancelar</string>
+    <string name="profile_op_saving">Salvando perfil…</string>
+    <string name="profile_op_applying">Aplicando perfil…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">Aplicar na inicialização</string>

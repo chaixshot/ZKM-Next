@@ -1133,6 +1133,8 @@
     <string name="profile_auto_apply_success">\'%s\' profili otomatik olarak uygulandı</string>
     <string name="profile_save">Kaydet</string>
     <string name="profile_cancel">İptal</string>
+    <string name="profile_op_saving">Profil kaydediliyor…</string>
+    <string name="profile_op_applying">Profil uygulanıyor…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">Açılışta Uygula</string>

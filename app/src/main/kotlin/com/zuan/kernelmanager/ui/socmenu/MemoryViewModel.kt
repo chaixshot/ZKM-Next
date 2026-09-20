@@ -78,6 +78,9 @@ class MemoryViewModel(application: Application) : AndroidViewModel(application) 
     private val _profiles = MutableStateFlow<List<MemoryProfile>>(emptyList())
     val profiles: StateFlow<List<MemoryProfile>> = _profiles
 
+    private val _isOperating = MutableStateFlow<Int?>(null)
+    val isOperating: StateFlow<Int?> = _isOperating
+
     init {
         refreshAll()
         loadProfiles()
@@ -269,85 +272,89 @@ class MemoryViewModel(application: Application) : AndroidViewModel(application) 
     // --- Profile Actions ---
 
     fun saveCurrentToProfile(name: String) {
-        val initialList = _profiles.value.toMutableList()
-        val preIndex = initialList.indexOfFirst { it.name == name }
-        if (preIndex == -1) {
-            initialList.add(MemoryProfile(name, emptyMap(), null, null, emptyMap()))
-            _profiles.value = initialList
-        }
+        _isOperating.value = R.string.profile_op_saving
         viewModelScope.launch(Dispatchers.IO) {
-            val vmSettings = mutableMapOf<String, String>()
-            listOf(
-                MemoryUtils.SWAPPINESS,
-                MemoryUtils.VFS_CACHE_PRESSURE,
-                MemoryUtils.DIRTY_RATIO,
-                MemoryUtils.DIRTY_BACKGROUND_RATIO,
-                MemoryUtils.MIN_FREE_KBYTES,
-                MemoryUtils.EXTRA_FREE_KBYTES
-            ).forEach { path ->
-                if (Utils.testFile(path)) vmSettings[path] = Utils.readFile(path)
-            }
-
-            val sizeBytes = MemoryUtils.getZramSizeBytes()
-            val zramSizeMb = if (sizeBytes > 0) (sizeBytes / 1048576L).toInt() else null
-            val zramAlgo = MemoryUtils.getZramAlgoInfo().first.takeIf { it != "Unknown" }
-
-            val ioScheds = mutableMapOf<String, String>()
-            val ioTunables = mutableMapOf<String, Map<String, String>>()
-            val tunableKeys = listOf("nr_requests", "read_ahead_kb", "rq_affinity", "rotational", "add_random", "iostats")
-            
-            MemoryUtils.getBlockDevices().forEach { dev ->
-                ioScheds[dev] = MemoryUtils.getIOSchedulerInfo(dev).first
-                val devTunables = mutableMapOf<String, String>()
-                tunableKeys.forEach { key ->
-                    val v = MemoryUtils.getIOTunable(dev, key)
-                    if (v.isNotEmpty()) devTunables[key] = v
+            try {
+                val vmSettings = mutableMapOf<String, String>()
+                listOf(
+                    MemoryUtils.SWAPPINESS,
+                    MemoryUtils.VFS_CACHE_PRESSURE,
+                    MemoryUtils.DIRTY_RATIO,
+                    MemoryUtils.DIRTY_BACKGROUND_RATIO,
+                    MemoryUtils.MIN_FREE_KBYTES,
+                    MemoryUtils.EXTRA_FREE_KBYTES
+                ).forEach { path ->
+                    if (Utils.testFile(path)) vmSettings[path] = Utils.readFile(path)
                 }
-                ioTunables[dev] = devTunables
-            }
 
-            val newProfile = MemoryProfile(name, vmSettings, zramSizeMb, zramAlgo, ioScheds, ioTunables)
-            val newList = _profiles.value.toMutableList()
-            val index = newList.indexOfFirst { it.name == name }
-            if (index != -1) newList[index] = newProfile else newList.add(newProfile)
-            
-            _profiles.value = newList
-            saveProfilesToPrefs()
-            
-            withContext(Dispatchers.Main) {
-                Toast.makeText(getApplication(), getApplication<Application>().getString(R.string.profile_save_success, name), Toast.LENGTH_SHORT).show()
+                val sizeBytes = MemoryUtils.getZramSizeBytes()
+                val zramSizeMb = if (sizeBytes > 0) (sizeBytes / 1048576L).toInt() else null
+                val zramAlgo = MemoryUtils.getZramAlgoInfo().first.takeIf { it != "Unknown" }
+
+                val ioScheds = mutableMapOf<String, String>()
+                val ioTunables = mutableMapOf<String, Map<String, String>>()
+                val tunableKeys = listOf("nr_requests", "read_ahead_kb", "rq_affinity", "rotational", "add_random", "iostats")
+                
+                MemoryUtils.getBlockDevices().forEach { dev ->
+                    ioScheds[dev] = MemoryUtils.getIOSchedulerInfo(dev).first
+                    val devTunables = mutableMapOf<String, String>()
+                    tunableKeys.forEach { key ->
+                        val v = MemoryUtils.getIOTunable(dev, key)
+                        if (v.isNotEmpty()) devTunables[key] = v
+                    }
+                    ioTunables[dev] = devTunables
+                }
+
+                val newProfile = MemoryProfile(name, vmSettings, zramSizeMb, zramAlgo, ioScheds, ioTunables)
+                val newList = _profiles.value.toMutableList()
+                val index = newList.indexOfFirst { it.name == name }
+                if (index != -1) newList[index] = newProfile else newList.add(newProfile)
+                
+                _profiles.value = newList
+                saveProfilesToPrefs()
+                
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(getApplication(), getApplication<Application>().getString(R.string.profile_save_success, name), Toast.LENGTH_SHORT).show()
+                }
+            } finally {
+                withContext(Dispatchers.Main) { _isOperating.value = null }
             }
         }
     }
 
     fun applyProfile(profile: MemoryProfile, isAutoApply: Boolean = false) {
+        _isOperating.value = R.string.profile_op_applying
         viewModelScope.launch(Dispatchers.IO) {
-            profile.vmSettings.forEach { (path, value) -> Utils.writeFile(path, value) }
-            
-            val currentSizeMb = (MemoryUtils.getZramSizeBytes() / 1048576L).toInt()
-            val currentAlgo = MemoryUtils.getZramAlgoInfo().first
-            if (profile.zramSizeMb != null && profile.zramAlgo != null && 
-                (profile.zramSizeMb != currentSizeMb || profile.zramAlgo != currentAlgo)) {
-                MemoryUtils.swapoff()
-                MemoryUtils.resetZram()
-                MemoryUtils.setZramCompAlgorithm(profile.zramAlgo)
-                MemoryUtils.setZramSize(profile.zramSizeMb * 1048576L)
-                MemoryUtils.mkswap()
-                MemoryUtils.swapon()
-            }
-            profile.ioSchedulers.forEach { (dev, sched) -> MemoryUtils.setIOScheduler(dev, sched) }
-            profile.ioTunables?.forEach { (dev, tunables) ->
-                tunables.forEach { (key, value) ->
-                    MemoryUtils.setIOTunable(dev, key, value)
+            try {
+                profile.vmSettings.forEach { (path, value) -> Utils.writeFile(path, value) }
+                
+                val currentSizeMb = (MemoryUtils.getZramSizeBytes() / 1048576L).toInt()
+                val currentAlgo = MemoryUtils.getZramAlgoInfo().first
+                if (profile.zramSizeMb != null && profile.zramAlgo != null && 
+                    (profile.zramSizeMb != currentSizeMb || profile.zramAlgo != currentAlgo)) {
+                    MemoryUtils.swapoff()
+                    MemoryUtils.resetZram()
+                    MemoryUtils.setZramCompAlgorithm(profile.zramAlgo)
+                    MemoryUtils.setZramSize(profile.zramSizeMb * 1048576L)
+                    MemoryUtils.mkswap()
+                    MemoryUtils.swapon()
                 }
-            }
-            
-            refreshAll()
-            settingsPreference.setSelectedMemProfileName(profile.name)
-            
-            withContext(Dispatchers.Main) {
-                val format = if (isAutoApply) R.string.profile_auto_apply_success else R.string.profile_apply_success
-                Toast.makeText(getApplication(), getApplication<Application>().getString(format, profile.name), Toast.LENGTH_SHORT).show()
+                profile.ioSchedulers.forEach { (dev, sched) -> MemoryUtils.setIOScheduler(dev, sched) }
+                profile.ioTunables?.forEach { (dev, tunables) ->
+                    tunables.forEach { (key, value) ->
+                        MemoryUtils.setIOTunable(dev, key, value)
+                    }
+                }
+                
+                refreshAll()
+                settingsPreference.setSelectedMemProfileName(profile.name)
+                
+                withContext(Dispatchers.Main) {
+                    val format = if (isAutoApply) R.string.profile_auto_apply_success else R.string.profile_apply_success
+                    Toast.makeText(getApplication(), getApplication<Application>().getString(format, profile.name), Toast.LENGTH_SHORT).show()
+                }
+            } finally {
+                withContext(Dispatchers.Main) { _isOperating.value = null }
             }
         }
     }

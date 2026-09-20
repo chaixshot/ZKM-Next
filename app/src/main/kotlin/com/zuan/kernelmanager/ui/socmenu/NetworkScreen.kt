@@ -46,6 +46,7 @@ fun NetworkScreen(
     val net by viewModel.net.collectAsStateWithLifecycle()
     val profiles by viewModel.profiles.collectAsStateWithLifecycle()
     val selectedProfileName by settingsViewModel.selectedNetProfileName.collectAsState()
+    val isOperating by viewModel.isOperating.collectAsStateWithLifecycle()
 
     val isCustomBg by settingsViewModel.isCustomBackground.collectAsStateWithLifecycle()
     val isHazeEnabled by settingsViewModel.isHazeEnabled.collectAsStateWithLifecycle()
@@ -226,6 +227,11 @@ fun NetworkScreen(
             }
         )
     }
+
+    ProfileOperationOverlay(
+        messageRes = isOperating,
+        isGlassActive = isGlassActive
+    )
 }
 
 @OptIn(ExperimentalHazeMaterialsApi::class, ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)

@@ -50,6 +50,9 @@ class NetworkViewModel(application: Application) : AndroidViewModel(application)
     private val _profiles = MutableStateFlow<List<NetworkProfile>>(emptyList())
     val profiles: StateFlow<List<NetworkProfile>> = _profiles
 
+    private val _isOperating = MutableStateFlow<Int?>(null)
+    val isOperating: StateFlow<Int?> = _isOperating
+
     init {
         refreshData()
         loadProfiles()
@@ -146,56 +149,60 @@ class NetworkViewModel(application: Application) : AndroidViewModel(application)
     // --- Profile Actions ---
 
     fun saveCurrentToProfile(name: String) {
-        val initialList = _profiles.value.toMutableList()
-        val preIndex = initialList.indexOfFirst { it.name == name }
-        if (preIndex == -1) {
-            initialList.add(NetworkProfile(name, null, emptyMap(), null))
-            _profiles.value = initialList
-        }
+        _isOperating.value = R.string.profile_op_saving
         viewModelScope.launch(Dispatchers.IO) {
-            val toggles = mutableMapOf<String, String>()
-            listOf(
-                NetworkUtils.TCP_SYNCOOKIES,
-                NetworkUtils.TCP_REUSE,
-                NetworkUtils.TCP_FASTOPEN,
-                NetworkUtils.TCP_SACK,
-                NetworkUtils.TCP_ECN,
-                NetworkUtils.TCP_MAX_SYN_BACKLOG
-            ).forEach { path ->
-                if (Utils.testFile(path)) toggles[path] = Utils.readFile(path)
-            }
+            try {
+                val toggles = mutableMapOf<String, String>()
+                listOf(
+                    NetworkUtils.TCP_SYNCOOKIES,
+                    NetworkUtils.TCP_REUSE,
+                    NetworkUtils.TCP_FASTOPEN,
+                    NetworkUtils.TCP_SACK,
+                    NetworkUtils.TCP_ECN,
+                    NetworkUtils.TCP_MAX_SYN_BACKLOG
+                ).forEach { path ->
+                    if (Utils.testFile(path)) toggles[path] = Utils.readFile(path)
+                }
 
-            val newProfile = NetworkProfile(
-                name = name,
-                tcpCongestion = NetworkUtils.getTcpCongestion().takeIf { it.isNotEmpty() },
-                toggles = toggles,
-                printk = Utils.readFile(NetworkUtils.PRINTK).takeIf { it.isNotEmpty() }
-            )
-            val newList = _profiles.value.toMutableList()
-            val index = newList.indexOfFirst { it.name == name }
-            if (index != -1) newList[index] = newProfile else newList.add(newProfile)
-            
-            _profiles.value = newList
-            saveProfilesToPrefs()
-            
-            withContext(Dispatchers.Main) {
-                Toast.makeText(getApplication(), getApplication<Application>().getString(R.string.profile_save_success, name), Toast.LENGTH_SHORT).show()
+                val newProfile = NetworkProfile(
+                    name = name,
+                    tcpCongestion = NetworkUtils.getTcpCongestion().takeIf { it.isNotEmpty() },
+                    toggles = toggles,
+                    printk = Utils.readFile(NetworkUtils.PRINTK).takeIf { it.isNotEmpty() }
+                )
+                val newList = _profiles.value.toMutableList()
+                val index = newList.indexOfFirst { it.name == name }
+                if (index != -1) newList[index] = newProfile else newList.add(newProfile)
+                
+                _profiles.value = newList
+                saveProfilesToPrefs()
+                
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(getApplication(), getApplication<Application>().getString(R.string.profile_save_success, name), Toast.LENGTH_SHORT).show()
+                }
+            } finally {
+                withContext(Dispatchers.Main) { _isOperating.value = null }
             }
         }
     }
 
     fun applyProfile(profile: NetworkProfile, isAutoApply: Boolean = false) {
+        _isOperating.value = R.string.profile_op_applying
         viewModelScope.launch(Dispatchers.IO) {
-            profile.tcpCongestion?.let { Utils.writeFile(NetworkUtils.TCP_CONG, it) }
-            profile.toggles.forEach { (path, value) -> Utils.writeFile(path, value) }
-            profile.printk?.let { Utils.writeFile(NetworkUtils.PRINTK, it) }
-            
-            refreshData()
-            settingsPreference.setSelectedNetProfileName(profile.name)
-            
-            withContext(Dispatchers.Main) {
-                val format = if (isAutoApply) R.string.profile_auto_apply_success else R.string.profile_apply_success
-                Toast.makeText(getApplication(), getApplication<Application>().getString(format, profile.name), Toast.LENGTH_SHORT).show()
+            try {
+                profile.tcpCongestion?.let { Utils.writeFile(NetworkUtils.TCP_CONG, it) }
+                profile.toggles.forEach { (path, value) -> Utils.writeFile(path, value) }
+                profile.printk?.let { Utils.writeFile(NetworkUtils.PRINTK, it) }
+                
+                refreshData()
+                settingsPreference.setSelectedNetProfileName(profile.name)
+                
+                withContext(Dispatchers.Main) {
+                    val format = if (isAutoApply) R.string.profile_auto_apply_success else R.string.profile_apply_success
+                    Toast.makeText(getApplication(), getApplication<Application>().getString(format, profile.name), Toast.LENGTH_SHORT).show()
+                }
+            } finally {
+                withContext(Dispatchers.Main) { _isOperating.value = null }
             }
         }
     }

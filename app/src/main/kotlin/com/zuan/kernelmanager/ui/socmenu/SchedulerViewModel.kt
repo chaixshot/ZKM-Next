@@ -73,6 +73,9 @@ class SchedulerViewModel(application: Application) : AndroidViewModel(applicatio
     private val _profiles = MutableStateFlow<List<SchedulerProfile>>(emptyList())
     val profiles: StateFlow<List<SchedulerProfile>> = _profiles
 
+    private val _isOperating = MutableStateFlow<Int?>(null)
+    val isOperating: StateFlow<Int?> = _isOperating
+
     init {
         refreshData()
         loadProfiles()
@@ -191,63 +194,67 @@ class SchedulerViewModel(application: Application) : AndroidViewModel(applicatio
     // --- Profile Actions ---
 
     fun saveCurrentToProfile(name: String) {
-        val initialList = _profiles.value.toMutableList()
-        val preIndex = initialList.indexOfFirst { it.name == name }
-        if (preIndex == -1) {
-            initialList.add(SchedulerProfile(name, emptyMap(), null, emptyMap(), emptyMap()))
-            _profiles.value = initialList
-        }
+        _isOperating.value = R.string.profile_op_saving
         viewModelScope.launch(Dispatchers.IO) {
-            val toggles = mutableMapOf<String, String>()
-            listOf(
-                SchedulerUtils.SCHED_AUTO_GROUP,
-                SchedulerUtils.SCHED_CHILD_RUNS_FIRST,
-                SchedulerUtils.SCHED_CSTATE_AWARE,
-                SchedulerUtils.SCHED_SCHEDSTATS,
-                SchedulerUtils.SCHED_TUNABLE_SCALING
-            ).forEach { path ->
-                if (Utils.testFile(path)) toggles[path] = Utils.readFile(path)
-            }
+            try {
+                val toggles = mutableMapOf<String, String>()
+                listOf(
+                    SchedulerUtils.SCHED_AUTO_GROUP,
+                    SchedulerUtils.SCHED_CHILD_RUNS_FIRST,
+                    SchedulerUtils.SCHED_CSTATE_AWARE,
+                    SchedulerUtils.SCHED_SCHEDSTATS,
+                    SchedulerUtils.SCHED_TUNABLE_SCALING
+                ).forEach { path ->
+                    if (Utils.testFile(path)) toggles[path] = Utils.readFile(path)
+                }
 
-            val bore = if (Utils.testFile(SchedulerUtils.BORE)) Utils.readFile(SchedulerUtils.BORE).toIntOrNull() else null
+                val bore = if (Utils.testFile(SchedulerUtils.BORE)) Utils.readFile(SchedulerUtils.BORE).toIntOrNull() else null
 
-            val uclamp = mutableMapOf<String, String>()
-            listOf(SchedulerUtils.SCHED_UTIL_CLAMP_MAX, SchedulerUtils.SCHED_UTIL_CLAMP_MIN).forEach { path ->
-                if (Utils.testFile(path)) uclamp[path] = Utils.readFile(path)
-            }
+                val uclamp = mutableMapOf<String, String>()
+                listOf(SchedulerUtils.SCHED_UTIL_CLAMP_MAX, SchedulerUtils.SCHED_UTIL_CLAMP_MIN).forEach { path ->
+                    if (Utils.testFile(path)) uclamp[path] = Utils.readFile(path)
+                }
 
-            val genericTunables = mutableMapOf<String, String>()
-            SchedulerUtils.GENERIC_SCHED_TUNABLES.values.forEach { path ->
-                if (Utils.testFile(path)) genericTunables[path] = Utils.readFile(path)
-            }
+                val genericTunables = mutableMapOf<String, String>()
+                SchedulerUtils.GENERIC_SCHED_TUNABLES.values.forEach { path ->
+                    if (Utils.testFile(path)) genericTunables[path] = Utils.readFile(path)
+                }
 
-            val newProfile = SchedulerProfile(name, toggles, bore, uclamp, genericTunables)
-            val newList = _profiles.value.toMutableList()
-            val index = newList.indexOfFirst { it.name == name }
-            if (index != -1) newList[index] = newProfile else newList.add(newProfile)
-            
-            _profiles.value = newList
-            saveProfilesToPrefs()
-            
-            withContext(Dispatchers.Main) {
-                Toast.makeText(getApplication(), getApplication<Application>().getString(R.string.profile_save_success, name), Toast.LENGTH_SHORT).show()
+                val newProfile = SchedulerProfile(name, toggles, bore, uclamp, genericTunables)
+                val newList = _profiles.value.toMutableList()
+                val index = newList.indexOfFirst { it.name == name }
+                if (index != -1) newList[index] = newProfile else newList.add(newProfile)
+                
+                _profiles.value = newList
+                saveProfilesToPrefs()
+                
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(getApplication(), getApplication<Application>().getString(R.string.profile_save_success, name), Toast.LENGTH_SHORT).show()
+                }
+            } finally {
+                withContext(Dispatchers.Main) { _isOperating.value = null }
             }
         }
     }
 
     fun applyProfile(profile: SchedulerProfile, isAutoApply: Boolean = false) {
+        _isOperating.value = R.string.profile_op_applying
         viewModelScope.launch(Dispatchers.IO) {
-            profile.toggles.forEach { (path, value) -> Utils.writeFile(path, value) }
-            profile.bore?.let { Utils.writeFile(SchedulerUtils.BORE, it.toString()) }
-            profile.uclamp.forEach { (path, value) -> Utils.writeFile(path, value) }
-            profile.genericTunables.forEach { (path, value) -> Utils.writeFile(path, value) }
-            
-            refreshData()
-            settingsPreference.setSelectedSchedProfileName(profile.name)
-            
-            withContext(Dispatchers.Main) {
-                val format = if (isAutoApply) R.string.profile_auto_apply_success else R.string.profile_apply_success
-                Toast.makeText(getApplication(), getApplication<Application>().getString(format, profile.name), Toast.LENGTH_SHORT).show()
+            try {
+                profile.toggles.forEach { (path, value) -> Utils.writeFile(path, value) }
+                profile.bore?.let { Utils.writeFile(SchedulerUtils.BORE, it.toString()) }
+                profile.uclamp.forEach { (path, value) -> Utils.writeFile(path, value) }
+                profile.genericTunables.forEach { (path, value) -> Utils.writeFile(path, value) }
+                
+                refreshData()
+                settingsPreference.setSelectedSchedProfileName(profile.name)
+                
+                withContext(Dispatchers.Main) {
+                    val format = if (isAutoApply) R.string.profile_auto_apply_success else R.string.profile_apply_success
+                    Toast.makeText(getApplication(), getApplication<Application>().getString(format, profile.name), Toast.LENGTH_SHORT).show()
+                }
+            } finally {
+                withContext(Dispatchers.Main) { _isOperating.value = null }
             }
         }
     }

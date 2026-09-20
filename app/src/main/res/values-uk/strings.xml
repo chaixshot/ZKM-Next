@@ -1133,6 +1133,8 @@
     <string name="profile_auto_apply_success">Автоматично застосовано профіль \'%s\'</string>
     <string name="profile_save">Зберегти</string>
     <string name="profile_cancel">Скасувати</string>
+    <string name="profile_op_saving">Збереження профілю…</string>
+    <string name="profile_op_applying">Застосування профілю…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">Застосовувати при завантаженні</string>

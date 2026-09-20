@@ -1132,6 +1132,8 @@
     <string name="profile_auto_apply_success">自動套用設定檔 \'%s\'</string>
     <string name="profile_save">儲存</string>
     <string name="profile_cancel">取消</string>
+    <string name="profile_op_saving">正在儲存設定檔…</string>
+    <string name="profile_op_applying">正在套用設定檔…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">開機時套用</string>

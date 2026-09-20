@@ -1132,6 +1132,8 @@
     <string name="profile_auto_apply_success">S-a aplicat automat profilul \'%s\'</string>
     <string name="profile_save">Salvează</string>
     <string name="profile_cancel">Anulează</string>
+    <string name="profile_op_saving">Se salvează profilul…</string>
+    <string name="profile_op_applying">Se aplică profilul…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">Aplică la pornire</string>

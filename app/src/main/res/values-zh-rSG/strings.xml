@@ -1065,6 +1065,8 @@
     <string name="profile_auto_apply_success">自动应用配置文件 \'%s\'</string>
     <string name="profile_save">保存</string>
     <string name="profile_cancel">取消</string>
+    <string name="profile_op_saving">正在保存配置文件…</string>
+    <string name="profile_op_applying">正在应用配置文件…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">开机时应用</string>

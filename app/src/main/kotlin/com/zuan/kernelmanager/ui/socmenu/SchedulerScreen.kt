@@ -53,6 +53,7 @@ fun SchedulerScreen(
     val genericTunables by viewModel.genericTunables.collectAsStateWithLifecycle()
     val profiles by viewModel.profiles.collectAsStateWithLifecycle()
     val selectedProfileName by settingsViewModel.selectedSchedProfileName.collectAsState()
+    val isOperating by viewModel.isOperating.collectAsStateWithLifecycle()
 
     val isCustomBg by settingsViewModel.isCustomBackground.collectAsStateWithLifecycle()
     val isHazeEnabled by settingsViewModel.isHazeEnabled.collectAsStateWithLifecycle()
@@ -333,6 +334,11 @@ fun SchedulerScreen(
             }
         )
     }
+
+    ProfileOperationOverlay(
+        messageRes = isOperating,
+        isGlassActive = isGlassActive
+    )
 }
 
 @OptIn(ExperimentalHazeMaterialsApi::class)

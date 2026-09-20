@@ -56,6 +56,7 @@ fun MemoryScreen(
     val ioDevices by viewModel.ioDevices.collectAsStateWithLifecycle()
     val profiles by viewModel.profiles.collectAsStateWithLifecycle()
     val selectedProfileName by settingsViewModel.selectedMemProfileName.collectAsState()
+    val isOperating by viewModel.isOperating.collectAsStateWithLifecycle()
 
     val isCustomBg by settingsViewModel.isCustomBackground.collectAsStateWithLifecycle()
     val isHazeEnabled by settingsViewModel.isHazeEnabled.collectAsStateWithLifecycle()
@@ -212,6 +213,11 @@ fun MemoryScreen(
             }
         )
     }
+
+    ProfileOperationOverlay(
+        messageRes = isOperating,
+        isGlassActive = isGlassActive
+    )
 }
 
 @OptIn(ExperimentalHazeMaterialsApi::class, ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)

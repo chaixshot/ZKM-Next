@@ -1119,6 +1119,8 @@ F
     <string name="profile_auto_apply_success">Auto-applied profile \'%s\'</string>
     <string name="profile_save">Save</string>
     <string name="profile_cancel">Cancel</string>
+    <string name="profile_op_saving">Saving profile…</string>
+    <string name="profile_op_applying">Applying profile…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">Apply on Boot</string>

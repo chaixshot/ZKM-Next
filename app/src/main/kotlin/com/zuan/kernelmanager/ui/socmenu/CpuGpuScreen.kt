@@ -113,6 +113,7 @@ fun CpuGpuScreen(
     val cpusets by viewModel.cpusetList.collectAsStateWithLifecycle()
     val profiles by viewModel.profiles.collectAsStateWithLifecycle()
     val selectedProfileName by settingsViewModel.selectedCpuProfileName.collectAsState()
+    val isOperating by viewModel.isOperating.collectAsStateWithLifecycle()
     
     val themeMode by settingsViewModel.themeMode.collectAsState()
     val isCustomBg by settingsViewModel.isCustomBackground.collectAsState()
@@ -339,6 +340,11 @@ fun CpuGpuScreen(
             }
         )
     }
+
+    ProfileOperationOverlay(
+        messageRes = isOperating,
+        isGlassActive = isGlassActive
+    )
 }
 
 @Composable

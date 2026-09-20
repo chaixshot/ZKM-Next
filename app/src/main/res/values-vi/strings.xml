@@ -1133,6 +1133,8 @@
     <string name="profile_auto_apply_success">Đã tự động áp dụng hồ sơ \'%s\'</string>
     <string name="profile_save">Lưu</string>
     <string name="profile_cancel">Hủy</string>
+    <string name="profile_op_saving">Đang lưu hồ sơ…</string>
+    <string name="profile_op_applying">Đang áp dụng hồ sơ…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">Áp dụng khi khởi động</string>

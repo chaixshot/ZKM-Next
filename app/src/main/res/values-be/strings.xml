@@ -1134,6 +1134,8 @@
     <string name="profile_auto_apply_success">Аўтаматычна ўжыты профіль \'%s\'</string>
     <string name="profile_save">Захаваць</string>
     <string name="profile_cancel">Адмена</string>
+    <string name="profile_op_saving">Захаванне профілю…</string>
+    <string name="profile_op_applying">Прымяненне профілю…</string>
 
     <!-- Boot Settings -->
     <string name="pref_apply_on_boot">Ужываць пры загрузцы</string>
