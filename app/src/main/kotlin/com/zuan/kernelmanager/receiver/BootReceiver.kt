@@ -206,26 +206,19 @@ class BootReceiver : BroadcastReceiver() {
                         
                         if (type == CpuGpuUtils.GpuType.ADRENO.name) {
                             if (gpuObj.has("minFreq")) {
-                                Shell.cmd("echo ${gpuObj.getString("minFreq")} > /sys/class/kgsl/kgsl-3d0/min_clock_mhz").exec()
+                                AdrenoUtils.writeFreqGPU("/sys/class/kgsl/kgsl-3d0/min_clock_mhz", gpuObj.getString("minFreq"))
                             }
                             if (gpuObj.has("maxFreq")) {
-                                Shell.cmd("echo ${gpuObj.getString("maxFreq")} > /sys/class/kgsl/kgsl-3d0/max_clock_mhz").exec()
+                                AdrenoUtils.writeFreqGPU("/sys/class/kgsl/kgsl-3d0/max_clock_mhz", gpuObj.getString("maxFreq"))
                             }
                             if (gpuObj.has("governor")) {
-                                Shell.cmd("echo ${gpuObj.getString("governor")} > /sys/class/kgsl/kgsl-3d0/devfreq/governor").exec()
+                                AdrenoUtils.writeData("/sys/class/kgsl/kgsl-3d0/devfreq/governor", gpuObj.getString("governor"))
                             }
                             if (gpuObj.has("throttling")) {
-                                Shell.cmd("echo ${gpuObj.getString("throttling")} > /sys/class/kgsl/kgsl-3d0/throttling").exec()
+                                AdrenoUtils.writeData("/sys/class/kgsl/kgsl-3d0/throttling", gpuObj.getString("throttling"))
                             }
                             if (gpuObj.has("adrenoBoost")) {
-                                val ab = gpuObj.getString("adrenoBoost")
-                                val abPath = when {
-                                    Utils.testFile(AdrenoUtils.ADRENO_BOOST) -> AdrenoUtils.ADRENO_BOOST
-                                    Utils.testFile("/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost") -> "/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost"
-                                    Utils.testFile("/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost") -> "/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost"
-                                    else -> AdrenoUtils.ADRENO_BOOST
-                                }
-                                Shell.cmd("echo $ab > $abPath").exec()
+                                AdrenoUtils.writeData(AdrenoUtils.ADRENO_BOOST, gpuObj.getString("adrenoBoost"))
                             }
 
                             // Advanced KGSL settings
@@ -252,11 +245,11 @@ class BootReceiver : BroadcastReceiver() {
                                         "thermalPwrlevel" -> "${AdrenoUtils.KGSL_3D0_DIR}/thermal_pwrlevel"
                                         else -> ""
                                     }
-                                    if (sysfsPath.isNotEmpty()) Shell.cmd("echo $value > $sysfsPath").exec()
+                                    if (sysfsPath.isNotEmpty()) AdrenoUtils.writeData(sysfsPath, value)
                                 }
                             }
 
-                            Shell.cmd("echo $freq > /sys/class/kgsl/kgsl-3d0/gpuclk").exec()
+                            AdrenoUtils.writeFreqGPU("/sys/class/kgsl/kgsl-3d0/gpuclk", freq)
                         } else if (type == CpuGpuUtils.GpuType.GENERIC_DEVFREQ.name) {
                             GenericGpuUtils.getGpuPath()?.let { path ->
                                 if (gpuObj.has("minFreq")) GenericGpuUtils.setFreq(path, "min", gpuObj.getString("minFreq"))

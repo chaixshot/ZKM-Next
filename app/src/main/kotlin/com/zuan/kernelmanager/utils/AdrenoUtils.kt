@@ -17,31 +17,63 @@ object AdrenoUtils {
         return try { RootIpcManager.ipc?.nodeExists(path) ?: File(path).exists() } catch (e: Exception) { false }
     }
 
+    private var cachedPlatformDir: String? = null
+
+    private fun getPlatformDir(): String? {
+        if (cachedPlatformDir != null) return cachedPlatformDir
+        try {
+            val devfreqDir = File("/sys/class/devfreq")
+            if (devfreqDir.exists()) {
+                val dirs = devfreqDir.list()
+                val target = dirs?.find { it.contains("kgsl-3d0") }
+                if (target != null) {
+                    cachedPlatformDir = target
+                    return target
+                }
+            }
+        } catch (e: Exception) { }
+        return null
+    }
+
+    private fun resolveDynamicPath(path: String): String {
+        if (!path.contains("kgsl-3d0")) return path
+        if (checkExists(path)) return path
+
+        val fileName = path.substringAfterLast("/")
+        
+        // Mapping for specific nodes
+        val targetFile = when (fileName) {
+            "min_clock_mhz" -> "min_freq"
+            "max_clock_mhz" -> "max_freq"
+            "gpuclk" -> "cur_freq"
+            "governor" -> "governor"
+            "adrenoboost" -> "adrenoboost"
+            else -> fileName
+        }
+
+        getPlatformDir()?.let { dir ->
+            val altPath = "/sys/class/devfreq/$dir/$targetFile"
+            if (checkExists(altPath)) return altPath
+        }
+
+        // Fallback for adrenoboost in kgsl root
+        if (fileName == "adrenoboost" && checkExists("/sys/class/kgsl/kgsl-3d0/adrenoboost")) {
+            return "/sys/class/kgsl/kgsl-3d0/adrenoboost"
+        }
+
+        return path
+    }
+
     fun readData(path: String): String {
         return try { 
-            val targetPath = if (path.endsWith("adrenoboost") && !File(path).exists()) {
-                when {
-                    File("/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost").exists() -> "/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost"
-                    File("/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost").exists() -> "/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost"
-                    File("/sys/class/kgsl/kgsl-3d0/adrenoboost").exists() -> "/sys/class/kgsl/kgsl-3d0/adrenoboost"
-                    else -> path
-                }
-            } else path
+            val targetPath = resolveDynamicPath(path)
             RootIpcManager.ipc?.readNode(targetPath)?.trim() ?: "" 
         } catch (e: Exception) { "" }
     }
 
     fun writeData(path: String, value: String): Boolean {
         return try {
-            val targetPath = if (path.endsWith("adrenoboost") && !checkExists(path)) {
-                when {
-                    checkExists("/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost") -> "/sys/class/devfreq/5000000.qcom,kgsl-3d0/adrenoboost"
-                    checkExists("/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost") -> "/sys/class/devfreq/2c00000.qcom,kgsl-3d0/adrenoboost"
-                    checkExists("/sys/class/kgsl/kgsl-3d0/adrenoboost") -> "/sys/class/kgsl/kgsl-3d0/adrenoboost"
-                    else -> path
-                }
-            } else path
-
+            val targetPath = resolveDynamicPath(path)
             RootIpcManager.ipc?.writeNode(targetPath, value) ?: run {
                 Shell.cmd("su -c 'echo \"$value\" > $targetPath'").exec().isSuccess
             }
@@ -111,11 +143,14 @@ object AdrenoUtils {
     fun writeFreqGPU(filePath: String, frequencyMHz: String) {
         try {
             val freqMHzLong = frequencyMHz.toLongOrNull() ?: return
-            if (filePath.contains("mhz", ignoreCase = true)) {
-                writeData(filePath, frequencyMHz)
+            val targetPath = resolveDynamicPath(filePath)
+            
+            if (targetPath.contains("mhz", ignoreCase = true)) {
+                writeData(targetPath, frequencyMHz)
             } else {
+                // devfreq standard usually expects Hz
                 val freqHz = freqMHzLong * 1000000
-                writeData(filePath, freqHz.toString())
+                writeData(targetPath, freqHz.toString())
             }
         } catch (e: Exception) { e.printStackTrace() }
     }

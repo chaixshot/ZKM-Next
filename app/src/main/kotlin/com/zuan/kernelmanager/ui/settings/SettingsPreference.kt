@@ -7,8 +7,10 @@
  */
 package com.zuan.kernelmanager.ui.settings
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.content.edit
@@ -249,6 +251,9 @@ class SettingsPreference(context: Context) {
     private val _applyOnBoot = MutableStateFlow(getApplyOnBoot())
     val applyOnBoot: StateFlow<Boolean> = _applyOnBoot.asStateFlow()
 
+    private val _isAlternateIcon = MutableStateFlow(getAlternateIconEnabled())
+    val isAlternateIcon: StateFlow<Boolean> = _isAlternateIcon.asStateFlow()
+
     companion object {
         private const val THEME_KEY = "theme_mode"
         private const val THEME_COLOR_KEY = "theme_color_name"
@@ -315,6 +320,7 @@ class SettingsPreference(context: Context) {
         private const val BATTERY_SAVER_KEY = "battery_saver_enabled_state"
         private const val THERMAL_SCONFIG_KEY = "thermal_sconfig_val"
         private const val APPLY_ON_BOOT_KEY = "apply_on_boot_master"
+        private const val ALT_ICON_KEY = "alternate_app_icon_enabled"
 
         private const val DEFAULT_POLLING_INTERVAL = 3000L
         private const val DEFAULT_DPI = 0
@@ -542,6 +548,47 @@ class SettingsPreference(context: Context) {
 
     fun setApplyOnBoot(enabled: Boolean) { prefs.edit { putBoolean(APPLY_ON_BOOT_KEY, enabled) }; _applyOnBoot.value = enabled }
     private fun getApplyOnBoot(): Boolean = prefs.getBoolean(APPLY_ON_BOOT_KEY, true)
+
+    fun setAlternateIconEnabled(context: Context, enabled: Boolean) {
+        prefs.edit { putBoolean(ALT_ICON_KEY, enabled) }
+        _isAlternateIcon.value = enabled
+        toggleAppIcon(context, enabled)
+    }
+    private fun getAlternateIconEnabled(): Boolean = prefs.getBoolean(ALT_ICON_KEY, false)
+
+    private fun toggleAppIcon(context: Context, useAlt: Boolean) {
+        val pm = context.packageManager
+        val pkgName = context.packageName
+        
+        val defaultAlias = "$pkgName.MainActivityAlias"
+        val altAlias = "$pkgName.MainActivityAltAlias"
+        
+        try {
+            if (useAlt) {
+                pm.setComponentEnabledSetting(
+                    ComponentName(pkgName, altAlias),
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                    PackageManager.DONT_KILL_APP
+                )
+                pm.setComponentEnabledSetting(
+                    ComponentName(pkgName, defaultAlias),
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                    PackageManager.DONT_KILL_APP
+                )
+            } else {
+                pm.setComponentEnabledSetting(
+                    ComponentName(pkgName, defaultAlias),
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                    PackageManager.DONT_KILL_APP
+                )
+                pm.setComponentEnabledSetting(
+                    ComponentName(pkgName, altAlias),
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                    PackageManager.DONT_KILL_APP
+                )
+            }
+        } catch (e: Exception) { e.printStackTrace() }
+    }
 }
 
 private fun SharedPreferences.toFloat(key: String, defValue: Float): Float = try { this.getFloat(key, defValue) } catch (e: Exception) { defValue }

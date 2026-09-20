@@ -443,8 +443,8 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
                     GpuSetting(
                         type = type.name,
                         currentFreq = _gpuState.value.currentFreq,
-                        minFreq = CpuGpuUtils.readFreqGPU("/sys/class/kgsl/kgsl-3d0/min_clock_mhz"),
-                        maxFreq = CpuGpuUtils.readFreqGPU("/sys/class/kgsl/kgsl-3d0/max_clock_mhz"),
+                        minFreq = AdrenoUtils.readFreqGPU("/sys/class/kgsl/kgsl-3d0/min_clock_mhz"),
+                        maxFreq = AdrenoUtils.readFreqGPU("/sys/class/kgsl/kgsl-3d0/max_clock_mhz"),
                         governor = Utils.readFile("/sys/class/kgsl/kgsl-3d0/devfreq/governor"),
                         throttling = Utils.readFile("/sys/class/kgsl/kgsl-3d0/throttling"),
                         adrenoBoost = Utils.readFile("/sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost"),
@@ -511,50 +511,47 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
             profile.gpuSetting?.let { gpu ->
                 if (gpu.type == CpuGpuUtils.GpuType.ADRENO.name) {
                     if (!gpu.minFreq.isNullOrEmpty()) {
-                        val freqMHzLong = gpu.minFreq.toLongOrNull()
-                        if (freqMHzLong != null) Shell.cmd("echo ${gpu.minFreq} > /sys/class/kgsl/kgsl-3d0/min_clock_mhz").exec()
+                        AdrenoUtils.writeFreqGPU("/sys/class/kgsl/kgsl-3d0/min_clock_mhz", gpu.minFreq)
                     }
                     if (!gpu.maxFreq.isNullOrEmpty()) {
-                        val freqMHzLong = gpu.maxFreq.toLongOrNull()
-                        if (freqMHzLong != null) Shell.cmd("echo ${gpu.maxFreq} > /sys/class/kgsl/kgsl-3d0/max_clock_mhz").exec()
+                        AdrenoUtils.writeFreqGPU("/sys/class/kgsl/kgsl-3d0/max_clock_mhz", gpu.maxFreq)
                     }
                     if (!gpu.governor.isNullOrEmpty()) {
-                        Shell.cmd("echo ${gpu.governor} > /sys/class/kgsl/kgsl-3d0/devfreq/governor").exec()
+                        AdrenoUtils.writeData("/sys/class/kgsl/kgsl-3d0/devfreq/governor", gpu.governor)
                     }
                     if (!gpu.throttling.isNullOrEmpty()) {
-                        Shell.cmd("echo ${gpu.throttling} > /sys/class/kgsl/kgsl-3d0/throttling").exec()
+                        AdrenoUtils.writeData("/sys/class/kgsl/kgsl-3d0/throttling", gpu.throttling)
                     }
                     if (!gpu.adrenoBoost.isNullOrEmpty()) {
-                        Shell.cmd("echo ${gpu.adrenoBoost} > /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost").exec()
+                        AdrenoUtils.writeData(AdrenoUtils.ADRENO_BOOST, gpu.adrenoBoost)
                     }
                     
                     // Advanced Adreno Settings
-                    if (!gpu.idlerActive.isNullOrEmpty()) Shell.cmd("echo ${gpu.idlerActive} > ${AdrenoUtils.IDLER_ACTIVE}").exec()
-                    if (!gpu.idlerIdleWait.isNullOrEmpty()) Shell.cmd("echo ${gpu.idlerIdleWait} > ${AdrenoUtils.IDLER_IDLEWAIT}").exec()
-                    if (!gpu.idlerDownDiff.isNullOrEmpty()) Shell.cmd("echo ${gpu.idlerDownDiff} > ${AdrenoUtils.IDLER_DOWNDIFF}").exec()
-                    if (!gpu.idlerWorkload.isNullOrEmpty()) Shell.cmd("echo ${gpu.idlerWorkload} > ${AdrenoUtils.IDLER_WORKLOAD}").exec()
+                    if (!gpu.idlerActive.isNullOrEmpty()) AdrenoUtils.writeData(AdrenoUtils.IDLER_ACTIVE, gpu.idlerActive)
+                    if (!gpu.idlerIdleWait.isNullOrEmpty()) AdrenoUtils.writeData(AdrenoUtils.IDLER_IDLEWAIT, gpu.idlerIdleWait)
+                    if (!gpu.idlerDownDiff.isNullOrEmpty()) AdrenoUtils.writeData(AdrenoUtils.IDLER_DOWNDIFF, gpu.idlerDownDiff)
+                    if (!gpu.idlerWorkload.isNullOrEmpty()) AdrenoUtils.writeData(AdrenoUtils.IDLER_WORKLOAD, gpu.idlerWorkload)
                     
-                    if (!gpu.simpleGpuActive.isNullOrEmpty()) Shell.cmd("echo ${gpu.simpleGpuActive} > ${AdrenoUtils.SIMPLE_GPU_ACTIVATE}").exec()
-                    if (!gpu.simpleLaziness.isNullOrEmpty()) Shell.cmd("echo ${gpu.simpleLaziness} > ${AdrenoUtils.SIMPLE_GPU_LAZINESS}").exec()
-                    if (!gpu.simpleRampThreshold.isNullOrEmpty()) Shell.cmd("echo ${gpu.simpleRampThreshold} > ${AdrenoUtils.SIMPLE_RAMP_THRESHOLD}").exec()
+                    if (!gpu.simpleGpuActive.isNullOrEmpty()) AdrenoUtils.writeData(AdrenoUtils.SIMPLE_GPU_ACTIVATE, gpu.simpleGpuActive)
+                    if (!gpu.simpleLaziness.isNullOrEmpty()) AdrenoUtils.writeData(AdrenoUtils.SIMPLE_GPU_LAZINESS, gpu.simpleLaziness)
+                    if (!gpu.simpleRampThreshold.isNullOrEmpty()) AdrenoUtils.writeData(AdrenoUtils.SIMPLE_RAMP_THRESHOLD, gpu.simpleRampThreshold)
                     
-                    if (!gpu.forceNoNap.isNullOrEmpty()) Shell.cmd("echo ${gpu.forceNoNap} > /sys/class/kgsl/kgsl-3d0/force_no_nap").exec()
-                    if (!gpu.forceClkOn.isNullOrEmpty()) Shell.cmd("echo ${gpu.forceClkOn} > /sys/class/kgsl/kgsl-3d0/force_clk_on").exec()
-                    if (!gpu.forceBusOn.isNullOrEmpty()) Shell.cmd("echo ${gpu.forceBusOn} > /sys/class/kgsl/kgsl-3d0/force_bus_on").exec()
-                    if (!gpu.busSplit.isNullOrEmpty()) Shell.cmd("echo ${gpu.busSplit} > /sys/class/kgsl/kgsl-3d0/bus_split").exec()
+                    if (!gpu.forceNoNap.isNullOrEmpty()) AdrenoUtils.writeData("${AdrenoUtils.KGSL_3D0_DIR}/force_no_nap", gpu.forceNoNap)
+                    if (!gpu.forceClkOn.isNullOrEmpty()) AdrenoUtils.writeData("${AdrenoUtils.KGSL_3D0_DIR}/force_clk_on", gpu.forceClkOn)
+                    if (!gpu.forceBusOn.isNullOrEmpty()) AdrenoUtils.writeData("${AdrenoUtils.KGSL_3D0_DIR}/force_bus_on", gpu.forceBusOn)
+                    if (!gpu.busSplit.isNullOrEmpty()) AdrenoUtils.writeData("${AdrenoUtils.KGSL_3D0_DIR}/bus_split", gpu.busSplit)
                     
-                    if (!gpu.defaultPwrlevel.isNullOrEmpty()) Shell.cmd("echo ${gpu.defaultPwrlevel} > /sys/class/kgsl/kgsl-3d0/default_pwrlevel").exec()
-                    if (!gpu.maxPwrlevel.isNullOrEmpty()) Shell.cmd("echo ${gpu.maxPwrlevel} > /sys/class/kgsl/kgsl-3d0/max_clock_mhz").exec() // Note: max_pwrlevel might be different node but max_clock_mhz is often used
-                    // Correction: use specific pwrlevel nodes if they exist
-                    if (!gpu.maxPwrlevel.isNullOrEmpty()) Shell.cmd("echo ${gpu.maxPwrlevel} > /sys/class/kgsl/kgsl-3d0/max_pwrlevel").exec()
-                    if (!gpu.thermalPwrlevel.isNullOrEmpty()) Shell.cmd("echo ${gpu.thermalPwrlevel} > /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel").exec()
+                    if (!gpu.defaultPwrlevel.isNullOrEmpty()) AdrenoUtils.writeData("${AdrenoUtils.KGSL_3D0_DIR}/default_pwrlevel", gpu.defaultPwrlevel)
+                    if (!gpu.maxPwrlevel.isNullOrEmpty()) AdrenoUtils.writeData("${AdrenoUtils.KGSL_3D0_DIR}/max_pwrlevel", gpu.maxPwrlevel)
+                    if (!gpu.thermalPwrlevel.isNullOrEmpty()) AdrenoUtils.writeData("${AdrenoUtils.KGSL_3D0_DIR}/thermal_pwrlevel", gpu.thermalPwrlevel)
 
-                    Shell.cmd("echo ${gpu.currentFreq} > /sys/class/kgsl/kgsl-3d0/gpuclk").exec()
+                    AdrenoUtils.writeFreqGPU("/sys/class/kgsl/kgsl-3d0/gpuclk", gpu.currentFreq)
                 } else if (gpu.type == CpuGpuUtils.GpuType.GENERIC_DEVFREQ.name) {
                     GenericGpuUtils.getGpuPath()?.let { path ->
                         if (!gpu.minFreq.isNullOrEmpty()) GenericGpuUtils.setFreq(path, "min", gpu.minFreq)
                         if (!gpu.maxFreq.isNullOrEmpty()) GenericGpuUtils.setFreq(path, "max", gpu.maxFreq)
                         if (!gpu.governor.isNullOrEmpty()) GenericGpuUtils.setGov(path, gpu.governor)
+                        GenericGpuUtils.setFreq(path, "max", gpu.currentFreq)
                     }
                 }
             }
@@ -562,17 +559,6 @@ class CpuGpuViewModel(application: Application) : AndroidViewModel(application) 
             profile.cpusets?.forEach { (key, value) ->
                 val path = "/dev/cpuset/$key/cpus"
                 if (Utils.testFile(path)) Shell.cmd("echo \"$value\" > $path").exec()
-            }
-            
-            // GPU
-            profile.gpuSetting?.let { gpu ->
-                if (gpu.type == CpuGpuUtils.GpuType.ADRENO.name) {
-                    Shell.cmd("echo ${gpu.currentFreq} > /sys/class/kgsl/kgsl-3d0/gpuclk").exec()
-                } else if (gpu.type == CpuGpuUtils.GpuType.GENERIC_DEVFREQ.name) {
-                    GenericGpuUtils.getGpuPath()?.let { path ->
-                        GenericGpuUtils.setFreq(path, "max", gpu.currentFreq)
-                    }
-                }
             }
             
             loadDynamicCPUData()
