@@ -111,7 +111,6 @@ object BatteryControllerUtils {
         echo "0" > /sys/kernel/debug/google_charger/input_suspend
         echo "off" > /sys/kernel/nubia_charge/charger_bypass
         echo "0 0" > /proc/mtk_battery_cmd/current_cmd
-        echo "5000000" > /sys/class/power_supply/battery/constant_charge_current_max
     """
 
     fun getBatteryInfo(context: Context): BatteryInfo {
@@ -212,7 +211,7 @@ object BatteryControllerUtils {
     }
 
     fun getChargingStats(): ChargingStats {
-        val maxCurrent = readSysFile("$USB_PATH/current_max")?.toIntOrNull() ?: 0
+        val maxCurrent = getChargingSpeed() * 1000
         val maxVoltage = readSysFile("$USB_PATH/voltage_max")?.toIntOrNull() ?: 0
         
         val currentNow = abs(getBatteryCurrentNow()) // dalam mA
@@ -240,9 +239,41 @@ object BatteryControllerUtils {
 
     // --- FITUR UTAMA ---
 
+    private val chargingSpeedPaths = listOf(
+        "/sys/class/power_supply/battery/constant_charge_current_max",
+        "/sys/class/power_supply/main/constant_charge_current_max",
+        "/sys/class/power_supply/usb/current_max",
+        "/sys/class/power_supply/usb/hw_current_max",
+        "/sys/class/power_supply/usb/pd_current_max",
+        "/sys/class/power_supply/main/current_max",
+        "/sys/class/power_supply/battery/current_max",
+        "/sys/class/qcom-battery/restricted_current",
+        "/sys/class/power_supply/pc_port/current_max",
+        "/sys/class/power_supply/battery/input_current_limit",
+        "/sys/class/power_supply/usb/input_current_limit"
+    )
+
     fun setChargingSpeed(mA: Int): Boolean {
-        val result = Shell.cmd("echo ${mA * 1000} > $USB_PATH/current_max").exec()
-        return result.isSuccess
+        val uA = mA * 1000
+        var success = false
+        for (path in chargingSpeedPaths) {
+            if (Shell.cmd("test -e $path").exec().isSuccess) {
+                if (Shell.cmd("echo $uA > $path").exec().isSuccess) {
+                    success = true
+                }
+            }
+        }
+        return success
+    }
+
+    fun getChargingSpeed(): Int {
+        for (path in chargingSpeedPaths) {
+            val v = readSysFile(path)?.toIntOrNull()
+            if (v != null && v > 0) {
+                return v / 1000
+            }
+        }
+        return 2000 // Default fallback
     }
 
     fun setChargingEnabled(enabled: Boolean): Boolean {

@@ -187,6 +187,7 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
             val isChargingEnabledVal = BatteryControllerUtils.getChargingEnabledStatus()
             val hasThermal = BatteryControllerUtils.hasThermalSconfig()
             val thermalVal = if (hasThermal) BatteryControllerUtils.getThermalSconfig() else "0"
+            val currentChargingSpeed = BatteryControllerUtils.getChargingSpeed()
             
             val savedCutoff = settingsPreference.smartCutoffLimit.value
             val savedMonitor = settingsPreference.batteryMonitorEnabled.value
@@ -211,6 +212,7 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
                 _isSmartChargeSupported.value = smartChargeSup
                 _isChargingLimitSupported.value = chargingLimitSup
                 _chargingLimit.value = currentLimit
+                _chargingSpeed.value = currentChargingSpeed
                 _isChargingEnabled.value = isChargingEnabledVal
                 _hasThermalSconfig.value = hasThermal
                 _thermalSconfig.value = thermalVal
@@ -312,7 +314,11 @@ class BatteryControllerViewModel(application: Application) : AndroidViewModel(ap
     fun toggleCharging(enabled: Boolean) { 
         viewModelScope.launch(Dispatchers.IO) { 
             if (BatteryControllerUtils.setChargingEnabled(enabled)) {
-                _isChargingEnabled.value = enabled 
+                _isChargingEnabled.value = enabled
+                if (enabled) {
+                    // Restore current speed limit when re-enabling
+                    BatteryControllerUtils.setChargingSpeed(_chargingSpeed.value)
+                }
             }
         } 
     }
