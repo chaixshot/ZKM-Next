@@ -1157,4 +1157,7 @@
     <string name="confirm_action_title">ยืนยัน %1$s</string>
 
 
+    <string name="battery_target_reached_title">ถึงเป้าหมายแบตเตอรี่แล้ว</string>
+    <string name="battery_target_reached_msg">ระดับแบตเตอรี่ถึง %1$d%% แล้ว ปิดการชาร์จแล้ว</string>
+
 </resources>

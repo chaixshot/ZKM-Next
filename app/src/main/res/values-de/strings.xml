@@ -1140,4 +1140,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">Ihre Leistungs- und Akkueinstellungen werden erneut angewendet...</string>
 
+    <string name="battery_target_reached_title">Ladeziel erreicht</string>
+    <string name="battery_target_reached_msg">Akkustand hat %1$d%% erreicht. Laden deaktiviert.</string>
+
 </resources>

@@ -1143,4 +1143,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">Ponowne stosowanie ustawień wydajności i baterii...</string>
 
+    <string name="battery_target_reached_title">Osiągnięto cel baterii</string>
+    <string name="battery_target_reached_msg">Poziom naładowania baterii osiągnął %1$d%%. Ładowanie wyłączone.</string>
+
 </resources>

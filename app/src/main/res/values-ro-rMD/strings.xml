@@ -1139,4 +1139,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">Se reaplică setările de performanță și baterie...</string>
 
+    <string name="battery_target_reached_title">Ținta bateriei a fost atinsă</string>
+    <string name="battery_target_reached_msg">Nivelul bateriei a ajuns la %1$d%%. Încărcarea a fost dezactivată.</string>
+
 </resources>

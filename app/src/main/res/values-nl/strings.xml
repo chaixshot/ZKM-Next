@@ -1141,4 +1141,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">Uw prestatie- en batterijinstellingen opnieuw toepassen...</string>
 
+    <string name="battery_target_reached_title">Batterijdoel bereikt</string>
+    <string name="battery_target_reached_msg">Batterijniveau heeft %1$d%% bereikt. Opladen uitgeschakeld.</string>
+
 </resources>

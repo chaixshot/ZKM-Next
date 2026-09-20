@@ -1141,4 +1141,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">Паўторнае ўжыванне вашых налад прадукцыйнасці і батарэі...</string>
 
+    <string name="battery_target_reached_title">Мэтавы ўзровень зарада дасягнуты</string>
+    <string name="battery_target_reached_msg">Узровень зарада батарэі дасягнуў %1$d%%. Зарадка адключана.</string>
+
 </resources>

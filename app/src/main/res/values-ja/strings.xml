@@ -1140,4 +1140,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">パフォーマンスとバッテリーの設定を再適用しています...</string>
 
+    <string name="battery_target_reached_title">バッテリー目標到達</string>
+    <string name="battery_target_reached_msg">バッテリー残量が %1$d%% に達しました。充電を停止しました。</string>
+
 </resources>

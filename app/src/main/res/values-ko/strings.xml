@@ -1140,4 +1140,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">성능 및 배터리 설정을 다시 적용하는 중...</string>
 
+    <string name="battery_target_reached_title">배터리 목표 도달</string>
+    <string name="battery_target_reached_msg">배터리 수준이 %1$d%%에 도달했습니다. 충전이 중단되었습니다.</string>
+
 </resources>

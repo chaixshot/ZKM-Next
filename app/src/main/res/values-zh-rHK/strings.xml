@@ -1139,4 +1139,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">正在重新套用您的效能和電池設定...</string>
 
+    <string name="battery_target_reached_title">已達到電池目標</string>
+    <string name="battery_target_reached_msg">電池電量已達到 %1$d%%。充電已停用。</string>
+
 </resources>

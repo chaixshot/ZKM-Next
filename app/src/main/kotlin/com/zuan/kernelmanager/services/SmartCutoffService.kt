@@ -14,6 +14,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.media.RingtoneManager
 import android.os.BatteryManager
 import android.os.IBinder
 import android.util.Log
@@ -27,23 +28,23 @@ class SmartCutoffService : Service() {
     companion object {
         const val CHANNEL_ID = "SmartCutoffChannel"
         const val ACTION_STOP_SERVICE = "STOP_SERVICE"
-        const val ACTION_UPDATE_LIMIT = "UPDATE_LIMIT" 
+        const val ACTION_UPDATE_LIMIT = "UPDATE_LIMIT"
         const val EXTRA_LIMIT = "limit_threshold"
     }
 
     private var limitThreshold: Int = 80
-    private var isCutOffActive = false 
+    private var isCutOffActive = false
     private val serviceScope = CoroutineScope(Dispatchers.Main + Job())
 
     private val batteryReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             if (intent == null) return
-            
+
             // Re-check state on battery change or power connection change
             val intentFilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
             val batteryStatus = context?.registerReceiver(null, intentFilter)
             val level = batteryStatus?.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) ?: -1
-            
+
             handleBatteryLogic(level)
         }
     }
@@ -76,11 +77,11 @@ class SmartCutoffService : Service() {
             .build()
 
         startForeground(1, notification)
-        
+
         try {
             unregisterReceiver(batteryReceiver)
         } catch (e: Exception) { }
-        
+
         val filter = IntentFilter().apply {
             addAction(Intent.ACTION_BATTERY_CHANGED)
             addAction(Intent.ACTION_POWER_CONNECTED)
@@ -115,19 +116,60 @@ class SmartCutoffService : Service() {
         }
 
         // IF CABLE IS CONNECTED:
-        
+
         // 1. Cut-off: Stop charging indefinitely once target is hit
         if (level >= limitThreshold && !isCutOffActive) {
-            BatteryControllerUtils.setChargingEnabled(false) 
+            BatteryControllerUtils.setChargingEnabled(false)
             isCutOffActive = true
-            updateNotification("Target reached ($level%). Charging disabled until unplug.")
+            playTargetReachedNotify(level)
             Log.d("SmartCutoff", "Target reached. Charging killed.")
         }
-        
-        // Note: No "Resume" or periodic checks here. 
+
+        // Note: No "Resume" or periodic checks here.
         // This prevents the sound spam as setChargingEnabled(true) is never called while plugged.
     }
-    
+
+    private fun playTargetReachedNotify(level: Int) {
+        val title = getString(R.string.battery_target_reached_title)
+        val message = getString(R.string.battery_target_reached_msg, level)
+        
+        // Play Sound
+        try {
+            val notificationUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+            val r = RingtoneManager.getRingtone(applicationContext, notificationUri)
+            r.play()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        // Show Popup Notification
+        val manager = getSystemService(NotificationManager::class.java)
+        
+        // Create high importance channel for popup if on O+
+        val alertChannelId = "SmartCutoffAlert"
+        val channelName = getString(R.string.battery_smart_cutoff)
+        val channel = NotificationChannel(alertChannelId, channelName, NotificationManager.IMPORTANCE_HIGH).apply {
+            description = getString(R.string.battery_target_reached_title)
+            enableLights(true)
+            enableVibration(true)
+        }
+        manager.createNotificationChannel(channel)
+
+        val popupNotification = NotificationCompat.Builder(this, alertChannelId)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setSmallIcon(R.drawable.ic_battery_android_frame_shield)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setCategory(NotificationCompat.CATEGORY_ALARM)
+            .setAutoCancel(true)
+            .build()
+
+        manager.notify(2, popupNotification)
+
+        // Update Foreground Notification
+        updateNotification(message)
+    }
+
     private fun updateNotification(text: String) {
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("Smart Cut-off Active")

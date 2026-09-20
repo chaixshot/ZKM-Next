@@ -1140,4 +1140,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">Đang áp dụng lại các cài đặt hiệu năng và pin của bạn...</string>
 
+    <string name="battery_target_reached_title">Đã đạt mục tiêu pin</string>
+    <string name="battery_target_reached_msg">Mức pin đã đạt %1$d%%. Đã tắt sạc.</string>
+
 </resources>

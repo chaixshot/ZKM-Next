@@ -1149,4 +1149,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">Повторное применение ваших настроек производительности и батареи...</string>
 
+    <string name="battery_target_reached_title">Целевой уровень заряда достигнут</string>
+    <string name="battery_target_reached_msg">Уровень заряда батареи достиг %1$d%%. Зарядка отключена.</string>
+
 </resources>

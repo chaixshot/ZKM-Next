@@ -1140,4 +1140,7 @@
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">Performans ve pil ayarlarınız yeniden uygulanıyor...</string>
 
+    <string name="battery_target_reached_title">Pil hedefine ulaşıldı</string>
+    <string name="battery_target_reached_msg">Pil seviyesi %1$d%% değerine ulaştı. Şarj devre dışı bırakıldı.</string>
+
 </resources>

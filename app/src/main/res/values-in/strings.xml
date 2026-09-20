@@ -1135,4 +1135,7 @@
     <string name="confirm_action_title">Konfirmasi %%s</string>
 
 
+    <string name="battery_target_reached_title">Target baterai tercapai</string>
+    <string name="battery_target_reached_msg">Level baterai mencapai %1$d%%. Pengisian daya dinonaktifkan.</string>
+
 </resources>

@@ -1125,6 +1125,8 @@ F
     <string name="pref_apply_on_boot_desc">Re-apply all Soc and Battery settings after reboot</string>
     <string name="boot_notification_title">Zuan Kernel Manager</string>
     <string name="boot_notification_content">Re-applying your performance and battery settings...</string>
+    <string name="battery_target_reached_title">Battery Target Reached</string>
+    <string name="battery_target_reached_msg">Battery level reached %1$d%%. Charging has been disabled.</string>
 
     <!-- Navigation Tabs -->
     <string name="nav_tab_feature">Feature</string>
