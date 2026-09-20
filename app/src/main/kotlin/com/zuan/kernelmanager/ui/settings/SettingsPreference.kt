@@ -254,6 +254,58 @@ class SettingsPreference(context: Context) {
     private val _isAlternateIcon = MutableStateFlow(getAlternateIconEnabled())
     val isAlternateIcon: StateFlow<Boolean> = _isAlternateIcon.asStateFlow()
 
+    // --- FPS OVERLAY STATES ---
+    private val _fpsStyle = MutableStateFlow(getFpsStyle())
+    val fpsStyle: StateFlow<Int> = _fpsStyle.asStateFlow()
+
+    private val _fpsOrientation = MutableStateFlow(getFpsOrientation())
+    val fpsOrientation: StateFlow<Int> = _fpsOrientation.asStateFlow()
+
+    private val _fpsColor = MutableStateFlow(getFpsColor())
+    val fpsColor: StateFlow<String> = _fpsColor.asStateFlow()
+
+    private val _fpsSize = MutableStateFlow(getFpsSize())
+    val fpsSize: StateFlow<Float> = _fpsSize.asStateFlow()
+
+    private val _fpsWidthScale = MutableStateFlow(getFpsWidthScale())
+    val fpsWidthScale: StateFlow<Float> = _fpsWidthScale.asStateFlow()
+
+    private val _fpsAlpha = MutableStateFlow(getFpsAlpha())
+    val fpsAlpha: StateFlow<Float> = _fpsAlpha.asStateFlow()
+
+    private val _fpsShowFps = MutableStateFlow(getFpsShowFps())
+    val fpsShowFps: StateFlow<Boolean> = _fpsShowFps.asStateFlow()
+
+    private val _fpsShowCpu = MutableStateFlow(getFpsShowCpu())
+    val fpsShowCpu: StateFlow<Boolean> = _fpsShowCpu.asStateFlow()
+
+    private val _fpsShowWatts = MutableStateFlow(getFpsShowWatts())
+    val fpsShowWatts: StateFlow<Boolean> = _fpsShowWatts.asStateFlow()
+
+    private val _fpsShowTemp = MutableStateFlow(getFpsShowTemp())
+    val fpsShowTemp: StateFlow<Boolean> = _fpsShowTemp.asStateFlow()
+
+    private val _fpsShowRam = MutableStateFlow(getFpsShowRam())
+    val fpsShowRam: StateFlow<Boolean> = _fpsShowRam.asStateFlow()
+
+    private val _fpsShowRender = MutableStateFlow(getFpsShowRender())
+    val fpsShowRender: StateFlow<Boolean> = _fpsShowRender.asStateFlow()
+
+    private val _fpsShowGpuUsage = MutableStateFlow(getFpsShowGpuUsage())
+    val fpsShowGpuUsage: StateFlow<Boolean> = _fpsShowGpuUsage.asStateFlow()
+
+    private val _fpsShowCpuTemp = MutableStateFlow(getFpsShowCpuTemp())
+    val fpsShowCpuTemp: StateFlow<Boolean> = _fpsShowCpuTemp.asStateFlow()
+
+    private val _fpsShowCpuFreq = MutableStateFlow(getFpsShowCpuFreq())
+    val fpsShowCpuFreq: StateFlow<Boolean> = _fpsShowCpuFreq.asStateFlow()
+
+    private val _fpsShowGpuFreq = MutableStateFlow(getFpsShowGpuFreq())
+    val fpsShowGpuFreq: StateFlow<Boolean> = _fpsShowGpuFreq.asStateFlow()
+
+    private val _fpsShowGpuTemp = MutableStateFlow(getFpsShowGpuTemp())
+    val fpsShowGpuTemp: StateFlow<Boolean> = _fpsShowGpuTemp.asStateFlow()
+
     companion object {
         private const val THEME_KEY = "theme_mode"
         private const val THEME_COLOR_KEY = "theme_color_name"
@@ -321,6 +373,25 @@ class SettingsPreference(context: Context) {
         private const val THERMAL_SCONFIG_KEY = "thermal_sconfig_val"
         private const val APPLY_ON_BOOT_KEY = "apply_on_boot_master"
         private const val ALT_ICON_KEY = "alternate_app_icon_enabled"
+
+        // [BARU] FPS Overlay Keys
+        private const val FPS_STYLE_KEY = "fps_overlay_style"
+        private const val FPS_ORIENTATION_KEY = "fps_overlay_orientation"
+        private const val FPS_COLOR_KEY = "fps_overlay_color"
+        private const val FPS_SIZE_KEY = "fps_overlay_size"
+        private const val FPS_WIDTH_SCALE_KEY = "fps_overlay_width_scale"
+        private const val FPS_ALPHA_KEY = "fps_overlay_alpha"
+        private const val FPS_SHOW_FPS_KEY = "fps_show_fps"
+        private const val FPS_SHOW_CPU_KEY = "fps_show_cpu"
+        private const val FPS_SHOW_WATTS_KEY = "fps_show_watts"
+        private const val FPS_SHOW_TEMP_KEY = "fps_show_temp"
+        private const val FPS_SHOW_RAM_KEY = "fps_show_ram"
+        private const val FPS_SHOW_RENDER_KEY = "fps_show_render"
+        private const val FPS_SHOW_GPU_USAGE_KEY = "fps_show_gpu_usage"
+        private const val FPS_SHOW_CPU_TEMP_KEY = "fps_show_cpu_temp"
+        private const val FPS_SHOW_CPU_FREQ_KEY = "fps_show_cpu_freq"
+        private const val FPS_SHOW_GPU_FREQ_KEY = "fps_show_gpu_freq"
+        private const val FPS_SHOW_GPU_TEMP_KEY = "fps_show_gpu_temp"
 
         private const val DEFAULT_POLLING_INTERVAL = 3000L
         private const val DEFAULT_DPI = 0
@@ -589,6 +660,58 @@ class SettingsPreference(context: Context) {
             }
         } catch (e: Exception) { e.printStackTrace() }
     }
+
+    // --- FPS OVERLAY GETTERS/SETTERS ---
+    fun setFpsStyle(style: Int) { prefs.edit { putInt(FPS_STYLE_KEY, style) }; _fpsStyle.value = style }
+    private fun getFpsStyle(): Int = prefs.getInt(FPS_STYLE_KEY, 0)
+
+    fun setFpsOrientation(orientation: Int) { prefs.edit { putInt(FPS_ORIENTATION_KEY, orientation) }; _fpsOrientation.value = orientation }
+    private fun getFpsOrientation(): Int = prefs.getInt(FPS_ORIENTATION_KEY, 0)
+
+    fun setFpsColor(color: String) { prefs.edit { putString(FPS_COLOR_KEY, color) }; _fpsColor.value = color }
+    private fun getFpsColor(): String = prefs.getString(FPS_COLOR_KEY, "#00FF00") ?: "#00FF00"
+
+    fun setFpsSize(size: Float) { prefs.edit { putFloat(FPS_SIZE_KEY, size) }; _fpsSize.value = size }
+    private fun getFpsSize(): Float = prefs.getFloat(FPS_SIZE_KEY, 14f)
+
+    fun setFpsWidthScale(scale: Float) { prefs.edit { putFloat(FPS_WIDTH_SCALE_KEY, scale) }; _fpsWidthScale.value = scale }
+    private fun getFpsWidthScale(): Float = prefs.getFloat(FPS_WIDTH_SCALE_KEY, 1f)
+
+    fun setFpsAlpha(alpha: Float) { prefs.edit { putFloat(FPS_ALPHA_KEY, alpha) }; _fpsAlpha.value = alpha }
+    private fun getFpsAlpha(): Float = prefs.getFloat(FPS_ALPHA_KEY, 0.5f)
+
+    fun setFpsShowFps(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_FPS_KEY, show) }; _fpsShowFps.value = show }
+    private fun getFpsShowFps(): Boolean = prefs.getBoolean(FPS_SHOW_FPS_KEY, true)
+
+    fun setFpsShowCpu(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_CPU_KEY, show) }; _fpsShowCpu.value = show }
+    private fun getFpsShowCpu(): Boolean = prefs.getBoolean(FPS_SHOW_CPU_KEY, true)
+
+    fun setFpsShowWatts(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_WATTS_KEY, show) }; _fpsShowWatts.value = show }
+    private fun getFpsShowWatts(): Boolean = prefs.getBoolean(FPS_SHOW_WATTS_KEY, true)
+
+    fun setFpsShowTemp(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_TEMP_KEY, show) }; _fpsShowTemp.value = show }
+    private fun getFpsShowTemp(): Boolean = prefs.getBoolean(FPS_SHOW_TEMP_KEY, true)
+
+    fun setFpsShowRam(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_RAM_KEY, show) }; _fpsShowRam.value = show }
+    private fun getFpsShowRam(): Boolean = prefs.getBoolean(FPS_SHOW_RAM_KEY, true)
+
+    fun setFpsShowRender(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_RENDER_KEY, show) }; _fpsShowRender.value = show }
+    private fun getFpsShowRender(): Boolean = prefs.getBoolean(FPS_SHOW_RENDER_KEY, false)
+
+    fun setFpsShowGpuUsage(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_GPU_USAGE_KEY, show) }; _fpsShowGpuUsage.value = show }
+    private fun getFpsShowGpuUsage(): Boolean = prefs.getBoolean(FPS_SHOW_GPU_USAGE_KEY, false)
+
+    fun setFpsShowCpuTemp(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_CPU_TEMP_KEY, show) }; _fpsShowCpuTemp.value = show }
+    private fun getFpsShowCpuTemp(): Boolean = prefs.getBoolean(FPS_SHOW_CPU_TEMP_KEY, false)
+
+    fun setFpsShowCpuFreq(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_CPU_FREQ_KEY, show) }; _fpsShowCpuFreq.value = show }
+    private fun getFpsShowCpuFreq(): Boolean = prefs.getBoolean(FPS_SHOW_CPU_FREQ_KEY, false)
+
+    fun setFpsShowGpuFreq(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_GPU_FREQ_KEY, show) }; _fpsShowGpuFreq.value = show }
+    private fun getFpsShowGpuFreq(): Boolean = prefs.getBoolean(FPS_SHOW_GPU_FREQ_KEY, false)
+
+    fun setFpsShowGpuTemp(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_GPU_TEMP_KEY, show) }; _fpsShowGpuTemp.value = show }
+    private fun getFpsShowGpuTemp(): Boolean = prefs.getBoolean(FPS_SHOW_GPU_TEMP_KEY, false)
 }
 
 private fun SharedPreferences.toFloat(key: String, defValue: Float): Float = try { this.getFloat(key, defValue) } catch (e: Exception) { defValue }

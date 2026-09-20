@@ -81,6 +81,25 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     val selectedMemProfileName = settingsPreference.selectedMemProfileName
     val selectedNetProfileName = settingsPreference.selectedNetProfileName
 
+    // --- FPS OVERLAY STATES ---
+    val fpsStyle = settingsPreference.fpsStyle
+    val fpsOrientation = settingsPreference.fpsOrientation
+    val fpsColor = settingsPreference.fpsColor
+    val fpsSize = settingsPreference.fpsSize
+    val fpsWidthScale = settingsPreference.fpsWidthScale
+    val fpsAlpha = settingsPreference.fpsAlpha
+    val fpsShowFps = settingsPreference.fpsShowFps
+    val fpsShowCpu = settingsPreference.fpsShowCpu
+    val fpsShowWatts = settingsPreference.fpsShowWatts
+    val fpsShowTemp = settingsPreference.fpsShowTemp
+    val fpsShowRam = settingsPreference.fpsShowRam
+    val fpsShowRender = settingsPreference.fpsShowRender
+    val fpsShowGpuUsage = settingsPreference.fpsShowGpuUsage
+    val fpsShowCpuTemp = settingsPreference.fpsShowCpuTemp
+    val fpsShowCpuFreq = settingsPreference.fpsShowCpuFreq
+    val fpsShowGpuFreq = settingsPreference.fpsShowGpuFreq
+    val fpsShowGpuTemp = settingsPreference.fpsShowGpuTemp
+
     // --- UI CONFIG COMBINED ---
     private val visualConfigFlow = combine(
         bgType, solidColor, expressiveThemeId, backgroundImageUri, isVideoWallpaper
@@ -240,6 +259,25 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     fun setCustomTertiaryColor(color: Int) { viewModelScope.launch { settingsPreference.setCustomTertiaryColor(color) } }
 
     fun setApplyOnBoot(enabled: Boolean) { viewModelScope.launch { settingsPreference.setApplyOnBoot(enabled) } }
+
+    // --- FPS OVERLAY FUNCTIONS ---
+    fun setFpsStyle(style: Int) { viewModelScope.launch { settingsPreference.setFpsStyle(style) } }
+    fun setFpsOrientation(orientation: Int) { viewModelScope.launch { settingsPreference.setFpsOrientation(orientation) } }
+    fun setFpsColor(color: String) { viewModelScope.launch { settingsPreference.setFpsColor(color) } }
+    fun setFpsSize(size: Float) { viewModelScope.launch { settingsPreference.setFpsSize(size) } }
+    fun setFpsWidthScale(scale: Float) { viewModelScope.launch { settingsPreference.setFpsWidthScale(scale) } }
+    fun setFpsAlpha(alpha: Float) { viewModelScope.launch { settingsPreference.setFpsAlpha(alpha) } }
+    fun setFpsShowFps(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowFps(show) } }
+    fun setFpsShowCpu(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowCpu(show) } }
+    fun setFpsShowWatts(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowWatts(show) } }
+    fun setFpsShowTemp(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowTemp(show) } }
+    fun setFpsShowRam(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowRam(show) } }
+    fun setFpsShowRender(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowRender(show) } }
+    fun setFpsShowGpuUsage(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowGpuUsage(show) } }
+    fun setFpsShowCpuTemp(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowCpuTemp(show) } }
+    fun setFpsShowCpuFreq(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowCpuFreq(show) } }
+    fun setFpsShowGpuFreq(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowGpuFreq(show) } }
+    fun setFpsShowGpuTemp(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowGpuTemp(show) } }
 }
 
 // Helper Classes

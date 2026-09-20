@@ -67,7 +67,7 @@ object AdrenoUtils {
     fun readData(path: String): String {
         return try { 
             val targetPath = resolveDynamicPath(path)
-            RootIpcManager.ipc?.readNode(targetPath)?.trim() ?: "" 
+            RootIpcManager.ipc?.readNode(targetPath)?.trim() ?: ""
         } catch (e: Exception) { "" }
     }
 

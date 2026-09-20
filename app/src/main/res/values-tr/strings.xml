@@ -150,6 +150,11 @@
     <string name="fps_metric_ram">RAM</string>
     <string name="fps_metric_watts">Watt</string>
     <string name="fps_metric_temp">Sıcaklık</string>
+    <string name="fps_metric_gpu_usage">GPU Kullanımı</string>
+    <string name="fps_metric_cpu_temp">CPU Sıcaklığı</string>
+    <string name="fps_metric_cpu_freq">CPU Frekansı</string>
+    <string name="fps_metric_gpu_freq">GPU Frekansı</string>
+    <string name="fps_metric_gpu_temp">GPU Sıcaklığı</string>
     <string name="fps_adjustments">Ayarlamalar</string>
     <string name="fps_text_size">Metin Boyutu</string>
     <string name="fps_width_scale">Genişlik Ölçeği</string>

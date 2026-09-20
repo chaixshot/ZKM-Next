@@ -150,6 +150,11 @@
     <string name="fps_metric_ram">RAM</string>
     <string name="fps_metric_watts">Wați</string>
     <string name="fps_metric_temp">Temp</string>
+    <string name="fps_metric_gpu_usage">Utilizare GPU</string>
+    <string name="fps_metric_cpu_temp">Temp. CPU</string>
+    <string name="fps_metric_cpu_freq">Freq. CPU</string>
+    <string name="fps_metric_gpu_freq">Freq. GPU</string>
+    <string name="fps_metric_gpu_temp">Temp. GPU</string>
     <string name="fps_adjustments">Ajustări</string>
     <string name="fps_text_size">Mărime Text</string>
     <string name="fps_width_scale">Scară Lățime</string>

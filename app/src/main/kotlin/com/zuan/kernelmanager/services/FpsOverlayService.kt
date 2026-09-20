@@ -50,6 +50,7 @@ import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryController
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
+import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import com.zuan.kernelmanager.utils.FpsReader
 import com.zuan.kernelmanager.utils.FpsRecorder
 import com.zuan.kernelmanager.utils.MonitorReader
@@ -75,9 +76,11 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
     private val store = ViewModelStore()
     override val viewModelStore: ViewModelStore get() = store
 
+    private lateinit var settingsPreference: SettingsPreference
+
     // --- CONFIG VARIABLES ---
-    private var styleMode by mutableStateOf(0) // 0=Android, 1=PC, 2=Mini
-    private var androidOrientation by mutableStateOf(0) // 0=Vert, 1=Horz
+    private var styleMode by mutableStateOf(0) 
+    private var androidOrientation by mutableStateOf(0) 
     private var colorHex by mutableStateOf("#00FF00")
     private var textSizeSp by mutableStateOf(14f)
     private var bgAlpha by mutableStateOf(0.5f)
@@ -90,6 +93,11 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
     private var showTemp by mutableStateOf(true)
     private var showRam by mutableStateOf(true)
     private var showRender by mutableStateOf(false)
+    private var showGpuUsage by mutableStateOf(false)
+    private var showCpuTemp by mutableStateOf(false)
+    private var showCpuFreq by mutableStateOf(false)
+    private var showGpuFreq by mutableStateOf(false)
+    private var showGpuTemp by mutableStateOf(false)
 
     // Drag vars
     private var initialX = 0; private var initialY = 0; private var initialTouchX = 0f; private var initialTouchY = 0f
@@ -97,11 +105,35 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
     override fun onCreate() {
         super.onCreate()
         ShellExecutor.init(this)
+        settingsPreference = SettingsPreference.getInstance(this)
+        loadInitialSettings()
+        
         savedStateRegistryController.performRestore(null)
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         layoutParams = createLayoutParams(20, 100)
         startForegroundNotification()
         isRunning = true
+    }
+
+    private fun loadInitialSettings() {
+        styleMode = settingsPreference.fpsStyle.value
+        androidOrientation = settingsPreference.fpsOrientation.value
+        colorHex = settingsPreference.fpsColor.value
+        textSizeSp = settingsPreference.fpsSize.value
+        widthScale = settingsPreference.fpsWidthScale.value
+        bgAlpha = settingsPreference.fpsAlpha.value
+        
+        showFps = settingsPreference.fpsShowFps.value
+        showCpu = settingsPreference.fpsShowCpu.value
+        showWatts = settingsPreference.fpsShowWatts.value
+        showTemp = settingsPreference.fpsShowTemp.value
+        showRam = settingsPreference.fpsShowRam.value
+        showRender = settingsPreference.fpsShowRender.value
+        showGpuUsage = settingsPreference.fpsShowGpuUsage.value
+        showCpuTemp = settingsPreference.fpsShowCpuTemp.value
+        showCpuFreq = settingsPreference.fpsShowCpuFreq.value
+        showGpuFreq = settingsPreference.fpsShowGpuFreq.value
+        showGpuTemp = settingsPreference.fpsShowGpuTemp.value
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -124,6 +156,11 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
             if (it.hasExtra("SHOW_TEMP")) showTemp = it.getBooleanExtra("SHOW_TEMP", true)
             if (it.hasExtra("SHOW_RAM")) showRam = it.getBooleanExtra("SHOW_RAM", true)
             if (it.hasExtra("SHOW_RENDER")) showRender = it.getBooleanExtra("SHOW_RENDER", false)
+            if (it.hasExtra("SHOW_GPU_USAGE")) showGpuUsage = it.getBooleanExtra("SHOW_GPU_USAGE", false)
+            if (it.hasExtra("SHOW_CPU_TEMP")) showCpuTemp = it.getBooleanExtra("SHOW_CPU_TEMP", false)
+            if (it.hasExtra("SHOW_CPU_FREQ")) showCpuFreq = it.getBooleanExtra("SHOW_CPU_FREQ", false)
+            if (it.hasExtra("SHOW_GPU_FREQ")) showGpuFreq = it.getBooleanExtra("SHOW_GPU_FREQ", false)
+            if (it.hasExtra("SHOW_GPU_TEMP")) showGpuTemp = it.getBooleanExtra("SHOW_GPU_TEMP", false)
         }
 
         if (overlayView == null) setupOverlay()
@@ -144,7 +181,10 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
                     fontSize = textSizeSp,
                     bgAlpha = bgAlpha,
                     widthScale = widthScale,
-                    metrics = MetricsState(showFps, showCpu, showWatts, showTemp, showRam, showRender)
+                    metrics = MetricsState(
+                        showFps, showCpu, showWatts, showTemp, showRam, showRender,
+                        showGpuUsage, showCpuTemp, showCpuFreq, showGpuFreq, showGpuTemp
+                    )
                 )
             }
             
@@ -212,7 +252,11 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
     }
 }
 
-data class MetricsState(val fps: Boolean, val cpu: Boolean, val watt: Boolean, val temp: Boolean, val ram: Boolean, val showRender: Boolean)
+data class MetricsState(
+    val fps: Boolean, val cpu: Boolean, val watt: Boolean, val temp: Boolean, val ram: Boolean, val showRender: Boolean,
+    val gpuUsage: Boolean = false, val cpuTemp: Boolean = false, val cpuFreq: Boolean = false, val gpuFreq: Boolean = false,
+    val gpuTemp: Boolean = false
+)
 
 // --- MAIN UI COMPOSER ---
 
@@ -240,6 +284,11 @@ fun MainOverlayContent(
     var tempFloat by remember { mutableFloatStateOf(0f) }
     var ramVal by remember { mutableStateOf("0") }
     var ramInt by remember { mutableIntStateOf(0) }
+    var gpuUsageVal by remember { mutableStateOf("0%") }
+    var cpuTempFormat by remember { mutableStateOf("0°C") }
+    var cpuFreqVal by remember { mutableStateOf("0MHz") }
+    var gpuFreqVal by remember { mutableStateOf("0MHz") }
+    var gpuTempFormat by remember { mutableStateOf("0°C") }
     var renderName by remember { mutableStateOf("FPS") }
 
     // Record State
@@ -277,6 +326,21 @@ fun MainOverlayContent(
                         ramInt = r.usedMb
                         ramVal = "${r.usedMb}"
                     }
+                    if (metrics.gpuUsage) {
+                        gpuUsageVal = "${MonitorReader.getGpuUsage()}%"
+                    }
+                    if (metrics.cpuTemp) {
+                        cpuTempFormat = String.format("%.1f°C", MonitorReader.getCpuTemp())
+                    }
+                    if (metrics.cpuFreq) {
+                        cpuFreqVal = "${MonitorReader.getCpuFreqAverage()}MHz"
+                    }
+                    if (metrics.gpuFreq) {
+                        gpuFreqVal = "${MonitorReader.getGpuFreq()}MHz"
+                    }
+                    if (metrics.gpuTemp) {
+                        gpuTempFormat = String.format("%.1f°C", MonitorReader.getGpuTemp())
+                    }
                     if (metrics.showRender) {
                         renderName = MonitorReader.getCurrentRenderer()
                     }
@@ -306,9 +370,23 @@ fun MainOverlayContent(
             // --- BAGIAN ATAS: DATA SESUAI STYLE ---
             Box(Modifier.fillMaxWidth()) {
                 when (styleMode) {
-                    0 -> AndroidStyleOverlay(orientation, customColor, fontSize, metrics, fpsVal, cpuVal, wattVal, tempVal, ramVal)
-                    1 -> PcStyleOverlay(fontSize, metrics, fpsVal, cpuVal, wattVal, tempVal, ramVal, renderName)
-                    2 -> MiniMonitorOverlay(fontSize, metrics, fpsVal, cpuVal, tempVal)
+                    0 -> AndroidStyleOverlay(
+                        orientation, customColor, fontSize, metrics, 
+                        fpsVal, cpuVal, wattVal, tempVal, ramVal,
+                        gpuUsageVal, cpuTempFormat, cpuFreqVal, gpuFreqVal, gpuTempFormat,
+                        renderName
+                    )
+                    1 -> PcStyleOverlay(
+                        fontSize, metrics, 
+                        fpsVal, cpuVal, wattVal, tempVal, ramVal, renderName,
+                        gpuUsageVal, cpuTempFormat, cpuFreqVal, gpuFreqVal, gpuTempFormat
+                    )
+                    2 -> MiniMonitorOverlay(
+                        fontSize, metrics, 
+                        fpsVal, cpuVal, tempVal,
+                        gpuUsageVal, cpuTempFormat, gpuTempFormat,
+                        renderName
+                    )
                 }
             }
 
@@ -363,20 +441,31 @@ fun RecordControlButton(isRec: Boolean, isPaused: Boolean, context: android.cont
 @Composable
 fun AndroidStyleOverlay(
     orientation: Int, color: Color, size: Float, m: MetricsState,
-    fps: String, cpu: String, watt: String, temp: String, ram: String
+    fps: String, cpu: String, watt: String, temp: String, ram: String,
+    gpu: String, cpuTemp: String, cpuFreq: String, gpuFreq: String, gpuTemp: String,
+    renderLabel: String
 ) {
+    val finalFpsLabel = if (m.showRender) renderLabel else "FPS"
+
     if (orientation == 0) { // Vertical
         Column(horizontalAlignment = Alignment.Start) {
-            if (m.fps) AndroidRow("FPS", fps, color, size)
+            if (m.fps) AndroidRow(finalFpsLabel, fps, color, size)
             if (m.cpu) AndroidRow("CPU", cpu, color, size)
+            if (m.cpuFreq) AndroidRow("CFR", cpuFreq, color, size)
+            if (m.cpuTemp) AndroidRow("CTP", cpuTemp, color, size)
+            if (m.gpuUsage) AndroidRow("GPU", gpu, color, size)
+            if (m.gpuFreq) AndroidRow("GFR", gpuFreq, color, size)
+            if (m.gpuTemp) AndroidRow("GTP", gpuTemp, color, size)
             if (m.ram) AndroidRow("RAM", "$ram MB", color, size)
             if (m.watt) AndroidRow("PWR", watt, color, size)
             if (m.temp) AndroidRow("TMP", temp, color, size)
         }
     } else { // Horizontal
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            if (m.fps) AndroidRow("FPS", fps, color, size)
+            if (m.fps) AndroidRow(finalFpsLabel, fps, color, size)
             if (m.cpu) AndroidRow("CPU", cpu, color, size)
+            if (m.gpuUsage) AndroidRow("GPU", gpu, color, size)
+            if (m.gpuTemp) AndroidRow("GTP", gpuTemp, color, size)
             if (m.ram) AndroidRow("RAM", ram, color, size)
         }
     }
@@ -395,7 +484,8 @@ fun AndroidRow(label: String, value: String, color: Color, size: Float) {
 fun PcStyleOverlay(
     size: Float, m: MetricsState,
     fps: String, cpu: String, watt: String, temp: String, ramMb: String,
-    renderLabel: String
+    renderLabel: String,
+    gpuUsage: String, cpuTemp: String, cpuFreq: String, gpuFreq: String, gpuTemp: String
 ) {
     val font = FontFamily.Monospace
     val green = Color(0xFF00FF00)
@@ -406,11 +496,39 @@ fun PcStyleOverlay(
     val finalFpsLabel = if (m.showRender) renderLabel else "FPS"
 
     Column {
-        if (m.temp || m.watt) {
+        if (m.gpuUsage || m.gpuFreq || m.gpuTemp) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 Text("GPU", color = green, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
                 Spacer(Modifier.width(16.dp))
-                val text = if(m.temp && m.watt) "$temp" else if(m.temp) temp else ""
+                val text = buildString {
+                    if (m.gpuUsage) append(gpuUsage)
+                    if (m.gpuFreq) {
+                        if (isNotEmpty()) append(" @ ")
+                        append(gpuFreq)
+                    }
+                    if (m.gpuTemp) {
+                        if (isNotEmpty()) append(" ")
+                        append(gpuTemp)
+                    }
+                }
+                Text(text, color = orange, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
+            }
+        }
+        if (m.cpu || m.cpuFreq || m.cpuTemp) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                Text("CPU", color = blue, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
+                Spacer(Modifier.width(16.dp))
+                val text = buildString {
+                    if (m.cpu) append(cpu)
+                    if (m.cpuFreq) {
+                        if (isNotEmpty()) append(" ")
+                        append(cpuFreq)
+                    }
+                    if (m.cpuTemp) {
+                        if (isNotEmpty()) append(" ")
+                        append(cpuTemp)
+                    }
+                }
                 Text(text, color = orange, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
             }
         }
@@ -421,11 +539,12 @@ fun PcStyleOverlay(
                 Text("$ramMb MB", color = orange, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
             }
         }
-        if (m.cpu) {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                Text("CPU", color = blue, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
+        if (m.watt || m.temp) {
+             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                Text("BAT", color = blue, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
                 Spacer(Modifier.width(16.dp))
-                Text(cpu, color = orange, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
+                val text = if(m.temp && m.watt) "$temp $watt" else if(m.temp) temp else watt
+                Text(text, color = orange, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
             }
         }
         if (m.fps) {
@@ -442,18 +561,25 @@ fun PcStyleOverlay(
 @Composable
 fun MiniMonitorOverlay(
     size: Float, m: MetricsState,
-    fps: String, cpu: String, temp: String
+    fps: String, cpu: String, temp: String,
+    gpuUsage: String, cpuTemp: String, gpuTemp: String,
+    renderLabel: String
 ) {
+    val finalFpsLabel = if (m.showRender) renderLabel else "FPS"
+    
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         if (m.fps) {
             Text(fps, color = Color.White, fontSize = (size * 1.2f).sp, fontWeight = FontWeight.ExtraBold)
-            Text("FPS", color = Color.Gray, fontSize = (size * 0.6f).sp)
+            Text(finalFpsLabel, color = Color.Gray, fontSize = (size * 0.6f).sp)
         }
-        if (m.cpu || m.temp) {
+        if (m.cpu || m.temp || m.gpuUsage || m.cpuTemp || m.gpuTemp) {
             Spacer(Modifier.height(4.dp))
             Row(horizontalArrangement = Arrangement.Center) {
                 if (m.cpu) Text(cpu, color = Color(0xFF00BFFF), fontSize = (size * 0.8f).sp, modifier = Modifier.padding(end=4.dp))
-                if (m.temp) Text(temp, color = Color(0xFFFF8C00), fontSize = (size * 0.8f).sp)
+                if (m.gpuUsage) Text(gpuUsage, color = Color(0xFF00FF00), fontSize = (size * 0.8f).sp, modifier = Modifier.padding(end=4.dp))
+                if (m.cpuTemp) Text(cpuTemp, color = Color(0xFFFF8C00), fontSize = (size * 0.8f).sp, modifier = Modifier.padding(end=4.dp))
+                if (m.gpuTemp) Text(gpuTemp, color = Color(0xFF32CD32), fontSize = (size * 0.8f).sp, modifier = Modifier.padding(end=4.dp))
+                if (m.temp) Text(temp, color = Color(0xFFFF4500), fontSize = (size * 0.8f).sp)
             }
         }
     }

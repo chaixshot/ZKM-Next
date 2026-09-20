@@ -150,6 +150,11 @@
     <string name="fps_metric_ram">RAM</string>
     <string name="fps_metric_watts">ワット</string>
     <string name="fps_metric_temp">温度</string>
+    <string name="fps_metric_gpu_usage">GPU使用率</string>
+    <string name="fps_metric_cpu_temp">CPU温度</string>
+    <string name="fps_metric_cpu_freq">CPU周波数</string>
+    <string name="fps_metric_gpu_freq">GPU周波数</string>
+    <string name="fps_metric_gpu_temp">GPU温度</string>
     <string name="fps_adjustments">調整</string>
     <string name="fps_text_size">文字サイズ</string>
     <string name="fps_width_scale">幅スケール</string>

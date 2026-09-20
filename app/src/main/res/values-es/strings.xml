@@ -150,6 +150,11 @@
     <string name="fps_metric_ram">RAM</string>
     <string name="fps_metric_watts">Vatios</string>
     <string name="fps_metric_temp">Temp</string>
+    <string name="fps_metric_gpu_usage">Uso de GPU</string>
+    <string name="fps_metric_cpu_temp">Temp. de CPU</string>
+    <string name="fps_metric_cpu_freq">Frec. de CPU</string>
+    <string name="fps_metric_gpu_freq">Frec. de GPU</string>
+    <string name="fps_metric_gpu_temp">Temp. GPU</string>
     <string name="fps_adjustments">Ajustes</string>
     <string name="fps_text_size">Tamaño de Texto</string>
     <string name="fps_width_scale">Escala de Ancho</string>

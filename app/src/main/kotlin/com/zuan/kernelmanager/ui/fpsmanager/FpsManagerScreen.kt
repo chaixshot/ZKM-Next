@@ -359,7 +359,8 @@ fun FpsManagerScreen(
                             elevation = cardElevation,
                             isGlassActive = isGlassActive,
                             hazeState = localHazeState,
-                            glassModifier = glassCardModifier
+                            glassModifier = glassCardModifier,
+                            settingsViewModel = settingsViewModel
                         )
                     }
                 }

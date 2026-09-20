@@ -26,7 +26,7 @@ object MonitorReader {
     
     private var isShellInitialized = false
     private const val SHELL_TIMEOUT = 5000L
-    
+
     fun initializeShell() {
         if (isShellInitialized) return
         Thread {
@@ -111,16 +111,25 @@ object MonitorReader {
         try {
             val pkgName = getForegroundPackage()
             if (pkgName.isNotEmpty()) {
-                val pidRaw = ShellExecutor.executeWithResult("pidof $pkgName")
-                val pid = pidRaw.split(" ").firstOrNull()
-                if (!pid.isNullOrEmpty()) {
-                    val checkVulkan = ShellExecutor.executeWithResult("grep -c 'libvulkan.so' /proc/$pid/maps")
-                    if (checkVulkan.toIntOrNull() ?: 0 > 0) return "VULKAN"
-                    val checkGl = ShellExecutor.executeWithResult("grep -c 'libGLES' /proc/$pid/maps")
-                    if (checkGl.toIntOrNull() ?: 0 > 0) return "OPENGL"
+                // Get all PIDs for this package (main process and children)
+                val pids = ShellExecutor.executeWithResult("pgrep -f $pkgName").split("\n").mapNotNull { it.trim() }
+
+                for (pid in pids) {
+                    if (pid.isEmpty()) continue
+
+                    // Check maps for Vulkan or GL libraries
+                    val maps = ShellExecutor.executeWithResult("cat /proc/$pid/maps")
+                    if (maps.contains("libvulkan.so") || maps.contains("vulkan.adreno.so") || maps.contains("libvulkan_")) {
+                        return "VULKAN"
+                    }
+                    if (maps.contains("libGLESv3") || maps.contains("libGLESv2") || maps.contains("libGLESv1")) {
+                        return "OPENGL"
+                    }
                 }
             }
-        } catch (e: Exception) {}
+        } catch (e: Exception) {
+            Log.e(TAG, "Renderer Error: ${e.message}")
+        }
         return "FPS"
     }
 
@@ -161,6 +170,139 @@ object MonitorReader {
             val tempRaw = intent?.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0) ?: 0
             tempRaw / 10f
         } catch (e: Exception) { 0f }
+    }
+
+    private var cachedCpuTempZoneIndex: Int = -1
+
+    fun getCpuTemp(): Float {
+        return try {
+            // 1. Check cached index
+            if (cachedCpuTempZoneIndex != -1) {
+                val tempRaw = ShellExecutor.executeWithResult("cat /sys/class/thermal/thermal_zone$cachedCpuTempZoneIndex/temp").trim().toIntOrNull() ?: 0
+                return if (abs(tempRaw) > 1000) tempRaw / 1000f else tempRaw.toFloat()
+            }
+
+            // 2. Try to find a CPU thermal zone
+            val zones = listOf("cpu-thermal", "tsens_tz_sensor", "core_temp", "soc-thermal", "cpu-0-0-usr")
+            var foundTemp = 0f
+
+            for (i in 0..100) {
+                val type = ShellExecutor.executeWithResult("cat /sys/class/thermal/thermal_zone$i/type 2>/dev/null").lowercase()
+                if (zones.any { type.contains(it) }) {
+                    val tempRaw = ShellExecutor.executeWithResult("cat /sys/class/thermal/thermal_zone$i/temp").trim().toIntOrNull() ?: 0
+                    foundTemp = if (abs(tempRaw) > 1000) tempRaw / 1000f else tempRaw.toFloat()
+                    if (foundTemp > 0) {
+                        cachedCpuTempZoneIndex = i
+                        break
+                    }
+                }
+            }
+            
+            // 3. Fallback to zone0 if nothing found or found 0
+            if (foundTemp == 0f) {
+                val tempRaw = ShellExecutor.executeWithResult("cat /sys/class/thermal/thermal_zone0/temp 2>/dev/null").trim().toIntOrNull() ?: 0
+                foundTemp = if (abs(tempRaw) > 1000) tempRaw / 1000f else tempRaw.toFloat()
+            }
+            foundTemp
+        } catch (e: Exception) { 0f }
+    }
+
+    fun getGpuUsage(): Int {
+        return try {
+            // 1. Snapdragon/Adreno Standard
+            val adrenoUsage = ShellExecutor.executeWithResult("cat /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage").replace("%", "").trim().toIntOrNull() ?: -1
+            if (adrenoUsage != -1) return adrenoUsage.coerceIn(0, 100)
+
+            // 2. Generic Devfreq 'load' node (Many Mali/Exynos/Mediatek devices)
+            // Format is often "30@500MHz" or just "30"
+            val devfreqLoad = ShellExecutor.executeWithResult("cat /sys/class/devfreq/*gpu*/load /sys/class/devfreq/*.mali/load /sys/class/devfreq/*.mali/utilization 2>/dev/null | head -n 1")
+            if (devfreqLoad.isNotEmpty()) {
+                val usageStr = devfreqLoad.split("@")[0].trim()
+                val usage = usageStr.toIntOrNull() ?: -1
+                if (usage != -1) return usage.coerceIn(0, 100)
+            }
+
+            // 3. Alternative Adreno Devfreq node
+            val adrenoDevfreq = ShellExecutor.executeWithResult("cat /sys/class/devfreq/*.kgsl-3d0/load 2>/dev/null | head -n 1")
+            if (adrenoDevfreq.isNotEmpty()) {
+                val usage = adrenoDevfreq.split("@")[0].trim().toIntOrNull() ?: -1
+                if (usage != -1) return usage.coerceIn(0, 100)
+            }
+
+            // 4. Mali specific 'utilization'
+            val maliUtil = ShellExecutor.executeWithResult("cat /sys/class/devfreq/*.mali/utilization 2>/dev/null | head -n 1").trim().toIntOrNull() ?: -1
+            if (maliUtil != -1) return maliUtil.coerceIn(0, 100)
+
+            // 5. Alternative kernel node
+            val kernelBusy = ShellExecutor.executeWithResult("cat /sys/kernel/gpu/gpu_busy 2>/dev/null").trim().toIntOrNull() ?: -1
+            if (kernelBusy != -1) return kernelBusy.coerceIn(0, 100)
+
+            0
+        } catch (e: Exception) { 0 }
+    }
+
+    private var cachedGpuTempZoneIndex: Int = -1
+
+    fun getGpuTemp(): Float {
+        return try {
+            // 1. Adreno common path
+            val adrenoTempRaw = ShellExecutor.executeWithResult("cat /sys/class/kgsl/kgsl-3d0/temp 2>/dev/null").trim().toIntOrNull() ?: 0
+            if (adrenoTempRaw != 0) {
+                return if (abs(adrenoTempRaw) > 1000) adrenoTempRaw / 1000f else adrenoTempRaw / 10f
+            }
+
+            // 2. Cached zone index
+            if (cachedGpuTempZoneIndex != -1) {
+                val tempRaw = ShellExecutor.executeWithResult("cat /sys/class/thermal/thermal_zone$cachedGpuTempZoneIndex/temp").trim().toIntOrNull() ?: 0
+                return if (abs(tempRaw) > 1000) tempRaw / 1000f else tempRaw.toFloat()
+            }
+
+            // 3. Mali/Generic thermal zone scanning
+            val zones = listOf("gpu-thermal", "gpu_temp", "mali_temp", "gpuss-0-usr")
+            for (i in 0..100) {
+                val type = ShellExecutor.executeWithResult("cat /sys/class/thermal/thermal_zone$i/type 2>/dev/null").lowercase()
+                if (zones.any { type.contains(it) }) {
+                    val tempRaw = ShellExecutor.executeWithResult("cat /sys/class/thermal/thermal_zone$i/temp").trim().toIntOrNull() ?: 0
+                    val temp = if (abs(tempRaw) > 1000) tempRaw / 1000f else tempRaw.toFloat()
+                    if (temp > 0) {
+                        cachedGpuTempZoneIndex = i
+                        return temp
+                    }
+                }
+            }
+            0f
+        } catch (e: Exception) { 0f }
+    }
+
+    fun getCpuFreqAverage(): Int {
+        return try {
+            val output = ShellExecutor.executeWithResult("cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq")
+            val lines = output.split("\n")
+            val freqs = lines.mapNotNull { it.trim().toLongOrNull() }.filter { it > 0 }
+            if (freqs.isEmpty()) return 0
+            (freqs.average() / 1000).toInt()
+        } catch (e: Exception) { 0 }
+    }
+
+    fun getGpuFreq(): Int {
+        return try {
+            // 1. Snapdragon/Adreno Standard
+            var freqRaw = ShellExecutor.executeWithResult("cat /sys/class/kgsl/kgsl-3d0/gpuclk 2>/dev/null").trim().toLongOrNull() ?: 0L
+
+            // 2. Devfreq cur_freq (Standard for Mali/Mediatek/Exynos and newer Snapdragon)
+            if (freqRaw == 0L) {
+                freqRaw = ShellExecutor.executeWithResult("cat /sys/class/devfreq/*gpu*/cur_freq /sys/class/devfreq/*.mali/cur_freq /sys/class/devfreq/*.kgsl-3d0/cur_freq 2>/dev/null | head -n 1").trim().toLongOrNull() ?: 0L
+            }
+
+            if (freqRaw == 0L) return 0
+
+            // Normalisasi: Bisa Hz, KHz, atau MHz
+            return when {
+                freqRaw > 1000000 -> (freqRaw / 1000000).toInt() // Hz -> MHz
+                freqRaw > 1000 -> (freqRaw / 1000).toInt() // KHz -> MHz
+                else -> freqRaw.toInt() // MHz
+            }
+        } catch (e: Exception) { 0 }
     }
     
     data class RamInfo(val usedMb: Int, val totalMb: Int, val percent: Int)

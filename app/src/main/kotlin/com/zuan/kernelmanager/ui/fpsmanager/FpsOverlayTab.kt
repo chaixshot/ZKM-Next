@@ -40,8 +40,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.services.FpsOverlayService
+import com.zuan.kernelmanager.ui.settings.SettingsViewModel
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeEffect
 import dev.chrisbanes.haze.materials.HazeMaterials
@@ -57,24 +59,30 @@ fun FpsManagerOverlayContent(
     elevation: Dp,
     isGlassActive: Boolean = false,
     hazeState: HazeState,
-    glassModifier: Modifier = Modifier
+    glassModifier: Modifier = Modifier,
+    settingsViewModel: SettingsViewModel
 ) {
     val context = LocalContext.current
     var isOverlayEnabled by remember { mutableStateOf(FpsOverlayService.isRunning) }
     
-    var selectedStyle by remember { mutableStateOf(0) }
-    var androidOrientation by remember { mutableStateOf(0) }
-    var selectedColorHex by remember { mutableStateOf("#00FF00") }
-    var textSize by remember { mutableStateOf(16f) }
-    var widthScale by remember { mutableStateOf(1f) }
-    var bgAlpha by remember { mutableStateOf(0.6f) }
+    val selectedStyle by settingsViewModel.fpsStyle.collectAsStateWithLifecycle()
+    val androidOrientation by settingsViewModel.fpsOrientation.collectAsStateWithLifecycle()
+    val selectedColorHex by settingsViewModel.fpsColor.collectAsStateWithLifecycle()
+    val textSize by settingsViewModel.fpsSize.collectAsStateWithLifecycle()
+    val widthScale by settingsViewModel.fpsWidthScale.collectAsStateWithLifecycle()
+    val bgAlpha by settingsViewModel.fpsAlpha.collectAsStateWithLifecycle()
     
-    var showFps by remember { mutableStateOf(true) }
-    var showCpu by remember { mutableStateOf(true) }
-    var showWatts by remember { mutableStateOf(true) }
-    var showTemp by remember { mutableStateOf(true) }
-    var showRam by remember { mutableStateOf(true) }
-    var showRender by remember { mutableStateOf(false) }
+    val showFps by settingsViewModel.fpsShowFps.collectAsStateWithLifecycle()
+    val showCpu by settingsViewModel.fpsShowCpu.collectAsStateWithLifecycle()
+    val showWatts by settingsViewModel.fpsShowWatts.collectAsStateWithLifecycle()
+    val showTemp by settingsViewModel.fpsShowTemp.collectAsStateWithLifecycle()
+    val showRam by settingsViewModel.fpsShowRam.collectAsStateWithLifecycle()
+    val showRender by settingsViewModel.fpsShowRender.collectAsStateWithLifecycle()
+    val showGpuUsage by settingsViewModel.fpsShowGpuUsage.collectAsStateWithLifecycle()
+    val showCpuTemp by settingsViewModel.fpsShowCpuTemp.collectAsStateWithLifecycle()
+    val showCpuFreq by settingsViewModel.fpsShowCpuFreq.collectAsStateWithLifecycle()
+    val showGpuFreq by settingsViewModel.fpsShowGpuFreq.collectAsStateWithLifecycle()
+    val showGpuTemp by settingsViewModel.fpsShowGpuTemp.collectAsStateWithLifecycle()
     
     var showColorDialog by remember { mutableStateOf(false) }
 
@@ -97,6 +105,11 @@ fun FpsManagerOverlayContent(
                 putExtra("SHOW_TEMP", showTemp)
                 putExtra("SHOW_RAM", showRam)
                 putExtra("SHOW_RENDER", showRender)
+                putExtra("SHOW_GPU_USAGE", showGpuUsage)
+                putExtra("SHOW_CPU_TEMP", showCpuTemp)
+                putExtra("SHOW_CPU_FREQ", showCpuFreq)
+                putExtra("SHOW_GPU_FREQ", showGpuFreq)
+                putExtra("SHOW_GPU_TEMP", showGpuTemp)
                 if (pos != null) putExtra("POSITION", pos)
             }
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -105,6 +118,14 @@ fun FpsManagerOverlayContent(
                 context.startService(intent)
             }
         }
+    }
+
+    LaunchedEffect(
+        selectedStyle, androidOrientation, selectedColorHex, textSize, widthScale, bgAlpha,
+        showFps, showCpu, showWatts, showTemp, showRam, showRender,
+        showGpuUsage, showCpuTemp, showCpuFreq, showGpuFreq, showGpuTemp
+    ) {
+        if (isOverlayEnabled) updateService()
     }
 
     LazyColumn(contentPadding = PaddingValues(bottom = 100.dp), modifier = Modifier.fillMaxSize()) {
@@ -138,16 +159,16 @@ fun FpsManagerOverlayContent(
                 
                 SectionTitle(stringResource(R.string.fps_overlay_style), activeColor)
                 Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    StyleChip(stringResource(R.string.fps_style_android), 0, selectedStyle, activeColor) { selectedStyle = 0; updateService() }
-                    StyleChip(stringResource(R.string.fps_style_pc), 1, selectedStyle, activeColor) { selectedStyle = 1; updateService() }
-                    StyleChip(stringResource(R.string.fps_style_mini), 2, selectedStyle, activeColor) { selectedStyle = 2; updateService() }
+                    StyleChip(stringResource(R.string.fps_style_android), 0, selectedStyle, activeColor) { settingsViewModel.setFpsStyle(0) }
+                    StyleChip(stringResource(R.string.fps_style_pc), 1, selectedStyle, activeColor) { settingsViewModel.setFpsStyle(1) }
+                    StyleChip(stringResource(R.string.fps_style_mini), 2, selectedStyle, activeColor) { settingsViewModel.setFpsStyle(2) }
                 }
 
                 AnimatedVisibility(selectedStyle == 1) {
                     Column(Modifier.padding(top = 16.dp)) {
                         SectionTitle(stringResource(R.string.fps_pc_options), activeColor)
                         Row(Modifier.padding(horizontal = 16.dp)) {
-                            MetricChip(stringResource(R.string.fps_show_render), showRender, activeColor) { showRender = it; updateService() }
+                            MetricChip(stringResource(R.string.fps_show_render), showRender, activeColor) { settingsViewModel.setFpsShowRender(it) }
                         }
                     }
                 }
@@ -157,8 +178,8 @@ fun FpsManagerOverlayContent(
                         Spacer(Modifier.height(16.dp))
                         SectionTitle(stringResource(R.string.fps_orientation), activeColor)
                         Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            StyleChip(stringResource(R.string.fps_vertical), 0, androidOrientation, activeColor) { androidOrientation = 0; updateService() }
-                            StyleChip(stringResource(R.string.fps_horizontal), 1, androidOrientation, activeColor) { androidOrientation = 1; updateService() }
+                            StyleChip(stringResource(R.string.fps_vertical), 0, androidOrientation, activeColor) { settingsViewModel.setFpsOrientation(0) }
+                            StyleChip(stringResource(R.string.fps_horizontal), 1, androidOrientation, activeColor) { settingsViewModel.setFpsOrientation(1) }
                         }
                     }
                 }
@@ -167,11 +188,16 @@ fun FpsManagerOverlayContent(
 
                 SectionTitle(stringResource(R.string.fps_metrics), activeColor)
                 FlowRow(modifier = Modifier.padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    MetricChip(stringResource(R.string.fps_metric_fps), showFps, activeColor) { showFps = it; updateService() }
-                    MetricChip(stringResource(R.string.fps_metric_cpu), showCpu, activeColor) { showCpu = it; updateService() }
-                    MetricChip(stringResource(R.string.fps_metric_ram), showRam, activeColor) { showRam = it; updateService() }
-                    MetricChip(stringResource(R.string.fps_metric_watts), showWatts, activeColor) { showWatts = it; updateService() }
-                    MetricChip(stringResource(R.string.fps_metric_temp), showTemp, activeColor) { showTemp = it; updateService() }
+                    MetricChip(stringResource(R.string.fps_metric_fps), showFps, activeColor) { settingsViewModel.setFpsShowFps(it) }
+                    MetricChip(stringResource(R.string.fps_metric_cpu), showCpu, activeColor) { settingsViewModel.setFpsShowCpu(it) }
+                    MetricChip(stringResource(R.string.fps_metric_ram), showRam, activeColor) { settingsViewModel.setFpsShowRam(it) }
+                    MetricChip(stringResource(R.string.fps_metric_watts), showWatts, activeColor) { settingsViewModel.setFpsShowWatts(it) }
+                    MetricChip(stringResource(R.string.fps_metric_temp), showTemp, activeColor) { settingsViewModel.setFpsShowTemp(it) }
+                    MetricChip(stringResource(R.string.fps_metric_gpu_usage), showGpuUsage, activeColor) { settingsViewModel.setFpsShowGpuUsage(it) }
+                    MetricChip(stringResource(R.string.fps_metric_cpu_temp), showCpuTemp, activeColor) { settingsViewModel.setFpsShowCpuTemp(it) }
+                    MetricChip(stringResource(R.string.fps_metric_cpu_freq), showCpuFreq, activeColor) { settingsViewModel.setFpsShowCpuFreq(it) }
+                    MetricChip(stringResource(R.string.fps_metric_gpu_freq), showGpuFreq, activeColor) { settingsViewModel.setFpsShowGpuFreq(it) }
+                    MetricChip(stringResource(R.string.fps_metric_gpu_temp), showGpuTemp, activeColor) { settingsViewModel.setFpsShowGpuTemp(it) }
                 }
 
                 Spacer(Modifier.height(24.dp))
@@ -186,11 +212,11 @@ fun FpsManagerOverlayContent(
                             .border(1.dp, Color.White.copy(alpha = 0.2f), RoundedCornerShape(24.dp))
                     ) {
                         Column(Modifier.padding(16.dp)) {
-                            AppearanceSlider(Icons.Default.FormatSize, stringResource(R.string.fps_text_size), textSize, 10f..40f, "${textSize.toInt()} sp", activeColor, { textSize = it }, { updateService() })
+                            AppearanceSlider(Icons.Default.FormatSize, stringResource(R.string.fps_text_size), textSize, 10f..40f, "${textSize.toInt()} sp", activeColor, { settingsViewModel.setFpsSize(it) }, { })
                             Spacer(Modifier.height(16.dp))
-                            AppearanceSlider(Icons.Default.AspectRatio, stringResource(R.string.fps_width_scale), widthScale, 0.8f..2.5f, String.format("%.1fx", widthScale), activeColor, { widthScale = it }, { updateService() })
+                            AppearanceSlider(Icons.Default.AspectRatio, stringResource(R.string.fps_width_scale), widthScale, 0.8f..2.5f, String.format("%.1fx", widthScale), activeColor, { settingsViewModel.setFpsWidthScale(it) }, { })
                             Spacer(Modifier.height(16.dp))
-                            AppearanceSlider(Icons.Default.Opacity, stringResource(R.string.fps_opacity), bgAlpha, 0f..1f, "${(bgAlpha * 100).toInt()}%", activeColor, { bgAlpha = it }, { updateService() })
+                            AppearanceSlider(Icons.Default.Opacity, stringResource(R.string.fps_opacity), bgAlpha, 0f..1f, "${(bgAlpha * 100).toInt()}%", activeColor, { settingsViewModel.setFpsAlpha(it) }, { })
                         }
                     }
                 } else {
@@ -200,11 +226,11 @@ fun FpsManagerOverlayContent(
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)
                     ) {
                         Column(Modifier.padding(16.dp)) {
-                            AppearanceSlider(Icons.Default.FormatSize, stringResource(R.string.fps_text_size), textSize, 10f..40f, "${textSize.toInt()} sp", activeColor, { textSize = it }, { updateService() })
+                            AppearanceSlider(Icons.Default.FormatSize, stringResource(R.string.fps_text_size), textSize, 10f..40f, "${textSize.toInt()} sp", activeColor, { settingsViewModel.setFpsSize(it) }, { })
                             Spacer(Modifier.height(16.dp))
-                            AppearanceSlider(Icons.Default.AspectRatio, stringResource(R.string.fps_width_scale), widthScale, 0.8f..2.5f, String.format("%.1fx", widthScale), activeColor, { widthScale = it }, { updateService() })
+                            AppearanceSlider(Icons.Default.AspectRatio, stringResource(R.string.fps_width_scale), widthScale, 0.8f..2.5f, String.format("%.1fx", widthScale), activeColor, { settingsViewModel.setFpsWidthScale(it) }, { })
                             Spacer(Modifier.height(16.dp))
-                            AppearanceSlider(Icons.Default.Opacity, stringResource(R.string.fps_opacity), bgAlpha, 0f..1f, "${(bgAlpha * 100).toInt()}%", activeColor, { bgAlpha = it }, { updateService() })
+                            AppearanceSlider(Icons.Default.Opacity, stringResource(R.string.fps_opacity), bgAlpha, 0f..1f, "${(bgAlpha * 100).toInt()}%", activeColor, { settingsViewModel.setFpsAlpha(it) }, { })
                         }
                     }
                 }
@@ -224,7 +250,7 @@ fun FpsManagerOverlayContent(
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                         items(presets) { (hex, color) ->
                             ColorPresetCircle(color, selectedColorHex == hex && selectedStyle == 0) {
-                                if (selectedStyle == 0) { selectedColorHex = hex; updateService() }
+                                if (selectedStyle == 0) { settingsViewModel.setFpsColor(hex) }
                             }
                         }
                     }
@@ -240,7 +266,11 @@ fun FpsManagerOverlayContent(
             activeColor = activeColor, 
             cardBg = cardBg, 
             contentColor = contentColor,
-            onColorSelected = { color -> selectedColorHex = String.format("#%06X", (0xFFFFFF and color.toArgb())); showColorDialog = false; updateService() }
+            onColorSelected = { color -> 
+                val hex = String.format("#%06X", (0xFFFFFF and color.toArgb()))
+                settingsViewModel.setFpsColor(hex)
+                showColorDialog = false 
+            }
         )
     }
 }

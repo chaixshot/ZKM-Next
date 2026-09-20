@@ -257,7 +257,7 @@ object CpuGpuUtils {
     suspend fun getGpuUsage(): String = withContext(Dispatchers.IO) {
         val kgslUsage = Utils.readFile("/sys/class/kgsl/kgsl-3d0/gpu_busy_percentage")
         if (kgslUsage.isNotEmpty()) return@withContext kgslUsage.replace("%", "").trim()
-        
+
         val genericPath = GenericGpuUtils.getGpuPath()
         if (genericPath != null) {
             val loadFile = File("$genericPath/load")

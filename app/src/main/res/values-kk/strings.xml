@@ -151,6 +151,11 @@
     <string name="fps_metric_ram">ЖЖҚ</string>
     <string name="fps_metric_watts">Ватт</string>
     <string name="fps_metric_temp">Темп</string>
+    <string name="fps_metric_gpu_usage">ГП пайдалануы</string>
+    <string name="fps_metric_cpu_temp">ЦП темп-сы</string>
+    <string name="fps_metric_cpu_freq">ЦП жиілігі</string>
+    <string name="fps_metric_gpu_freq">ГП жиілігі</string>
+    <string name="fps_metric_gpu_temp">ГП температурасы</string>
     <string name="fps_adjustments">Реттеулер</string>
     <string name="fps_text_size">Мәтін Өлшемі</string>
     <string name="fps_width_scale">Енін Көлемі</string>

@@ -151,6 +151,11 @@
     <string name="fps_metric_ram">АЗП</string>
     <string name="fps_metric_watts">Ваты</string>
     <string name="fps_metric_temp">Тэмп</string>
+    <string name="fps_metric_gpu_usage">Выкарыстанне ГПУ</string>
+    <string name="fps_metric_cpu_temp">Тэмп. ЦПУ</string>
+    <string name="fps_metric_cpu_freq">Част. ЦПУ</string>
+    <string name="fps_metric_gpu_freq">Част. ГПУ</string>
+    <string name="fps_metric_gpu_temp">Тэмп. ГПУ</string>
     <string name="fps_adjustments">Налады</string>
     <string name="fps_text_size">Памер тэксту</string>
     <string name="fps_width_scale">Шырыня</string>
