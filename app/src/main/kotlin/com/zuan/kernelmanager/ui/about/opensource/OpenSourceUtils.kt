@@ -90,6 +90,14 @@ object OpenSourceUtils {
             contribution = "Capsule iOS Navigation",
             repository = "Android Liquid Glass",
             license = "Apache-2.0"
+        ),
+        OpenSourceContributor(
+            username = "H@mer",
+            githubUrl = "https://github.com/chaixshot",
+            avatarUrl = "https://avatars.githubusercontent.com/chaixshot",
+            contribution = "Fixer",
+            repository = "Kernel Manager",
+            license = "GPL-3.0"
         )
     )
     
