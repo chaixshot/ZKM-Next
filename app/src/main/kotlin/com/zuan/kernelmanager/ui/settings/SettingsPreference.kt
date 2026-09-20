@@ -306,6 +306,12 @@ class SettingsPreference(context: Context) {
     private val _fpsShowGpuTemp = MutableStateFlow(getFpsShowGpuTemp())
     val fpsShowGpuTemp: StateFlow<Boolean> = _fpsShowGpuTemp.asStateFlow()
 
+    private val _fpsPosX = MutableStateFlow(getFpsPosX())
+    val fpsPosX: StateFlow<Int> = _fpsPosX.asStateFlow()
+
+    private val _fpsPosY = MutableStateFlow(getFpsPosY())
+    val fpsPosY: StateFlow<Int> = _fpsPosY.asStateFlow()
+
     companion object {
         private const val THEME_KEY = "theme_mode"
         private const val THEME_COLOR_KEY = "theme_color_name"
@@ -392,6 +398,8 @@ class SettingsPreference(context: Context) {
         private const val FPS_SHOW_CPU_FREQ_KEY = "fps_show_cpu_freq"
         private const val FPS_SHOW_GPU_FREQ_KEY = "fps_show_gpu_freq"
         private const val FPS_SHOW_GPU_TEMP_KEY = "fps_show_gpu_temp"
+        private const val FPS_POS_X_KEY = "fps_overlay_pos_x"
+        private const val FPS_POS_Y_KEY = "fps_overlay_pos_y"
 
         private const val DEFAULT_POLLING_INTERVAL = 3000L
         private const val DEFAULT_DPI = 0
@@ -712,6 +720,17 @@ class SettingsPreference(context: Context) {
 
     fun setFpsShowGpuTemp(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_GPU_TEMP_KEY, show) }; _fpsShowGpuTemp.value = show }
     private fun getFpsShowGpuTemp(): Boolean = prefs.getBoolean(FPS_SHOW_GPU_TEMP_KEY, false)
+
+    fun setFpsPos(x: Int, y: Int) {
+        prefs.edit { 
+            putInt(FPS_POS_X_KEY, x)
+            putInt(FPS_POS_Y_KEY, y)
+        }
+        _fpsPosX.value = x
+        _fpsPosY.value = y
+    }
+    private fun getFpsPosX(): Int = prefs.getInt(FPS_POS_X_KEY, 20)
+    private fun getFpsPosY(): Int = prefs.getInt(FPS_POS_Y_KEY, 100)
 }
 
 private fun SharedPreferences.toFloat(key: String, defValue: Float): Float = try { this.getFloat(key, defValue) } catch (e: Exception) { defValue }
