@@ -16,6 +16,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.PixelFormat
 import android.os.Build
+import android.os.PowerManager
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.Gravity
@@ -361,6 +362,8 @@ fun MainOverlayContent(
 ) {
     val context = LocalContext.current
     val customColor = try { Color(android.graphics.Color.parseColor(colorHex)) } catch (e: Exception) { Color.Green }
+    
+    val powerManager = remember { context.getSystemService(Context.POWER_SERVICE) as PowerManager }
 
     // Data Holders
     var fpsVal by remember { mutableStateOf("0") }
@@ -387,6 +390,12 @@ fun MainOverlayContent(
     LaunchedEffect(Unit) {
         withContext(Dispatchers.IO) {
             while (isActive) {
+                // Optimization: Don't collect data if screen is off
+                if (!powerManager.isInteractive) {
+                    delay(3000)
+                    continue
+                }
+
                 val start = System.currentTimeMillis()
                 try {
                     // Sync Record State
@@ -415,17 +424,22 @@ fun MainOverlayContent(
                         ramInt = r.usedMb
                         ramVal = "${r.usedMb}"
                     }
-                    if (metrics.gpuUsage) {
-                        gpuUsageVal = "${MonitorReader.getGpuUsage()}%"
+                    
+                    if (metrics.gpuUsage || metrics.gpuFreq) {
+                        val gpuInfo = MonitorReader.getCombinedGpuInfo()
+                        if (metrics.gpuUsage) {
+                            gpuUsageVal = "${gpuInfo.usage}%"
+                        }
+                        if (metrics.gpuFreq) {
+                            gpuFreqVal = "${gpuInfo.freq}MHz"
+                        }
                     }
+                    
                     if (metrics.cpuTemp) {
                         cpuTempFormat = String.format("%.1f°C", MonitorReader.getCpuTemp())
                     }
                     if (metrics.cpuFreq) {
                         cpuFreqVal = "${MonitorReader.getCpuFreqAverage()}MHz"
-                    }
-                    if (metrics.gpuFreq) {
-                        gpuFreqVal = "${MonitorReader.getGpuFreq()}MHz"
                     }
                     if (metrics.gpuTemp) {
                         gpuTempFormat = String.format("%.1f°C", MonitorReader.getGpuTemp())

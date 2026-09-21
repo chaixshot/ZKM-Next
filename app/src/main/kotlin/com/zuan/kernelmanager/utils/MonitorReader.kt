@@ -16,6 +16,7 @@ import android.graphics.drawable.Drawable
 import android.os.BatteryManager
 import android.util.Log
 import com.topjohnwu.superuser.Shell
+import java.io.File
 import kotlin.math.abs
 import java.util.regex.Pattern
 
@@ -107,48 +108,76 @@ object MonitorReader {
     }
     
     // --- MONITORING LAINNYA TETAP SAMA ---
+    private var lastRendererPkg: String? = null
+    private var lastRendererResult: String = "FPS"
+
     fun getCurrentRenderer(): String {
         try {
             val pkgName = getForegroundPackage()
-            if (pkgName.isNotEmpty()) {
-                // Get all PIDs for this package (main process and children)
-                val pids = ShellExecutor.executeWithResult("pgrep -f $pkgName").split("\n").mapNotNull { it.trim() }
+            if (pkgName.isEmpty()) return "FPS"
+            
+            // Optimization: If package is same as last time, reuse result for 5 seconds
+            if (pkgName == lastRendererPkg && System.currentTimeMillis() % 5000 != 0L) {
+                return lastRendererResult
+            }
+            
+            val pids = ShellExecutor.executeWithResult("pgrep -f $pkgName").split("\n").filter { it.isNotBlank() }
 
-                for (pid in pids) {
-                    if (pid.isEmpty()) continue
+            for (pid in pids) {
+                if (pid.trim().isEmpty()) continue
 
-                    // Check maps for Vulkan or GL libraries
-                    val maps = ShellExecutor.executeWithResult("cat /proc/$pid/maps")
-                    if (maps.contains("libvulkan.so") || maps.contains("vulkan.adreno.so") || maps.contains("libvulkan_")) {
-                        return "VULKAN"
-                    }
-                    if (maps.contains("libGLESv3") || maps.contains("libGLESv2") || maps.contains("libGLESv1")) {
-                        return "OPENGL"
-                    }
+                val maps = ShellExecutor.executeWithResult("cat /proc/${pid.trim()}/maps")
+                if (maps.contains("libvulkan.so") || maps.contains("vulkan.adreno.so") || maps.contains("libvulkan_")) {
+                    lastRendererPkg = pkgName
+                    lastRendererResult = "VULKAN"
+                    return "VULKAN"
+                }
+                if (maps.contains("libGLESv3") || maps.contains("libGLESv2") || maps.contains("libGLESv1")) {
+                    lastRendererPkg = pkgName
+                    lastRendererResult = "OPENGL"
+                    return "OPENGL"
                 }
             }
+            
+            lastRendererPkg = pkgName
+            lastRendererResult = "FPS"
         } catch (e: Exception) {
             Log.e(TAG, "Renderer Error: ${e.message}")
         }
-        return "FPS"
+        return lastRendererResult
     }
 
     fun getCpuLoad(): Int {
         if (!ensureShell()) return 0
         return try {
-            val statOutput = Shell.cmd("cat /proc/stat | head -n 1").exec().out
-            val firstLine = statOutput.firstOrNull() ?: return 0
-            val parts = firstLine.trim().split("\\s+".toRegex())
+            val statOutput = Shell.cmd("cat /proc/stat").exec().out
+            if (statOutput.isEmpty()) return 0
+            val firstLine = statOutput[0]
+            val parts = firstLine.trim().split(Pattern.compile("\\s+"))
             if (parts.size < 5) return 0
+            
+            // parts[0] is "cpu"
             val user = parts[1].toLongOrNull() ?: 0L
+            val nice = parts[2].toLongOrNull() ?: 0L
             val system = parts[3].toLongOrNull() ?: 0L
             val idle = parts[4].toLongOrNull() ?: 0L
-            val total = user + system + idle + (parts[2].toLongOrNull()?:0L)
+            val iowait = parts.getOrNull(5)?.toLongOrNull() ?: 0L
+            val irq = parts.getOrNull(6)?.toLongOrNull() ?: 0L
+            val softirq = parts.getOrNull(7)?.toLongOrNull() ?: 0L
             
-            if (lastTotal == 0L) { lastTotal = total; lastIdle = idle; return 0 }
+            val total = user + nice + system + idle + iowait + irq + softirq
+            
+            if (lastTotal == 0L) { 
+                lastTotal = total
+                lastIdle = idle
+                return 0 
+            }
+            
             val diffTotal = total - lastTotal
             val diffIdle = idle - lastIdle
-            lastTotal = total; lastIdle = idle
+            
+            lastTotal = total
+            lastIdle = idle
             
             if (diffTotal <= 0L) return 0
             ((diffTotal - diffIdle) * 100 / diffTotal).toInt().coerceIn(0, 100)
@@ -207,38 +236,98 @@ object MonitorReader {
         } catch (e: Exception) { 0f }
     }
 
+    private var cachedGpuUsagePath: String? = null
+    private var cachedMtkGpuIdle = false
+
     fun getGpuUsage(): Int {
-        return try {
-            // 1. Snapdragon/Adreno Standard
-            val adrenoUsage = ShellExecutor.executeWithResult("cat /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage").replace("%", "").trim().toIntOrNull() ?: -1
-            if (adrenoUsage != -1) return adrenoUsage.coerceIn(0, 100)
-
-            // 2. Generic Devfreq 'load' node (Many Mali/Exynos/Mediatek devices)
-            // Format is often "30@500MHz" or just "30"
-            val devfreqLoad = ShellExecutor.executeWithResult("cat /sys/class/devfreq/*gpu*/load /sys/class/devfreq/*.mali/load /sys/class/devfreq/*.mali/utilization 2>/dev/null | head -n 1")
-            if (devfreqLoad.isNotEmpty()) {
-                val usageStr = devfreqLoad.split("@")[0].trim()
-                val usage = usageStr.toIntOrNull() ?: -1
-                if (usage != -1) return usage.coerceIn(0, 100)
+        try {
+            // 1. Check cached working path first
+            cachedGpuUsagePath?.let { path ->
+                val raw = ShellExecutor.executeWithResult("cat $path 2>/dev/null").trim()
+                if (raw.isNotEmpty() && raw != "-1") {
+                    val firstPart = raw.split("@")[0].split(" ").first().replace("%", "").trim()
+                    val usage = firstPart.toIntOrNull() ?: -1
+                    if (usage >= 0) {
+                        return if (cachedMtkGpuIdle) (100 - usage).coerceIn(0, 100) else usage.coerceIn(0, 100)
+                    }
+                }
+                cachedGpuUsagePath = null
+                cachedMtkGpuIdle = false
             }
 
-            // 3. Alternative Adreno Devfreq node
-            val adrenoDevfreq = ShellExecutor.executeWithResult("cat /sys/class/devfreq/*.kgsl-3d0/load 2>/dev/null | head -n 1")
-            if (adrenoDevfreq.isNotEmpty()) {
-                val usage = adrenoDevfreq.split("@")[0].trim().toIntOrNull() ?: -1
-                if (usage != -1) return usage.coerceIn(0, 100)
+            // 2. Xiaomi specific hidden nodes (HyperOS / MIUI reliable source)
+            val miuiPaths = listOf(
+                "/sys/class/thermal/thermal_message/gpu_busy",
+                "/sys/class/thermal/thermal_message/gpu_usage",
+                "/sys/class/thermal/thermal_message/gpu_utilization"
+            )
+            for (path in miuiPaths) {
+                val raw = ShellExecutor.executeWithResult("cat $path 2>/dev/null").trim()
+                if (raw.isNotEmpty() && raw != "-1") {
+                    val usage = raw.toIntOrNull() ?: -1
+                    if (usage >= 0) {
+                        cachedGpuUsagePath = path
+                        return usage.coerceIn(0, 100)
+                    }
+                }
             }
 
-            // 4. Mali specific 'utilization'
-            val maliUtil = ShellExecutor.executeWithResult("cat /sys/class/devfreq/*.mali/utilization 2>/dev/null | head -n 1").trim().toIntOrNull() ?: -1
-            if (maliUtil != -1) return maliUtil.coerceIn(0, 100)
+            // 3. gpubusy calculation (Cycle-based - Highly accurate for Adreno)
+            val gpubusy = ShellExecutor.executeWithResult("cat /sys/class/kgsl/kgsl-3d0/gpubusy /sys/kernel/debug/kgsl/kgsl-3d0/gpubusy 2>/dev/null | head -n 1").trim()
+            if (gpubusy.isNotEmpty()) {
+                val parts = gpubusy.split("\\s+".toRegex())
+                if (parts.size >= 2) {
+                    val active = parts[0].removePrefix("0x").toLongOrNull(16) ?: parts[0].toLongOrNull() ?: 0L
+                    val total = parts[1].removePrefix("0x").toLongOrNull(16) ?: parts[1].toLongOrNull() ?: 0L
+                    if (total > 0 && active > 0) {
+                        return ((active * 100) / total).toInt().coerceIn(0, 100)
+                    }
+                }
+            }
 
-            // 5. Alternative kernel node
-            val kernelBusy = ShellExecutor.executeWithResult("cat /sys/kernel/gpu/gpu_busy 2>/dev/null").trim().toIntOrNull() ?: -1
-            if (kernelBusy != -1) return kernelBusy.coerceIn(0, 100)
+            // 4. Snapdragon/Mali standard nodes
+            val gpuPaths = listOf(
+                "/sys/class/kgsl/kgsl-3d0/gpu_busy_percentage",
+                "/sys/class/devfreq/2c00000.qcom,kgsl-3d0/load",
+                "/sys/class/devfreq/5000000.qcom,kgsl-3d0/load",
+                "/sys/class/kgsl/kgsl-3d0/usage",
+                "/sys/class/kgsl/kgsl-3d0/gpu_load",
+                "/sys/class/devfreq/*.mali/utilization",
+                "/sys/devices/platform/soc/soc:qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_busy_percentage"
+            )
 
-            0
-        } catch (e: Exception) { 0 }
+            for (path in gpuPaths) {
+                val raw = ShellExecutor.executeWithResult("cat $path 2>/dev/null").trim()
+                if (raw.isNotEmpty()) {
+                    val value = raw.split("@")[0].split(" ").first().replace("%", "").trim().toIntOrNull() ?: -1
+                    if (value >= 0) {
+                        cachedGpuUsagePath = path
+                        return value.coerceIn(0, 100)
+                    }
+                }
+            }
+            
+            // 5. MediaTek gpu_idle
+            val mtkIdlePath = "/sys/module/ged/parameters/gpu_idle"
+            val mtkIdleRaw = ShellExecutor.executeWithResult("cat $mtkIdlePath 2>/dev/null").trim().toIntOrNull() ?: -1
+            if (mtkIdleRaw != -1) {
+                cachedGpuUsagePath = mtkIdlePath
+                cachedMtkGpuIdle = true
+                return (100 - mtkIdleRaw).coerceIn(0, 100)
+            }
+
+            // 6. Alternative kernel nodes
+            val lastResort = listOf("/sys/kernel/gpu/gpu_busy", "/proc/mali/utilization", "/sys/module/mali_kbase/parameters/gpu_utilization")
+            for (path in lastResort) {
+                val usage = ShellExecutor.executeWithResult("cat $path 2>/dev/null").trim().toIntOrNull() ?: -1
+                if (usage >= 0) {
+                    cachedGpuUsagePath = path
+                    return usage.coerceIn(0, 100)
+                }
+            }
+
+        } catch (e: Exception) { /* ignore */ }
+        return 0
     }
 
     private var cachedGpuTempZoneIndex: Int = -1
@@ -274,35 +363,69 @@ object MonitorReader {
         } catch (e: Exception) { 0f }
     }
 
+    private var cachedCpuFreqPaths: List<String>? = null
+
     fun getCpuFreqAverage(): Int {
         return try {
-            val output = ShellExecutor.executeWithResult("cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq")
-            val lines = output.split("\n")
-            val freqs = lines.mapNotNull { it.trim().toLongOrNull() }.filter { it > 0 }
+            val paths = if (cachedCpuFreqPaths != null) {
+                cachedCpuFreqPaths!!
+            } else {
+                val output = ShellExecutor.executeWithResult("ls /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq 2>/dev/null")
+                val found = output.split("\n").filter { it.isNotBlank() }
+                if (found.isNotEmpty()) cachedCpuFreqPaths = found
+                found
+            }
+            
+            if (paths.isEmpty()) return 0
+            
+            val freqsOutput = ShellExecutor.executeWithResult("cat ${paths.joinToString(" ")} 2>/dev/null")
+            val freqs = freqsOutput.split("\n").mapNotNull { it.trim().toLongOrNull() }.filter { it > 0 }
+            
             if (freqs.isEmpty()) return 0
             (freqs.average() / 1000).toInt()
         } catch (e: Exception) { 0 }
     }
 
+    private var cachedGpuFreqPath: String? = null
+
     fun getGpuFreq(): Int {
         return try {
-            // 1. Snapdragon/Adreno Standard
-            var freqRaw = ShellExecutor.executeWithResult("cat /sys/class/kgsl/kgsl-3d0/gpuclk 2>/dev/null").trim().toLongOrNull() ?: 0L
-
-            // 2. Devfreq cur_freq (Standard for Mali/Mediatek/Exynos and newer Snapdragon)
-            if (freqRaw == 0L) {
-                freqRaw = ShellExecutor.executeWithResult("cat /sys/class/devfreq/*gpu*/cur_freq /sys/class/devfreq/*.mali/cur_freq /sys/class/devfreq/*.kgsl-3d0/cur_freq 2>/dev/null | head -n 1").trim().toLongOrNull() ?: 0L
+            // 1. Check cached path
+            cachedGpuFreqPath?.let { path ->
+                val freqRaw = ShellExecutor.executeWithResult("cat $path 2>/dev/null").trim().split(" ").first().toLongOrNull() ?: 0L
+                if (freqRaw > 0) return normalizeFreq(freqRaw)
+                cachedGpuFreqPath = null
             }
 
-            if (freqRaw == 0L) return 0
+            // 2. Snapdragon/Adreno Standard
+            val gpuPaths = listOf(
+                "/sys/class/kgsl/kgsl-3d0/gpuclk",
+                "/sys/class/kgsl/kgsl-3d0/devfreq/cur_freq",
+                "/sys/class/devfreq/*gpu*/cur_freq",
+                "/sys/class/devfreq/*.mali/cur_freq",
+                "/sys/class/devfreq/*.kgsl-3d0/cur_freq",
+                "/sys/kernel/ged/hal/current_freqency"
+            )
 
-            // Normalisasi: Bisa Hz, KHz, atau MHz
-            return when {
-                freqRaw > 1000000 -> (freqRaw / 1000000).toInt() // Hz -> MHz
-                freqRaw > 1000 -> (freqRaw / 1000).toInt() // KHz -> MHz
-                else -> freqRaw.toInt() // MHz
+            for (path in gpuPaths) {
+                val freqRaw = ShellExecutor.executeWithResult("cat $path 2>/dev/null | head -n 1").trim().split(" ").first().toLongOrNull() ?: 0L
+                if (freqRaw > 0) {
+                    cachedGpuFreqPath = path
+                    return normalizeFreq(freqRaw)
+                }
             }
+            0
         } catch (e: Exception) { 0 }
+    }
+
+    private fun normalizeFreq(freqRaw: Long): Int {
+        return when {
+            freqRaw > 1000000000 -> (freqRaw / 1000000).toInt()
+            freqRaw > 1000000 -> (freqRaw / 1000000).toInt()
+            freqRaw > 100000 -> (freqRaw / 1000).toInt()
+            freqRaw > 5000 -> (freqRaw / 1000).toInt()
+            else -> freqRaw.toInt()
+        }
     }
     
     data class RamInfo(val usedMb: Int, val totalMb: Int, val percent: Int)
@@ -318,4 +441,34 @@ object MonitorReader {
     }
     
     fun getDebugInfo(context: Context): String = "Ready"
+
+    data class GpuInfo(val usage: Int, val freq: Int)
+    fun getCombinedGpuInfo(): GpuInfo {
+        try {
+            val usagePath = cachedGpuUsagePath
+            val freqPath = cachedGpuFreqPath
+            
+            if (usagePath != null && freqPath != null) {
+                val result = ShellExecutor.executeWithResult("cat $usagePath $freqPath 2>/dev/null").split("\n")
+                if (result.size >= 2) {
+                    val rawUsage = result[0].trim()
+                    val rawFreq = result[1].trim()
+                    
+                    val usageStr = rawUsage.split("@")[0].split(" ").first().replace("%", "").trim()
+                    val usage = usageStr.toIntOrNull() ?: 0
+                    val finalUsage = if (cachedMtkGpuIdle) (100 - usage).coerceIn(0, 100) else usage.coerceIn(0, 100)
+                    
+                    val freqVal = rawFreq.split(" ").first().toLongOrNull() ?: 0L
+                    val finalFreq = normalizeFreq(freqVal)
+                    
+                    return GpuInfo(finalUsage, finalFreq)
+                }
+            }
+            
+            // Fallback if not cached or failed
+            return GpuInfo(getGpuUsage(), getGpuFreq())
+        } catch (e: Exception) {
+            return GpuInfo(0, 0)
+        }
+    }
 }

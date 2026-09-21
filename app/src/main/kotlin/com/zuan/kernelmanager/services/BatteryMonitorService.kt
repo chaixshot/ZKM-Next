@@ -201,8 +201,8 @@ class BatteryMonitorService : Service() {
             val level = batteryIntent?.getIntExtra(BatteryManager.EXTRA_LEVEL, 0) ?: 0
             val tempRaw = batteryIntent?.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0) ?: 0
             val temp = tempRaw / 10.0
-            val voltageRaw = batteryIntent?.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0) ?: 0 // mV
-            val voltage = voltageRaw / 1000f // Convert ke V
+            val voltageRaw = batteryIntent?.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0) ?: 0 
+            val voltage = voltageRaw / 1000f 
             
             val healthInt = batteryIntent?.getIntExtra(BatteryManager.EXTRA_HEALTH, 0) ?: 0
             val health = when(healthInt) {
@@ -213,15 +213,13 @@ class BatteryMonitorService : Service() {
             }
 
             // Current (mA)
-            val currentNow = BatteryUtils.getBatteryCurrentNow() // Menggunakan Shell/File reader
+            val currentNow = BatteryUtils.getBatteryCurrentNow() 
             val symbol = if (currentNow > 0) "+" else ""
-            
-            // --- FORMAT TAMPILAN (TARGET IMAGE STYLE) ---
             
             // Baris 1: Battery: 88% | 35.0°C | +350 mA 
             val line1 = "Battery: $level% | $temp°C | $symbol$currentNow mA"
             
-            // Baris 2: Voltage: 4.02V | Health: Good
+            // Baris 2: Voltage: 4.02V | Health: $health
             val line2 = "Voltage: %.2fV | Health: $health".format(voltage)
             
             // Baris 3: Screen On: ... | Screen Off: ...
