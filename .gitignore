@@ -5,3 +5,4 @@ terminal-emulator/build/
 terminal-view/build/
 .acside/
 /.idea
+/app/release
