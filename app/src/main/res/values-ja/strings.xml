@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">このアプリはRootアクセスが必要です。設定ミスによりブートループが発生する可能性があります。自己責任で実行してください（DWYOR）。</string>
     <string name="intro_p3_title">プライバシーと同意</string>
     <string name="intro_p3_desc">データはローカルで処理されます。個人データをクラウドサーバーに送信することはありません。</string>
+    <string name="intro_p4_title">バックグラウンドの信頼性</string>
+    <string name="intro_p4_desc">ZKMの機能がバックグラウンドでスムーズに動作するように、自動起動を有効にし、バッテリーの最適化を無効にしてください。</string>
+    <string name="intro_btn_autostart">自動起動</string>
+    <string name="intro_btn_battery">バッテリーの最適化</string>
     <string name="intro_btn_next">次へ</string>
     <string name="intro_btn_agree">同意して入力</string>
     <string name="intro_btn_decline">拒否して終了</string>

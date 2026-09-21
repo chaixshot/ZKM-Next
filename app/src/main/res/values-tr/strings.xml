@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">Bu uygulama ROOT erişimi gerektirir. Yanlış yapılandırma Bootloop\'a neden olabilir. RİSK SİZE AİTTİR (DWYOR).</string>
     <string name="intro_p3_title">Gizlilik ve Sözleşme</string>
     <string name="intro_p3_desc">Veriler YEREL olarak işlenir. Kişisel verilerinizi herhangi bir bulut sunucusuna göndermiyoruz.</string>
+    <string name="intro_p4_title">Arka Plan Güvenilirliği</string>
+    <string name="intro_p4_desc">ZKM özelliklerinin arka planda sorunsuz çalışmasını sağlamak için lütfen Otomatik Başlatma\'yı etkinleştirin ve Pil Optimizasyonu\'nu devre dışı bırakın.</string>
+    <string name="intro_btn_autostart">Otomatik Başlatma</string>
+    <string name="intro_btn_battery">Pil Optimizasyonu</string>
     <string name="intro_btn_next">İleri</string>
     <string name="intro_btn_agree">Kabul Ediyorum ve Gir</string>
     <string name="intro_btn_decline">Reddet ve Çık</string>

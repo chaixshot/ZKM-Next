@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">Diese App benötigt ROOT-Zugriff. Fehlkonfiguration kann Bootloop verursachen. AUF EIGENE GEFAHR (DWYOR).</string>
     <string name="intro_p3_title">Datenschutz und Vereinbarung</string>
     <string name="intro_p3_desc">Daten werden LOKAL verarbeitet. Wir senden deine persönlichen Daten nicht an Cloud-Server.</string>
+    <string name="intro_p4_title">Hintergrundzuverlässigkeit</string>
+    <string name="intro_p4_desc">Damit ZKM-Funktionen reibungslos im Hintergrund ausgeführt werden können, aktiviere bitte den Autostart und deaktiviere die Akku-Optimierung.</string>
+    <string name="intro_btn_autostart">Autostart</string>
+    <string name="intro_btn_battery">Akku-Optimierung</string>
     <string name="intro_btn_next">Weiter</string>
     <string name="intro_btn_agree">Ich Stimme zu und Betrete</string>
     <string name="intro_btn_decline">Ablehnen und Beenden</string>

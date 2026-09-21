@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">Această aplicație necesită acces ROOT. Configurarea greșită poate cauza Bootloop. DWYOR (Pe propriul risc).</string>
     <string name="intro_p3_title">Confidențialitate și Acord</string>
     <string name="intro_p3_desc">Datele sunt procesate LOCAL. Nu trimitem datele tale personale către niciun server cloud.</string>
+    <string name="intro_p4_title">Fiabilitatea în fundal</string>
+    <string name="intro_p4_desc">Pentru a asigura funcționarea corectă a ZKM în fundal, te rugăm să activezi Pornirea automată și să dezactivezi Optimizarea bateriei.</string>
+    <string name="intro_btn_autostart">Pornire automată</string>
+    <string name="intro_btn_battery">Optimizare baterie</string>
     <string name="intro_btn_next">Următorul</string>
     <string name="intro_btn_agree">Sunt de acord și Intră</string>
     <string name="intro_btn_decline">Refuz și Ieși</string>

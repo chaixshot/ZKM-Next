@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">แอปนี้ต้องการการเข้าถึง ROOT การตั้งค่าที่ไม่เหมาะสมอาจทำให้เกิดปัญหาบูตไม่ขึ้น (Bootloop) การตัดสินใจดำเนินการถือเป็นความเสี่ยงของคุณเอง (DWYOR)</string>
     <string name="intro_p3_title">ความเป็นส่วนตัวและข้อตกลง</string>
     <string name="intro_p3_desc">ข้อมูลได้รับการประมวลผลภายในเครื่องเท่านั้น เราไม่ส่งข้อมูลส่วนตัวของคุณไปยังเซิร์ฟเวอร์คลาวด์ใดๆ</string>
+    <string name="intro_p4_title">ความเสถียรในการทำงานเบื้องหลัง</string>
+    <string name="intro_p4_desc">เพื่อให้แน่ใจว่าฟีเจอร์ของ ZKM ทำงานได้อย่างราบรื่นในเบื้องหลัง โปรดเปิดใช้งานการเริ่มต้นอัตโนมัติและปิดใช้งานการประหยัดแบตเตอรี่</string>
+    <string name="intro_btn_autostart">เริ่มต้นอัตโนมัติ</string>
+    <string name="intro_btn_battery">การประหยัดแบตเตอรี่</string>
     <string name="intro_btn_next">ถัดไป</string>
     <string name="intro_btn_agree">ยอมรับและเข้าสู่แอป</string>
     <string name="intro_btn_decline">ปฏิเสธและออก</string>

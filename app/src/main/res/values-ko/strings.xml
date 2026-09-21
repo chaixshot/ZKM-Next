@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">이 앱은 루트 접근이 필요합니다. 잘못된 설정으로 부트루프가 발생할 수 있습니다. 자신의 책임하에 사용하세요 (DWYOR).</string>
     <string name="intro_p3_title">개인정보 및 동의</string>
     <string name="intro_p3_desc">데이터는 로컬에서 처리됩니다. 개인 데이터를 클라우드 서버로 보내지 않습니다.</string>
+    <string name="intro_p4_title">백그라운드 안정성</string>
+    <string name="intro_p4_desc">ZKM 기능이 백그라운드에서 원활하게 실행되도록 하려면 자동 시작을 활성화하고 배터리 최적화를 비활성화하십시오.</string>
+    <string name="intro_btn_autostart">자동 시작</string>
+    <string name="intro_btn_battery">배터리 최적화</string>
     <string name="intro_btn_next">다음</string>
     <string name="intro_btn_agree">동의 및 입장</string>
     <string name="intro_btn_decline">거부 및 종료</string>

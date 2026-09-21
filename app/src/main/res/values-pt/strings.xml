@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">Este app requer acesso ROOT. Configuração incorreta pode causar Bootloop. Por sua conta e risco (DWYOR).</string>
     <string name="intro_p3_title">Privacidade e Acordo</string>
     <string name="intro_p3_desc">Os dados são processados LOCALMENTE. Não enviamos seus dados pessoais para nenhum servidor na nuvem.</string>
+    <string name="intro_p4_title">Confiabilidade em Segundo Plano</string>
+    <string name="intro_p4_desc">Para garantir que as funcionalidades do ZKM funcionem perfeitamente em segundo plano, ative o Início Automático e desative a Otimização de Bateria.</string>
+    <string name="intro_btn_autostart">Início Automático</string>
+    <string name="intro_btn_battery">Otimização de Bateria</string>
     <string name="intro_btn_next">Próximo</string>
     <string name="intro_btn_agree">Eu Concordo e Entro</string>
     <string name="intro_btn_decline">Recusar e Sair</string>

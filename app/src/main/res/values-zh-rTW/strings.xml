@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">此應用程式需要 ROOT 權限。設定錯誤可能導致開機循環。後果自負 (DWYOR)。</string>
     <string name="intro_p3_title">隱私與協議</string>
     <string name="intro_p3_desc">資料在本機處理。我們不會將您的個人資料傳送到任何雲端伺服器。</string>
+    <string name="intro_p4_title">背景穩定性</string>
+    <string name="intro_p4_desc">為確保 ZKM 功能在背景順利執行，請開啟自啟動並關閉電池最佳化。</string>
+    <string name="intro_btn_autostart">自啟動</string>
+    <string name="intro_btn_battery">電池最佳化</string>
     <string name="intro_btn_next">下一步</string>
     <string name="intro_btn_agree">我同意並進入</string>
     <string name="intro_btn_decline">拒絕並退出</string>

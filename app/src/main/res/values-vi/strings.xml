@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">Ứng dụng này yêu cầu quyền ROOT. Cấu hình sai có thể gây Bootloop. Tự chịu rủi ro (DWYOR).</string>
     <string name="intro_p3_title">Quyền riêng tư &amp; Thỏa thuận</string>
     <string name="intro_p3_desc">Dữ liệu được xử lý cục bộ. Chúng tôi không gửi dữ liệu cá nhân của bạn đến bất kỳ máy chủ đám mây nào.</string>
+    <string name="intro_p4_title">Độ tin cậy trong nền</string>
+    <string name="intro_p4_desc">Để đảm bảo các tính năng của ZKM hoạt động trơn tru trong nền, vui lòng bật Tự khởi chạy và tắt Tối ưu hóa pin.</string>
+    <string name="intro_btn_autostart">Tự khởi chạy</string>
+    <string name="intro_btn_battery">Tối ưu hóa pin</string>
     <string name="intro_btn_next">Tiếp theo</string>
     <string name="intro_btn_agree">Tôi đồng ý &amp; Vào</string>
     <string name="intro_btn_decline">Từ chối &amp; Thoát</string>

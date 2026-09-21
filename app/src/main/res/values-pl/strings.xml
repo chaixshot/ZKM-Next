@@ -819,6 +819,10 @@
     <string name="intro_p2_desc">Ta aplikacja wymaga dostępu ROOT. Błędna konfiguracja może spowodować Bootloop. DWYOR (Do With Your Own Risk).</string>
     <string name="intro_p3_title">Prywatność &amp; Zgoda</string>
     <string name="intro_p3_desc">Dane są przetwarzane LOKALNIE. Nie wysyłamy Twoich danych osobowych na żadne serwery w chmurze.</string>
+    <string name="intro_p4_title">Niezawodność w tle</string>
+    <string name="intro_p4_desc">Aby zapewnić płynne działanie funkcji ZKM w tle, włącz Autostart i wyłącz Optymalizację baterii.</string>
+    <string name="intro_btn_autostart">Autostart</string>
+    <string name="intro_btn_battery">Optymalizacja baterii</string>
     <string name="intro_btn_next">Dalej</string>
     <string name="intro_btn_agree">Zgadzam Się &amp; Wejdź</string>
     <string name="intro_btn_decline">Odrzuć &amp; Wyjdź</string>

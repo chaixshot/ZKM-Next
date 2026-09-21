@@ -7,6 +7,11 @@
  */
 package com.zuan.kernelmanager.ui
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.os.PowerManager
+import android.provider.Settings
 import androidx.annotation.StringRes
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
@@ -31,12 +36,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource // <--- PENTING: Import ini
+import androidx.compose.ui.res.stringResource 
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.zuan.kernelmanager.R // <--- Pastikan import R sesuai package kamu
+import com.zuan.kernelmanager.R 
 import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import kotlinx.coroutines.launch
 import kotlin.math.cos
@@ -50,14 +55,16 @@ val CropvestGray = Color(0xFF64748B)
 val ThemeBlue = Color(0xFF0EA5E9)
 val ThemeRed = Color(0xFFEF4444)
 val ThemeGreen = Color(0xFF10B981)
+val ThemeOrange = Color(0xFFF59E0B)
 
 // --- DATA KONTEN (UPDATED: Menggunakan @StringRes Int) ---
 sealed class IntroPage(
-    @StringRes val titleRes: Int,     // Ubah String jadi Int (Resource ID)
-    @StringRes val descriptionRes: Int, // Ubah String jadi Int
+    @StringRes val titleRes: Int,     
+    @StringRes val descriptionRes: Int, 
     val icon: ImageVector,
     val themeColor: Color,
-    val isRiskPage: Boolean = false
+    val isRiskPage: Boolean = false,
+    val isOptimizationPage: Boolean = false
 ) {
     // 1. PERKENALAN
     object Intro : IntroPage(
@@ -81,6 +88,14 @@ sealed class IntroPage(
         icon = Icons.Rounded.Shield,
         themeColor = ThemeGreen
     )
+    // 4. OPTIMASI (BARU)
+    object Optimization : IntroPage(
+        titleRes = R.string.intro_p4_title,
+        descriptionRes = R.string.intro_p4_desc,
+        icon = Icons.Rounded.Bolt,
+        themeColor = ThemeOrange,
+        isOptimizationPage = true
+    )
 }
 
 @Composable
@@ -92,7 +107,7 @@ fun IntroScreen(
     val prefs = remember { SettingsPreference.getInstance(context) }
     val scope = rememberCoroutineScope()
     
-    val pages = listOf(IntroPage.Intro, IntroPage.Risk, IntroPage.Privacy)
+    val pages = listOf(IntroPage.Intro, IntroPage.Risk, IntroPage.Privacy, IntroPage.Optimization)
     val pagerState = rememberPagerState(pageCount = { pages.size })
 
     Scaffold(
@@ -318,34 +333,92 @@ fun CropvestContent(page: IntroPage) {
         
         Spacer(modifier = Modifier.weight(1f))
         
-        Box(contentAlignment = Alignment.Center) {
-            Box(
-                modifier = Modifier
-                    .size(240.dp, 120.dp)
-                    .offset(y = 50.dp)
-                    .graphicsLayer { rotationX = 60f }
-                    .background(
-                        color = page.themeColor.copy(alpha = 0.1f), 
-                        shape = RoundedCornerShape(30.dp)
-                    )
-            )
-            
-            Icon(
-                imageVector = page.icon,
-                contentDescription = null,
-                modifier = Modifier.size(160.dp).offset(y = (-20).dp),
-                tint = page.themeColor
-            )
-            
-            if (page.isRiskPage) {
-                Icon(
-                    Icons.Rounded.PriorityHigh, null,
-                    modifier = Modifier.align(Alignment.TopEnd).offset(x = (-40).dp).size(40.dp),
-                    tint = ThemeRed
+        if (page.isOptimizationPage) {
+            OptimizationControls(context = LocalContext.current, themeColor = page.themeColor)
+        } else {
+            Box(contentAlignment = Alignment.Center) {
+                Box(
+                    modifier = Modifier
+                        .size(240.dp, 120.dp)
+                        .offset(y = 50.dp)
+                        .graphicsLayer { rotationX = 60f }
+                        .background(
+                            color = page.themeColor.copy(alpha = 0.1f), 
+                            shape = RoundedCornerShape(30.dp)
+                        )
                 )
+                
+                Icon(
+                    imageVector = page.icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(160.dp).offset(y = (-20).dp),
+                    tint = page.themeColor
+                )
+                
+                if (page.isRiskPage) {
+                    Icon(
+                        Icons.Rounded.PriorityHigh, null,
+                        modifier = Modifier.align(Alignment.TopEnd).offset(x = (-40).dp).size(40.dp),
+                        tint = ThemeRed
+                    )
+                }
             }
         }
         
         Spacer(modifier = Modifier.weight(1f))
+    }
+}
+
+@Composable
+fun OptimizationControls(context: Context, themeColor: Color) {
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        val isIgnoringBattery = remember {
+            val pm = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+            pm.isIgnoringBatteryOptimizations(context.packageName)
+        }
+
+        OutlinedButton(
+            onClick = {
+                val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+                    data = Uri.parse("package:${context.packageName}")
+                }
+                context.startActivity(intent)
+            },
+            modifier = Modifier.fillMaxWidth().height(52.dp),
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.outlinedButtonColors(contentColor = themeColor),
+            enabled = !isIgnoringBattery
+        ) {
+            Icon(if (isIgnoringBattery) Icons.Rounded.Check else Icons.Rounded.BatteryChargingFull, null)
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.intro_btn_battery))
+        }
+
+        Button(
+            onClick = {
+                val intent = Intent().apply {
+                    setClassName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity")
+                }
+                try {
+                    context.startActivity(intent)
+                } catch (e: Exception) {
+                    try {
+                        val altIntent = Intent(Settings.ACTION_SETTINGS)
+                        context.startActivity(altIntent)
+                    } catch (ex: Exception) {}
+                }
+            },
+            modifier = Modifier.fillMaxWidth().height(52.dp),
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = themeColor.copy(alpha = 0.1f), contentColor = themeColor)
+        ) {
+            Icon(Icons.Rounded.PlayArrow, null)
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.intro_btn_autostart))
+        }
     }
 }

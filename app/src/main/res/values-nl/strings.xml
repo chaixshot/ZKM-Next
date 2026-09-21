@@ -817,6 +817,10 @@
     <string name="intro_p2_desc">Deze app vereist ROOT toegang. Foutieve configuratie kan een Bootloop veroorzaken. DWYOR (Do With Your Own Risk).</string>
     <string name="intro_p3_title">Privacy &amp; Overeenkomst</string>
     <string name="intro_p3_desc">Data wordt LOKAAL verwerkt. We sturen je persoonlijke data niet naar cloud servers.</string>
+    <string name="intro_p4_title">Betrouwbaarheid op de achtergrond</string>
+    <string name="intro_p4_desc">Om ervoor te zorgen dat ZKM-functies soepel op de achtergrond werken, moet je Automatisch starten inschakelen en Batterijoptimalisatie uitschakelen.</string>
+    <string name="intro_btn_autostart">Automatisch starten</string>
+    <string name="intro_btn_battery">Batterijoptimalisatie</string>
     <string name="intro_btn_next">Volgende</string>
     <string name="intro_btn_agree">Ik Ga Akkoord &amp; Ga Verder</string>
     <string name="intro_btn_decline">Weiger &amp; Afsluiten</string>

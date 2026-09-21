@@ -817,6 +817,10 @@ F
     <string name="intro_p2_desc">This app requires ROOT access. Misconfiguration may cause Bootloop. DWYOR (Do With Your Own Risk).</string>
     <string name="intro_p3_title">Privacy &amp; Agreement</string>
     <string name="intro_p3_desc">Data is processed LOCALLY. We do not send your personal data to any cloud servers.</string>
+    <string name="intro_p4_title">Background Reliability</string>
+    <string name="intro_p4_desc">To ensure ZKM features run smoothly in the background, please enable Auto Start and disable Battery Optimization.</string>
+    <string name="intro_btn_autostart">Auto Start</string>
+    <string name="intro_btn_battery">Battery Optimization</string>
     <string name="intro_btn_next">Next</string>
     <string name="intro_btn_agree">I Agree &amp; Enter</string>
     <string name="intro_btn_decline">Decline &amp; Exit</string>

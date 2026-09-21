@@ -806,6 +806,10 @@
     <string name="intro_p2_desc">Aplikasi ini membutuhkan akses ROOT. Kesalahan konfigurasi dapat menyebabkan Bootloop. DWYOR (Do With Your Own Risk).</string>
     <string name="intro_p3_title">Privasi &amp; Persetujuan</string>
     <string name="intro_p3_desc">Data diproses secara LOKAL. Kami tidak mengirim data pribadi Anda ke server cloud manapun.</string>
+    <string name="intro_p4_title">Keandalan Latar Belakang</string>
+    <string name="intro_p4_desc">Untuk memastikan fitur ZKM berjalan lancar di latar belakang, silakan aktifkan Mulai Otomatis dan nonaktifkan Optimasi Baterai.</string>
+    <string name="intro_btn_autostart">Mulai Otomatis</string>
+    <string name="intro_btn_battery">Optimasi Baterai</string>
     <string name="intro_btn_next">Lanjut</string>
     <string name="intro_btn_agree">Saya Setuju &amp; Masuk</string>
     <string name="intro_btn_decline">Tolak &amp; Keluar</string>

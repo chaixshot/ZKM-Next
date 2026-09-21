@@ -818,6 +818,10 @@
     <string name="intro_p2_desc">Бұл қосымша ROOT қол жетімділігін талап етеді. Қате баптау Bootloop-қа әкелуі мүмкін. Өз мойныңызда істеңіз (DWYOR).</string>
     <string name="intro_p3_title">Құпиялылық және Келісім</string>
     <string name="intro_p3_desc">Деректер ЖЕРГІЛІКТІ түрде өңделеді. Біз сіздің жеке деректеріңізді бұлттық серверлерге жібермейміз.</string>
+    <string name="intro_p4_title">Фондық жұмыс сенімділігі</string>
+    <string name="intro_p4_desc">ZKM функцияларының фонда кедергісіз жұмыс істеуін қамтамасыз ету үшін Автоматты түрде іске қосуды қосып, Батареяны оңтайландыруды өшіріңіз.</string>
+    <string name="intro_btn_autostart">Автоматты түрде іске қосу</string>
+    <string name="intro_btn_battery">Батареяны оңтайландыру</string>
     <string name="intro_btn_next">Келесі</string>
     <string name="intro_btn_agree">Келісемін және Кіру</string>
     <string name="intro_btn_decline">Бас Тарту және Шығу</string>

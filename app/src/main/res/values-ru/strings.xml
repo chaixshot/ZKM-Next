@@ -818,6 +818,10 @@
     <string name="intro_p2_desc">Это приложение требует ROOT доступа. Неправильная конфигурация может вызвать Bootloop. Действуйте на свой страх и риск (DWYOR).</string>
     <string name="intro_p3_title">Конфиденциальность и соглашение</string>
     <string name="intro_p3_desc">Данные обрабатываются ЛОКАЛЬНО. Мы не отправляем ваши персональные данные на облачные серверы.</string>
+    <string name="intro_p4_title">Надежность фоновой работы</string>
+    <string name="intro_p4_desc">Чтобы обеспечить бесперебойную работу функций ZKM в фоновом режиме, включите Автозапуск и отключите Оптимизацию батареи.</string>
+    <string name="intro_btn_autostart">Автозапуск</string>
+    <string name="intro_btn_battery">Оптимизация батареи</string>
     <string name="intro_btn_next">Далее</string>
     <string name="intro_btn_agree">Согласен и войти</string>
     <string name="intro_btn_decline">Отклонить и выйти</string>
