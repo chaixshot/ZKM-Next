@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.FiberManualRecord
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.Stop
@@ -181,12 +182,12 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
 
     private fun getScreenSize(): Pair<Int, Int> {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val metrics = windowManager.maximumWindowMetrics
+            val metrics = windowManager.currentWindowMetrics
             metrics.bounds.width() to metrics.bounds.height()
         } else {
             val dm = DisplayMetrics()
             @Suppress("DEPRECATION")
-            windowManager.defaultDisplay.getRealMetrics(dm)
+            windowManager.defaultDisplay.getMetrics(dm)
             dm.widthPixels to dm.heightPixels
         }
     }
@@ -203,7 +204,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
                 if (viewWidth <= 0 || viewHeight <= 0) return@let
 
                 val maxX = (screenWidth - viewWidth).coerceAtLeast(0)
-                val safetyMargin = (5 * resources.displayMetrics.density).toInt()
+                val safetyMargin = (16 * resources.displayMetrics.density).toInt()
                 val maxY = (screenHeight - viewHeight - safetyMargin).coerceAtLeast(0)
 
                 val oldX = overlayParams.x
@@ -262,7 +263,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
                             val viewHeight = v.height.coerceAtLeast(v.measuredHeight)
                             
                             val maxX = (screenWidth - viewWidth).coerceAtLeast(0)
-                            val safetyMargin = (5 * resources.displayMetrics.density).toInt()
+                            val safetyMargin = (16 * resources.displayMetrics.density).toInt()
                             val maxY = (screenHeight - viewHeight - safetyMargin).coerceAtLeast(0)
 
                             val deltaX = (event.rawX - initialTouchX).toInt()
@@ -309,7 +310,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT,
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY else WindowManager.LayoutParams.TYPE_PHONE,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
             PixelFormat.TRANSLUCENT
         )
         params.gravity = Gravity.TOP or Gravity.START
@@ -478,12 +479,39 @@ fun MainOverlayContent(
                 }
             }
 
-            // --- BAGIAN BAWAH: TOMBOL RECORD ---
             Spacer(Modifier.height(8.dp))
             HorizontalDivider(color = Color.White.copy(alpha = 0.2f), thickness = 0.5.dp)
             Spacer(Modifier.height(4.dp))
             
-            RecordControlButton(isRec, isPaused, context)
+            OverlayBottomControls(isRec, isPaused, context)
+        }
+    }
+}
+
+@Composable
+fun OverlayBottomControls(isRec: Boolean, isPaused: Boolean, context: Context) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        RecordControlButton(isRec, isPaused, context)
+        
+        // Stop Service Button (X)
+        Box(
+            modifier = Modifier
+                .size(24.dp)
+                .clip(CircleShape)
+                .clickable {
+                    context.stopService(Intent(context, FpsOverlayService::class.java))
+                },
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                imageVector = Icons.Default.Close,
+                contentDescription = "Stop Overlay",
+                tint = Color.White.copy(alpha = 0.8f),
+                modifier = Modifier.size(18.dp)
+            )
         }
     }
 }
