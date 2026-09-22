@@ -14,12 +14,15 @@ import android.util.Log
 import android.os.Build
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import androidx.core.app.NotificationCompat
 import com.topjohnwu.superuser.Shell
 import com.zuan.kernelmanager.R
+import com.zuan.kernelmanager.ui.MainActivity
 import com.zuan.kernelmanager.services.BatteryMonitorService
 import com.zuan.kernelmanager.services.SmartCutoffService
 import com.zuan.kernelmanager.ui.home.menu.BatteryControllerUtils
+import com.zuan.kernelmanager.ui.navigation.NavigationRoute
 import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import com.zuan.kernelmanager.ui.socmenu.CpuGpuUtils
 import com.zuan.kernelmanager.ui.socmenu.MemoryUtils
@@ -130,11 +133,20 @@ class BootReceiver : BroadcastReceiver() {
             val channel = NotificationChannel(channelId, context.getString(R.string.pref_apply_on_boot), NotificationManager.IMPORTANCE_LOW)
             manager.createNotificationChannel(channel)
         }
+
+        val openIntent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            putExtra("TARGET_ROUTE", NavigationRoute.Overall.route)
+        }
+        val pendingIntent = PendingIntent.getActivity(
+            context, 0, openIntent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
         
         val notification = NotificationCompat.Builder(context, channelId)
             .setContentTitle(context.getString(R.string.boot_notification_title))
             .setContentText(context.getString(R.string.boot_notification_content))
             .setSmallIcon(R.drawable.ic_check)
+            .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setAutoCancel(true)
             .build()

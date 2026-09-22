@@ -29,6 +29,7 @@ import androidx.core.app.NotificationCompat
 import com.topjohnwu.superuser.Shell
 import com.zuan.kernelmanager.ui.MainActivity
 import com.zuan.kernelmanager.R
+import com.zuan.kernelmanager.ui.navigation.NavigationRoute
 import com.zuan.kernelmanager.ui.socmenu.BatteryUtils
 import com.zuan.kernelmanager.utils.MonitorReader
 import com.zuan.kernelmanager.utils.RootPersistenceUtils
@@ -271,8 +272,13 @@ class BatteryMonitorService : Service() {
     }
 
     private fun buildNotification(): Notification {
-        val openIntent = Intent(this, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, 0, openIntent, PendingIntent.FLAG_IMMUTABLE)
+        val openIntent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            putExtra("TARGET_ROUTE", NavigationRoute.BatteryController.route)
+        }
+        val pendingIntent = PendingIntent.getActivity(
+            this, 0, openIntent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle(cachedTitle) // Judul utama

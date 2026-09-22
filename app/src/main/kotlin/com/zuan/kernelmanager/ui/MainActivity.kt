@@ -11,6 +11,7 @@ package com.zuan.kernelmanager.ui
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.net.Uri
@@ -139,6 +140,7 @@ import com.zuan.kernelmanager.utils.RootPersistenceUtils
 class MainActivity : AppCompatActivity() {
     private var isRoot = false
     private var showRootDialog by mutableStateOf(false)
+    private var pendingRoute by mutableStateOf<String?>(null)
 
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { _ -> }
@@ -170,9 +172,23 @@ class MainActivity : AppCompatActivity() {
         super.applyOverrideConfiguration(overrideConfiguration)
     }
 
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        val routeExtra = intent.getStringExtra("TARGET_ROUTE")
+        if (!routeExtra.isNullOrBlank()) {
+            pendingRoute = routeExtra
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen: SplashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+
+        val routeExtra = intent?.getStringExtra("TARGET_ROUTE")
+        if (!routeExtra.isNullOrBlank()) {
+            pendingRoute = routeExtra
+        }
 
         val prefs = SettingsPreference.getInstance(this)
         val savedDpi = prefs.appDpi.value
@@ -283,7 +299,11 @@ class MainActivity : AppCompatActivity() {
                                 )
                             }
                             "main" -> {
-                                ZuanKernelManagerApp(showRootDialog = showRootDialog)
+                                ZuanKernelManagerApp(
+                                    showRootDialog = showRootDialog,
+                                    pendingRoute = pendingRoute,
+                                    onPendingRouteHandled = { pendingRoute = null }
+                                )
                             }
                         }
                     }
@@ -324,13 +344,32 @@ class MainActivity : AppCompatActivity() {
 }
 
 @Composable
-fun ZuanKernelManagerApp(showRootDialog: Boolean = false) {
+fun ZuanKernelManagerApp(
+    showRootDialog: Boolean = false,
+    pendingRoute: String? = null,
+    onPendingRouteHandled: () -> Unit = {}
+) {
     val context = LocalContext.current
     
     val backgroundHazeState = remember { HazeState() }
     val contentHazeState = remember { HazeState() }
     
     val navController = rememberNavController()
+
+    LaunchedEffect(pendingRoute) {
+        pendingRoute?.let { route ->
+            if (route.isNotBlank()) {
+                try {
+                    navController.navigate(route) {
+                        launchSingleTop = true
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+                onPendingRouteHandled()
+            }
+        }
+    }
 
     val prefs = remember { SettingsPreference.getInstance(context) }
     val isCustomBg by prefs.isCustomBackground.collectAsState()

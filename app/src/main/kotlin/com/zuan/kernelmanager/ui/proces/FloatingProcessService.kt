@@ -55,6 +55,7 @@ import androidx.lifecycle.setViewTreeViewModelStoreOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.ui.MainActivity
+import com.zuan.kernelmanager.ui.navigation.NavigationRoute
 import com.zuan.kernelmanager.utils.ProcessUtils
 import com.zuan.kernelmanager.utils.RootPersistenceUtils
 import com.zuan.kernelmanager.utils.SortType
@@ -147,8 +148,13 @@ class FloatingProcessService : Service() {
             getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
         }
 
-        val notificationIntent = Intent(this, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE)
+        val notificationIntent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            putExtra("TARGET_ROUTE", NavigationRoute.ProcessManager.route)
+        }
+        val pendingIntent = PendingIntent.getActivity(
+            this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
 
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle(getString(R.string.fps_notification_title))

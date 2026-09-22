@@ -26,7 +26,10 @@ import android.os.SystemClock
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zuan.kernelmanager.R
+import com.zuan.kernelmanager.ui.MainActivity
 import com.zuan.kernelmanager.ui.home.menu.BatteryControllerUtils
+import com.zuan.kernelmanager.ui.navigation.NavigationRoute
+import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import com.zuan.kernelmanager.utils.RootPersistenceUtils
 import kotlinx.coroutines.*
 
@@ -91,6 +94,7 @@ class SmartCutoffService : Service() {
             .setContentTitle("Smart Cut-off Active")
             .setContentText("Target: $limitThreshold%")
             .setSmallIcon(R.drawable.ic_battery_android_frame_shield)
+            .setContentIntent(getOpenAppPendingIntent())
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setCategory(NotificationCompat.CATEGORY_SERVICE)
@@ -191,6 +195,7 @@ class SmartCutoffService : Service() {
             .setContentTitle(title)
             .setContentText(message)
             .setSmallIcon(R.drawable.ic_battery_android_frame_shield)
+            .setContentIntent(getOpenAppPendingIntent())
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .setAutoCancel(true)
@@ -207,11 +212,22 @@ class SmartCutoffService : Service() {
             .setContentTitle("Smart Cut-off Active")
             .setContentText(text)
             .setSmallIcon(R.drawable.ic_battery_android_frame_shield)
+            .setContentIntent(getOpenAppPendingIntent())
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .build()
         val manager = getSystemService(NotificationManager::class.java)
         manager.notify(1, notification)
+    }
+
+    private fun getOpenAppPendingIntent(): PendingIntent {
+        val openIntent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            putExtra("TARGET_ROUTE", NavigationRoute.BatteryController.route)
+        }
+        return PendingIntent.getActivity(
+            this, 0, openIntent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
     }
 
     override fun onTaskRemoved(rootIntent: Intent?) {

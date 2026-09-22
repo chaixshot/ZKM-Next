@@ -77,6 +77,7 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.topjohnwu.superuser.Shell
 import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.ui.MainActivity
+import com.zuan.kernelmanager.ui.navigation.NavigationRoute
 import com.zuan.kernelmanager.ui.proces.MyLifecycleOwner
 import com.zuan.kernelmanager.utils.RootPersistenceUtils
 import kotlinx.coroutines.Dispatchers
@@ -196,8 +197,13 @@ class FloatingActivityService : Service() {
             getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
         }
         
-        val intent = Intent(this, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            putExtra("TARGET_ROUTE", NavigationRoute.ActivityLauncher.route)
+        }
+        val pendingIntent = PendingIntent.getActivity(
+            this, 0, intent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
 
         val notif = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("Activity Logger Active")
