@@ -146,7 +146,7 @@
     <string name="fps_horizontal">가로</string>
     <string name="fps_metrics">지표</string>
     <string name="fps_metric_fps">FPS</string>
-    <string name="fps_metric_cpu">CPU</string>
+    <string name="fps_metric_cpu">CPU 사용량</string>
     <string name="fps_metric_ram">RAM</string>
     <string name="fps_metric_watts">와트</string>
     <string name="fps_metric_temp">온도</string>

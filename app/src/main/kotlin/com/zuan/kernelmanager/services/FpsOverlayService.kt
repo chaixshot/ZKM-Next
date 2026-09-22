@@ -633,7 +633,7 @@ fun PcStyleOverlay(
                 val text = buildString {
                     if (m.gpuUsage) append(gpuUsage)
                     if (m.gpuFreq) {
-                        if (isNotEmpty()) append(" @ ")
+                        if (isNotEmpty()) append(" ")
                         append(gpuFreq)
                     }
                     if (m.gpuTemp) {

@@ -147,7 +147,7 @@
     <string name="fps_horizontal">水平</string>
     <string name="fps_metrics">指標</string>
     <string name="fps_metric_fps">FPS</string>
-    <string name="fps_metric_cpu">CPU</string>
+    <string name="fps_metric_cpu">CPU 使用率</string>
     <string name="fps_metric_ram">記憶體</string>
     <string name="fps_metric_watts">瓦特</string>
     <string name="fps_metric_temp">溫度</string>

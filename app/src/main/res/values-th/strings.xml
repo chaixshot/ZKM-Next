@@ -146,7 +146,7 @@
     <string name="fps_horizontal">แนวนอน</string>
     <string name="fps_metrics">ตัวชี้วัด</string>
     <string name="fps_metric_fps">FPS</string>
-    <string name="fps_metric_cpu">CPU</string>
+    <string name="fps_metric_cpu">การใช้งาน CPU</string>
     <string name="fps_metric_ram">RAM</string>
     <string name="fps_metric_watts">วัตต์</string>
     <string name="fps_metric_temp">อุณหภูมิ</string>

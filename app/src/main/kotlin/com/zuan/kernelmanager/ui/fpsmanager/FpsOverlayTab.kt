@@ -188,16 +188,16 @@ fun FpsManagerOverlayContent(
 
                 SectionTitle(stringResource(R.string.fps_metrics), activeColor)
                 FlowRow(modifier = Modifier.padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    MetricChip(stringResource(R.string.fps_metric_fps), showFps, activeColor) { settingsViewModel.setFpsShowFps(it) }
                     MetricChip(stringResource(R.string.fps_metric_cpu), showCpu, activeColor) { settingsViewModel.setFpsShowCpu(it) }
+                    MetricChip(stringResource(R.string.fps_metric_cpu_freq), showCpuFreq, activeColor) { settingsViewModel.setFpsShowCpuFreq(it) }
+                    MetricChip(stringResource(R.string.fps_metric_cpu_temp), showCpuTemp, activeColor) { settingsViewModel.setFpsShowCpuTemp(it) }
+                    MetricChip(stringResource(R.string.fps_metric_gpu_usage), showGpuUsage, activeColor) { settingsViewModel.setFpsShowGpuUsage(it) }
+                    MetricChip(stringResource(R.string.fps_metric_gpu_freq), showGpuFreq, activeColor) { settingsViewModel.setFpsShowGpuFreq(it) }
+                    MetricChip(stringResource(R.string.fps_metric_gpu_temp), showGpuTemp, activeColor) { settingsViewModel.setFpsShowGpuTemp(it) }
                     MetricChip(stringResource(R.string.fps_metric_ram), showRam, activeColor) { settingsViewModel.setFpsShowRam(it) }
                     MetricChip(stringResource(R.string.fps_metric_watts), showWatts, activeColor) { settingsViewModel.setFpsShowWatts(it) }
                     MetricChip(stringResource(R.string.fps_metric_temp), showTemp, activeColor) { settingsViewModel.setFpsShowTemp(it) }
-                    MetricChip(stringResource(R.string.fps_metric_gpu_usage), showGpuUsage, activeColor) { settingsViewModel.setFpsShowGpuUsage(it) }
-                    MetricChip(stringResource(R.string.fps_metric_cpu_temp), showCpuTemp, activeColor) { settingsViewModel.setFpsShowCpuTemp(it) }
-                    MetricChip(stringResource(R.string.fps_metric_cpu_freq), showCpuFreq, activeColor) { settingsViewModel.setFpsShowCpuFreq(it) }
-                    MetricChip(stringResource(R.string.fps_metric_gpu_freq), showGpuFreq, activeColor) { settingsViewModel.setFpsShowGpuFreq(it) }
-                    MetricChip(stringResource(R.string.fps_metric_gpu_temp), showGpuTemp, activeColor) { settingsViewModel.setFpsShowGpuTemp(it) }
+                    MetricChip(stringResource(R.string.fps_metric_fps), showFps, activeColor) { settingsViewModel.setFpsShowFps(it) }
                 }
 
                 Spacer(Modifier.height(24.dp))

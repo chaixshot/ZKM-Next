@@ -147,7 +147,7 @@
     <string name="fps_horizontal">Көлденең</string>
     <string name="fps_metrics">Метрикалар</string>
     <string name="fps_metric_fps">FPS</string>
-    <string name="fps_metric_cpu">ЦП</string>
+    <string name="fps_metric_cpu">ЦП пайдалануы</string>
     <string name="fps_metric_ram">ЖЖҚ</string>
     <string name="fps_metric_watts">Ватт</string>
     <string name="fps_metric_temp">Темп</string>

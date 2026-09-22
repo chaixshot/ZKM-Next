@@ -147,7 +147,7 @@
     <string name="fps_horizontal">Гарызантальная</string>
     <string name="fps_metrics">Метрыкі</string>
     <string name="fps_metric_fps">FPS</string>
-    <string name="fps_metric_cpu">ЦПУ</string>
+    <string name="fps_metric_cpu">Выкарыстанне ЦПУ</string>
     <string name="fps_metric_ram">АЗП</string>
     <string name="fps_metric_watts">Ваты</string>
     <string name="fps_metric_temp">Тэмп</string>

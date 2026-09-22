@@ -146,7 +146,7 @@
     <string name="fps_horizontal">Horizontal</string>
     <string name="fps_metrics">Métricas</string>
     <string name="fps_metric_fps">FPS</string>
-    <string name="fps_metric_cpu">CPU</string>
+    <string name="fps_metric_cpu">Uso de CPU</string>
     <string name="fps_metric_ram">RAM</string>
     <string name="fps_metric_watts">Vatios</string>
     <string name="fps_metric_temp">Temp</string>
