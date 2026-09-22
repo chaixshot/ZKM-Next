@@ -95,7 +95,7 @@
             android:foregroundServiceType="specialUse" />
 
         <service 
-            android:name=".service.BatteryMonitorService" 
+            android:name=".service.BatteryMonitorService"
             android:foregroundServiceType="specialUse|dataSync"
             android:exported="false" 
             android:enabled="true" />
@@ -103,24 +103,14 @@
         <service
             android:name=".ui.ksuweb.core.FileSystemService"
             android:process=":ksu_web_service"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
 
         <service
             android:name=".ui.terminal.FloatingTerminalService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="dataSync" />
-
-        <service 
-            android:name=".ui.proces.FloatingProcessService"
-            android:enabled="true"
-            android:exported="false"
             android:foregroundServiceType="specialUse" />
-<service
-    android:name=".ui.ksuweb.core.FileSystemService"
-    android:process=":ksu_web_service"
-    android:exported="false"
-    tools:ignore="Instantiatable" />
 
             
         <service

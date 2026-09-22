@@ -159,11 +159,14 @@ class FloatingTerminalService : Service(), LifecycleOwner, ViewModelStoreOwner, 
             val channel = NotificationChannel(channelId, "Floating Terminal", NotificationManager.IMPORTANCE_LOW)
             getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
         }
-        return Notification.Builder(this, channelId)
-            .setContentTitle(getString(R.string.app_name))  // <-- GANTI INI
-            .setContentText(getString(R.string.terminal_overlay_active))  // <-- GANTI INI
+        val notif = Notification.Builder(this, channelId)
+            .setContentTitle(getString(R.string.app_name))
+            .setContentText(getString(R.string.terminal_overlay_active))
             .setSmallIcon(R.mipmap.ic_launcher)
+            .setOngoing(true)
             .build()
+        notif.flags = notif.flags or Notification.FLAG_ONGOING_EVENT or Notification.FLAG_NO_CLEAR
+        return notif
     }
 
 
