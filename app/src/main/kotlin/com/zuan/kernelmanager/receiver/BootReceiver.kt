@@ -61,6 +61,8 @@ class BootReceiver : BroadcastReceiver() {
                 } catch (e: Exception) {
                     Log.e("BootReceiver", "Error applying settings on boot", e)
                 } finally {
+                    delay(3000)
+                    dismissApplyNotification(context)
                     pendingResult.finish()
                 }
             }
@@ -152,6 +154,15 @@ class BootReceiver : BroadcastReceiver() {
             .build()
             
         manager.notify(1001, notification)
+    }
+
+    private fun dismissApplyNotification(context: Context) {
+        try {
+            val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            manager.cancel(1001)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private suspend fun applyAllProfiles(prefs: SettingsPreference) {
