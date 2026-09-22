@@ -179,6 +179,7 @@
     <string name="fps_stat_ram">ЖЖҚ</string>
     <string name="fps_chart_fps_temp">FPS және Температура</string>
     <string name="fps_chart_cpu">ЦП Жүктемесі (%%)</string>
+    <string name="fps_chart_gpu">ГП Жүктемесі (%%)</string>
     <string name="fps_export_csv">CSV ЭКСПОРТТАУ</string>
     <string name="fps_delete">ЖОЮ</string>
 

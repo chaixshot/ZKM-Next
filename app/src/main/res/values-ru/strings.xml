@@ -179,6 +179,7 @@
     <string name="fps_stat_ram">ОЗУ</string>
     <string name="fps_chart_fps_temp">FPS и Температура</string>
     <string name="fps_chart_cpu">Нагрузка ЦПУ (%%)</string>
+    <string name="fps_chart_gpu">Нагрузка ГПУ (%%)</string>
     <string name="fps_export_csv">ЭКСПОРТ CSV</string>
     <string name="fps_delete">УДАЛИТЬ</string>
 

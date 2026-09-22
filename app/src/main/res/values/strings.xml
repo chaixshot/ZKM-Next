@@ -178,6 +178,7 @@
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS &amp; Temperature</string>
     <string name="fps_chart_cpu">CPU Load (%%)</string>
+    <string name="fps_chart_gpu">GPU Load (%%)</string>
     <string name="fps_export_csv">EXPORT CSV</string>
     <string name="fps_delete">DELETE</string>
 

@@ -178,6 +178,7 @@
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPSと温度</string>
     <string name="fps_chart_cpu">CPU負荷 (%%)</string>
+    <string name="fps_chart_gpu">GPU負荷 (%%)</string>
     <string name="fps_export_csv">CSVエクスポート</string>
     <string name="fps_delete">削除</string>
 

@@ -178,6 +178,7 @@
     <string name="fps_stat_ram">ОЗП</string>
     <string name="fps_chart_fps_temp">FPS та Температура</string>
     <string name="fps_chart_cpu">Навантаження ЦПУ (%%)</string>
+    <string name="fps_chart_gpu">Навантаження ГПУ (%%)</string>
     <string name="fps_export_csv">ЕКСПОРТ CSV</string>
     <string name="fps_delete">ВИДАЛИТИ</string>
 

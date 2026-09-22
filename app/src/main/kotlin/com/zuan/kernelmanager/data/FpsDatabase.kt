@@ -51,6 +51,7 @@ data class FpsDataPoint(
     val timestamp: Long, // Offset waktu (detik ke-0, ke-1, ...)
     val fps: Float,
     val cpuLoad: Int,
+    val gpuLoad: Int = 0,
     val temp: Float,
     val watt: Float,
     val ramUsageMb: Int
@@ -77,7 +78,7 @@ interface FpsDao {
     suspend fun clearAll()
 }
 
-@Database(entities = [FpsSession::class, FpsDataPoint::class], version = 2, exportSchema = false)
+@Database(entities = [FpsSession::class, FpsDataPoint::class], version = 3, exportSchema = false)
 abstract class FpsDatabase : RoomDatabase() {
     abstract fun fpsDao(): FpsDao
 

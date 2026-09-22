@@ -53,6 +53,7 @@ object FpsRecorder {
         currentPkg: String, 
         fps: Float,
         cpu: Int,
+        gpu: Int = 0,
         watt: Float,
         temp: Float,
         ramMb: Int
@@ -88,6 +89,7 @@ object FpsRecorder {
                     timestamp = relativeTime,
                     fps = fps,
                     cpuLoad = cpu,
+                    gpuLoad = gpu,
                     watt = watt,
                     temp = temp,
                     ramUsageMb = ramMb

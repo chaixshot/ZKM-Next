@@ -53,7 +53,7 @@ object DataExporter {
 
             // --- TABEL DATA (KOLOM) ---
             // Header Kolom
-            csvBuilder.append("Time (s),FPS,Temp (C),CPU Load (%),Power (W),RAM Used (MB)\n")
+            csvBuilder.append("Time (s),FPS,Temp (C),CPU Load (%),GPU Load (%),Power (W),RAM Used (MB)\n")
 
             // Isi Data (Baris per Baris)
             points.forEach { point ->
@@ -64,7 +64,7 @@ object DataExporter {
                 val watt = String.format(Locale.US, "%.1f", point.watt)
                 
                 // Masukkan ke baris CSV
-                csvBuilder.append("$timeSec,$fps,$temp,${point.cpuLoad},$watt,${point.ramUsageMb}\n")
+                csvBuilder.append("$timeSec,$fps,$temp,${point.cpuLoad},${point.gpuLoad},$watt,${point.ramUsageMb}\n")
             }
 
             // 4. Simpan & Share

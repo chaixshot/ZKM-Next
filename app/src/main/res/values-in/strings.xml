@@ -178,6 +178,7 @@
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS &amp; Suhu</string>
     <string name="fps_chart_cpu">Beban CPU (%%)</string>
+    <string name="fps_chart_gpu">Beban GPU (%%)</string>
     <string name="fps_export_csv">EKSPOR CSV</string>
     <string name="fps_delete">HAPUS</string>
 
@@ -725,7 +726,7 @@
     <string name="fps_notification_text">Ketuk untuk membuka aplikasi</string>
     <string name="fps_monitor_title">Monitor</string>
     <string name="fps_cpu">CPU</string>
-    <string name="fps_ram">RAM</string>
+    <string name="fps_ram">RAM</string>FpsOverlayTab
     <string name="fps_error">Error...</string>
     <string name="fps_resize">Ubah ukuran</string>
 

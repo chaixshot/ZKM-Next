@@ -178,6 +178,7 @@
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS ve Sıcaklık</string>
     <string name="fps_chart_cpu">CPU Yükü (%%)</string>
+    <string name="fps_chart_gpu">GPU Yükü (%%)</string>
     <string name="fps_export_csv">CSV DIŞA AKTAR</string>
     <string name="fps_delete">SİL</string>
 

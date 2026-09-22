@@ -451,7 +451,8 @@ fun MainOverlayContent(
                     // 2. Kirim ke Recorder jika aktif
                     if (isRec) {
                         val currentPkg = MonitorReader.getForegroundPackage()
-                        FpsRecorder.tick(context, currentPkg, fpsFloat, cpuInt, wattFloat, tempFloat, ramInt)
+                        val gpuUsageInt = MonitorReader.getCombinedGpuInfo().usage
+                        FpsRecorder.tick(context, currentPkg, fpsFloat, cpuInt, gpuUsageInt, wattFloat, tempFloat, ramInt)
                     }
 
                 } catch (e: Exception) {}

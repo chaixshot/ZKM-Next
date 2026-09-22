@@ -184,6 +184,11 @@ fun ProSessionCard(
                     Box(Modifier.height(100.dp).fillMaxWidth()) {
                         ZkmLineChart(dataPoints.map { it.cpuLoad.toFloat() }, 100f, Color(0xFF2196F3), fillColor = Color(0xFF2196F3).copy(alpha=0.1f))
                     }
+                    Spacer(Modifier.height(16.dp))
+                    Text(stringResource(R.string.fps_chart_gpu), style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.Bold, color = subContentColor)
+                    Box(Modifier.height(100.dp).fillMaxWidth()) {
+                        ZkmLineChart(dataPoints.map { it.gpuLoad.toFloat() }, 100f, Color(0xFF00E676), fillColor = Color(0xFF00E676).copy(alpha=0.1f))
+                    }
                 }
 
                 Spacer(Modifier.height(16.dp))

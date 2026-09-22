@@ -178,6 +178,7 @@
     <string name="fps_stat_ram">RAM</string>
     <string name="fps_chart_fps_temp">FPS &amp; Temperatuur</string>
     <string name="fps_chart_cpu">CPU Belasting (%%)</string>
+    <string name="fps_chart_gpu">GPU Belasting (%%)</string>
     <string name="fps_export_csv">EXPORTEER CSV</string>
     <string name="fps_delete">VERWIJDER</string>
 
