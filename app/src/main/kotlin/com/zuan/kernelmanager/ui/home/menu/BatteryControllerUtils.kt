@@ -310,26 +310,29 @@ object BatteryControllerUtils {
     }
 
     fun isUsbPowerConnected(): Boolean {
-        // We check for "present" or "online" in any power supply that isn't the battery.
-        // On many devices, "present" stays 1 even if charging is suspended, as long as the cable is there.
-        val psPath = "/sys/class/power_supply"
-        val nodes = runCatching { Shell.cmd("ls $psPath").exec().out }.getOrElse { emptyList() }
-        
-        for (node in nodes) {
-            if (node == "battery" || node == "bms" || node == "main") {
-                // Main is often a virtual node that follows battery/usb, so we check it carefully or skip
-                continue 
-            }
-            
-            val present = readSysFile("$psPath/$node/present")
-            val online = readSysFile("$psPath/$node/online")
-            
-            if (present == "1" || online == "1") return true
-        }
+        val usbPresent = readSysFile("/sys/class/power_supply/usb/present")
+        val usbOnline = readSysFile("/sys/class/power_supply/usb/online")
+        if (usbPresent == "1" || usbOnline == "1") return true
 
-        // Fallback for some Xiaomi devices: check the "main" or "usb" node specifically if not found above
-        if (readSysFile("$psPath/usb/present") == "1") return true
-        if (readSysFile("$psPath/ac/present") == "1") return true
+        val acPresent = readSysFile("/sys/class/power_supply/ac/present")
+        val acOnline = readSysFile("/sys/class/power_supply/ac/online")
+        if (acPresent == "1" || acOnline == "1") return true
+
+        val batteryOnline = readSysFile("/sys/class/power_supply/battery/online")
+        val batteryStatus = readSysFile("/sys/class/power_supply/battery/status")
+        if (batteryStatus == "Charging" || batteryStatus == "Full" || batteryOnline == "1") return true
+
+        // Fast file-based check without spawning subshell
+        val psPath = File("/sys/class/power_supply")
+        if (psPath.exists() && psPath.isDirectory) {
+            val nodes = psPath.list() ?: emptyArray()
+            for (node in nodes) {
+                if (node == "battery" || node == "bms" || node == "main") continue
+                val present = readSysFile("/sys/class/power_supply/$node/present")
+                val online = readSysFile("/sys/class/power_supply/$node/online")
+                if (present == "1" || online == "1") return true
+            }
+        }
         
         return false
     }
@@ -379,7 +382,7 @@ object BatteryControllerUtils {
             "/sys/devices/platform/soc/soc:google,charger/charge_stop_threshold",
             "/sys/class/hw_power/charger/charge_data/charge_limit"
         )
-        return paths.any { Shell.cmd("test -e $it").exec().isSuccess }
+        return paths.any { File(it).exists() || Shell.cmd("test -e $it").exec().isSuccess }
     }
 
     fun setFastCharge(enabled: Boolean): Boolean {
@@ -470,10 +473,20 @@ object BatteryControllerUtils {
             "/sys/class/power_supply/battery/batt_slate_mode",
             "/sys/devices/platform/charger/bypass_charger",
             "/sys/class/power_supply/battery/device/Charging_Enable",
-            "/sys/class/hw_power/charger/charge_data/enable_charger"
+            "/sys/class/hw_power/charger/charge_data/enable_charger",
+            "/sys/class/power_supply/battery/store_mode",
+            "/sys/class/power_supply/battery/op_disable_charge",
+            "/sys/class/power_supply/usb/input_suspend",
+            "/sys/class/power_supply/battery/mmi_charging_enable",
+            "/sys/class/power_supply/battery/stop_charging_enable",
+            "/sys/class/power_supply/bms/charging_enabled",
+            "/sys/devices/platform/mt-battery/disable_charger",
+            "/sys/devices/platform/soc/soc:google,charger/charge_stop_threshold",
+            "/sys/devices/platform/soc/soc:google,charger/charge_disable",
+            "/proc/mtk_battery_cmd/current_cmd"
         )
         return testPaths.any { path ->
-            Shell.cmd("test -e $path").exec().isSuccess
+            File(path).exists() || Shell.cmd("test -e $path").exec().isSuccess
         }
     }
 

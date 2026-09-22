@@ -17,8 +17,8 @@ import android.app.NotificationManager
 import androidx.core.app.NotificationCompat
 import com.topjohnwu.superuser.Shell
 import com.zuan.kernelmanager.R
-import com.zuan.kernelmanager.service.BatteryMonitorService
-import com.zuan.kernelmanager.service.SmartCutoffService
+import com.zuan.kernelmanager.services.BatteryMonitorService
+import com.zuan.kernelmanager.services.SmartCutoffService
 import com.zuan.kernelmanager.ui.home.menu.BatteryControllerUtils
 import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import com.zuan.kernelmanager.ui.socmenu.CpuGpuUtils

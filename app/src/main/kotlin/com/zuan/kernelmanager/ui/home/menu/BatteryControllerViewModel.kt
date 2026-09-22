@@ -14,8 +14,8 @@ import android.content.Intent
 import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.zuan.kernelmanager.service.BatteryMonitorService
-import com.zuan.kernelmanager.service.SmartCutoffService
+import com.zuan.kernelmanager.services.BatteryMonitorService
+import com.zuan.kernelmanager.services.SmartCutoffService
 import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

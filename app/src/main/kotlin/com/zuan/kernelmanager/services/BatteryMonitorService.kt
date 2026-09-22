@@ -5,7 +5,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  */
-package com.zuan.kernelmanager.service
+package com.zuan.kernelmanager.services
 
 import android.app.AlarmManager
 import android.app.Notification

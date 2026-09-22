@@ -90,14 +90,14 @@
             android:foregroundServiceType="specialUse" />
             
         <service
-            android:name=".service.SmartCutoffService"
+            android:name=".services.SmartCutoffService"
             android:enabled="true"
             android:exported="false"
             android:stopWithTask="false"
             android:foregroundServiceType="specialUse" />
 
         <service 
-            android:name=".service.BatteryMonitorService"
+            android:name=".services.BatteryMonitorService"
             android:enabled="true"
             android:exported="false"
             android:stopWithTask="false"
