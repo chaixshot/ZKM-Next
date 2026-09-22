@@ -66,6 +66,7 @@ import com.zuan.kernelmanager.ui.settings.SettingsPreference
 import com.zuan.kernelmanager.utils.FpsReader
 import com.zuan.kernelmanager.utils.FpsRecorder
 import com.zuan.kernelmanager.utils.MonitorReader
+import com.zuan.kernelmanager.utils.RootPersistenceUtils
 import com.zuan.kernelmanager.utils.ShellExecutor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -117,6 +118,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
     override fun onCreate() {
         super.onCreate()
         ShellExecutor.init(this)
+        RootPersistenceUtils.applyRootExemptions(this)
         settingsPreference = SettingsPreference.getInstance(this)
         loadInitialSettings()
         

@@ -77,7 +77,8 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.topjohnwu.superuser.Shell
 import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.ui.MainActivity
-import com.zuan.kernelmanager.ui.proces.MyLifecycleOwner 
+import com.zuan.kernelmanager.ui.proces.MyLifecycleOwner
+import com.zuan.kernelmanager.utils.RootPersistenceUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -115,6 +116,7 @@ class FloatingActivityService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        RootPersistenceUtils.applyRootExemptions(this)
         isRunning = true
         startForegroundNotif()
 

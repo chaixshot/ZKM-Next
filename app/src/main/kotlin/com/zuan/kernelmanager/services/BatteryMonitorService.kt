@@ -31,6 +31,7 @@ import com.zuan.kernelmanager.ui.MainActivity
 import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.ui.socmenu.BatteryUtils
 import com.zuan.kernelmanager.utils.MonitorReader
+import com.zuan.kernelmanager.utils.RootPersistenceUtils
 import kotlin.math.abs
 
 class BatteryMonitorService : Service() {
@@ -110,6 +111,7 @@ class BatteryMonitorService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        RootPersistenceUtils.applyRootExemptions(this)
         createNotificationChannel()
         
         // Reset Stats saat Service dibuat

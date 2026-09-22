@@ -56,6 +56,7 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.ui.MainActivity
 import com.zuan.kernelmanager.utils.ProcessUtils
+import com.zuan.kernelmanager.utils.RootPersistenceUtils
 import com.zuan.kernelmanager.utils.SortType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -85,6 +86,7 @@ class FloatingProcessService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        RootPersistenceUtils.applyRootExemptions(this)
         isRunning = true // Set status aktif
         startForegroundServiceNotification()
 

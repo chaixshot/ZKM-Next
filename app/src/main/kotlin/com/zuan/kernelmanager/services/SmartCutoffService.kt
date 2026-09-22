@@ -25,6 +25,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.ui.home.menu.BatteryControllerUtils
+import com.zuan.kernelmanager.utils.RootPersistenceUtils
 import kotlinx.coroutines.*
 
 class SmartCutoffService : Service() {
@@ -51,6 +52,11 @@ class SmartCutoffService : Service() {
 
             handleBatteryLogic(level)
         }
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        RootPersistenceUtils.applyRootExemptions(this)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {

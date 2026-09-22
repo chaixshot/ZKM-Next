@@ -134,6 +134,7 @@ import com.zuan.kernelmanager.ui.home.menu.DozeModeScreen
 import com.zuan.kernelmanager.ui.home.menu.Dex2oatScreen
 
 import com.zuan.kernelmanager.ui.IntroScreen
+import com.zuan.kernelmanager.utils.RootPersistenceUtils
 
 class MainActivity : AppCompatActivity() {
     private var isRoot = false
@@ -145,7 +146,11 @@ class MainActivity : AppCompatActivity() {
     private val checkRoot = Runnable {
         Shell.getShell { shell ->
             isRoot = shell.isRoot
-            if (!isRoot) { showRootDialog = true }
+            if (isRoot) {
+                RootPersistenceUtils.applyRootExemptions(this@MainActivity)
+            } else {
+                showRootDialog = true
+            }
         }
     }
 
