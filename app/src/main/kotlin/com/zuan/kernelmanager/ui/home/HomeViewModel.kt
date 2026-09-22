@@ -71,8 +71,8 @@ class HomeViewModel : ViewModel() {
     }
 
     var updateRelease by mutableStateOf<GithubRelease?>(null)
-    private val repoOwner = "ZUANVFX01"
-    private val repoName = "ZKM"
+    private val repoOwner = "chaixshot"
+    private val repoName = "ZKM-Next"
 
     init {
         loadExtensions()

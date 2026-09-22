@@ -51,7 +51,7 @@ enum class ChangeType {
 
 object ChangelogsUtils {
     
-    private const val GITHUB_API_URL = "https://api.github.com/repos/ZUANVFX01/ZKM/releases/latest"
+    private const val GITHUB_API_URL = "https://api.github.com/repos/chaixshot/ZKM-Next/releases/latest"
     private const val TELEGRAM_URL = "https://r.jina.ai/http://t.me/s/zuanvfxproject3" // Via jina.ai reader
     private val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
     private val apiDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())

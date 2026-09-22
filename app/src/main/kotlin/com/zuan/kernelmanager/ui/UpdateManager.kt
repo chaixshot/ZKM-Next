@@ -32,8 +32,8 @@ data class UpdateInfo(
 )
 
 object UpdateChecker {
-    private const val REPO_OWNER = "ZUANVFX01"
-    private const val REPO_NAME = "ZKM"
+    private const val REPO_OWNER = "chaixshot"
+    private const val REPO_NAME = "ZKM-Next"
     private const val API_URL = "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases/latest"
 
     suspend fun checkForUpdate(context: Context): UpdateInfo? = withContext(Dispatchers.IO) {

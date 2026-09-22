@@ -348,7 +348,7 @@ This software contains code from the following open-source projects:
   <img src="./logo/logo.jpg" width="60" height="60" style="border-radius: 12px; margin-bottom: 15px;" alt="Zuan Technologies"/>
 
   <p style="margin-top: 15px;">
-    <a href="https://github.com/ZUANVFX01/ZKM">GitHub</a> • 
+    <a href="https://github.com/chaixshot/ZKM-Next">GitHub</a> • 
     <a href="#">Documentation</a> • 
     <a href="#">Website</a>
   </p>
