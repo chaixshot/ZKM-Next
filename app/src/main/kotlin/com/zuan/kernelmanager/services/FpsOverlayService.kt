@@ -7,6 +7,7 @@
  */
 package com.zuan.kernelmanager.services
 
+import android.app.AlarmManager
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -15,6 +16,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
 import android.content.res.Configuration
+import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.ui.MainActivity
@@ -153,28 +155,30 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
         
-        intent?.let {
-            if (it.hasExtra("STYLE")) styleMode = it.getIntExtra("STYLE", 0)
-            if (it.hasExtra("ORIENTATION")) androidOrientation = it.getIntExtra("ORIENTATION", 0)
+        if (intent != null) {
+            if (intent.hasExtra("STYLE")) styleMode = intent.getIntExtra("STYLE", 0)
+            if (intent.hasExtra("ORIENTATION")) androidOrientation = intent.getIntExtra("ORIENTATION", 0)
             
-            it.getStringExtra("COLOR")?.let { c -> colorHex = c }
-            it.getStringExtra("POSITION")?.let { p -> resetPosition(p) }
+            intent.getStringExtra("COLOR")?.let { c -> colorHex = c }
+            intent.getStringExtra("POSITION")?.let { p -> resetPosition(p) }
             
-            if (it.hasExtra("SIZE")) textSizeSp = it.getFloatExtra("SIZE", 14f)
-            if (it.hasExtra("WIDTH_SCALE")) widthScale = it.getFloatExtra("WIDTH_SCALE", 1f)
-            if (it.hasExtra("ALPHA")) bgAlpha = it.getFloatExtra("ALPHA", 0.5f)
+            if (intent.hasExtra("SIZE")) textSizeSp = intent.getFloatExtra("SIZE", 14f)
+            if (intent.hasExtra("WIDTH_SCALE")) widthScale = intent.getFloatExtra("WIDTH_SCALE", 1f)
+            if (intent.hasExtra("ALPHA")) bgAlpha = intent.getFloatExtra("ALPHA", 0.5f)
             
-            if (it.hasExtra("SHOW_FPS")) showFps = it.getBooleanExtra("SHOW_FPS", true)
-            if (it.hasExtra("SHOW_CPU")) showCpu = it.getBooleanExtra("SHOW_CPU", true)
-            if (it.hasExtra("SHOW_WATTS")) showWatts = it.getBooleanExtra("SHOW_WATTS", true)
-            if (it.hasExtra("SHOW_TEMP")) showTemp = it.getBooleanExtra("SHOW_TEMP", true)
-            if (it.hasExtra("SHOW_RAM")) showRam = it.getBooleanExtra("SHOW_RAM", true)
-            if (it.hasExtra("SHOW_RENDER")) showRender = it.getBooleanExtra("SHOW_RENDER", false)
-            if (it.hasExtra("SHOW_GPU_USAGE")) showGpuUsage = it.getBooleanExtra("SHOW_GPU_USAGE", false)
-            if (it.hasExtra("SHOW_CPU_TEMP")) showCpuTemp = it.getBooleanExtra("SHOW_CPU_TEMP", false)
-            if (it.hasExtra("SHOW_CPU_FREQ")) showCpuFreq = it.getBooleanExtra("SHOW_CPU_FREQ", false)
-            if (it.hasExtra("SHOW_GPU_FREQ")) showGpuFreq = it.getBooleanExtra("SHOW_GPU_FREQ", false)
-            if (it.hasExtra("SHOW_GPU_TEMP")) showGpuTemp = it.getBooleanExtra("SHOW_GPU_TEMP", false)
+            if (intent.hasExtra("SHOW_FPS")) showFps = intent.getBooleanExtra("SHOW_FPS", true)
+            if (intent.hasExtra("SHOW_CPU")) showCpu = intent.getBooleanExtra("SHOW_CPU", true)
+            if (intent.hasExtra("SHOW_WATTS")) showWatts = intent.getBooleanExtra("SHOW_WATTS", true)
+            if (intent.hasExtra("SHOW_TEMP")) showTemp = intent.getBooleanExtra("SHOW_TEMP", true)
+            if (intent.hasExtra("SHOW_RAM")) showRam = intent.getBooleanExtra("SHOW_RAM", true)
+            if (intent.hasExtra("SHOW_RENDER")) showRender = intent.getBooleanExtra("SHOW_RENDER", false)
+            if (intent.hasExtra("SHOW_GPU_USAGE")) showGpuUsage = intent.getBooleanExtra("SHOW_GPU_USAGE", false)
+            if (intent.hasExtra("SHOW_CPU_TEMP")) showCpuTemp = intent.getBooleanExtra("SHOW_CPU_TEMP", false)
+            if (intent.hasExtra("SHOW_CPU_FREQ")) showCpuFreq = intent.getBooleanExtra("SHOW_CPU_FREQ", false)
+            if (intent.hasExtra("SHOW_GPU_FREQ")) showGpuFreq = intent.getBooleanExtra("SHOW_GPU_FREQ", false)
+            if (intent.hasExtra("SHOW_GPU_TEMP")) showGpuTemp = intent.getBooleanExtra("SHOW_GPU_TEMP", false)
+        } else {
+            loadInitialSettings()
         }
 
         if (overlayView == null) {
@@ -352,6 +356,36 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
             startForeground(1, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
         } else {
             startForeground(1, notification)
+        }
+    }
+
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        super.onTaskRemoved(rootIntent)
+        if (isRunning) {
+            val restartServiceIntent = Intent(applicationContext, FpsOverlayService::class.java).apply {
+                setPackage(packageName)
+            }
+            val restartServicePendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                PendingIntent.getForegroundService(
+                    applicationContext,
+                    1,
+                    restartServiceIntent,
+                    PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
+                )
+            } else {
+                PendingIntent.getService(
+                    applicationContext,
+                    1,
+                    restartServiceIntent,
+                    PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
+                )
+            }
+            val alarmService = applicationContext.getSystemService(ALARM_SERVICE) as AlarmManager
+            alarmService.set(
+                AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + 1000,
+                restartServicePendingIntent
+            )
         }
     }
 

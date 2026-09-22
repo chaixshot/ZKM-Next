@@ -86,19 +86,22 @@
             android:name=".services.FpsOverlayService"
             android:enabled="true"
             android:exported="false"
+            android:stopWithTask="false"
             android:foregroundServiceType="specialUse" />
             
         <service
             android:name=".service.SmartCutoffService"
             android:enabled="true"
             android:exported="false"
+            android:stopWithTask="false"
             android:foregroundServiceType="specialUse" />
 
         <service 
             android:name=".service.BatteryMonitorService"
-            android:foregroundServiceType="specialUse|dataSync"
-            android:exported="false" 
-            android:enabled="true" />
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="specialUse|dataSync" />
 
         <service
             android:name=".ui.ksuweb.core.FileSystemService"
@@ -110,13 +113,21 @@
             android:name=".ui.terminal.FloatingTerminalService"
             android:enabled="true"
             android:exported="false"
+            android:stopWithTask="false"
             android:foregroundServiceType="specialUse" />
 
-            
+        <service
+            android:name=".ui.proces.FloatingProcessService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="specialUse" />
+
         <service
             android:name=".ui.activitylauncher.FloatingActivityService"
             android:enabled="true"
             android:exported="false"
+            android:stopWithTask="false"
             android:foregroundServiceType="specialUse">
             <property
                 android:name="android.app.property.FOREGROUND_SERVICE_TYPE"

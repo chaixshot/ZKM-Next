@@ -7,16 +7,19 @@
  */
 package com.zuan.kernelmanager.ui.proces
 
+import android.app.AlarmManager
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
+import android.os.SystemClock
 import android.view.Gravity
 import android.view.WindowManager
 import androidx.compose.foundation.background
@@ -179,6 +182,30 @@ class FloatingProcessService : Service() {
         params.height = currentHeight
         
         try { windowManager.updateViewLayout(floatingView, params) } catch (_: Exception) {}
+    }
+
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        super.onTaskRemoved(rootIntent)
+        if (isRunning) {
+            val restartServiceIntent = Intent(applicationContext, FloatingProcessService::class.java).apply {
+                setPackage(packageName)
+            }
+            val restartServicePendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                PendingIntent.getForegroundService(
+                    applicationContext, 1, restartServiceIntent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
+                )
+            } else {
+                PendingIntent.getService(
+                    applicationContext, 1, restartServiceIntent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
+                )
+            }
+            val alarmService = applicationContext.getSystemService(ALARM_SERVICE) as AlarmManager
+            alarmService.set(
+                AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + 1000,
+                restartServicePendingIntent
+            )
+        }
     }
 
     override fun onDestroy() {
