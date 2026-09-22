@@ -475,6 +475,8 @@
     <string name="battery_enable_charging_desc">Главный переключатель для вкл/выкл зарядки</string>
     <string name="battery_smart_cutoff">Умное отключение</string>
     <string name="battery_smart_cutoff_desc">Остановить зарядку при достижении лимита</string>
+    <string name="battery_smart_cutoff_not_supported">Примечание: Интерфейс управления зарядкой не обнаружен. Smart Cutoff может работать некорректно.</string>
+    <string name="battery_charging_limit_not_supported">Примечание: Интерфейс ядра не обнаружен. Это может не работать на вашем устройстве.</string>
     <string name="battery_limit_label">Лимит: %1$d%%</string>
     <string name="battery_thermal_profile">Термальный профиль</string>
     <string name="battery_select_thermal_profile">Выбрать термальный профиль</string>

@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">충전 켜기/끄기 마스터 스위치</string>
     <string name="battery_smart_cutoff">스마트 컷오프</string>
     <string name="battery_smart_cutoff_desc">목표 한계에서 충전 서비스 중지</string>
+    <string name="battery_smart_cutoff_not_supported">참고: 충전 제어 인터페이스가 감지되지 않았습니다. Smart Cutoff가 올바르게 작동하지 않을 수 있습니다.</string>
+    <string name="battery_charging_limit_not_supported">참고: 커널 인터페이스가 감지되지 않았습니다. 기기에서 작동하지 않을 수 있습니다.</string>
     <string name="battery_limit_label">한계: %1$d%%</string>
     <string name="battery_thermal_profile">발열 프로필</string>
     <string name="battery_select_thermal_profile">발열 프로필 선택</string>

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">需要 Root 权限</string>
@@ -59,4 +58,4 @@
     <string name="backup_type">备份类型</string>
     <string name="hashes">哈希值</string>
     <string name="partition_selection_unavailable">旧的备份无法选择分区</string>
-</resources>
+<string name="slot">插槽</string></resources>

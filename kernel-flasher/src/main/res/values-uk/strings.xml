@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">Необхідний доступ root</string>
@@ -8,7 +7,7 @@
     <string name="build_number">Номер збірки</string>
     <string tools:keep="@string/kernel_name" name="kernel_name">Назва ядра</string>
     <string name="kernel_version">Версія ядра</string>
-    <string name="slot_suffix">Akhiran Slot</string>
+    <string name="slot_suffix">Суфікс слота</string>
     <string name="slot">Slot</string>
     <string name="slot_a">Slot A</string>
     <string name="slot_b">Slot B</string>
@@ -27,7 +26,7 @@
     <string name="backup">Резервне копіювання</string>
     <string name="updates">оновлення</string>
     <string name="flash">Flash</string>
-    <string name="flash_ak3_zip">Flash Zip AK3</string>
+    <string name="flash_ak3_zip">Прошити AK3 Zip</string>
     <string name="flash_partition_image">Розділ зображення Flash</string>
     <string name="restore">Відновити</string>
     <string name="check_kernel_version">Перевірте версію ядра</string>
@@ -43,15 +42,15 @@
     <string name="version">Версія</string>
     <string name="date_released">Дата випуску</string>
     <string name="last_updated">Останнє оновлення</string>
-    <string name="changelog">Catatan Perubahan</string>
+    <string name="changelog">Список змін</string>
     <string name="check_for_updates">Перевірте наявність оновлень</string>
     <string name="download">Завантажити</string>
     <string name="reboot">Перезапустіть</string>
         <string name="reboot_userspace">М\'яке перезавантаження</string>
     <string name="reboot_recovery">Перезапустіть для відновлення</string>
     <string name="reboot_bootloader">Перезавантажте завантажувач</string>
-    <string name="reboot_download">Mulai Ulang ke Download</string>
-    <string name="reboot_edl">Mulai Ulang ke EDL</string>
+    <string name="reboot_download">Перезавантаження в режим Завантаження</string>
+    <string name="reboot_edl">Перезавантаження в режим EDL</string>
     <string name="save_ak3_log">Збережіть журнали AK3</string>
     <string name="save_flash_log">Зберегти флеш-журнали</string>
     <string name="save_backup_log">Зберігайте журнал резервного копіювання</string>

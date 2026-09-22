@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">Root é necessário</string>
@@ -59,4 +58,4 @@
     <string name="backup_type">Tipo de backup</string>
     <string name="hashes">Hashes</string>
     <string name="partition_selection_unavailable">Seleção de partição indisponível para backups antigos</string>
-</resources>
+<string name="slot">Slot</string></resources>

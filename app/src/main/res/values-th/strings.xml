@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">สวิตช์หลักสำหรับเปิด/ปิดการชาร์จ</string>
     <string name="battery_smart_cutoff">ระบบตัดไฟอัจฉริยะ</string>
     <string name="battery_smart_cutoff_desc">หยุดบริการชาร์จเมื่อถึงขีดจำกัดที่ตั้งไว้</string>
+    <string name="battery_smart_cutoff_not_supported">หมายเหตุ: ไม่พบอินเทอร์เฟซควบคุมการชาร์จ Smart Cutoff อาจทำงานไม่ถูกต้อง</string>
+    <string name="battery_charging_limit_not_supported">หมายเหตุ: ไม่พบอินเทอร์เฟซเคอร์เนล สิ่งนี้อาจไม่ทำงานบนอุปกรณ์ของคุณ</string>
     <string name="battery_limit_label">ขีดจำกัด: %1$d%%</string>
     <string name="battery_thermal_profile">โปรไฟล์อุณหภูมิ</string>
     <string name="battery_select_thermal_profile">เลือกโปรไฟล์อุณหภูมิ</string>

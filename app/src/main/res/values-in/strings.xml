@@ -499,6 +499,8 @@
     <string name="battery_enable_charging_desc">Sakelar utama untuk menyalakan/mematikan pengisian</string>
     <string name="battery_smart_cutoff">Smart Cutoff</string>
     <string name="battery_smart_cutoff_desc">Menghentikan pengisian saat batas tercapai</string>
+    <string name="battery_smart_cutoff_not_supported">Catatan: Antarmuka kontrol pengisian daya tidak terdeteksi. Smart Cutoff mungkin tidak berfungsi dengan benar.</string>
+    <string name="battery_charging_limit_not_supported">Catatan: Antarmuka kernel tidak terdeteksi. Ini mungkin tidak berfungsi pada perangkat Anda.</string>
     <string name="battery_limit_label">Batas: %1$d%%</string>
     <string name="battery_thermal_profile">Profil Thermal</string>
     <string name="battery_select_thermal_profile">Pilih Profil Thermal</string>
@@ -1150,4 +1152,8 @@
     <string name="battery_target_reached_title">Target baterai tercapai</string>
     <string name="battery_target_reached_msg">Level baterai mencapai %1$d%%. Pengisian daya dinonaktifkan.</string>
 
+    <string name="auto_download">Unduh APK Otomatis</string>
+    <string name="auto_download_desc">Unduh dan pasang secara otomatis</string>
+    <string name="btn_manual_download">Buka Peramban</string>
+    <string name="display_technology">Teknologi</string>
 </resources>

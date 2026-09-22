@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">Interruptor maestro para encender/apagar la carga</string>
     <string name="battery_smart_cutoff">Corte Inteligente</string>
     <string name="battery_smart_cutoff_desc">Detener servicio de carga en el límite objetivo</string>
+    <string name="battery_smart_cutoff_not_supported">Nota: Interfaz de control de carga no detectada. Smart Cutoff puede no funcionar correctamente.</string>
+    <string name="battery_charging_limit_not_supported">Nota: Interfaz de kernel no detectada. Es posible que esto no funcione en su dispositivo.</string>
     <string name="battery_limit_label">Límite: %1$d%%</string>
     <string name="battery_thermal_profile">Perfil Térmico</string>
     <string name="battery_select_thermal_profile">Seleccionar Perfil Térmico</string>

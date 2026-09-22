@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">Se requiere acceso raíz</string>
@@ -8,7 +7,7 @@
     <string name="build_number">Número de compilación</string>
     <string tools:keep="@string/kernel_name" name="kernel_name">Nombre del núcleo</string>
     <string name="kernel_version">Versión del núcleo</string>
-    <string name="slot_suffix">Akhiran Slot</string>
+    <string name="slot_suffix">Sufijo de slot</string>
     <string name="slot">Slot</string>
     <string name="slot_a">Slot A</string>
     <string name="slot_b">Slot B</string>
@@ -27,7 +26,7 @@
     <string name="backup">Respaldo</string>
     <string name="updates">Actualizar</string>
     <string name="flash">Flash</string>
-    <string name="flash_ak3_zip">Flash Zip AK3</string>
+    <string name="flash_ak3_zip">Flasear ZIP AK3</string>
     <string name="flash_partition_image">Partición de imagen flash</string>
     <string name="restore">Recuperar</string>
     <string name="check_kernel_version">Verificar la versión del kernel</string>
@@ -43,15 +42,15 @@
     <string name="version">Versión</string>
     <string name="date_released">Fecha de lanzamiento</string>
     <string name="last_updated">Última actualización</string>
-    <string name="changelog">Catatan Perubahan</string>
+    <string name="changelog">Registro de cambios</string>
     <string name="check_for_updates">Buscar actualizaciones</string>
     <string name="download">Descargar</string>
     <string name="reboot">Reanudar</string>
     <string name="reboot_userspace">Reinicio suave</string>
     <string name="reboot_recovery">Reiniciar a la recuperación</string>
     <string name="reboot_bootloader">Reiniciar al gestor de arranque</string>
-    <string name="reboot_download">Mulai Ulang ke Download</string>
-    <string name="reboot_edl">Mulai Ulang ke EDL</string>
+    <string name="reboot_download">Reiniciar en modo Descarga</string>
+    <string name="reboot_edl">Reiniciar en modo EDL</string>
     <string name="save_ak3_log">Guardar registros de AK3</string>
     <string name="save_flash_log">Guardar registros flash</string>
     <string name="save_backup_log">Mantenga un registro de respaldo</string>

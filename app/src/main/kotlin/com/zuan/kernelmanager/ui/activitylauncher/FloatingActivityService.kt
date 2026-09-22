@@ -567,7 +567,7 @@ fun ActivityLogItem(
                     val clip = ClipData.newPlainText("Activity", "${log.pkg}/${log.cls}")
                     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                     clipboard.setPrimaryClip(clip)
-                    Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, R.string.copied, Toast.LENGTH_SHORT).show()
                 }
             )
         }

@@ -475,6 +475,8 @@
     <string name="battery_enable_charging_desc">Галоўны пераключальнік для ўкл/выкл зарадкі</string>
     <string name="battery_smart_cutoff">Разумнае адключэнне</string>
     <string name="battery_smart_cutoff_desc">Спыніць зарадку пры дасягненні ліміту</string>
+    <string name="battery_smart_cutoff_not_supported">Заўвага: Інтэрфейс кіравання зарадкай не выяўлены. Smart Cutoff можа працаваць некорректна.</string>
+    <string name="battery_charging_limit_not_supported">Заўвага: Інтэрфейс ядра не выяўлены. Гэта можа не працаваць на вашай прыладзе.</string>
     <string name="battery_limit_label">Ліміт: %1$d%%</string>
     <string name="battery_thermal_profile">Тэрмальны профіль</string>
     <string name="battery_select_thermal_profile">Выбраць тэрмальны профіль</string>

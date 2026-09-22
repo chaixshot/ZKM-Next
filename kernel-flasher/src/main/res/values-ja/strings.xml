@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">root アクセスが必要です</string>
@@ -8,7 +7,7 @@
     <string name="build_number">ビルド番号</string>
     <string tools:keep="@string/kernel_name" name="kernel_name">カーネル名</string>
     <string name="kernel_version">カーネルのバージョン</string>
-    <string name="slot_suffix">Akhiran Slot</string>
+    <string name="slot_suffix">スロットサフィックス</string>
     <string name="slot">Slot</string>
     <string name="slot_a">Slot A</string>
     <string name="slot_b">Slot B</string>
@@ -43,15 +42,15 @@
     <string name="version">バージョン</string>
     <string name="date_released">発売日</string>
     <string name="last_updated">最終更新日</string>
-    <string name="changelog">Catatan Perubahan</string>
+    <string name="changelog">変更履歴</string>
     <string name="check_for_updates">アップデートをチェックする</string>
     <string name="download">ダウンロード</string>
     <string name="reboot">再起動</string>
     <string name="reboot_userspace">ソフトリブート</string>
     <string name="reboot_recovery">再起動して回復する</string>
     <string name="reboot_bootloader">ブートローダーを再起動します</string>
-    <string name="reboot_download">Mulai Ulang ke Download</string>
-    <string name="reboot_edl">Mulai Ulang ke EDL</string>
+    <string name="reboot_download">Downloadモードへ再起動</string>
+    <string name="reboot_edl">EDLモードへ再起動</string>
     <string name="save_ak3_log">AK3ログの保存</string>
     <string name="save_flash_log">フラッシュログの保存</string>
     <string name="save_backup_log">バックアップログを保存する</string>

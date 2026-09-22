@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">Główny przełącznik do włączania/wyłączania ładowania</string>
     <string name="battery_smart_cutoff">Inteligentne Odcinanie</string>
     <string name="battery_smart_cutoff_desc">Zatrzymaj usługę ładowania przy docelowym limicie</string>
+    <string name="battery_smart_cutoff_not_supported">Uwaga: Nie wykryto interfejsu kontroli ładowania. Smart Cutoff może nie działać prawidłowo.</string>
+    <string name="battery_charging_limit_not_supported">Uwaga: Nie wykryto interfejsu jądra. To może nie działać na Twoim urządzeniu.</string>
     <string name="battery_limit_label">Limit: %1$d%%</string>
     <string name="battery_thermal_profile">Profil Termiczny</string>
     <string name="battery_select_thermal_profile">Wybierz Profil Termiczny</string>

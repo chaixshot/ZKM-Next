@@ -140,7 +140,7 @@ fun FpsManagerOverlayContent(
             ) { isChecked ->
                 if (isChecked) {
                     if (!Settings.canDrawOverlays(context)) {
-                        Toast.makeText(context, "Grant Overlay Permission", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, R.string.overlay_permission_required, Toast.LENGTH_LONG).show()
                         context.startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${context.packageName}")))
                     } else {
                         updateService("TopLeft")

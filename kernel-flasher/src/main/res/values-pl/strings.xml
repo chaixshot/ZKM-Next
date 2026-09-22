@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">Wymagany dostęp do roota</string>
@@ -8,7 +7,7 @@
     <string name="build_number">Numer kompilacji</string>
     <string tools:keep="@string/kernel_name" name="kernel_name">Nazwa jądra</string>
     <string name="kernel_version">Wersja jądra</string>
-    <string name="slot_suffix">Akhiran Slot</string>
+    <string name="slot_suffix">Sufiks slotu</string>
     <string name="slot">Slot</string>
     <string name="slot_a">Slot A</string>
     <string name="slot_b">Slot B</string>
@@ -27,7 +26,7 @@
     <string name="backup">Kopia zapasowa</string>
     <string name="updates">Aktualizacja</string>
     <string name="flash">Flash</string>
-    <string name="flash_ak3_zip">Flash Zip AK3</string>
+    <string name="flash_ak3_zip">Sflashuj AK3 Zip</string>
     <string name="flash_partition_image">Partycja obrazu Flash</string>
     <string name="restore">Odzyskiwać</string>
     <string name="check_kernel_version">Sprawdź wersję jądra</string>
@@ -43,15 +42,15 @@
     <string name="version">Wersja</string>
     <string name="date_released">Data wydania</string>
     <string name="last_updated">Ostatnia aktualizacja</string>
-    <string name="changelog">Catatan Perubahan</string>
+    <string name="changelog">Dziennik zmian</string>
     <string name="check_for_updates">Sprawdź aktualizacje</string>
     <string name="download">Pobierać</string>
     <string name="reboot">Uruchom ponownie</string>
     <string name="reboot_userspace">Miękki restart</string>
     <string name="reboot_recovery">Uruchom ponownie do odzyskiwania</string>
     <string name="reboot_bootloader">Uruchom ponownie program ładujący</string>
-    <string name="reboot_download">Mulai Ulang ke Download</string>
-    <string name="reboot_edl">Mulai Ulang ke EDL</string>
+    <string name="reboot_download">Uruchom ponownie w trybie Pobierania</string>
+    <string name="reboot_edl">Uruchom ponownie w trybie EDL</string>
     <string name="save_ak3_log">Zapisz dzienniki AK3</string>
     <string name="save_flash_log">Zapisz dzienniki Flash</string>
     <string name="save_backup_log">Zachowaj dziennik kopii zapasowych</string>

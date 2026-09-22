@@ -475,6 +475,8 @@
     <string name="battery_enable_charging_desc">Зарядтауды қосу/өшіру үшін негізгі ауыстырғыш</string>
     <string name="battery_smart_cutoff">Ақылды Өшіру</string>
     <string name="battery_smart_cutoff_desc">Мақсатты шекке жеткенде зарядтауды тоқтату</string>
+    <string name="battery_smart_cutoff_not_supported">Ескертпе: Зарядтауды басқару интерфейсі табылмады. Smart Cutoff дұрыс жұмыс істемеуі мүмкін.</string>
+    <string name="battery_charging_limit_not_supported">Ескертпе: Ядро интерфейсі табылмады. Бұл құрылғыңызда жұмыс істемеуі мүмкін.</string>
     <string name="battery_limit_label">Шек: %1$d%%</string>
     <string name="battery_thermal_profile">Термалдық Профиль</string>
     <string name="battery_select_thermal_profile">Термалдық Профильді Таңдау</string>

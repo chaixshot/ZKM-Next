@@ -241,7 +241,7 @@ fun CpuGpuScreen(
                         CpuGpuUtils.GpuType.MEDIATEK_V2, 
                         CpuGpuUtils.GpuType.MEDIATEK_LEGACY -> navController.navigate(NavigationRoute.Mtk.route)
                         CpuGpuUtils.GpuType.GENERIC_DEVFREQ -> navController.navigate(NavigationRoute.GenericGpu.route)
-                        else -> Toast.makeText(context, "GPU Interface not supported", Toast.LENGTH_SHORT).show()
+                        else -> Toast.makeText(context, R.string.gpu_not_supported, Toast.LENGTH_SHORT).show()
                     }
                 }
             )

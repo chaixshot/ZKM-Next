@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:ns0="http://schemas.android.com/tools">
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">Yêu cầu quyền truy cập root</string>
     <string name="root_service_disconnected">Dịch vụ root bị ngắt kết nối</string>
     <string name="device">Thiết bị</string>
     <string name="model">Người mẫu</string>
     <string name="build_number">Số bản dựng</string>
-    <string tools:keep="@string/kernel_name" name="kernel_name">Tên hạt nhân</string>
+    <string ns0:keep="@string/kernel_name" name="kernel_name">Tên hạt nhân</string>
     <string name="kernel_version">Phiên bản hạt nhân</string>
-    <string name="slot_suffix">Akhiran Slot</string>
+    <string name="slot_suffix">Hậu tố slot</string>
     <string name="slot">Slot</string>
     <string name="slot_a">Slot A</string>
     <string name="slot_b">Slot B</string>
-    <string tools:ignore="Typos" name="boot_sha1">Boot SHA1</string>
+    <string ns0:ignore="Typos" name="boot_sha1">Boot SHA1</string>
     <string name="vendor_dlkm">Vendor DLKM</string>
     <string name="exists">Có sẵn</string>
     <string name="not_found">Không tìm thấy</string>
@@ -27,7 +26,7 @@
     <string name="backup">Hỗ trợ</string>
     <string name="updates">Cập nhật</string>
     <string name="flash">Flash</string>
-    <string name="flash_ak3_zip">Flash Zip AK3</string>
+    <string name="flash_ak3_zip">Flash file AK3 Zip</string>
     <string name="flash_partition_image">Phân vùng hình ảnh flash</string>
     <string name="restore">Hồi phục</string>
     <string name="check_kernel_version">Kiểm tra phiên bản hạt nhân</string>
@@ -43,19 +42,19 @@
     <string name="version">Phiên bản</string>
     <string name="date_released">Ngày phát hành</string>
     <string name="last_updated">Cập nhật lần cuối</string>
-    <string name="changelog">Catatan Perubahan</string>
+    <string name="changelog">Nhật ký thay đổi</string>
     <string name="check_for_updates">Kiểm tra cập nhật</string>
     <string name="download">Tải xuống</string>
     <string name="reboot">Khởi động lại</string>
     <string name="reboot_userspace">Khởi động lại mềm</string>
     <string name="reboot_recovery">Khởi động lại để phục hồi</string>
     <string name="reboot_bootloader">Khởi động lại vào Bootloader</string>
-    <string name="reboot_download">Mulai Ulang ke Download</string>
-    <string name="reboot_edl">Mulai Ulang ke EDL</string>
+    <string name="reboot_download">Khởi động lại vào chế độ Download</string>
+    <string name="reboot_edl">Khởi động lại vào chế độ EDL</string>
     <string name="save_ak3_log">Lưu nhật ký AK3</string>
     <string name="save_flash_log">Lưu nhật ký Flash</string>
     <string name="save_backup_log">Giữ nhật ký dự phòng</string>
-    <string tools:keep="@string/save_restore_log" name="save_restore_log">Lưu nhật ký khôi phục</string>
+    <string ns0:keep="@string/save_restore_log" name="save_restore_log">Lưu nhật ký khôi phục</string>
     <string name="save_ak3_zip_as_backup">Giữ AK3 Zip làm bản sao lưu</string>
     <string name="backup_type">Loại dự phòng</string>
     <string name="hashes">Băm</string>

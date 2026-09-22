@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">Công tắc chính để bật/tắt sạc</string>
     <string name="battery_smart_cutoff">Cắt thông minh</string>
     <string name="battery_smart_cutoff_desc">Dừng dịch vụ sạc tại giới hạn mục tiêu</string>
+    <string name="battery_smart_cutoff_not_supported">Lưu ý: Không tìm thấy giao diện điều khiển sạc. Smart Cutoff có thể không hoạt động chính xác.</string>
+    <string name="battery_charging_limit_not_supported">Lưu ý: Không tìm thấy giao diện kernel. Tính năng này có thể không hoạt động trên thiết bị của bạn.</string>
     <string name="battery_limit_label">Giới hạn: %1$d%%</string>
     <string name="battery_thermal_profile">Hồ sơ nhiệt</string>
     <string name="battery_select_thermal_profile">Chọn hồ sơ nhiệt</string>

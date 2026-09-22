@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">充電のオン/オフのマスタースイッチ</string>
     <string name="battery_smart_cutoff">スマートカットオフ</string>
     <string name="battery_smart_cutoff_desc">目標制限で充電サービスを停止</string>
+    <string name="battery_smart_cutoff_not_supported">注：充電制御インターフェースが検出されません。Smart Cutoffが正常に動作しない可能性があります。</string>
+    <string name="battery_charging_limit_not_supported">注：カーネルインターフェースが検出されません。お使いのデバイスでは動作しない可能性があります。</string>
     <string name="battery_limit_label">制限: %1$d%%</string>
     <string name="battery_thermal_profile">サーマルプロファイル</string>
     <string name="battery_select_thermal_profile">サーマルプロファイルを選択</string>

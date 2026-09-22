@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">Түбірлік рұқсат қажет</string>
@@ -8,7 +7,7 @@
     <string name="build_number">Құрылым нөмірі</string>
     <string tools:keep="@string/kernel_name" name="kernel_name">Ядро атауы</string>
     <string name="kernel_version">Ядро нұсқасы</string>
-    <string name="slot_suffix">Akhiran Slot</string>
+    <string name="slot_suffix">Слот жұрнағы</string>
     <string name="slot">Slot</string>
     <string name="slot_a">Slot A</string>
     <string name="slot_b">Slot B</string>
@@ -27,7 +26,7 @@
     <string name="backup">Сақтық көшірме жасау</string>
     <string name="updates">Жаңарту</string>
     <string name="flash">Flash</string>
-    <string name="flash_ak3_zip">Flash Zip AK3</string>
+    <string name="flash_ak3_zip">AK3 Zip прошивкалау</string>
     <string name="flash_partition_image">Flash кескін бөлімі</string>
     <string name="restore">Қалпына келтіру</string>
     <string name="check_kernel_version">Ядро нұсқасын тексеріңіз</string>
@@ -43,15 +42,15 @@
     <string name="version">Нұсқа</string>
     <string name="date_released">Шығарылған күні</string>
     <string name="last_updated">Соңғы жаңартылған</string>
-    <string name="changelog">Catatan Perubahan</string>
+    <string name="changelog">Өзгерістер журналы</string>
     <string name="check_for_updates">Жаңартуларды тексеріңіз</string>
     <string name="download">Жүктеп алу</string>
     <string name="reboot">Қайтадан қосу</string>
     <string name="reboot_userspace">Жұмсақ қайта жүктеу</string>
     <string name="reboot_recovery">Қалпына келтіруге қайта іске қосыңыз</string>
     <string name="reboot_bootloader">Жүктеу құралына қайта іске қосыңыз</string>
-    <string name="reboot_download">Mulai Ulang ke Download</string>
-    <string name="reboot_edl">Mulai Ulang ke EDL</string>
+    <string name="reboot_download">Download режиміне қайта жүктеу</string>
+    <string name="reboot_edl">EDL режиміне қайта жүктеу</string>
     <string name="save_ak3_log">AK3 журналдарын сақтаңыз</string>
     <string name="save_flash_log">Flash журналдарын сақтаңыз</string>
     <string name="save_backup_log">Сақтық көшірме журналын сақтаңыз</string>

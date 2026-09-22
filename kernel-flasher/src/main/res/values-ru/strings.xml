@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">Требуется root-доступ</string>
@@ -8,7 +7,7 @@
     <string name="build_number">Номер сборки</string>
     <string tools:keep="@string/kernel_name" name="kernel_name">Имя ядра</string>
     <string name="kernel_version">Версия ядра</string>
-    <string name="slot_suffix">Akhiran Slot</string>
+    <string name="slot_suffix">Суффикс слота</string>
     <string name="slot">Slot</string>
     <string name="slot_a">Slot A</string>
     <string name="slot_b">Slot B</string>
@@ -43,15 +42,15 @@
     <string name="version">Версия</string>
     <string name="date_released">Дата выпуска</string>
     <string name="last_updated">Последнее обновление</string>
-    <string name="changelog">Catatan Perubahan</string>
+    <string name="changelog">Список изменений</string>
     <string name="check_for_updates">Проверьте наличие обновлений</string>
     <string name="download">Скачать</string>
     <string name="reboot">Перезапуск</string>
     <string name="reboot_userspace">Мягкая перезагрузка</string>
     <string name="reboot_recovery">Перезагрузить в рекавери</string>
     <string name="reboot_bootloader">Перезагрузить загрузчик</string>
-    <string name="reboot_download">Mulai Ulang ke Download</string>
-    <string name="reboot_edl">Mulai Ulang ke EDL</string>
+    <string name="reboot_download">Перезагрузка в режим Загрузки</string>
+    <string name="reboot_edl">Перезагрузка в режим EDL</string>
     <string name="save_ak3_log">Сохранение журналов AK3</string>
     <string name="save_flash_log">Сохранение флэш-логов</string>
     <string name="save_backup_log">Ведите журнал резервного копирования</string>

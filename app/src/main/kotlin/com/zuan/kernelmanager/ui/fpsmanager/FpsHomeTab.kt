@@ -102,7 +102,7 @@ fun FpsManagerHomeContent(
                     
                     // [FIX] Cek overlay permission dulu
                     if (!Settings.canDrawOverlays(context)) {
-                        Toast.makeText(context, "Izin Overlay diperlukan untuk menampilkan FPS di atas aplikasi lain", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, R.string.overlay_permission_required, Toast.LENGTH_LONG).show()
                         val intent = Intent(
                             Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                             Uri.parse("package:${context.packageName}")

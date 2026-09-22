@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">Hauptschalter zum Ein-/Ausschalten des Ladens</string>
     <string name="battery_smart_cutoff">Intelligenter Abschaltung</string>
     <string name="battery_smart_cutoff_desc">Ladedienst bei Ziellimit stoppen</string>
+    <string name="battery_smart_cutoff_not_supported">Hinweis: Ladesteuerungsschnittstelle nicht erkannt. Smart Cutoff funktioniert möglicherweise nicht richtig.</string>
+    <string name="battery_charging_limit_not_supported">Hinweis: Kernel-Schnittstelle nicht erkannt. Dies funktioniert möglicherweise nicht auf Ihrem Gerät.</string>
     <string name="battery_limit_label">Limit: %1$d%%</string>
     <string name="battery_thermal_profile">Thermisches Profil</string>
     <string name="battery_select_thermal_profile">Thermisches Profil Auswählen</string>

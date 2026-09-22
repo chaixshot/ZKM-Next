@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">Comutator principal pentru pornire/oprire încărcare</string>
     <string name="battery_smart_cutoff">Oprire Inteligentă</string>
     <string name="battery_smart_cutoff_desc">Oprește serviciul de încărcare la limita țintă</string>
+    <string name="battery_smart_cutoff_not_supported">Notă: Interfața de control al încărcării nu a fost detectată. Este posibil ca Smart Cutoff să nu funcționeze corect.</string>
+    <string name="battery_charging_limit_not_supported">Notă: Interfața kernel nu a fost detectată. Este posibil ca acest lucru să nu funcționeze pe dispozitivul dvs.</string>
     <string name="battery_limit_label">Limită: %1$d%%</string>
     <string name="battery_thermal_profile">Profil Termic</string>
     <string name="battery_select_thermal_profile">Selectează Profil Termic</string>

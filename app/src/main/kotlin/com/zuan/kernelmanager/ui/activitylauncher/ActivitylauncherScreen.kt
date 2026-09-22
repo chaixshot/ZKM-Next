@@ -20,6 +20,7 @@ import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 import android.widget.Toast
+import com.zuan.kernelmanager.R
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -586,7 +587,7 @@ fun AppListScreen(
                                     val newState = !isInspectorActive
                                     if (newState) {
                                         if (!Settings.canDrawOverlays(context)) {
-                                            Toast.makeText(context, "Permission Required", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(context, R.string.permission_required, Toast.LENGTH_SHORT).show()
                                             context.startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${context.packageName}")))
                                         } else {
                                             val intent = Intent(context, FloatingActivityService::class.java)
@@ -596,7 +597,7 @@ fun AppListScreen(
                                                 context.startService(intent)
                                             }
                                             isInspectorActive = true
-                                            Toast.makeText(context, "Inspector Started", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(context, R.string.inspector_started, Toast.LENGTH_SHORT).show()
                                         }
                                     } else {
                                         context.stopService(Intent(context, FloatingActivityService::class.java))
@@ -820,7 +821,7 @@ fun AppDetailScreen(
             intent.component = ComponentName(packageName, actName)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivity(intent)
-        } catch (e: SecurityException) { Toast.makeText(context, "Permission Denied", Toast.LENGTH_SHORT).show() }
+        } catch (e: SecurityException) { Toast.makeText(context, R.string.permission_denied, Toast.LENGTH_SHORT).show() }
           catch (e: Exception) { Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show() }
     }
     
@@ -1093,7 +1094,7 @@ fun AppDetailScreen(
                                         onClick = {
                                             val copyText = "${app.packageName}/${act.name}"
                                             clipboardManager.setText(AnnotatedString(copyText))
-                                            Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(context, R.string.copied, Toast.LENGTH_SHORT).show()
                                             selectedActivity = null
                                         },
                                         modifier = Modifier.fillMaxWidth()

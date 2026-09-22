@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">控制充電開關的總開關</string>
     <string name="battery_smart_cutoff">智慧截止</string>
     <string name="battery_smart_cutoff_desc">在目標限制處停止充電服務</string>
+    <string name="battery_smart_cutoff_not_supported">注意：未檢測到充電控制介面。Smart Cutoff 可能無法正常工作。</string>
+    <string name="battery_charging_limit_not_supported">注意：未檢測到核心介面。這可能無法在您的裝置上工作。</string>
     <string name="battery_limit_label">限制: %1$d%%</string>
     <string name="battery_thermal_profile">溫控設定檔</string>
     <string name="battery_select_thermal_profile">選擇溫控設定檔</string>

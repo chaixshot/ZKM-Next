@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">Master switch to turn charging on/off</string>
     <string name="battery_smart_cutoff">Smart Cutoff</string>
     <string name="battery_smart_cutoff_desc">Stop charging service at target limit</string>
+    <string name="battery_smart_cutoff_not_supported">Note: Charging control interface not detected. Smart Cutoff may not function correctly.</string>
+    <string name="battery_charging_limit_not_supported">Note: Kernel interface not detected. This might not work on your device.</string>
     <string name="battery_limit_label">Limit: %1$d%%</string>
     <string name="battery_thermal_profile">Thermal Profile</string>
     <string name="battery_select_thermal_profile">Select Thermal Profile</string>

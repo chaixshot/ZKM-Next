@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">Interrupteur principal pour activer/désactiver la charge</string>
     <string name="battery_smart_cutoff">Coupe Intelligente</string>
     <string name="battery_smart_cutoff_desc">Arrêter le service de charge à la limite cible</string>
+    <string name="battery_smart_cutoff_not_supported">Remarque : Interface de contrôle de charge non détectée. Smart Cutoff peut ne pas fonctionner correctement.</string>
+    <string name="battery_charging_limit_not_supported">Remarque : Interface noyau non détectée. Cela peut ne pas fonctionner sur votre appareil.</string>
     <string name="battery_limit_label">Limite : %1$d%%</string>
     <string name="battery_thermal_profile">Profil Thermique</string>
     <string name="battery_select_thermal_profile">Sélectionner le Profil Thermique</string>

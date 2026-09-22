@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">Şarjı açma/kapama ana anahtarı</string>
     <string name="battery_smart_cutoff">Akıllı Kesme</string>
     <string name="battery_smart_cutoff_desc">Hedef limite şarj hizmetini durdur</string>
+    <string name="battery_smart_cutoff_not_supported">Not: Şarj kontrol arayüzü algılanmadı. Smart Cutoff düzgün çalışmayabilir.</string>
+    <string name="battery_charging_limit_not_supported">Not: Kernel arayüzü algılanmadı. Bu cihazınızda çalışmayabilir.</string>
     <string name="battery_limit_label">Limit: %1$d%%</string>
     <string name="battery_thermal_profile">Termal Profil</string>
     <string name="battery_select_thermal_profile">Termal Profil Seç</string>

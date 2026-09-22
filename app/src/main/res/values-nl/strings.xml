@@ -474,6 +474,8 @@
     <string name="battery_enable_charging_desc">Hoofdschakelaar om opladen aan/uit te zetten</string>
     <string name="battery_smart_cutoff">Slimme Afsluiting</string>
     <string name="battery_smart_cutoff_desc">Stop laadservice bij doellimiet</string>
+    <string name="battery_smart_cutoff_not_supported">Opmerking: Oplaadbesturingsinterface niet gedetecteerd. Smart Cutoff werkt mogelijk niet correct.</string>
+    <string name="battery_charging_limit_not_supported">Opmerking: Kernel-interface niet gedetecteerd. Dit werkt mogelijk niet op uw apparaat.</string>
     <string name="battery_limit_label">Limiet: %1$d%%</string>
     <string name="battery_thermal_profile">Thermisch Profiel</string>
     <string name="battery_select_thermal_profile">Selecteer Thermisch Profiel</string>

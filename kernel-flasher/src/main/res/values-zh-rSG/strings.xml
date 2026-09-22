@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Kernel Flasher</string>
     <string name="root_required">需要 root 访问权限</string>
@@ -8,7 +7,7 @@
     <string name="build_number">内部版本号</string>
     <string tools:keep="@string/kernel_name" name="kernel_name">内核名称</string>
     <string name="kernel_version">内核版本</string>
-    <string name="slot_suffix">Akhiran Slot</string>
+    <string name="slot_suffix">插槽后缀</string>
     <string name="slot">Slot</string>
     <string name="slot_a">Slot A</string>
     <string name="slot_b">Slot B</string>
@@ -43,15 +42,15 @@
     <string name="version">版本</string>
     <string name="date_released">发布日期</string>
     <string name="last_updated">最后更新</string>
-    <string name="changelog">Catatan Perubahan</string>
+    <string name="changelog">变更日志</string>
     <string name="check_for_updates">检查更新</string>
     <string name="download">下载</string>
     <string name="reboot">重新启动</string>
     <string name="reboot_userspace">软重启</string>
     <string name="reboot_recovery">重启恢复</string>
     <string name="reboot_bootloader">重新启动到引导加载程序</string>
-    <string name="reboot_download">Mulai Ulang ke Download</string>
-    <string name="reboot_edl">Mulai Ulang ke EDL</string>
+    <string name="reboot_download">重启至 下载模式</string>
+    <string name="reboot_edl">重启至 EDL 模式</string>
     <string name="save_ak3_log">保存 AK3 日志</string>
     <string name="save_flash_log">保存闪存日志</string>
     <string name="save_backup_log">保留备份日志</string>

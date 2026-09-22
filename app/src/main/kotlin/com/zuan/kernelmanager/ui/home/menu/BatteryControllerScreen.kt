@@ -567,7 +567,7 @@ fun BatteryControlsTab(
             SmartCutoffCardGlass(smartCutoffEnabled, smartCutoffLimit, { viewModel.toggleSmartCutoff(context, it) }, { viewModel.setSmartCutoffLimit(context, it) }, isGlassActive, hazeState, cardColor, textColor, subTextColor, primaryColor) 
             if (!isSmartChargeSupported) {
                 Text(
-                    text = "Note: Charging control interface not detected. Smart Cutoff may not function correctly.",
+                    text = stringResource(R.string.battery_smart_cutoff_not_supported),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.error.copy(alpha = 0.7f),
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
@@ -722,7 +722,7 @@ fun BatterySettingsTab(
             }
             if (!isChargingLimitSupported) {
                 Text(
-                    text = "Note: Kernel interface not detected. This might not work on your device.",
+                    text = stringResource(R.string.battery_charging_limit_not_supported),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.error.copy(alpha = 0.7f),
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
