@@ -41,7 +41,7 @@ class BatteryMonitorService : Service() {
         const val CHANNEL_ID = "BatteryMonitorChannel"
         const val CHANNEL_NAME = "Battery Monitor Info"
         const val ACTION_STOP = "STOP_MONITOR"
-        const val NOTIF_ID = 2
+        const val NOTIF_ID = 4001
         private const val TAG = "BatteryMonitorService"
     }
 
@@ -313,6 +313,17 @@ class BatteryMonitorService : Service() {
     }
 
     override fun onDestroy() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            stopForeground(STOP_FOREGROUND_REMOVE)
+        } else {
+            @Suppress("DEPRECATION")
+            stopForeground(true)
+        }
+        try {
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancel(NOTIF_ID)
+        } catch (_: Exception) {}
+
         super.onDestroy()
         handler.removeCallbacks(updateRunnable)
         try { unregisterReceiver(receiver) } catch (e: Exception) {}

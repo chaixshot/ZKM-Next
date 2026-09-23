@@ -104,9 +104,9 @@ class SmartCutoffService : Service() {
         notification.flags = notification.flags or Notification.FLAG_ONGOING_EVENT or Notification.FLAG_NO_CLEAR
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(1, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+            startForeground(3001, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
         } else {
-            startForeground(1, notification)
+            startForeground(3001, notification)
         }
 
         try {
@@ -201,7 +201,7 @@ class SmartCutoffService : Service() {
             .setAutoCancel(true)
             .build()
 
-        manager.notify(2, popupNotification)
+        manager.notify(3002, popupNotification)
 
         // Update Foreground Notification
         updateNotification(message)
@@ -217,7 +217,7 @@ class SmartCutoffService : Service() {
             .setOnlyAlertOnce(true)
             .build()
         val manager = getSystemService(NotificationManager::class.java)
-        manager.notify(1, notification)
+        manager.notify(3001, notification)
     }
 
     private fun getOpenAppPendingIntent(): PendingIntent {
@@ -255,6 +255,18 @@ class SmartCutoffService : Service() {
     }
 
     override fun onDestroy() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            stopForeground(STOP_FOREGROUND_REMOVE)
+        } else {
+            @Suppress("DEPRECATION")
+            stopForeground(true)
+        }
+        try {
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancel(3001)
+            notificationManager.cancel(3002)
+        } catch (_: Exception) {}
+
         super.onDestroy()
         serviceScope.cancel()
         try {

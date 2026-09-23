@@ -76,7 +76,7 @@ class FloatingProcessService : Service() {
     private lateinit var floatingView: ComposeView
     private lateinit var params: WindowManager.LayoutParams
     
-    private val NOTIFICATION_ID = 101
+    private val NOTIFICATION_ID = 6001
     private val CHANNEL_ID = "floating_monitor_channel"
 
     // Simpan ukuran saat ini agar bisa di-update
@@ -217,6 +217,17 @@ class FloatingProcessService : Service() {
     }
 
     override fun onDestroy() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            stopForeground(STOP_FOREGROUND_REMOVE)
+        } else {
+            @Suppress("DEPRECATION")
+            stopForeground(true)
+        }
+        try {
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancel(NOTIFICATION_ID)
+        } catch (_: Exception) {}
+
         super.onDestroy()
         isRunning = false // Set status mati
         if (::floatingView.isInitialized) {

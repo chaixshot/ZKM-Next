@@ -108,7 +108,7 @@ class FloatingActivityService : Service() {
     private lateinit var params: WindowManager.LayoutParams
     
     private val CHANNEL_ID = "activity_inspector_channel"
-    private val NOTIF_ID = 102
+    private val NOTIF_ID = 5001
 
     private var currentWidth = 0
     private var currentHeight = 0
@@ -245,6 +245,17 @@ class FloatingActivityService : Service() {
     }
 
     override fun onDestroy() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            stopForeground(STOP_FOREGROUND_REMOVE)
+        } else {
+            @Suppress("DEPRECATION")
+            stopForeground(true)
+        }
+        try {
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancel(NOTIF_ID)
+        } catch (_: Exception) {}
+
         super.onDestroy()
         isRunning = false
         if (::floatingView.isInitialized) {

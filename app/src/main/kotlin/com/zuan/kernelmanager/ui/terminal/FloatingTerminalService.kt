@@ -88,7 +88,7 @@ class FloatingTerminalService : Service(), LifecycleOwner, ViewModelStoreOwner, 
         savedStateRegistryController.performRestore(null)
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
         isRunning = true
-        startForeground(1337, createNotification())
+        startForeground(7001, createNotification())
         setupOverlay()
     }
 
@@ -175,6 +175,17 @@ class FloatingTerminalService : Service(), LifecycleOwner, ViewModelStoreOwner, 
     }
 
     override fun onDestroy() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            stopForeground(STOP_FOREGROUND_REMOVE)
+        } else {
+            @Suppress("DEPRECATION")
+            stopForeground(true)
+        }
+        try {
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancel(7001)
+        } catch (_: Exception) {}
+
         super.onDestroy()
         isRunning = false
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)

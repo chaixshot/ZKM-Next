@@ -351,7 +351,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
         )
 
         val notification = NotificationCompat.Builder(this, channelId)
-            .setContentTitle("ZKM Overlay")
+            .setContentTitle(getString(R.string.fps_monitor))
             .setContentText(getString(R.string.fps_notification_text))
             .setSmallIcon(android.R.drawable.ic_menu_info_details)
             .setContentIntent(pendingIntent)
@@ -364,11 +364,11 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
         notification.flags = notification.flags or Notification.FLAG_ONGOING_EVENT or Notification.FLAG_NO_CLEAR
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            startForeground(1, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+            startForeground(2001, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(1, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+            startForeground(2001, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
         } else {
-            startForeground(1, notification)
+            startForeground(2001, notification)
         }
     }
 
@@ -403,6 +403,17 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
     }
 
     override fun onDestroy() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            stopForeground(STOP_FOREGROUND_REMOVE)
+        } else {
+            @Suppress("DEPRECATION")
+            stopForeground(true)
+        }
+        try {
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancel(2001)
+        } catch (_: Exception) {}
+
         super.onDestroy()
         isRunning = false
         FpsRecorder.stopRecording(this)

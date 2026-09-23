@@ -153,13 +153,13 @@ class BootReceiver : BroadcastReceiver() {
             .setAutoCancel(true)
             .build()
             
-        manager.notify(1001, notification)
+        manager.notify(8001, notification)
     }
 
     private fun dismissApplyNotification(context: Context) {
         try {
             val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            manager.cancel(1001)
+            manager.cancel(8001)
         } catch (e: Exception) {
             e.printStackTrace()
         }
