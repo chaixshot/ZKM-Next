@@ -155,6 +155,7 @@
     <string name="fps_metric_cpu_freq">CPU Frekansı</string>
     <string name="fps_metric_gpu_freq">GPU Frekansı</string>
     <string name="fps_metric_gpu_temp">GPU Sıcaklığı</string>
+    <string name="fps_metric_battery_percent">Pil %</string>
     <string name="fps_adjustments">Ayarlamalar</string>
     <string name="fps_text_size">Metin Boyutu</string>
     <string name="fps_width_scale">Genişlik Ölçeği</string>

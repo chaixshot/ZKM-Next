@@ -155,6 +155,7 @@
     <string name="fps_metric_cpu_freq">CPU Freq</string>
     <string name="fps_metric_gpu_freq">GPU Freq</string>
     <string name="fps_metric_gpu_temp">GPU Temp</string>
+    <string name="fps_metric_battery_percent">Battery %</string>
     <string name="fps_adjustments">Adjustments</string>
     <string name="fps_text_size">Text Size</string>
     <string name="fps_width_scale">Width Scale</string>
@@ -770,7 +771,7 @@
     <string name="ksuweb_badge_webui">WEBUI</string>
     <string name="btn_refresh">Refresh</string>
     <string name="btn_options">Options</string>
-F
+    F
     <string name="nav_about">About</string>
     <string name="tab_feature">Feature</string>
     <string name="tab_overview">Overview</string>

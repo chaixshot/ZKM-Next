@@ -155,6 +155,7 @@
     <string name="fps_metric_cpu_freq">CPU 주파수</string>
     <string name="fps_metric_gpu_freq">GPU 주파수</string>
     <string name="fps_metric_gpu_temp">GPU 온도</string>
+    <string name="fps_metric_battery_percent">배터리 %</string>
     <string name="fps_adjustments">조정</string>
     <string name="fps_text_size">텍스트 크기</string>
     <string name="fps_width_scale">너비 스케일</string>

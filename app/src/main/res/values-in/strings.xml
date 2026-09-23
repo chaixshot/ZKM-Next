@@ -155,6 +155,7 @@
     <string name="fps_metric_cpu_freq">Frekuensi CPU</string>
     <string name="fps_metric_gpu_freq">Frekuensi GPU</string>
     <string name="fps_metric_gpu_temp">Suhu GPU</string>
+    <string name="fps_metric_battery_percent">Baterai %</string>
     <string name="fps_adjustments">Penyesuaian</string>
     <string name="fps_text_size">Ukuran Teks</string>
     <string name="fps_width_scale">Skala Lebar</string>

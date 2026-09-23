@@ -155,6 +155,7 @@
     <string name="fps_metric_cpu_freq">Част. ЦПУ</string>
     <string name="fps_metric_gpu_freq">Част. ГПУ</string>
     <string name="fps_metric_gpu_temp">Темп. ГПУ</string>
+    <string name="fps_metric_battery_percent">Батарея %</string>
     <string name="fps_adjustments">Налаштування</string>
     <string name="fps_text_size">Розмір тексту</string>
     <string name="fps_width_scale">Ширина</string>

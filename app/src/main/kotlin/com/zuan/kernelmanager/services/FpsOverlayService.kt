@@ -14,17 +14,19 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.ServiceInfo
 import android.content.res.Configuration
+import android.graphics.PixelFormat
+import android.os.BatteryManager
+import android.os.Build
+import android.os.PowerManager
 import android.os.SystemClock
+import android.util.DisplayMetrics
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zuan.kernelmanager.R
 import com.zuan.kernelmanager.ui.MainActivity
-import android.graphics.PixelFormat
-import android.os.Build
-import android.os.PowerManager
-import android.util.DisplayMetrics
-import android.util.Log
 import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
@@ -112,6 +114,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
     private var showCpuFreq by mutableStateOf(false)
     private var showGpuFreq by mutableStateOf(false)
     private var showGpuTemp by mutableStateOf(false)
+    private var showBatteryPercent by mutableStateOf(false)
 
     // Drag vars
     private var initialX = 0; private var initialY = 0; private var initialTouchX = 0f; private var initialTouchY = 0f
@@ -153,6 +156,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
         showCpuFreq = settingsPreference.fpsShowCpuFreq.value
         showGpuFreq = settingsPreference.fpsShowGpuFreq.value
         showGpuTemp = settingsPreference.fpsShowGpuTemp.value
+        showBatteryPercent = settingsPreference.fpsShowBatteryPercent.value
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -180,6 +184,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
             if (intent.hasExtra("SHOW_CPU_FREQ")) showCpuFreq = intent.getBooleanExtra("SHOW_CPU_FREQ", false)
             if (intent.hasExtra("SHOW_GPU_FREQ")) showGpuFreq = intent.getBooleanExtra("SHOW_GPU_FREQ", false)
             if (intent.hasExtra("SHOW_GPU_TEMP")) showGpuTemp = intent.getBooleanExtra("SHOW_GPU_TEMP", false)
+            if (intent.hasExtra("SHOW_BATTERY_PERCENT")) showBatteryPercent = intent.getBooleanExtra("SHOW_BATTERY_PERCENT", false)
         } else {
             loadInitialSettings()
         }
@@ -253,7 +258,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
                     widthScale = widthScale,
                     metrics = MetricsState(
                         showFps, showCpu, showWatts, showTemp, showRam, showRender,
-                        showGpuUsage, showCpuTemp, showCpuFreq, showGpuFreq, showGpuTemp
+                        showGpuUsage, showCpuTemp, showCpuFreq, showGpuFreq, showGpuTemp, showBatteryPercent
                     )
                 )
             }
@@ -409,7 +414,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
 data class MetricsState(
     val fps: Boolean, val cpu: Boolean, val watt: Boolean, val temp: Boolean, val ram: Boolean, val showRender: Boolean,
     val gpuUsage: Boolean = false, val cpuTemp: Boolean = false, val cpuFreq: Boolean = false, val gpuFreq: Boolean = false,
-    val gpuTemp: Boolean = false
+    val gpuTemp: Boolean = false, val batteryPercent: Boolean = false
 )
 
 // --- MAIN UI COMPOSER ---
@@ -445,6 +450,7 @@ fun MainOverlayContent(
     var cpuFreqVal by remember { mutableStateOf("0MHz") }
     var gpuFreqVal by remember { mutableStateOf("0MHz") }
     var gpuTempFormat by remember { mutableStateOf("0°C") }
+    var batteryPercentVal by remember { mutableStateOf("0%") }
     var renderName by remember { mutableStateOf("FPS") }
 
     // Record State
@@ -508,6 +514,11 @@ fun MainOverlayContent(
                     if (metrics.gpuTemp) {
                         gpuTempFormat = String.format("%.1f°C", MonitorReader.getGpuTemp())
                     }
+                    if (metrics.batteryPercent) {
+                        val bIntent = context.registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+                        val bLevel = bIntent?.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) ?: 0
+                        batteryPercentVal = "$bLevel%"
+                    }
                     if (metrics.showRender) {
                         renderName = MonitorReader.getCurrentRenderer()
                     }
@@ -542,17 +553,18 @@ fun MainOverlayContent(
                         orientation, customColor, fontSize, metrics, 
                         fpsVal, cpuVal, wattVal, tempVal, ramVal,
                         gpuUsageVal, cpuTempFormat, cpuFreqVal, gpuFreqVal, gpuTempFormat,
-                        renderName
+                        batteryPercentVal, renderName
                     )
                     1 -> PcStyleOverlay(
                         fontSize, metrics, 
                         fpsVal, cpuVal, wattVal, tempVal, ramMb = ramVal, renderLabel = renderName,
-                        gpuUsage = gpuUsageVal, cpuTemp = cpuTempFormat, cpuFreq = cpuFreqVal, gpuFreq = gpuFreqVal, gpuTemp = gpuTempFormat
+                        gpuUsage = gpuUsageVal, cpuTemp = cpuTempFormat, cpuFreq = cpuFreqVal, gpuFreq = gpuFreqVal, gpuTemp = gpuTempFormat,
+                        batteryPercent = batteryPercentVal
                     )
                     2 -> MiniMonitorOverlay(
                         fontSize, metrics, 
                         fpsVal, cpuVal, tempVal,
-                        gpuUsageVal, cpuTempFormat, gpuTempFormat,
+                        gpuUsageVal, cpuTempFormat, gpuTempFormat, batteryPercentVal,
                         renderName
                     )
                 }
@@ -638,7 +650,7 @@ fun AndroidStyleOverlay(
     orientation: Int, color: Color, size: Float, m: MetricsState,
     fps: String, cpu: String, watt: String, temp: String, ram: String,
     gpu: String, cpuTemp: String, cpuFreq: String, gpuFreq: String, gpuTemp: String,
-    renderLabel: String
+    batteryPercent: String, renderLabel: String
 ) {
     val finalFpsLabel = if (m.showRender) renderLabel else "FPS"
 
@@ -652,6 +664,7 @@ fun AndroidStyleOverlay(
             if (m.gpuFreq) AndroidRow("GFR", gpuFreq, color, size)
             if (m.gpuTemp) AndroidRow("GTP", gpuTemp, color, size)
             if (m.ram) AndroidRow("RAM", "$ram MB", color, size)
+            if (m.batteryPercent) AndroidRow("BAT%", batteryPercent, color, size)
             if (m.watt) AndroidRow("PWR", watt, color, size)
             if (m.temp) AndroidRow("TMP", temp, color, size)
         }
@@ -661,6 +674,7 @@ fun AndroidStyleOverlay(
             if (m.cpu) AndroidRow("CPU", cpu, color, size)
             if (m.gpuUsage) AndroidRow("GPU", gpu, color, size)
             if (m.gpuTemp) AndroidRow("GTP", gpuTemp, color, size)
+            if (m.batteryPercent) AndroidRow("BAT%", batteryPercent, color, size)
             if (m.ram) AndroidRow("RAM", ram, color, size)
         }
     }
@@ -680,7 +694,8 @@ fun PcStyleOverlay(
     size: Float, m: MetricsState,
     fps: String, cpu: String, watt: String, temp: String, ramMb: String,
     renderLabel: String,
-    gpuUsage: String, cpuTemp: String, cpuFreq: String, gpuFreq: String, gpuTemp: String
+    gpuUsage: String, cpuTemp: String, cpuFreq: String, gpuFreq: String, gpuTemp: String,
+    batteryPercent: String
 ) {
     val font = FontFamily.Monospace
     val green = Color(0xFF00FF00)
@@ -734,11 +749,21 @@ fun PcStyleOverlay(
                 Text("$ramMb MB", color = orange, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
             }
         }
-        if (m.watt || m.temp) {
+        if (m.watt || m.temp || m.batteryPercent) {
              Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 Text("BAT", color = blue, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
                 Spacer(Modifier.width(16.dp))
-                val text = if(m.temp && m.watt) "$temp $watt" else if(m.temp) temp else watt
+                val text = buildString {
+                    if (m.batteryPercent) append(batteryPercent)
+                    if (m.temp) {
+                        if (isNotEmpty()) append(" ")
+                        append(temp)
+                    }
+                    if (m.watt) {
+                        if (isNotEmpty()) append(" ")
+                        append(watt)
+                    }
+                }
                 Text(text, color = orange, fontSize = size.sp, fontFamily = font, fontWeight = FontWeight.Bold)
             }
         }
@@ -757,7 +782,7 @@ fun PcStyleOverlay(
 fun MiniMonitorOverlay(
     size: Float, m: MetricsState,
     fps: String, cpu: String, temp: String,
-    gpuUsage: String, cpuTemp: String, gpuTemp: String,
+    gpuUsage: String, cpuTemp: String, gpuTemp: String, batteryPercent: String,
     renderLabel: String
 ) {
     val finalFpsLabel = if (m.showRender) renderLabel else "FPS"
@@ -767,13 +792,14 @@ fun MiniMonitorOverlay(
             Text(fps, color = Color.White, fontSize = (size * 1.2f).sp, fontWeight = FontWeight.ExtraBold)
             Text(finalFpsLabel, color = Color.Gray, fontSize = (size * 0.6f).sp)
         }
-        if (m.cpu || m.temp || m.gpuUsage || m.cpuTemp || m.gpuTemp) {
+        if (m.cpu || m.temp || m.gpuUsage || m.cpuTemp || m.gpuTemp || m.batteryPercent) {
             Spacer(Modifier.height(4.dp))
             Row(horizontalArrangement = Arrangement.Center) {
                 if (m.cpu) Text(cpu, color = Color(0xFF00BFFF), fontSize = (size * 0.8f).sp, modifier = Modifier.padding(end=4.dp))
                 if (m.gpuUsage) Text(gpuUsage, color = Color(0xFF00FF00), fontSize = (size * 0.8f).sp, modifier = Modifier.padding(end=4.dp))
                 if (m.cpuTemp) Text(cpuTemp, color = Color(0xFFFF8C00), fontSize = (size * 0.8f).sp, modifier = Modifier.padding(end=4.dp))
                 if (m.gpuTemp) Text(gpuTemp, color = Color(0xFF32CD32), fontSize = (size * 0.8f).sp, modifier = Modifier.padding(end=4.dp))
+                if (m.batteryPercent) Text(batteryPercent, color = Color(0xFFFFFF00), fontSize = (size * 0.8f).sp, modifier = Modifier.padding(end=4.dp))
                 if (m.temp) Text(temp, color = Color(0xFFFF4500), fontSize = (size * 0.8f).sp)
             }
         }

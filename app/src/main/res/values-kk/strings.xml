@@ -156,6 +156,7 @@
     <string name="fps_metric_cpu_freq">ЦП жиілігі</string>
     <string name="fps_metric_gpu_freq">ГП жиілігі</string>
     <string name="fps_metric_gpu_temp">ГП температурасы</string>
+    <string name="fps_metric_battery_percent">Батарея %</string>
     <string name="fps_adjustments">Реттеулер</string>
     <string name="fps_text_size">Мәтін Өлшемі</string>
     <string name="fps_width_scale">Енін Көлемі</string>

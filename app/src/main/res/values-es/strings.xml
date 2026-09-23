@@ -155,6 +155,7 @@
     <string name="fps_metric_cpu_freq">Frec. de CPU</string>
     <string name="fps_metric_gpu_freq">Frec. de GPU</string>
     <string name="fps_metric_gpu_temp">Temp. GPU</string>
+    <string name="fps_metric_battery_percent">Batería %</string>
     <string name="fps_adjustments">Ajustes</string>
     <string name="fps_text_size">Tamaño de Texto</string>
     <string name="fps_width_scale">Escala de Ancho</string>

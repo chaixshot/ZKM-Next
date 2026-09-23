@@ -83,6 +83,7 @@ fun FpsManagerOverlayContent(
     val showCpuFreq by settingsViewModel.fpsShowCpuFreq.collectAsStateWithLifecycle()
     val showGpuFreq by settingsViewModel.fpsShowGpuFreq.collectAsStateWithLifecycle()
     val showGpuTemp by settingsViewModel.fpsShowGpuTemp.collectAsStateWithLifecycle()
+    val showBatteryPercent by settingsViewModel.fpsShowBatteryPercent.collectAsStateWithLifecycle()
     
     var showColorDialog by remember { mutableStateOf(false) }
 
@@ -110,6 +111,7 @@ fun FpsManagerOverlayContent(
                 putExtra("SHOW_CPU_FREQ", showCpuFreq)
                 putExtra("SHOW_GPU_FREQ", showGpuFreq)
                 putExtra("SHOW_GPU_TEMP", showGpuTemp)
+                putExtra("SHOW_BATTERY_PERCENT", showBatteryPercent)
                 if (pos != null) putExtra("POSITION", pos)
             }
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -123,7 +125,7 @@ fun FpsManagerOverlayContent(
     LaunchedEffect(
         selectedStyle, androidOrientation, selectedColorHex, textSize, widthScale, bgAlpha,
         showFps, showCpu, showWatts, showTemp, showRam, showRender,
-        showGpuUsage, showCpuTemp, showCpuFreq, showGpuFreq, showGpuTemp
+        showGpuUsage, showCpuTemp, showCpuFreq, showGpuFreq, showGpuTemp, showBatteryPercent
     ) {
         if (isOverlayEnabled) updateService()
     }
@@ -195,8 +197,9 @@ fun FpsManagerOverlayContent(
                     MetricChip(stringResource(R.string.fps_metric_gpu_freq), showGpuFreq, activeColor) { settingsViewModel.setFpsShowGpuFreq(it) }
                     MetricChip(stringResource(R.string.fps_metric_gpu_temp), showGpuTemp, activeColor) { settingsViewModel.setFpsShowGpuTemp(it) }
                     MetricChip(stringResource(R.string.fps_metric_ram), showRam, activeColor) { settingsViewModel.setFpsShowRam(it) }
-                    MetricChip(stringResource(R.string.fps_metric_watts), showWatts, activeColor) { settingsViewModel.setFpsShowWatts(it) }
+                    MetricChip(stringResource(R.string.fps_metric_battery_percent), showBatteryPercent, activeColor) { settingsViewModel.setFpsShowBatteryPercent(it) }
                     MetricChip(stringResource(R.string.fps_metric_temp), showTemp, activeColor) { settingsViewModel.setFpsShowTemp(it) }
+                    MetricChip(stringResource(R.string.fps_metric_watts), showWatts, activeColor) { settingsViewModel.setFpsShowWatts(it) }
                     MetricChip(stringResource(R.string.fps_metric_fps), showFps, activeColor) { settingsViewModel.setFpsShowFps(it) }
                 }
 

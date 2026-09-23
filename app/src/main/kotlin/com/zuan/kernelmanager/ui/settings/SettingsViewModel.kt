@@ -99,6 +99,7 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     val fpsShowCpuFreq = settingsPreference.fpsShowCpuFreq
     val fpsShowGpuFreq = settingsPreference.fpsShowGpuFreq
     val fpsShowGpuTemp = settingsPreference.fpsShowGpuTemp
+    val fpsShowBatteryPercent = settingsPreference.fpsShowBatteryPercent
 
     // --- UI CONFIG COMBINED ---
     private val visualConfigFlow = combine(
@@ -278,6 +279,7 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     fun setFpsShowCpuFreq(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowCpuFreq(show) } }
     fun setFpsShowGpuFreq(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowGpuFreq(show) } }
     fun setFpsShowGpuTemp(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowGpuTemp(show) } }
+    fun setFpsShowBatteryPercent(show: Boolean) { viewModelScope.launch { settingsPreference.setFpsShowBatteryPercent(show) } }
 }
 
 // Helper Classes

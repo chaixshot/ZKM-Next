@@ -306,6 +306,9 @@ class SettingsPreference(context: Context) {
     private val _fpsShowGpuTemp = MutableStateFlow(getFpsShowGpuTemp())
     val fpsShowGpuTemp: StateFlow<Boolean> = _fpsShowGpuTemp.asStateFlow()
 
+    private val _fpsShowBatteryPercent = MutableStateFlow(getFpsShowBatteryPercent())
+    val fpsShowBatteryPercent: StateFlow<Boolean> = _fpsShowBatteryPercent.asStateFlow()
+
     private val _fpsPosX = MutableStateFlow(getFpsPosX())
     val fpsPosX: StateFlow<Int> = _fpsPosX.asStateFlow()
 
@@ -398,6 +401,7 @@ class SettingsPreference(context: Context) {
         private const val FPS_SHOW_CPU_FREQ_KEY = "fps_show_cpu_freq"
         private const val FPS_SHOW_GPU_FREQ_KEY = "fps_show_gpu_freq"
         private const val FPS_SHOW_GPU_TEMP_KEY = "fps_show_gpu_temp"
+        private const val FPS_SHOW_BATTERY_PERCENT_KEY = "fps_show_battery_percent"
         private const val FPS_POS_X_KEY = "fps_overlay_pos_x"
         private const val FPS_POS_Y_KEY = "fps_overlay_pos_y"
 
@@ -720,6 +724,9 @@ class SettingsPreference(context: Context) {
 
     fun setFpsShowGpuTemp(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_GPU_TEMP_KEY, show) }; _fpsShowGpuTemp.value = show }
     private fun getFpsShowGpuTemp(): Boolean = prefs.getBoolean(FPS_SHOW_GPU_TEMP_KEY, false)
+
+    fun setFpsShowBatteryPercent(show: Boolean) { prefs.edit { putBoolean(FPS_SHOW_BATTERY_PERCENT_KEY, show) }; _fpsShowBatteryPercent.value = show }
+    private fun getFpsShowBatteryPercent(): Boolean = prefs.getBoolean(FPS_SHOW_BATTERY_PERCENT_KEY, false)
 
     fun setFpsPos(x: Int, y: Int) {
         prefs.edit { 
