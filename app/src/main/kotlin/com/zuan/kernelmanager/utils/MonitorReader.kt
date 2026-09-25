@@ -14,6 +14,7 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.BatteryManager
+import android.os.SystemClock
 import android.util.Log
 import com.topjohnwu.superuser.Shell
 import java.io.File
@@ -238,95 +239,146 @@ object MonitorReader {
 
     private var cachedGpuUsagePath: String? = null
     private var cachedMtkGpuIdle = false
+    private var lastGpuClockStatsBusyUs: Long = 0L
+    private var lastGpuClockStatsTimeMs: Long = 0L
+    private var lastGpuActiveCycles: Long = 0L
+    private var lastGpuTotalCycles: Long = 0L
+
+    private fun readAdrenoGpuClockStats(): Int? {
+        val raw = ShellExecutor.executeWithResult("cat /sys/class/kgsl/kgsl-3d0/gpu_clock_stats 2>/dev/null").trim()
+        if (raw.isEmpty()) return null
+
+        val firstVal = raw.split("\\s+".toRegex()).firstOrNull() ?: return null
+        val curBusyUs = firstVal.toLongOrNull() ?: return null
+        val nowMs = SystemClock.elapsedRealtime()
+
+        if (lastGpuClockStatsTimeMs > 0L && nowMs > lastGpuClockStatsTimeMs && curBusyUs >= lastGpuClockStatsBusyUs) {
+            val deltaBusyUs = curBusyUs - lastGpuClockStatsBusyUs
+            val deltaTimeMs = nowMs - lastGpuClockStatsTimeMs
+            val deltaTimeUs = deltaTimeMs * 1000L
+
+            if (deltaTimeUs > 0L) {
+                val load = ((deltaBusyUs * 100L) / deltaTimeUs).toInt().coerceIn(0, 100)
+                
+                lastGpuClockStatsBusyUs = curBusyUs
+                lastGpuClockStatsTimeMs = nowMs
+                return load
+            }
+        }
+
+        lastGpuClockStatsBusyUs = curBusyUs
+        lastGpuClockStatsTimeMs = nowMs
+        return 0
+    }
+
+    private fun readAdrenoGpuBusy(): Int? {
+        val raw = ShellExecutor.executeWithResult("cat /sys/class/kgsl/kgsl-3d0/gpubusy /sys/kernel/debug/kgsl/kgsl-3d0/gpubusy 2>/dev/null | head -n 1").trim()
+        if (raw.isEmpty()) return null
+
+        val parts = raw.split("\\s+".toRegex())
+        if (parts.size < 2) return null
+
+        val curActive = parts[0].removePrefix("0x").toLongOrNull(16) ?: parts[0].toLongOrNull() ?: 0L
+        val curTotal = parts[1].removePrefix("0x").toLongOrNull(16) ?: parts[1].toLongOrNull() ?: 0L
+
+        if (curTotal <= 0L) {
+            lastGpuActiveCycles = 0L
+            lastGpuTotalCycles = 0L
+            return 0
+        }
+
+        if (lastGpuTotalCycles <= 0L || curTotal < lastGpuTotalCycles) {
+            lastGpuActiveCycles = curActive
+            lastGpuTotalCycles = curTotal
+            return 0
+        }
+
+        val deltaActive = (curActive - lastGpuActiveCycles).coerceAtLeast(0L)
+        val deltaTotal = curTotal - lastGpuTotalCycles
+
+        lastGpuActiveCycles = curActive
+        lastGpuTotalCycles = curTotal
+
+        if (deltaTotal > 0L) {
+            return ((deltaActive * 100L) / deltaTotal).toInt().coerceIn(0, 100)
+        }
+
+        return 0
+    }
 
     fun getGpuUsage(): Int {
         try {
-            // 1. Check cached working path first
+            // 1. Try Adreno clock stats normalized multi-pipe delta (Primary source for Adreno 6xx/7xx / Mi Pad 6 / HyperOS)
+            val adrenoClockStats = readAdrenoGpuClockStats()
+            if (adrenoClockStats != null) {
+                return adrenoClockStats
+            }
+
+            // 2. Try Adreno gpubusy interval delta
+            val adrenoBusy = readAdrenoGpuBusy()
+            if (adrenoBusy != null) {
+                return adrenoBusy
+            }
+
+            val kgslFiles = ShellExecutor.executeWithResult("ls /sys/class/kgsl/kgsl-3d0/ 2>/dev/null").trim()
+            Log.d("GPU_DEBUG", "Available KGSL nodes: $kgslFiles")
+
+            // 2. Check cached direct working path if valid
             cachedGpuUsagePath?.let { path ->
                 val raw = ShellExecutor.executeWithResult("cat $path 2>/dev/null").trim()
                 if (raw.isNotEmpty() && raw != "-1") {
                     val firstPart = raw.split("@")[0].split(" ").first().replace("%", "").trim()
                     val usage = firstPart.toIntOrNull() ?: -1
-                    if (usage >= 0) {
-                        return if (cachedMtkGpuIdle) (100 - usage).coerceIn(0, 100) else usage.coerceIn(0, 100)
+                    if (usage in 0..100) {
+                        return if (cachedMtkGpuIdle) (100 - usage).coerceIn(0, 100) else usage
                     }
                 }
                 cachedGpuUsagePath = null
                 cachedMtkGpuIdle = false
             }
 
-            // 2. Xiaomi specific hidden nodes (HyperOS / MIUI reliable source)
-            val miuiPaths = listOf(
-                "/sys/class/thermal/thermal_message/gpu_busy",
-                "/sys/class/thermal/thermal_message/gpu_usage",
-                "/sys/class/thermal/thermal_message/gpu_utilization"
-            )
-            for (path in miuiPaths) {
-                val raw = ShellExecutor.executeWithResult("cat $path 2>/dev/null").trim()
-                if (raw.isNotEmpty() && raw != "-1") {
-                    val usage = raw.toIntOrNull() ?: -1
-                    if (usage >= 0) {
-                        cachedGpuUsagePath = path
-                        return usage.coerceIn(0, 100)
-                    }
-                }
-            }
-
-            // 3. gpubusy calculation (Cycle-based - Highly accurate for Adreno)
-            val gpubusy = ShellExecutor.executeWithResult("cat /sys/class/kgsl/kgsl-3d0/gpubusy /sys/kernel/debug/kgsl/kgsl-3d0/gpubusy 2>/dev/null | head -n 1").trim()
-            if (gpubusy.isNotEmpty()) {
-                val parts = gpubusy.split("\\s+".toRegex())
-                if (parts.size >= 2) {
-                    val active = parts[0].removePrefix("0x").toLongOrNull(16) ?: parts[0].toLongOrNull() ?: 0L
-                    val total = parts[1].removePrefix("0x").toLongOrNull(16) ?: parts[1].toLongOrNull() ?: 0L
-                    if (total > 0 && active > 0) {
-                        return ((active * 100) / total).toInt().coerceIn(0, 100)
-                    }
-                }
-            }
-
-            // 4. Snapdragon/Mali standard nodes
-            val gpuPaths = listOf(
+            // 3. Direct percentage nodes (EXCLUDING fake static config nodes like /sys/class/kgsl/kgsl-3d0/usage or /sys/class/devfreq/.../load)
+            val directGpuPaths = listOf(
                 "/sys/class/kgsl/kgsl-3d0/gpu_busy_percentage",
-                "/sys/class/devfreq/2c00000.qcom,kgsl-3d0/load",
-                "/sys/class/devfreq/5000000.qcom,kgsl-3d0/load",
-                "/sys/class/kgsl/kgsl-3d0/usage",
                 "/sys/class/kgsl/kgsl-3d0/gpu_load",
-                "/sys/class/devfreq/*.mali/utilization",
+                "/sys/module/ged/parameters/gpu_loading",
+                "/sys/class/misc/mali0/device/utilization",
                 "/sys/devices/platform/soc/soc:qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_busy_percentage"
             )
 
-            for (path in gpuPaths) {
+            for (path in directGpuPaths) {
                 val raw = ShellExecutor.executeWithResult("cat $path 2>/dev/null").trim()
                 if (raw.isNotEmpty()) {
                     val value = raw.split("@")[0].split(" ").first().replace("%", "").trim().toIntOrNull() ?: -1
-                    if (value >= 0) {
+                    if (value in 0..100) {
                         cachedGpuUsagePath = path
-                        return value.coerceIn(0, 100)
+                        return value
                     }
                 }
             }
-            
-            // 5. MediaTek gpu_idle
+
+            // 4. MediaTek gpu_idle fallback
             val mtkIdlePath = "/sys/module/ged/parameters/gpu_idle"
             val mtkIdleRaw = ShellExecutor.executeWithResult("cat $mtkIdlePath 2>/dev/null").trim().toIntOrNull() ?: -1
-            if (mtkIdleRaw != -1) {
+            if (mtkIdleRaw in 0..100) {
                 cachedGpuUsagePath = mtkIdlePath
                 cachedMtkGpuIdle = true
                 return (100 - mtkIdleRaw).coerceIn(0, 100)
             }
 
-            // 6. Alternative kernel nodes
+            // 5. Alternative kernel nodes
             val lastResort = listOf("/sys/kernel/gpu/gpu_busy", "/proc/mali/utilization", "/sys/module/mali_kbase/parameters/gpu_utilization")
             for (path in lastResort) {
                 val usage = ShellExecutor.executeWithResult("cat $path 2>/dev/null").trim().toIntOrNull() ?: -1
-                if (usage >= 0) {
+                if (usage in 0..100) {
                     cachedGpuUsagePath = path
-                    return usage.coerceIn(0, 100)
+                    return usage
                 }
             }
 
-        } catch (e: Exception) { /* ignore */ }
+        } catch (e: Exception) {
+            Log.e("GPU_DEBUG", "Error in getGpuUsage: ${e.message}")
+        }
         return 0
     }
 
@@ -444,31 +496,10 @@ object MonitorReader {
 
     data class GpuInfo(val usage: Int, val freq: Int)
     fun getCombinedGpuInfo(): GpuInfo {
-        try {
-            val usagePath = cachedGpuUsagePath
-            val freqPath = cachedGpuFreqPath
-            
-            if (usagePath != null && freqPath != null) {
-                val result = ShellExecutor.executeWithResult("cat $usagePath $freqPath 2>/dev/null").split("\n")
-                if (result.size >= 2) {
-                    val rawUsage = result[0].trim()
-                    val rawFreq = result[1].trim()
-                    
-                    val usageStr = rawUsage.split("@")[0].split(" ").first().replace("%", "").trim()
-                    val usage = usageStr.toIntOrNull() ?: 0
-                    val finalUsage = if (cachedMtkGpuIdle) (100 - usage).coerceIn(0, 100) else usage.coerceIn(0, 100)
-                    
-                    val freqVal = rawFreq.split(" ").first().toLongOrNull() ?: 0L
-                    val finalFreq = normalizeFreq(freqVal)
-                    
-                    return GpuInfo(finalUsage, finalFreq)
-                }
-            }
-            
-            // Fallback if not cached or failed
-            return GpuInfo(getGpuUsage(), getGpuFreq())
+        return try {
+            GpuInfo(getGpuUsage(), getGpuFreq())
         } catch (e: Exception) {
-            return GpuInfo(0, 0)
+            GpuInfo(0, 0)
         }
     }
 }

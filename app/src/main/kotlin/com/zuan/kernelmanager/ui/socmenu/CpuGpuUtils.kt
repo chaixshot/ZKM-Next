@@ -10,6 +10,7 @@ package com.zuan.kernelmanager.ui.socmenu
 
 import com.topjohnwu.superuser.Shell
 import com.zuan.kernelmanager.utils.GenericGpuUtils
+import com.zuan.kernelmanager.utils.MonitorReader
 import com.zuan.kernelmanager.utils.MtkUtils
 import com.zuan.kernelmanager.utils.Utils
 import kotlinx.coroutines.Dispatchers
@@ -255,15 +256,7 @@ object CpuGpuUtils {
     }
 
     suspend fun getGpuUsage(): String = withContext(Dispatchers.IO) {
-        val kgslUsage = Utils.readFile("/sys/class/kgsl/kgsl-3d0/gpu_busy_percentage")
-        if (kgslUsage.isNotEmpty()) return@withContext kgslUsage.replace("%", "").trim()
-
-        val genericPath = GenericGpuUtils.getGpuPath()
-        if (genericPath != null) {
-            val loadFile = File("$genericPath/load")
-            if (loadFile.exists()) return@withContext Utils.readFile(loadFile.absolutePath).split("@")[0].trim()
-        }
-        "0"
+        MonitorReader.getGpuUsage().toString()
     }
 
     // --- Governor Tunables ---

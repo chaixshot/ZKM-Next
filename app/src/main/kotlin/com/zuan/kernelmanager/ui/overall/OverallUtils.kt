@@ -20,6 +20,7 @@ import android.view.WindowManager
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import com.topjohnwu.superuser.Shell
+ import com.zuan.kernelmanager.utils.MonitorReader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -271,45 +272,10 @@ object OverallUtils {
     }
 
     suspend fun getGpuLoadAndFreq(): Pair<String, Int> = withContext(Dispatchers.IO) {
-        val freq = Shell.cmd("cat /sys/class/kgsl/kgsl-3d0/gpuclk").exec().out.firstOrNull()?.toLongOrNull()
-        val freqStr = if (freq != null) "${freq / 1000 / 1000} MHz" else "0 MHz"
-
-        val busyRaw = Shell.cmd("cat /sys/class/kgsl/kgsl-3d0/gpubusy").exec().out.firstOrNull()
-        if (!busyRaw.isNullOrEmpty()) {
-            val parts = busyRaw.trim().split("\\s+".toRegex())
-            if (parts.size >= 2) {
-                val busy = parts[0].toFloatOrNull() ?: 0f
-                val total = parts[1].toFloatOrNull() ?: 1f
-                if (total > 0) {
-                    val percent = ((busy / total) * 100).toInt()
-                    return@withContext Pair(freqStr, percent)
-                }
-            }
-        }
-
-        val busyPercentRaw = Shell.cmd("cat /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage").exec().out.firstOrNull()
-        if (!busyPercentRaw.isNullOrEmpty()) {
-            val cleanStr = busyPercentRaw.replace(Regex("[^0-9]"), "")
-            val percent = cleanStr.toIntOrNull()
-            if (percent != null) return@withContext Pair(freqStr, percent)
-        }
-
-        val paths = listOf(
-            "/sys/class/kgsl/kgsl-3d0/gpu_load",
-            "/sys/class/misc/mali0/device/utilization",
-            "/sys/kernel/gpu/gpu_busy"
-        )
-        
-        for (path in paths) {
-            val raw = Shell.cmd("cat $path").exec().out.firstOrNull()
-            if (!raw.isNullOrEmpty()) {
-                val clean = raw.replace(Regex("[^0-9]"), "")
-                val p = clean.toIntOrNull()
-                if (p != null) return@withContext Pair(freqStr, p)
-            }
-        }
-
-        return@withContext Pair(freqStr, 0)
+        val info = MonitorReader.getCombinedGpuInfo()
+        val freqStr = "${info.freq} MHz"
+        val loadInt = info.usage
+        Pair(freqStr, loadInt)
     }
 
     // --- MEMORY ---
