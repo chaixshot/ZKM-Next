@@ -122,6 +122,7 @@ class FpsOverlayService : LifecycleService(), SavedStateRegistryOwner, ViewModel
     override fun onCreate() {
         super.onCreate()
         ShellExecutor.init(this)
+        FpsReader.init(this)
         RootPersistenceUtils.applyRootExemptions(this)
         settingsPreference = SettingsPreference.getInstance(this)
         loadInitialSettings()
@@ -485,7 +486,7 @@ fun MainOverlayContent(
 
                     // 1. Baca Sensor
                     if (metrics.fps) {
-                         fpsFloat = FpsReader.getRealFps()
+                         fpsFloat = FpsReader.getRealFps(context)
                          fpsVal = String.format("%.0f", fpsFloat)
                     }
                     if (metrics.cpu) {

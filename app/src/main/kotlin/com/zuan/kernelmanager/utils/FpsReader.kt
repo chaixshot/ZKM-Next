@@ -9,7 +9,6 @@
 package com.zuan.kernelmanager.utils
 
 import android.content.Context
-import android.content.SharedPreferences
 import java.util.regex.Pattern
 
 enum class FpsMode {
@@ -27,6 +26,7 @@ object FpsReader {
         private set
         
     private var fpsFilePath: String? = null
+    private var isInitialized = false
     
     // Variabel Cache untuk Mode 1
     private var lastTime = -1L
@@ -37,6 +37,7 @@ object FpsReader {
         val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         val modeIdx = prefs.getInt(KEY_MODE, FpsMode.UNIVERSAL_ANDROID.ordinal)
         currentMode = FpsMode.values().getOrElse(modeIdx) { FpsMode.UNIVERSAL_ANDROID }
+        isInitialized = true
         
         // Pre-search path jika mode GPU dipilih
         if (currentMode == FpsMode.UNIVERSAL_GPU) {
@@ -49,6 +50,7 @@ object FpsReader {
         currentMode = mode
         val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         prefs.edit().putInt(KEY_MODE, mode.ordinal).apply()
+        isInitialized = true
         
         // Reset variables
         lastTime = -1L
@@ -56,7 +58,10 @@ object FpsReader {
         if (mode == FpsMode.UNIVERSAL_GPU) findFpsPath()
     }
 
-    fun getRealFps(): Float {
+    fun getRealFps(context: Context? = null): Float {
+        if (!isInitialized && context != null) {
+            init(context)
+        }
         return when (currentMode) {
             FpsMode.UNIVERSAL_ANDROID -> getSurfaceFlingerFps()
             FpsMode.UNIVERSAL_GPU -> getKernelFps()
@@ -103,14 +108,26 @@ object FpsReader {
             if (fpsFilePath.isNullOrEmpty()) return 0f
         }
         val output = ShellExecutor.executeWithResult("cat $fpsFilePath | awk '{print \$2}'")
-        return output.toFloatOrNull() ?: 0f
+        val parsed = output.toFloatOrNull()
+        if (parsed != null && parsed > 0f) return parsed
+
+        // Fallback reading if awk failed or format differs
+        val raw = ShellExecutor.executeWithResult("cat $fpsFilePath 2>/dev/null").trim()
+        val parts = raw.split("\\s+".toRegex())
+        for (part in parts) {
+            val num = part.replace("fps", "", ignoreCase = true).trim().toFloatOrNull()
+            if (num != null && num > 0f) return num
+        }
+        return 0f
     }
 
     private fun findFpsPath() {
         val paths = listOf(
             "/sys/class/drm/sde-crtc-0/measured_fps",
             "/sys/class/graphics/fb0/measured_fps",
-            "/sys/class/video/fps_info"
+            "/sys/class/video/fps_info",
+            "/sys/devices/virtual/graphics/fb0/measured_fps",
+            "/sys/class/drm/sde-crtc-1/measured_fps"
         )
         for (path in paths) {
             val check = ShellExecutor.executeWithResult("[ -f $path ] && echo 1 || echo 0")
@@ -125,14 +142,9 @@ object FpsReader {
     // --- MODE 3: Universal Devices (Dumpsys Timestats - BETA) ---
     private fun getDumpsysFps(): Float {
         try {
-            // Command Logic: Enable timestats -> dump & clear -> grep averageFPS
-            // Command asli user: (dumpsys SurfaceFlinger --timestats -dump && dumpsys SurfaceFlinger --timestats -clear -enable) | grep "averageFPS" | head -n 1 | cut -d"=" -f2 | tr -d '[:space:]'
-            
-            // Kita sederhanakan command string-nya agar aman di shell executor
             val cmd = "(dumpsys SurfaceFlinger --timestats -dump && dumpsys SurfaceFlinger --timestats -clear -enable) | grep \"averageFPS\""
             val result = ShellExecutor.executeWithResult(cmd)
             
-            // Result biasanya: "averageFPS = 60.000"
             if (result.contains("averageFPS")) {
                 val parts = result.split("=")
                 if (parts.size > 1) {
