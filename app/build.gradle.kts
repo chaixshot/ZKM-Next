@@ -13,8 +13,8 @@ android {
         applicationId = "com.zuan.kernelmanager"
         minSdk = 29
         targetSdk = 36
-        versionCode = 13000
-        versionName = "1.3.0"
+        versionCode = 13100
+        versionName = "1.3.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
